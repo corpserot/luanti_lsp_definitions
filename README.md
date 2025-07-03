@@ -5,7 +5,7 @@ Mostly complete lua lsp definitions for the luanti game engine.
 
 ### How to use:
 - Install the [lua language server](https://luals.github.io/) in your favourite text editor
-- Download `bundle.lua` from [the releases page](MISSING LINK, REPORT IF FOUND), or this entire repository 
+- Download `bundled.lua` from [the releases page](https://github.com/TheEt1234/luanti_lsp_definitions/releases), or this entire repository
    - Be aware of licensing 
    - **These lsp definitions are NOT suitable for old projects**, but you can* use lsp rename to get rid of the deprecation warnings for `minetest.*`
       - *in [specific situations](https://github.com/appgurueu/modlib), where the lsp is get confused, this is a bad idea
