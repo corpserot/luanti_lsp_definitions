@@ -1,0 +1,1679 @@
+---@meta
+
+---@param biome_def BiomeDef
+function core.register_biome(biome_def) end
+
+---@param decoration_def DecorationDef
+function core.register_decoration(decoration_def) end
+
+---@param chatcommand_def ChatCommandDef
+function core.register_chatcommand(chatcommand_def) end
+
+--- core.register_node defined somewhere else
+
+-- * Note: you must pass a clean table that hasn't already been used for
+--   another registration to this function, as it will be modified.
+---@param name string
+---@param itemdef ItemDef
+function core.register_craftitem(name, itemdef) end
+
+-- * Note: you must pass a clean table that hasn't already been used for
+--   another registration to this function, as it will be modified.
+---@param name string
+---@param itemdef ItemDef
+function core.register_tool(name, itemdef) end
+
+-- * `core.override_item(name, redefinition, del_fields)`
+--     * `redefinition` is a table of fields `[name] = new_value`,
+--       overwriting fields of or adding fields to the existing definition.
+--     * `del_fields` is a list of field names to be set
+--       to `nil` ("deleted from") the original definition.
+--     * Overrides fields of an item registered with register_node/tool/craftitem.
+--     * Note: Item must already be defined.
+--     * Example: `core.override_item("default:mese",
+--       {light_source=core.LIGHT_MAX}, {"sounds"})`:
+--       Overwrites the `light_source` field,
+--       removes the sounds from the definition of the mese block.
+---@param name string
+---@param redefinition table sorry no types for this one :)
+---@param del_fields table sorry no types for this one :)
+function core.override_item(name, redefinition, del_fields) end
+
+---@param name string
+function core.unregister_item(name) end
+
+---@param name string
+---@param entity_def EntityDef
+function core.register_entity(name, entity_def) end
+
+--- core.register_abm is defined somewhere else
+
+---@param lbmdef LBMDef
+function core.register_lbm(lbmdef) end
+
+---@param schem_def table sorry no types :(
+function core.register_schematic(schem_def) end
+
+---@param recipe CraftRecipe
+function core.clear_craft(recipe) end
+
+---@param name string
+---@param redef table sorry no types
+function core.override_chatcommand(name, redef) end
+
+---@param name string
+function core.unregister_chatcommand(name) end
+
+---@param def PrivDef
+---@param name string
+function core.register_privilege(name, def) end
+
+---@param def OreDef
+---@return number?
+function core.register_ore(def) end
+
+--- How many people do you think, have interacted with this function
+--- Have *wanted* to interact with this function...
+---
+--- i think that number is like, 5?
+---
+--- anyway docs:
+-- * Registers an auth handler that overrides the builtin one.
+-- * This function can be called by a single mod once only.
+---@param auth_handler_def table you know what you are doing, i am sorry but no types
+function core.register_authentication_handler(auth_handler_def) end
+
+--- LINE 6000 of lua_api.md
+
+--- Why is luanti mgv6 so mtg centric?
+---@alias item_alias string | "mapgen_stone"|"mapgen_water_source"|"mapgen_river_water_source"|"mapgen_lava_source"|"mapgen_cobble"|"mapgen_dirt"|"mapgen_dirt_with_grass"|"mapgen_sand"|"mapgen_tree"|"mapgen_leaves"|"mapgen_apple"|"mapgen_cobble"|"mapgen_gravel"|"mapgen_desert_stone"|"mapgen_desert_sand"|"mapgen_dirt_with_snow"|"mapgen_snowblock"|"mapgen_snow"|"mapgen_ice"|"mapgen_jungletree"|"mapgen_jungleleaves"|"mapgen_pine_tree"|"mapgen_pine_needles"|"mapgen_stair_cobble"|"mapgen_mossycobble"|"mapgen_stair_desert_stone"|"mapgen_singlenode"
+
+-- Also use this to set the 'mapgen aliases' needed in a game for the code mapgens.
+---@param alias item_alias
+---@param original_name string
+function core.register_alias(alias, original_name) end
+
+---@param alias item_alias
+---@param original_name string
+function core.register_alias_force(alias, original_name) end
+
+-- * Unregisters the biome from the engine, and deletes the entry with key
+--   `name` from `core.registered_biomes`.
+-- * Warning: This alters the biome to biome ID correspondences, so any
+--   decorations or ores using the 'biomes' field must afterwards be cleared
+--   and re-registered.
+---@param name string
+function core.unregister_biome(name) end
+
+-- * `core.clear_registered_biomes()`
+--     * Clears all biomes currently registered.
+--     * Warning: Clearing and re-registering biomes alters the biome to biome ID
+--       correspondences, so any decorations or ores using the 'biomes' field must
+--       afterwards be cleared and re-registered.
+---@return nil
+function core.clear_registered_biomes() end
+
+function core.clear_registered_decorations() end
+
+function core.clear_registered_ores() end
+
+function core.clear_registered_schematics() end
+
+---@type table<string, ItemDef>
+core.registered_items = core.registered_items
+---@type table<string, NodeDef>
+core.registered_nodes = core.registered_nodes
+---@type table<string, ItemDef>
+core.registered_craftitems = core.registered_craftitems
+---@type table<string, ItemDef>
+core.registered_tools = core.registered_tools
+---@type table<string, EntityDef>
+core.registered_entities = core.registered_entities
+---@type table<integer, ObjectRef>
+core.object_refs = core.object_refs
+---@type table<integer, luaentity>
+core.luaentities = core.luaentities
+---@type ABMDef[]
+core.registered_abms = core.registered_abms
+---@type LBMDef[]
+core.registered_lbms = core.registered_lbms
+---@type table<string, string>
+core.registered_aliases = core.registered_aliases
+---@type table<string|integer, OreDef>
+core.registered_ores = core.registered_ores
+---@type table<string|integer, BiomeDef>
+core.registered_biomes = core.registered_biomes
+---@type table<string|integer, DecorationDef>
+core.registered_decorations = core.registered_decorations
+---@type table<string, ChatCommandDef>
+core.registered_chatcommands = core.registered_chatcommands
+---@type table<string, PrivDef>
+core.registered_privileges = core.registered_privileges
+
+--- I got lazy, sowwy :<
+
+---@type function[]
+core.registered_on_chat_messages = core.registered_on_chat_messages
+---@type function[]
+core.registered_on_chatcommands = core.registered_on_chatcommands
+---@type function[]
+core.registered_globalsteps = core.registered_globalsteps
+---@type function[]
+core.registered_on_punchnodes = core.registered_on_punchnodes
+---@type function[]
+core.registered_on_placenodes = core.registered_on_placenodes
+---@type function[]
+core.registered_on_dignodes = core.registered_on_dignodes
+---@type function[]
+core.registered_on_generateds = core.registered_on_generateds
+---@type function[]
+core.registered_on_newplayers = core.registered_on_newplayers
+---@type function[]
+core.registered_on_dieplayers = core.registered_on_dieplayers
+---@type function[]
+core.registered_on_respawnplayers = core.registered_on_respawnplayers
+---@type function[]
+core.registered_on_prejoinplayers = core.registered_on_prejoinplayers
+---@type function[]
+core.registered_on_joinplayers = core.registered_on_joinplayers
+---@type function[]
+core.registered_on_leaveplayers = core.registered_on_leaveplayers
+---@type function[]
+core.registered_on_player_receive_fields = core.registered_on_player_receive_fields
+---@type function[]
+core.registered_on_cheats = core.registered_on_cheats
+---@type function[]
+core.registered_on_crafts = core.registered_on_crafts
+---@type function[]
+core.registered_craft_predicts = core.registered_craft_predicts
+---@type function[]
+core.registered_on_item_eats = core.registered_on_item_eats
+---@type function[]
+core.registered_on_item_pickups = core.registered_on_item_pickups
+---@type function[]
+core.registered_on_punchplayers = core.registered_on_punchplayers
+---@type function[]
+core.registered_on_authplayers = core.registered_on_authplayers
+---@type function[]
+core.registered_on_player_inventory_actions = core.registered_on_player_inventory_actions
+---@type function[]
+core.registered_allow_player_inventory_actions = core.registered_allow_player_inventory_actions
+---@type function[]
+core.registered_on_rightclickplayers = core.registered_on_rightclickplayers
+---@type function[]
+core.registered_on_mods_loaded = core.registered_on_mods_loaded
+---@type function[]
+core.registered_on_shutdown = core.registered_on_shutdown
+---@type function[]
+core.registered_on_protection_violation = core.registered_on_protection_violation
+---@type function[]
+core.registered_on_priv_grant = core.registered_on_priv_grant
+---@type function[]
+core.registered_on_priv_revoke = core.registered_on_priv_revoke
+---@type function[]
+core.registered_can_bypass_userlimit = core.registered_can_bypass_userlimit
+---@type function[]
+core.registered_on_modchannel_message = core.registered_on_modchannel_message
+---@type function[]
+core.registered_on_liquid_transformed = core.registered_on_liquid_transformed
+---@type function[]
+core.registered_on_mapblocks_changed = core.registered_on_mapblocks_changed
+
+---@param abmdef ABMDef
+function core.register_abm(abmdef) end
+
+-- ABM (ActiveBlockModifier) definition
+-- ------------------------------------
+--
+-- Used by `core.register_abm`.
+--
+-- An active block modifier (ABM) is used to define a function that is continously
+-- and randomly called for specific nodes (defined by `nodenames` and other conditions)
+-- in active mapblocks.
+---@class ABMDef
+-- Descriptive label for profiling purposes (optional).
+-- Definitions with identical labels will be listed as one.
+---@field label?  string
+-- Apply `action` function to these nodes.
+-- `group:groupname` can also be used here.
+---@field nodenames? string[]
+-- Only apply `action` to nodes that have one of, or any
+-- combination of, these neighbors.
+-- If left out or empty, any neighbor will do.
+-- `group:groupname` can also be used here.
+---@field neighbors? string[]
+-- Only apply `action` to nodes that have no one of these neighbors.
+-- If left out or empty, it has no effect.
+-- `group:groupname` can also be used here.
+---@field without_neighbors? string[]
+-- Operation interval in seconds
+---@field interval? number
+-- Probability of triggering `action` per-node per-interval is 1.0 / chance (integers only)
+---@field chance? number
+---@field min_y? number
+---@field max_y? number
+-- If true, catch-up behavior is enabled: The `chance` value is
+-- temporarily reduced when returning to an area to simulate time lost
+-- by the area being unattended. Note that the `chance` value can often
+-- be reduced to 1.
+---@field catch_up? boolean
+-- Function triggered for each qualifying node.
+-- `active_object_count` is number of active objects in the node's
+-- mapblock.
+-- `active_object_count_wider` is number of active objects in the node's
+-- mapblock plus all 26 neighboring mapblocks. If any neighboring
+-- mapblocks are unloaded an estimate is calculated for them based on
+-- loaded mapblocks.
+---@field action fun(pos:vector, node:MapNode, active_object_count:number, active_object_count_wider:number):nil
+
+-- LBM (LoadingBlockModifier) definition
+-- -------------------------------------
+--
+-- Used by `core.register_lbm`.
+--
+-- A loading block modifier (LBM) is used to define a function that is called for
+-- specific nodes (defined by `nodenames`) when a mapblock which contains such nodes
+-- gets **activated** (**not loaded!**).
+--
+-- *Note*: LBMs operate on a "snapshot" of node positions taken once before they are triggered.
+-- That means if an LBM callback adds a node, it won't be taken into account.
+-- However the engine guarantees that at the point in time when the callback is called
+-- that all given positions contain a matching node.
+--
+-- For `run_at_every_load = false` to work, both mapblocks and LBMs have timestamps
+-- associated with them:
+--
+-- * Each mapblock has a "last active" timestamp. It is also updated when the
+--   mapblock is generated.
+-- * For each LBM, an introduction timestamp is stored in the world data, identified
+--   by the LBM's `name` field. If an LBM disappears, the corresponding timestamp
+--   is cleared.
+--
+-- When a mapblock is activated, only LBMs whose introduction timestamp is newer
+-- than the mapblock's timestamp are run.
+--
+-- *Note*: For maps generated in 5.11.0 or older, many newly generated mapblocks
+-- did not get a timestamp set. This means LBMs introduced between generation time
+-- and time of first activation will never run.
+-- Currently the only workaround is to use `run_at_every_load = true`.
+---@class LBMDef
+-- Descriptive label for profiling purposes (optional).
+-- Definitions with identical labels will be listed as one.
+---@field label? string
+-- Identifier of the LBM, should follow the modname:<whatever> convention
+---@field name? string
+-- List of node names to trigger the LBM on.
+-- Names of non-registered nodes and groups (as group:groupname)
+-- will work as well.
+---@field nodenames? string[]
+-- If `false`: The LBM only runs on mapblocks the first time they are
+-- activated after the LBM was introduced.
+-- It never runs on mapblocks generated after the LBM's introduction.
+-- See above for details.
+--
+-- If `true`: The LBM runs every time a mapblock is activated.
+---@field run_at_every_load? boolean
+-- Function triggered for each qualifying node.
+-- `dtime_s` is the in-game time (in seconds) elapsed since the mapblock
+-- was last active (available since 5.7.0).
+---@field action? fun(pos:vector, node:MapNode, dtime_s:number)
+-- Function triggered with a list of all applicable node positions at once.
+-- This can be provided as an alternative to `action` (not both).
+-- Available since `core.features.bulk_lbms` (5.10.0)
+-- `dtime_s`: as above
+---@field bulk_action? fun(pos_list: vector[], dtime_s:number)
+
+--- Node boxes have sneaked in here!!
+--- And yeah i know im duplicating the docs, intentionally
+
+-- Node boxes
+-- ----------
+--
+-- Node selection boxes and collision boxes, and the appearance of the `nodebox`
+-- drawtype, are defined using "node boxes".
+--
+-- A nodebox is defined as any of:
+-- ```lua
+-- {
+--     -- A normal cube; the default in most things
+--     type = "regular"
+-- }
+-- {
+--     -- A fixed box (or boxes) (facedir param2 is used, if applicable)
+--     type = "fixed",
+--     fixed = box OR {box1, box2, ...}
+-- }
+-- {
+--     -- A variable height box (or boxes) with the top face position defined
+--     -- by the node parameter 'leveled = ', or if 'paramtype2 == "leveled"'
+--     -- by param2.
+--     -- Other faces are defined by 'fixed = {}' as with 'type = "fixed"'.
+--     type = "leveled",
+--     fixed = box OR {box1, box2, ...}
+-- }
+-- {
+--     -- A box like the selection box for torches
+--     -- (wallmounted param2 is used, if applicable)
+--     type = "wallmounted",
+--     wall_top = box,
+--     wall_bottom = box,
+--     wall_side = box
+-- }
+-- {
+--     -- A node that has optional boxes depending on neighboring nodes'
+--     -- presence and type. See also `connects_to`.
+--     type = "connected",
+--     fixed = box OR {box1, box2, ...}
+--     connect_top = box OR {box1, box2, ...}
+--     connect_bottom = box OR {box1, box2, ...}
+--     connect_front = box OR {box1, box2, ...}
+--     connect_left = box OR {box1, box2, ...}
+--     connect_back = box OR {box1, box2, ...}
+--     connect_right = box OR {box1, box2, ...}
+--     -- The following `disconnected_*` boxes are the opposites of the
+--     -- `connect_*` ones above, i.e. when a node has no suitable neighbor
+--     -- on the respective side, the corresponding disconnected box is drawn.
+--     disconnected_top = box OR {box1, box2, ...}
+--     disconnected_bottom = box OR {box1, box2, ...}
+--     disconnected_front = box OR {box1, box2, ...}
+--     disconnected_left = box OR {box1, box2, ...}
+--     disconnected_back = box OR {box1, box2, ...}
+--     disconnected_right = box OR {box1, box2, ...}
+--     disconnected = box OR {box1, box2, ...} -- when there is *no* neighbor
+--     disconnected_sides = box OR {box1, box2, ...} -- when there are *no*
+--                                                   -- neighbors to the sides
+-- }
+-- A `box` is defined as:
+--
+-- ```lua
+-- {x1, y1, z1, x2, y2, z2}
+-- ```
+--
+-- A box of a regular node would look like:
+--
+-- ```lua
+-- {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
+-- ```
+--
+-- To avoid collision issues, keep each value within the range of +/- 1.45.
+-- This also applies to leveled nodeboxes, where the final height shall not
+-- exceed this soft limit.
+---@class NodeBox
+-- ```lua
+-- {
+--     -- A normal cube; the default in most things
+--     type = "regular"
+-- }
+-- {
+--     -- A fixed box (or boxes) (facedir param2 is used, if applicable)
+--     type = "fixed",
+--     fixed = box OR {box1, box2, ...}
+-- }
+-- {
+--     -- A variable height box (or boxes) with the top face position defined
+--     -- by the node parameter 'leveled = ', or if 'paramtype2 == "leveled"'
+--     -- by param2.
+--     -- Other faces are defined by 'fixed = {}' as with 'type = "fixed"'.
+--     type = "leveled",
+--     fixed = box OR {box1, box2, ...}
+-- }
+-- {
+--     -- A box like the selection box for torches
+--     -- (wallmounted param2 is used, if applicable)
+--     type = "wallmounted",
+--     wall_top = box,
+--     wall_bottom = box,
+--     wall_side = box
+-- }
+-- {
+--     -- A node that has optional boxes depending on neighboring nodes'
+--     -- presence and type. See also `connects_to`.
+--     type = "connected",
+--     fixed = box OR {box1, box2, ...}
+--     connect_top = box OR {box1, box2, ...}
+--     connect_bottom = box OR {box1, box2, ...}
+--     connect_front = box OR {box1, box2, ...}
+--     connect_left = box OR {box1, box2, ...}
+--     connect_back = box OR {box1, box2, ...}
+--     connect_right = box OR {box1, box2, ...}
+--     -- The following `disconnected_*` boxes are the opposites of the
+--     -- `connect_*` ones above, i.e. when a node has no suitable neighbor
+--     -- on the respective side, the corresponding disconnected box is drawn.
+--     disconnected_top = box OR {box1, box2, ...}
+--     disconnected_bottom = box OR {box1, box2, ...}
+--     disconnected_front = box OR {box1, box2, ...}
+--     disconnected_left = box OR {box1, box2, ...}
+--     disconnected_back = box OR {box1, box2, ...}
+--     disconnected_right = box OR {box1, box2, ...}
+--     disconnected = box OR {box1, box2, ...} -- when there is *no* neighbor
+--     disconnected_sides = box OR {box1, box2, ...} -- when there are *no*
+--                                                   -- neighbors to the sides
+-- }
+---@field type "regular"|"fixed"|"leveled"|"wallmounted"|"connected"
+---@field fixed Box
+---@field wall_top Box_single
+---@field wall_bottom Box_single
+---@field wall_side Box_single
+---@field connect_top Box
+---@field connect_front Box
+---@field connect_back Box
+---@field connect_right Box
+---@field disconnected_top Box
+---@field disconnected_bottom Box
+---@field disconnected_front Box
+---@field disconnected_left Box
+---@field disconnected_back Box
+---@field disconnected_right Box
+---@field disconnected Box
+---@field disconnected_sides Box
+
+---@alias Box Box_single[]|Box_single
+---@alias Box_single number[]
+
+--- Tool capabilities...
+
+---@class tool_capabilities:table
+---@field full_punch_interval? number
+---@field max_drop_level? number
+---@field groupcaps? table<string, {times:number[]?, uses:number?, maxlevel:number?}>
+---@field damage_groups? table<string, integer>
+-- Amount of uses this tool has for attacking players and entities
+-- by punching them (0 = infinite uses).
+-- For compatibility, this is automatically set from the first
+-- suitable groupcap using the formula "uses * 3^(maxlevel - 1)".
+-- It is recommend to set this explicitly instead of relying on the
+-- fallback behavior.
+---@field punch_attack_uses? integer
+
+-- ITEM DEFINITION (yey)
+
+---@alias TouchInteractionMode "long_dig_short_place"|"short_dig_long_place"|"user"
+
+---@class ItemDef: table
+-- Can contain new lines. "\n" has to be used as new line character.
+-- See also: `get_description` in [`ItemStack`]
+---@field description string
+-- Must not contain new lines.
+-- Defaults to nil.
+-- Use an [`ItemStack`] to get the short description, e.g.:
+--   ItemStack(itemname):get_short_description()
+---@field short_description? string
+-- key = name, value = rating; rating = <number>.
+-- If rating not applicable, use 1.
+-- e.g. {wool = 1, fluffy = 3}
+--      {soil = 2, outerspace = 1, crumbly = 1}
+--      {bendy = 2, snappy = 1},
+--      {hard = 1, metal = 1, spikes = 1}
+---@field groups table<string, integer>
+-- Texture shown in the inventory GUI
+-- Defaults to a 3D rendering of the node if left empty.
+---@field inventory_image? string
+-- An overlay texture which is not affected by colorization
+---@field inventory_overlay? string
+-- Texture shown when item is held in hand
+-- Defaults to a 3D rendering of the node if left empty.
+---@field wield_image? string
+-- Like inventory_overlay but only used in the same situation as wield_image
+---@field wield_overlay? string
+-- Scale for the item when held in hand
+---@field wield_scale? vector
+-- An image file containing the palette of a node.
+-- You can set the currently used color as the "palette_index" field of
+-- the item stack metadata.
+-- The palette is always stretched to fit indices between 0 and 255, to
+-- ensure compatibility with "colorfacedir" (and similar) nodes.
+---@field palette? string
+-- Color the item is colorized with. The palette overrides this.
+---@field color? ColorSpec
+-- Maximum amount of items that can be in a single stack.
+-- The default can be changed by the setting `default_stack_max`
+---@field stack_max? integer
+-- Range of node and object pointing that is possible with this item held
+-- Can be overridden with itemstack meta.
+---@field range? number
+-- If true, item can point to all liquid nodes (`liquidtype ~= "none"`),
+-- even those for which `pointable = false`
+---@field liquids_pointable? boolean
+-- Contains lists to override the `pointable` property of nodes and objects.
+-- The index can be a node/entity name or a group with the prefix `"group:"`.
+-- (For objects `armor_groups` are used and for players the entity name is irrelevant.)
+-- If multiple fields fit, the following priority order is applied:
+-- 1. value of matching node/entity name
+-- 2. `true` for any group
+-- 3. `false` for any group
+-- 4. `"blocking"` for any group
+-- 5. `liquids_pointable` if it is a liquid node
+-- 6. `pointable` property of the node or object
+---@field pointabilities {nodes:table<string, "blocking"|boolean>, objects:table<string, "blocking"|boolean>}
+-- When used for nodes: Defines amount of light emitted by node.
+-- Otherwise: Defines texture glow when viewed as a dropped item
+-- To set the maximum (14), use the value 'core.LIGHT_MAX'.
+-- A value outside the range 0 to core.LIGHT_MAX causes undefined
+-- behavior.
+---@field light_source? integer
+-- See "Tool Capabilities" section for an example including explanation
+---@field tool_capabilities? tool_capabilities
+-- Set wear bar color of the tool by setting color stops and blend mode
+-- See "Wear Bar Color" section for further explanation including an example
+---@field wear_color? wear_bar_params
+-- If nil and item is node, prediction is made automatically.
+-- If nil and item is not a node, no prediction is made.
+-- If "" and item is anything, no prediction is made.
+-- Otherwise should be name of node which the client immediately places
+-- on ground when the player places the item. Server will always update
+-- with actual result shortly.
+---@field node_placement_prediction? string
+-- if "", no prediction is made.
+-- if "air", node is removed.
+-- Otherwise should be name of node which the client immediately places
+-- upon digging. Server will always update with actual result shortly.
+---@field node_dig_prediction? string
+-- Only affects touchscreen clients.
+-- Defines the meaning of short and long taps with the item in hand.
+-- If specified as a table, the field to be used is selected according to
+-- the current `pointed_thing`.
+-- There are three possible TouchInteractionMode values:
+-- * "long_dig_short_place" (long tap  = dig, short tap = place)
+-- * "short_dig_long_place" (short tap = dig, long tap  = place)
+-- * "user":
+--   * For `pointed_object`: Equivalent to "short_dig_long_place" if the
+--     client-side setting "touch_punch_gesture" is "short_tap" (the
+--     default value) and the item is able to punch (i.e. has no on_use
+--     callback defined).
+--     Equivalent to "long_dig_short_place" otherwise.
+--   * For `pointed_node` and `pointed_nothing`:
+--     Equivalent to "long_dig_short_place".
+--   * The behavior of "user" may change in the future.
+-- The default value is "user".
+---@field touch_interaction TouchInteractionMode | {pointed_nothing:TouchInteractionMode, pointed_node:TouchInteractionMode, pointed_object: TouchInteractionMode}
+---@field sound {breaks:SimpleSoundSpec?, eat:SimpleSoundSpec?, punch_use:SimpleSoundSpec?, punch_use_dir:SimpleSoundSpec?}
+-- When the 'place' key was pressed with the item in hand
+-- and a node was pointed at.
+-- Shall place item and return the leftover itemstack
+-- or nil to not modify the inventory.
+-- The placer may be any ObjectRef or nil.
+-- default: core.item_place
+---@field on_place? fun(itemstack:ItemStack, placer:PlayerRef, pointed_thing:pointed_thing):ItemStack?
+-- Same as on_place but called when not pointing at a node.
+-- Function must return either nil if inventory shall not be modified,
+-- or an itemstack to replace the original itemstack.
+-- The user may be any ObjectRef or nil.
+-- default: nil
+---@field on_secondary_use? fun(itemstack:ItemStack, user:PlayerRef, pointed_thing:pointed_thing)
+-- Shall drop item and return the leftover itemstack.
+-- The dropper may be any ObjectRef or nil.
+-- default: core.item_drop
+---@field on_drop? fun(itemstack:ItemStack, dropper:PlayerRef, pos:vector)
+-- Called when a dropped item is punched by a player.
+-- Shall pick-up the item and return the leftover itemstack or nil to not
+-- modify the dropped item.
+-- Parameters:
+-- * `itemstack`: The `ItemStack` to be picked up.
+-- * `picker`: Any `ObjectRef` or `nil`.
+-- * `pointed_thing` (optional): The dropped item (a `"__builtin:item"`
+--   luaentity) as `type="object"` `pointed_thing`.
+-- * `time_from_last_punch, ...` (optional): Other parameters from
+--   `luaentity:on_punch`.
+-- default: `core.item_pickup`
+---@field on_pickup? fun(itemstack: ItemStack, picker:PlayerRef, pointed_thing:pointed_thing, time_from_last_punch: number, ...):ItemStack?
+-- default: nil
+-- When user pressed the 'punch/mine' key with the item in hand.
+-- Function must return either nil if inventory shall not be modified,
+-- or an itemstack to replace the original itemstack.
+-- e.g. itemstack:take_item(); return itemstack
+-- Otherwise, the function is free to do what it wants.
+-- The user may be any ObjectRef or nil.
+-- The default functions handle regular use cases.
+---@field on_use? fun(itemstack:ItemStack, user:PlayerRef?, pointed_thing:pointed_thing)
+-- default: nil
+-- If defined, should return an itemstack and will be called instead of
+-- wearing out the item (if tool). If returnskk nil, does nothing.
+-- If after_use doesn't exist, it is the same as:
+--   function(itemstack, user, node, digparams)
+--     itemstack:add_wear(digparams.wear)
+--     return itemstack
+--   end
+-- The user may be any ObjectRef or nil.
+---@field after_use? fun(itemstack:ItemStack, user:PlayerRef?, node:MapNode, digparams:table)
+
+---@class NodeDef: ItemDef
+-- drawtype = "normal",  -- See "Node drawtypes"
+-- Node drawtypes
+-- --------------
+--
+-- There are a bunch of different looking node types.
+--
+-- * `normal`
+--     * A node-sized cube.
+-- * `airlike`
+--     * Invisible, uses no texture.
+-- * `liquid`
+--     * The cubic source node for a liquid.
+--     * Faces bordering to the same node are never rendered.
+--     * Connects to node specified in `liquid_alternative_flowing` if specified.
+--     * Use `backface_culling = false` for the tiles you want to make
+--       visible when inside the node.
+-- * `flowingliquid`
+--     * The flowing version of a liquid, appears with various heights and slopes.
+--     * Faces bordering to the same node are never rendered.
+--     * Connects to node specified in `liquid_alternative_source`.
+--     * You *must* set `liquid_alternative_flowing` to the node's own name.
+--     * Node textures are defined with `special_tiles` where the first tile
+--       is for the top and bottom faces and the second tile is for the side
+--       faces.
+--     * `tiles` is used for the item/inventory/wield image rendering.
+--     * Use `backface_culling = false` for the special tiles you want to make
+--       visible when inside the node
+-- * `glasslike`
+--     * Often used for partially-transparent nodes.
+--     * Only external sides of textures are visible.
+-- * `glasslike_framed`
+--     * All face-connected nodes are drawn as one volume within a surrounding
+--       frame.
+--     * The frame appearance is generated from the edges of the first texture
+--       specified in `tiles`. The width of the edges used are 1/16th of texture
+--       size: 1 pixel for 16x16, 2 pixels for 32x32 etc.
+--     * The glass 'shine' (or other desired detail) on each node face is supplied
+--       by the second texture specified in `tiles`.
+-- * `glasslike_framed_optional`
+--     * This switches between the above 2 drawtypes according to the menu setting
+--       'Connected Glass'.
+-- * `allfaces`
+--     * Often used for partially-transparent nodes.
+--     * External sides of textures, and unlike other drawtypes, the external sides
+--       of other nodes, are visible from the inside.
+-- * `allfaces_optional`
+--     * Often used for leaves nodes.
+--     * This switches between `normal`, `glasslike` and `allfaces` according to
+--       the menu setting: Opaque Leaves / Simple Leaves / Fancy Leaves.
+--     * With 'Simple Leaves' selected, the texture specified in `special_tiles`
+--       is used instead, if present. This allows a visually thicker texture to be
+--       used to compensate for how `glasslike` reduces visual thickness.
+-- * `torchlike`
+--     * A single vertical texture.
+--     * If `paramtype2="[color]wallmounted"`:
+--         * If placed on top of a node, uses the first texture specified in `tiles`.
+--         * If placed against the underside of a node, uses the second texture
+--           specified in `tiles`.
+--         * If placed on the side of a node, uses the third texture specified in
+--           `tiles` and is perpendicular to that node.
+--     * If `paramtype2="none"`:
+--         * Will be rendered as if placed on top of a node (see
+--           above) and only the first texture is used.
+-- * `signlike`
+--     * A single texture parallel to, and mounted against, the top, underside or
+--       side of a node.
+--     * If `paramtype2="[color]wallmounted"`, it rotates according to `param2`
+--     * If `paramtype2="none"`, it will always be on the floor.
+-- * `plantlike`
+--     * Two vertical and diagonal textures at right-angles to each other.
+--     * See `paramtype2 = "meshoptions"` above for other options.
+-- * `firelike`
+--     * When above a flat surface, appears as 6 textures, the central 2 as
+--       `plantlike` plus 4 more surrounding those.
+--     * If not above a surface the central 2 do not appear, but the texture
+--       appears against the faces of surrounding nodes if they are present.
+-- * `fencelike`
+--     * A 3D model suitable for a wooden fence.
+--     * One placed node appears as a single vertical post.
+--     * Adjacently-placed nodes cause horizontal bars to appear between them.
+-- * `raillike`
+--     * Often used for tracks for mining carts.
+--     * Requires 4 textures to be specified in `tiles`, in order: Straight,
+--       curved, t-junction, crossing.
+--     * Each placed node automatically switches to a suitable rotated texture
+--       determined by the adjacent `raillike` nodes, in order to create a
+--       continuous track network.
+--     * Becomes a sloping node if placed against stepped nodes.
+-- * `nodebox`
+--     * Often used for stairs and slabs.
+--     * Allows defining nodes consisting of an arbitrary number of boxes.
+--     * See [Node boxes] below for more information.
+-- * `mesh`
+--     * Uses models for nodes.
+--     * Tiles should hold model materials textures.
+--     * Only static meshes are implemented.
+--     * For supported model formats see Irrlicht engine documentation.
+-- * `plantlike_rooted`
+--     * Enables underwater `plantlike` without air bubbles around the nodes.
+--     * Consists of a base cube at the coordinates of the node plus a
+--       `plantlike` extension above
+--     * If `paramtype2="leveled", the `plantlike` extension has a height
+--       of `param2 / 16` nodes, otherwise it's the height of 1 node
+--     * If `paramtype2="wallmounted"`, the `plantlike` extension
+--       will be at one of the corresponding 6 sides of the base cube.
+--       Also, the base cube rotates like a `normal` cube would
+--     * The `plantlike` extension visually passes through any nodes above the
+--       base cube without affecting them.
+--     * The base cube texture tiles are defined as normal, the `plantlike`
+--       extension uses the defined special tile, for example:
+--       `special_tiles = {{name = "default_papyrus.png"}},`
+--
+-- `*_optional` drawtypes need less rendering time if deactivated
+-- (always client-side).
+---@field drawtype? "normal"|"airlike"|"liquid"|"flowingliquid"|"glasslike"|"glasslike_framed"|"glasslike_framed_optional"|"allfaces"|"allfaces_optional"|"torchlike"|"signlike"|"plantlike"|"firelike"|"fencelike"|"raillike"|"nodebox"|"mesh"|"plantlike_rooted"
+-- visual_scale = 1.0,
+-- Supported for drawtypes "plantlike", "signlike", "torchlike",
+-- "firelike", "mesh", "nodebox", "allfaces".
+-- For plantlike and firelike, the image will start at the bottom of the
+-- node. For torchlike, the image will start at the surface to which the
+-- node "attaches". For the other drawtypes the image will be centered
+-- on the node.
+---@field visual_scale? number
+-- tiles = {tile definition 1, def2, def3, def4, def5, def6},
+-- Textures of node; +Y, -Y, +X, -X, +Z, -Z
+-- List can be shortened to needed length.
+---@field tiles? Tile[]
+-- overlay_tiles = {tile definition 1, def2, def3, def4, def5, def6},
+-- Same as `tiles`, but these textures are drawn on top of the base
+-- tiles. You can use this to colorize only specific parts of your
+-- texture. If the texture name is an empty string, that overlay is not
+-- drawn. Since such tiles are drawn twice, it is not recommended to use
+-- overlays on very common nodes.
+---@field overlay_tiles? Tile[]
+-- special_tiles = {tile definition 1, Tile definition 2},
+-- Special textures of node; used rarely.
+-- List can be shortened to needed length.
+---@field special_tiles? Tile[]
+-- color = ColorSpec,
+-- The node's original color will be multiplied with this color.
+-- If the node has a palette, then this setting only has an effect in
+-- the inventory and on the wield item.
+---@field color? ColorSpec
+-- use_texture_alpha = ...,
+-- Specifies how the texture's alpha channel will be used for rendering.
+-- Possible values:
+-- * "opaque":
+--   Node is rendered opaque regardless of alpha channel.
+-- * "clip":
+--   A given pixel is either fully see-through or opaque
+--   depending on the alpha channel being below/above 50% in value.
+--   Use this for nodes with fully transparent and fully opaque areas.
+-- * "blend":
+--   The alpha channel specifies how transparent a given pixel
+--   of the rendered node is. This comes at a performance cost.
+--   Only use this when correct rendering
+--   among semitransparent nodes is necessary.
+-- The default is "opaque" for drawtypes normal, liquid and flowingliquid,
+-- mesh and nodebox or "clip" otherwise.
+-- If set to a boolean value (deprecated): true either sets it to blend
+-- or clip, false sets it to clip or opaque mode depending on the drawtype.
+---@field use_texture_alpha? "opaque"|"clip"|"blend"
+-- palette = "",
+-- The node's `param2` is used to select a pixel from the image.
+-- Pixels are arranged from left to right and from top to bottom.
+-- The node's color will be multiplied with the selected pixel's color.
+-- Tiles can override this behavior.
+-- Only when `paramtype2` supports palettes.
+---@field palette? string
+-- post_effect_color = "#00000000",
+-- Screen tint if a player is inside this node, see `ColorSpec`.
+-- Color is alpha-blended over the screen.
+---@field post_effect_color? ColorSpec
+-- post_effect_color_shaded = false,
+-- Determines whether `post_effect_color` is affected by lighting.
+---@field post_effect_color_shaded? boolean
+-- paramtype = "none",  -- See "Nodes"
+-- ### Unofficial note: you want this to be "light" most of the time, ESPECIALLY for other drawtypes, as some will appear pitch black if you don't have smooth lighting
+-- The function of `param1` is determined by `paramtype` in node definition.
+-- `param1` is reserved for the engine when `paramtype != "none"`.
+--
+-- * `paramtype = "light"`
+--     * The value stores light with and without sun in its lower and upper 4 bits
+--       respectively.
+--     * Required by a light source node to enable spreading its light.
+--     * Required by the following drawtypes as they determine their visual
+--       brightness from their internal light value:
+--         * torchlike
+--         * signlike
+--         * firelike
+--         * fencelike
+--         * raillike
+--         * nodebox
+--         * mesh
+--         * plantlike
+--         * plantlike_rooted
+-- * `paramtype = "none"`
+--     * `param1` will not be used by the engine and can be used to store
+--       an arbitrary value
+---@field paramtype? "light"|"none"
+-- paramtype2 = "none",  -- See "Nodes"
+-- The function of `param2` is determined by `paramtype2` in node definition.
+-- `param2` is reserved for the engine when `paramtype2 != "none"`.
+--
+-- * `paramtype2 = "flowingliquid"`
+--     * Used by `drawtype = "flowingliquid"` and `liquidtype = "flowing"`
+--     * The liquid level and a flag of the liquid are stored in `param2`
+--     * Bits 0-2: Liquid level (0-7). The higher, the more liquid is in this node;
+--       see `core.get_node_level`, `core.set_node_level` and `core.add_node_level`
+--       to access/manipulate the content of this field
+--     * Bit 3: If set, liquid is flowing downwards (no graphical effect)
+-- * `paramtype2 = "wallmounted"`
+--     * Supported drawtypes: "torchlike", "signlike", "plantlike",
+--       "plantlike_rooted", "normal", "nodebox", "mesh"
+--     * The rotation of the node is stored in `param2`
+--     * Node is 'mounted'/facing towards one of 6 directions
+--     * You can make this value by using `core.dir_to_wallmounted()`
+--     * Values range 0 - 7
+--     * The value denotes at which direction the node is "mounted":
+--       0 = y+,   1 = y-,   2 = x+,   3 = x-,   4 = z+,   5 = z-
+--       6 = y+, but rotated by  90°
+--       7 = y-, but rotated by -90°
+--     * By default, on placement the param2 is automatically set to the
+--       appropriate rotation (0 to 5), depending on which side was
+--       pointed at. With the node field `wallmounted_rotate_vertical = true`,
+--       the param2 values 6 and 7 might additionally be set
+-- * `paramtype2 = "facedir"`
+--     * Supported drawtypes: "normal", "nodebox", "mesh"
+--     * The rotation of the node is stored in `param2`.
+--     * Node is rotated around face and axis; 24 rotations in total.
+--     * Can be made by using `core.dir_to_facedir()`.
+--     * Chests and furnaces can be rotated that way, and also 'flipped'
+--     * Values range 0 - 23
+--     * facedir / 4 = axis direction:
+--       0 = y+,   1 = z+,   2 = z-,   3 = x+,   4 = x-,   5 = y-
+--     * The node is rotated 90 degrees around the X or Z axis so that its top face
+--       points in the desired direction. For the y- direction, it's rotated 180
+--       degrees around the Z axis.
+--     * facedir modulo 4 = left-handed rotation around the specified axis, in 90° steps.
+--     * By default, on placement the param2 is automatically set to the
+--       horizontal direction the player was looking at (values 0-3)
+--     * Special case: If the node is a connected nodebox, the nodebox
+--       will NOT rotate, only the textures will.
+-- * `paramtype2 = "4dir"`
+--     * Supported drawtypes: "normal", "nodebox", "mesh"
+--     * The rotation of the node is stored in `param2`.
+--     * Allows node to be rotated horizontally, 4 rotations in total
+--     * Can be made by using `core.dir_to_fourdir()`.
+--     * Chests and furnaces can be rotated that way, but not flipped
+--     * Values range 0 - 3
+--     * 4dir modulo 4 = rotation
+--     * Otherwise, behavior is identical to facedir
+-- * `paramtype2 = "leveled"`
+--     * Only valid for "nodebox" with 'type = "leveled"', and "plantlike_rooted".
+--         * Leveled nodebox:
+--             * The level of the top face of the nodebox is stored in `param2`.
+--             * The other faces are defined by 'fixed = {}' like 'type = "fixed"'
+--               nodeboxes.
+--             * The nodebox height is (`param2` / 64) nodes.
+--             * The maximum accepted value of `param2` is 127.
+--         * Rooted plantlike:
+--             * The height of the 'plantlike' section is stored in `param2`.
+--             * The height is (`param2` / 16) nodes.
+-- * `paramtype2 = "degrotate"`
+--     * Valid for `plantlike` and `mesh` drawtypes. The rotation of the node is
+--       stored in `param2`.
+--     * Values range 0–239. The value stored in `param2` is multiplied by 1.5 to
+--       get the actual rotation in degrees of the node.
+-- * `paramtype2 = "meshoptions"`
+--     * Only valid for "plantlike" drawtype. `param2` encodes the shape and
+--       optional modifiers of the "plant". `param2` is a bitfield.
+--     * Bits 0 to 2 select the shape.
+--       Use only one of the values below:
+--         * 0 = an "x" shaped plant (ordinary plant)
+--         * 1 = a "+" shaped plant (just rotated 45 degrees)
+--         * 2 = a "*" shaped plant with 3 faces instead of 2
+--         * 3 = a "#" shaped plant with 4 faces instead of 2
+--         * 4 = a "#" shaped plant with 4 faces that lean outwards
+--         * 5-7 are unused and reserved for future meshes.
+--     * Bits 3 to 7 are used to enable any number of optional modifiers.
+--       Just add the corresponding value(s) below to `param2`:
+--         * 8  - Makes the plant slightly vary placement horizontally
+--         * 16 - Makes the plant mesh 1.4x larger
+--         * 32 - Moves each face randomly a small bit down (1/8 max)
+--         * values 64 and 128 (bits 6-7) are reserved for future use.
+--     * Example: `param2 = 0` selects a normal "x" shaped plant
+--     * Example: `param2 = 17` selects a "+" shaped plant, 1.4x larger (1+16)
+-- * `paramtype2 = "color"`
+--     * `param2` tells which color is picked from the palette.
+--       The palette should have 256 pixels.
+-- * `paramtype2 = "colorfacedir"`
+--     * Same as `facedir`, but with colors.
+--     * The three most significant bits of `param2` tells which color is picked from the
+--       palette. The palette should have 8 pixels.
+--     * The five least significant bits contain the `facedir` value.
+-- * `paramtype2 = "color4dir"`
+--     * Same as `4dir`, but with colors.
+--     * The six most significant bits of `param2` tells which color is picked from the
+--       palette. The palette should have 64 pixels.
+--     * The two least significant bits contain the `4dir` rotation.
+-- * `paramtype2 = "colorwallmounted"`
+--     * Same as `wallmounted`, but with colors.
+--     * The five most significant bits of `param2` tells which color is picked from the
+--       palette. The palette should have 32 pixels.
+--     * The three least significant bits contain the `wallmounted` value.
+-- * `paramtype2 = "glasslikeliquidlevel"`
+--     * Only valid for "glasslike_framed" or "glasslike_framed_optional"
+--       drawtypes. "glasslike_framed_optional" nodes are only affected if the
+--       "Connected Glass" setting is enabled.
+--     * Bits 0-5 define 64 levels of internal liquid, 0 being empty and 63 being
+--       full.
+--     * Bits 6 and 7 modify the appearance of the frame and node faces. One or
+--       both of these values may be added to `param2`:
+--         * 64  - Makes the node not connect with neighbors above or below it.
+--         * 128 - Makes the node not connect with neighbors to its sides.
+--     * Liquid texture is defined using `special_tiles = {"modname_tilename.png"}`
+-- * `paramtype2 = "colordegrotate"`
+--     * Same as `degrotate`, but with colors.
+--     * The three most significant bits of `param2` tells which color is picked
+--       from the palette. The palette should have 8 pixels.
+--     * The five least significant bits store rotation in range 0–23 (i.e. in 15° steps)
+-- * `paramtype2 = "none"`
+--     * `param2` will not be used by the engine and can be used to store
+--       an arbitrary value
+---@field paramtype2? "flowingliquid"|"wallmounted"|"facedir"|"4dir"|"leveled"|"degrotate"|"meshoptions"|"color"|"colorfacedir"|"color4dir"|"colorwallmounted"|"glasslikeliquidlevel"|"colordegrotate"|"none"
+-- place_param2 = 0,
+-- Value for param2 that is set when player places node
+---@field place_param2? integer
+-- wallmounted_rotate_vertical = false,
+-- If true, place_param2 is nil, and this is a wallmounted node,
+-- this node might use the special 90° rotation when placed
+-- on the floor or ceiling, depending on the direction.
+-- See the explanation about wallmounted for details.
+-- Otherwise, the rotation is always the same on vertical placement.
+---@field wallmounted_rotate_vertical? boolean
+-- is_ground_content = true,
+-- If false, the cave generator and dungeon generator will not carve
+-- through this node.
+-- Specifically, this stops mod-added nodes being removed by caves and
+-- dungeons when those generate in a neighbor mapchunk and extend out
+-- beyond the edge of that mapchunk.
+---@field is_ground_content? boolean
+-- sunlight_propagates = false,
+-- If true, sunlight will go infinitely through this node
+---@field sunlight_propagates? boolean
+-- walkable = true,  -- If true, objects collide with node
+---@field walkable? boolean
+-- pointable = true,
+-- Can be `true` if it is pointable, `false` if it can be pointed through,
+-- or `"blocking"` if it is pointable but not selectable.
+-- Clients older than 5.9.0 interpret `pointable = "blocking"` as `pointable = true`.
+-- Can be overridden by the `pointabilities` of the held item.
+-- A client may be able to point non-pointable nodes, since it isn't checked server-side.
+---@field pointable? boolean
+-- diggable = true,  -- If false, can never be dug
+---@field diggable? boolean
+-- climbable = false,  -- If true, can be climbed on like a ladder
+---@field climbable? boolean
+-- move_resistance = 0,
+-- Slows down movement of players through this node (max. 7).
+-- If this is nil, it will be equal to liquid_viscosity.
+-- Note: If liquid movement physics apply to the node
+-- (see `liquid_move_physics`), the movement speed will also be
+-- affected by the `movement_liquid_*` settings.
+---@field move_resistance? number
+-- buildable_to = false,  -- If true, placed nodes can replace this node
+---@field buildable_to? boolean
+-- floodable = false,
+-- If true, liquids flow into and replace this node.
+-- Warning: making a liquid node 'floodable' will cause problems.
+---@field floodable? boolean
+-- liquidtype = "none",  -- specifies liquid flowing physics
+-- * "none":    no liquid flowing physics
+-- * "source":  spawns flowing liquid nodes at all 4 sides and below;
+--              recommended drawtype: "liquid".
+-- * "flowing": spawned from source, spawns more flowing liquid nodes
+--              around it until `liquid_range` is reached;
+--              will drain out without a source;
+--              recommended drawtype: "flowingliquid".
+-- If it's "source" or "flowing", then the
+-- `liquid_alternative_*` fields _must_ be specified
+---@field liquidtype? "none"|"source"|"flowing"
+-- liquid_alternative_flowing = "",
+-- liquid_alternative_source = "",
+-- These fields may contain node names that represent the
+-- flowing version (`liquid_alternative_flowing`) and
+-- source version (`liquid_alternative_source`) of a liquid.
+--
+-- Specifically, these fields are required if `liquidtype ~= "none"` or
+-- `drawtype == "flowingliquid"`.
+--
+-- Liquids consist of up to two nodes: source and flowing.
+--
+-- There are two ways to define a liquid:
+-- 1) Source node and flowing node. This requires both fields to be
+--    specified for both nodes.
+-- 2) Standalone source node (cannot flow). `liquid_alternative_source`
+--    must be specified and `liquid_range` must be set to 0.
+--
+-- Example:
+--     liquid_alternative_flowing = "example:water_flowing",
+--     liquid_alternative_source = "example:water_source",
+---@field liquid_alternative_flowing? string
+---@field liquid_alternative_source? string
+-- liquid_viscosity = 0,
+-- Controls speed at which the liquid spreads/flows (max. 7).
+-- 0 is fastest, 7 is slowest.
+-- By default, this also slows down movement of players inside the node
+-- (can be overridden using `move_resistance`)
+---@field liquid_viscosity? number
+-- liquid_renewable = true,
+-- If true, a new liquid source can be created by placing two or more
+-- sources nearby
+---@field liquid_renewable? boolean
+-- liquid_move_physics = nil, -- specifies movement physics if inside node
+-- * false: No liquid movement physics apply.
+-- * true: Enables liquid movement physics. Enables things like
+--   ability to "swim" up/down, sinking slowly if not moving,
+--   smoother speed change when falling into, etc. The `movement_liquid_*`
+--   settings apply.
+-- * nil: Will be treated as true if `liquidtype ~= "none"`
+--   and as false otherwise.
+---@field liquid_move_physics? boolean
+-- air_equivalent = nil,
+-- unclear meaning, the engine sets this to true for 'air' and 'ignore'
+-- deprecated.
+-- Unofficial note: But what else are you supposed to do? i guess make an is_air function lmao
+---@field air_equivalent? boolean
+-- leveled = 0,
+-- Only valid for "nodebox" drawtype with 'type = "leveled"'.
+-- Allows defining the nodebox height without using param2.
+-- The nodebox height is 'leveled' / 64 nodes.
+-- The maximum value of 'leveled' is `leveled_max`.
+---@field leveled? integer
+-- leveled_max = 127,
+-- Maximum value for `leveled` (0-127), enforced in
+-- `core.set_node_level` and `core.add_node_level`.
+-- Values above 124 might causes collision detection issues.
+---@field leveled_max? integer
+-- liquid_range = 8,
+-- Maximum distance that flowing liquid nodes can spread around
+-- source on flat land;
+-- maximum = 8; set to 0 to disable liquid flow
+---@field liquid_range? integer
+-- drowning = 0,
+-- Player will take this amount of damage if no bubbles are left
+---@field drowning? integer
+-- damage_per_second = 0,
+-- If player is inside node, this damage is caused
+---@field damage_per_second? integer
+-- node_box = {type = "regular"},  -- See "Node boxes"
+---@field node_box? NodeBox
+-- connects_to = {},
+-- Used for nodebox nodes with the type == "connected".
+-- Specifies to what neighboring nodes connections will be drawn.
+-- e.g. `{"group:fence", "default:wood"}` or `"default:stone"`
+---@field connects_to? string[]
+-- connect_sides = {},
+-- Tells connected nodebox nodes to connect only to these sides of this
+-- node. possible: "top", "bottom", "front", "left", "back", "right"
+---@field connect_sides? string[]
+-- mesh = "",
+-- File name of mesh when using "mesh" drawtype
+-- The center of the node is the model origin.
+-- For legacy reasons, this uses a different scale depending on the mesh:
+-- 1. For glTF models: 10 units = 1 node (consistent with the scale for entities).
+-- 2. For obj models: 1 unit = 1 node.
+-- 3. For b3d and x models: 1 unit = 1 node if static, otherwise 10 units = 1 node.
+-- Using static glTF or obj models is recommended.
+-- You can use the `visual_scale` multiplier to achieve the expected scale.
+---@field mesh? string
+-- selection_box = {
+-- see [Node boxes] for possibilities
+-- },
+-- Custom selection box definition. Multiple boxes can be defined.
+-- If "nodebox" drawtype is used and selection_box is nil, then node_box
+-- definition is used for the selection box.
+---@field selection_box? NodeBox
+-- collision_box = {
+-- see [Node boxes] for possibilities
+-- },
+-- Custom collision box definition. Multiple boxes can be defined.
+-- If "nodebox" drawtype is used and collision_box is nil, then node_box
+-- definition is used for the collision box.
+---@field collision_box? NodeBox
+-- Support maps made in and before January 2012
+---@field legacy_wallmounted? boolean
+-- Support maps made in and before January 2012
+---@field legacy_facedir_simple? boolean
+-- waving = 0,
+-- Valid for drawtypes:
+-- mesh, nodebox, plantlike, allfaces_optional, liquid, flowingliquid.
+-- 1 - wave node like plants (node top moves side-to-side, bottom is fixed)
+-- 2 - wave node like leaves (whole node moves side-to-side)
+-- 3 - wave node like liquids (whole node moves up and down)
+-- Not all models will properly wave.
+-- plantlike drawtype can only wave like plants.
+-- allfaces_optional drawtype can only wave like leaves.
+-- liquid, flowingliquid drawtypes can only wave like liquids.
+---@field waving? integer
+-- sounds = {
+-- Definition of node sounds to be played at various events.
+-- All fields in this table are optional.
+--
+--footstep = <SimpleSoundSpec>,
+-- If walkable, played when object walks on it. If node is
+-- climbable or a liquid, played when object moves through it.
+-- Sound is played at the base of the object's collision-box.
+-- Gain is multiplied by `0.6`.
+-- For local player, it's played position-less, with normal gain.
+--
+--        dig = <SimpleSoundSpec> or "__group",
+-- While digging node.
+-- If `"__group"`, then the sound will be
+-- `{name = "default_dig_<groupname>", gain = 0.5}` , where `<groupname>` is the
+-- name of the item's digging group with the fastest digging time.
+-- In case of a tie, one of the sounds will be played (but we
+-- cannot predict which one)
+-- Default value: `"__group"`
+--
+--        dug = <SimpleSoundSpec>,
+-- Node was dug
+--
+--        place = <SimpleSoundSpec>,
+-- Node was placed. Also played after falling
+--
+--        place_failed = <SimpleSoundSpec>,
+-- When node placement failed.
+-- Note: This happens if the _built-in_ node placement failed.
+-- This sound will still be played if the node is placed in the
+-- `on_place` callback manually.
+--
+--        fall = <SimpleSoundSpec>,
+-- When node starts to fall or is detached
+--    },
+---@field sounds? {footstep:SimpleSoundSpec, dig:SimpleSoundSpec, dug:SimpleSoundSpec, place:SimpleSoundSpec, place_failed:SimpleSoundSpec, fall:SimpleSoundSpec}
+-- drop = "",
+-- Name of dropped item when dug.
+-- Default dropped item is the node itself.
+-- -----------------
+-- Using a table allows multiple items, drop chances and item filtering:
+-- drop = {
+--     max_items = 1,
+--     -- Maximum number of item lists to drop.
+--     -- The entries in 'items' are processed in order. For each:
+--     -- Item filtering is applied, chance of drop is applied, if both are
+--     -- successful the entire item list is dropped.
+--     -- Entry processing continues until the number of dropped item lists
+--     -- equals 'max_items'.
+--     -- Therefore, entries should progress from low to high drop chance.
+--     items = {
+--         -- Examples:
+--         {
+--             -- 1 in 1000 chance of dropping a diamond.
+--             -- Default rarity is '1'.
+--             rarity = 1000,
+--             items = {"default:diamond"},
+--         },
+--         {
+--             -- Only drop if using an item whose name is identical to one
+--             -- of these.
+--             tools = {"default:shovel_mese", "default:shovel_diamond"},
+--             rarity = 5,
+--             items = {"default:dirt"},
+--             -- Whether all items in the dropped item list inherit the
+--             -- hardware coloring palette color from the dug node.
+--             -- Default is 'false'.
+--             inherit_color = true,
+--         },
+--         {
+--             -- Only drop if using an item whose name contains
+--             -- "default:shovel_" (this item filtering by string matching
+--             -- is deprecated, use tool_groups instead).
+--             tools = {"~default:shovel_"},
+--             rarity = 2,
+--             -- The item list dropped.
+--             items = {"default:sand", "default:desert_sand"},
+--         },
+--         {
+--             -- Only drop if using an item in the "magicwand" group, or
+--             -- an item that is in both the "pickaxe" and the "lucky"
+--             -- groups.
+--             tool_groups = {
+--                 "magicwand",
+--                 {"pickaxe", "lucky"}
+--             },
+--             items = {"default:coal_lump"},
+--         },
+--     },
+-- },
+---@field drop? string|{max_items:integer?,items:{rarity:integer?, items:string[], tools:table?, inherit_color:boolean?}[]}
+-- on_construct = function(pos),
+-- Node constructor; called after adding node.
+-- Can set up metadata and stuff like that.
+-- Not called for bulk node placement (i.e. schematics and VoxelManip).
+-- Note: Within an on_construct callback, core.set_node can cause an
+-- infinite loop if it invokes the same callback.
+--  Consider using core.swap_node instead.
+-- default: nil
+---@field on_construct? fun(pos:vector):nil
+-- on_destruct = function(pos),
+-- Node destructor; called before removing node.
+-- Not called for bulk node placement.
+-- default: nil
+---@field on_destruct? fun(pos:vector?):nil
+-- after_destruct = function(pos, oldnode),
+-- Node destructor; called after removing node.
+-- Not called for bulk node placement.
+-- default: nil
+---@field after_destruct? fun(pos:vector, oldnode:MapNode):nil
+-- on_flood = function(pos, oldnode, newnode),
+-- Called when a liquid (newnode) is about to flood oldnode, if it has
+-- `floodable = true` in the nodedef. Not called for bulk node placement
+-- (i.e. schematics and VoxelManip) or air nodes. If return true the
+-- node is not flooded, but on_flood callback will most likely be called
+-- over and over again every liquid update interval.
+-- Default: nil
+-- Warning: making a liquid node 'floodable' will cause problems.
+---@field on_flood? fun(pos:vector, oldnode:MapNode, newnode:MapNode):boolean?
+-- preserve_metadata = function(pos, oldnode, oldmeta, drops),
+-- Called when `oldnode` is about be converted to an item, but before the
+-- node is deleted from the world or the drops are added. This is
+-- generally the result of either the node being dug or an attached node
+-- becoming detached.
+-- * `pos`: node position
+-- * `oldnode`: node table of node before it was deleted
+-- * `oldmeta`: metadata of node before it was deleted, as a metadata table
+-- * `drops`: a table of `ItemStack`s, so any metadata to be preserved can
+--   be added directly to one or more of the dropped items. See
+--   "ItemStackMetaRef".
+-- default: `nil`
+---@field preserve_metadata? fun(pos:vector, oldnode:MapNode, oldmeta:{fields:table<string, string>, inventory:InvTable})
+-- after_place_node = function(pos, placer, itemstack, pointed_thing),
+-- Called after constructing node when node was placed using
+-- core.item_place_node / core.place_node.
+-- If return true no item is taken from itemstack.
+-- `placer` may be any valid ObjectRef or nil.
+-- default: nil
+---@field after_place_node? fun(pos:vector, placer:PlayerRef, itemstack:ItemStack, pointed_thing:pointed_thing):nil
+-- after_dig_node = function(pos, oldnode, oldmetadata, digger),
+-- Called after destructing the node when node was dug using
+-- `core.node_dig` / `core.dig_node`.
+-- * `pos`: node position
+-- * `oldnode`: node table of node before it was dug
+-- * `oldmetadata`: metadata of node before it was dug,
+--                  as a metadata table
+-- * `digger`: ObjectRef of digger
+-- default: nil
+---@field after_dig_node? fun(pos:vector, oldnode:MapNode, oldmetadata:{fields:table<string,string>, inventory:InvTable}, digger:PlayerRef):nil
+-- can_dig = function(pos, [player]),
+-- Returns true if node can be dug, or false if not.
+-- default: nil
+---@field can_dig? fun(pos:vector, player:PlayerRef?):boolean
+-- on_punch = function(pos, node, puncher, pointed_thing),
+-- default: core.node_punch
+-- Called when puncher (an ObjectRef) punches the node at pos.
+-- By default calls core.register_on_punchnode callbacks.
+---@field on_punch? fun(pos:vector, node:MapNode, puncher:PlayerRef, pointed_thing:pointed_thing)
+-- on_rightclick = function(pos, node, clicker, itemstack, pointed_thing),
+-- default: nil
+-- Called when clicker (an ObjectRef) used the 'place/build' key
+-- (not necessarily an actual rightclick)
+-- while pointing at the node at pos with 'node' being the node table.
+-- itemstack will hold clicker's wielded item.
+-- Shall return the leftover itemstack.
+-- Note: pointed_thing can be nil, if a mod calls this function.
+-- This function does not get triggered by clients <=0.4.16 if the
+-- "formspec" node metadata field is set.
+-- Unofficial note: Ah, i love the "Not triggered in these specific old unusable versions you probably cannot support even if you tried, and which servers get penaltied for supporting them"
+---@field on_rightclick? fun(pos:vector, node:MapNode, clicker:PlayerRef, itemstack:ItemStack, pointed_thing:pointed_thing):ItemStack
+-- on_dig = function(pos, node, digger),
+-- default: core.node_dig
+-- By default checks privileges, wears out item (if tool) and removes node.
+-- return true if the node was dug successfully, false otherwise.
+-- Deprecated: returning nil is the same as returning true.
+---@field on_dig? fun(pos:vector, node:MapNode, digger:PlayerRef):boolean
+-- on_timer = function(pos, elapsed),
+-- default: nil
+-- called by NodeTimers, see core.get_node_timer and NodeTimerRef.
+-- elapsed is the total time passed since the timer was started.
+-- return true to run the timer for another cycle with the same timeout
+-- value.
+---@field on_timer? fun(pos:vector, elapsed:number):boolean?
+-- on_receive_fields = function(pos, formname, fields, sender),
+-- fields = {name1 = value1, name2 = value2, ...}
+-- formname should be the empty string; you **must not** use formname.
+-- Called when an UI form (e.g. sign text input) returns data.
+-- See core.register_on_player_receive_fields for more info.
+-- default: nil
+---@field on_receive_fields? fun(pos:vector, _:nil, fields: table<string, string>):nil
+-- allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player),
+-- Called when a player wants to move items inside the inventory.
+-- Return value: number of items allowed to move.
+---@field allow_metadata_inventory_move? fun(pos:vector, from_list:string, from_index:integer, to_list:string, to_index:integer, count:integer, player:PlayerRef):integer
+-- allow_metadata_inventory_put = function(pos, listname, index, stack, player),
+-- Called when a player wants to put something into the inventory.
+-- Return value: number of items allowed to put.
+-- Return value -1: Allow and don't modify item count in inventory.
+---@field allow_metadata_inventory_put? fun(pos:vector, listname:string, index:integer, stack:ItemStack, player:PlayerRef):integer
+-- allow_metadata_inventory_take = function(pos, listname, index, stack, player),
+-- Called when a player wants to take something out of the inventory.
+-- Return value: number of items allowed to take.
+-- Return value -1: Allow and don't modify item count in inventory.
+---@field allow_metadata_inventory_take? fun(pos:vector, listname:string, index:integer, stack:ItemStack, player:PlayerRef):integer
+-- on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player),
+-- Called after the actual action has happened, according to what was
+-- allowed.
+-- No return value.
+---@field on_metadata_inventory_move? fun(pos:vector, from_list:string, from_index:integer, to_list:string, to_index:integer, count:integer, player:PlayerRef):nil
+-- on_metadata_inventory_put = function(pos, listname, index, stack, player),
+-- Called after the actual action has happened, according to what was
+-- allowed.
+-- No return value.
+---@field on_metadata_inventory_put? fun(pos:vector, listname:string, index:integer, stack:ItemStack, player:PlayerRef):nil
+-- on_metadata_inventory_take = function(pos, listname, index, stack, player),
+-- Called after the actual action has happened, according to what was
+-- allowed.
+-- No return value.
+---@field on_metadata_inventory_take? fun(pos:vector, listname:string, index:integer, stack:ItemStack, player:PlayerRef):nil
+-- on_blast = function(pos, intensity),
+-- intensity: 1.0 = mid range of regular TNT.
+-- If defined, called when an explosion touches the node, instead of
+-- removing the node.
+-- Unofficial note: this is a custom field, just documented in lua_api.md i assume because TNT mods usually don't handle indestructible nodes/whatever very well
+---@field on_blast? fun(pos:vector, intensity: number?):any?
+-- mod_origin = "modname",
+-- stores which mod actually registered a node
+-- If the source could not be determined it contains "??"
+-- Useful for getting which mod truly registered something
+-- example: if a node is registered as ":othermodname:nodename",
+-- nodename will show "othermodname", but mod_origin will say "modname"
+---@field mod_origin? string
+
+---@param name string
+---@param node_def NodeDef
+function core.register_node(name, node_def) end
+
+--- Oops, wear bar params have sneaked into this file somehow too?
+
+-- Wear Bar Color
+-- --------------
+--
+-- 'Wear Bar' is a property of items that defines the coloring
+-- of the bar that appears under damaged tools.
+-- If it is absent, the default behavior of green-yellow-red is
+-- used.
+--
+-- ### Wear bar colors definition
+--
+-- #### Syntax
+--
+-- ```lua
+-- {
+--     -- 'constant' or 'linear'
+--     -- (nil defaults to 'constant')
+--     blend = "linear",
+--     color_stops = {
+--         [0.0] = "#ff0000",
+--         [0.5] = "slateblue",
+--         [1.0] = {r=0, g=255, b=0, a=150},
+--     }
+-- }
+-- ```
+--
+-- #### Blend mode `blend`
+--
+-- * `linear`: blends smoothly between each defined color point.
+-- * `constant`: each color starts at its defined point, and continues up to the next point
+--
+-- #### Color stops `color_stops`
+--
+-- Specified as `ColorSpec` color values assigned to `float` durability keys.
+--
+-- "Durability" is defined as `1 - (wear / 65535)`.
+--
+-- #### Shortcut usage
+--
+-- Wear bar color can also be specified as a single `ColorSpec` instead of a table.
+---@class wear_bar_params
+---@field blend "linear"|"constant"
+---@field color_stops table<number, ColorSpec>
+
+--- "This file is way too long"
+--- Said who? me... oh... right... me, right i said that in my head
+---
+---
+--- Anyway...
+
+--- ORE DEFINITIONS
+
+---@class OreDef
+---@field name string
+-- Supported: "scatter", "sheet", "puff", "blob", "vein", "stratum"
+---@field ore_type "scatter"|"sheet"|"puff"|"blob"|"vein"|"stratum"
+-- Ore node to place
+---@field ore string
+-- Param2 to set for ore (e.g. facedir rotation)
+---@field ore_param2? integer
+-- Node to place ore in. Multiple are possible by passing a list.
+---@field wherein string[]|string
+-- Ore has a 1 out of clust_scarcity chance of spawning in a node.
+-- If the desired average distance between ores is 'd', set this to
+-- d * d * d.
+---@field clust_scarcity? number
+-- Number of ores in a cluster
+---@field clust_num_ores? integer
+-- Size of the bounding box of the cluster.
+-- In this example, there is a 3 * 3 * 3 cluster where 8 out of the 27
+-- nodes are coal ore.
+---@field clust_size? integer
+---@field y_min? number
+---@field y_max? number
+-- Attributes for the ore generation, see 'Ore attributes' section above
+-- Ore attributes
+-- --------------
+--
+-- See section [Flag Specifier Format].
+--
+-- Currently supported flags:
+-- `puff_cliffs`, `puff_additive_composition`.
+--
+-- ### `puff_cliffs`
+--
+-- If set, puff ore generation will not taper down large differences in
+-- displacement when approaching the edge of a puff. This flag has no effect for
+-- ore types other than `puff`.
+--
+-- ### `puff_additive_composition`
+--
+-- By default, when noise described by `np_puff_top` or `np_puff_bottom` results
+-- in a negative displacement, the sub-column at that point is not generated. With
+-- this attribute set, puff ore generation will instead generate the absolute
+-- difference in noise displacement values. This flag has no effect for ore types
+-- other than `puff`.
+---@field flags? string
+-- If noise is above this threshold, ore is placed. Not needed for a
+-- uniform distribution.
+---@field noise_threshold? number
+-- NoiseParams structure describing one of the noises used for
+-- ore distribution.
+-- Needed by "sheet", "puff", "blob" and "vein" ores.
+-- Omit from "scatter" ore for a uniform ore distribution.
+-- Omit from "stratum" ore for a simple horizontal strata from y_min to
+-- y_max.
+---@field noise_params NoiseParams
+-- List of biomes in which this ore occurs.
+-- Occurs in all biomes if this is omitted, and ignored if the Mapgen
+-- being used does not support biomes.
+-- Can be a list of (or a single) biome names, IDs, or definitions.
+---@field biomes? string[]|string
+-- "sheet" type
+---@field column_height_min? integer
+-- "sheet" type
+---@field column_height_max? integer
+-- "sheet" type
+---@field column_midpoint_factor? integer
+-- "puff" type
+---@field np_puff_top? NoiseParams
+---@field np_puff_bottom? NoiseParams
+-- "vein" type
+---@field random_factor? number
+-- "stratum"
+---@field np_stratum_thickness? NoiseParams
+---@field stratum_thickness? number
+
+---@class ChatCommandDef
+-- Note that in params, the conventional use of symbols is as follows:
+--
+-- * `<>` signifies a placeholder to be replaced when the command is used. For
+--   example, when a player name is needed: `<name>`
+-- * `[]` signifies param is optional and not required when the command is used.
+--   For example, if you require param1 but param2 is optional:
+--   `<param1> [<param2>]`
+-- * `|` signifies exclusive or. The command requires one param from the options
+--   provided. For example: `<param1> | <param2>`
+-- * `()` signifies grouping. For example, when param1 and param2 are both
+--   required, or only param3 is required: `(<param1> <param2>) | <param3>`
+---@field params string
+---@field description string
+---@field privs table<string, boolean>
+---@field func fun(name:string, param:string):boolean, string
+
+---@class PrivDef
+---@field description string
+---@field give_to_singleplayer boolean
+-- Whether to grant the privilege to the server admin.
+-- Uses value of 'give_to_singleplayer' by default.
+---@field give_to_admin? boolean
+-- Note that the above two callbacks will be called twice if a player is
+-- responsible, once with the player name, and then with a nil player
+-- name.
+-- Return true in the above callbacks to stop register_on_priv_grant or
+-- revoke being called.
+---@field on_grant fun(name: string, granter_name:string)
+-- Note that the above two callbacks will be called twice if a player is
+-- responsible, once with the player name, and then with a nil player
+-- name.
+-- Return true in the above callbacks to stop register_on_priv_grant or
+-- revoke being called.
+---@field on_revoke fun(name:string, revoker_name:string)
+
+-- HUD Definition
+-- --------------
+--
+-- Since most values have multiple different functions, please see the
+-- documentation in [HUD] section.
+--
+-- Used by `ObjectRef:hud_add`. Returned by `ObjectRef:hud_get`.
+
+--- Unofficial note: Haha the most useless section, you thought probably when reading it
+--- Since there is already a detailed documentation on HUDs, this one just, yeah puts it in a more inconvenient format *for a normal reader* :) but neovim macros like this format
+---@class HudDef
+-- Type of element, can be "compass", "hotbar" (46 ¹), "image", "image_waypoint",
+-- "inventory", "minimap" (44 ¹), "statbar", "text" or "waypoint"
+-- ¹: minimal protocol version for client-side support
+-- If undefined "text" will be used.
+---@field type "compass"|"hotbar"|"image"|"image_waypoint"|"inventory"|"minimap"|"statbar"|"text"|"waypoint"
+-- Top left corner position of element
+---@field position {x:number,y:number}
+---@field name string
+---@field scale? {x:number,y:number}
+---@field text? string
+---@field text2? string peak luanti naming
+---@field number? number
+---@field item? number peak luanti naming
+---@field direction? number
+---@field alignment? {x:number, y:number}
+---@field offset? {x:number, y:number}
+---@field world_pos? vector
+---@field size? {x:number, y:number}
+---@field z_index number
+---@field style? number
+
+-- * `core.item_place_node(itemstack, placer, pointed_thing[, param2, prevent_after_place])`
+--     * Place item as a node
+--     * `param2` overrides `facedir` and wallmounted `param2`
+--     * `prevent_after_place`: if set to `true`, `after_place_node` is not called
+--       for the newly placed node to prevent a callback and placement loop
+--     * returns `itemstack, position`
+--       * `position`: the location the node was placed to. `nil` if nothing was placed.
+---@param itemstack ItemStack
+---@param placer PlayerRef
+---@param pointed_thing pointed_thing
+---@param param2 number?
+---@param prevent_after_place boolean?
+---@return ItemStack, vector?
+function core.item_place_node(itemstack, placer, pointed_thing, param2, prevent_after_place) end
+
+-- * `core.item_place_object(itemstack, placer, pointed_thing)`
+--     * Place item as-is
+--     * returns the leftover itemstack
+--     * **Note**: This function is deprecated and will never be called.
+---@deprecated
+function core.item_place_object(itemstack, placer, pointed_thing) end
+
+-- * `core.item_place(itemstack, placer, pointed_thing[, param2])`
+--     * Wrapper that calls `core.item_place_node` if appropriate
+--     * Calls `on_rightclick` of `pointed_thing.under` if defined instead
+--     * **Note**: is not called when wielded item overrides `on_place`
+--     * `param2` overrides facedir and wallmounted `param2`
+--     * returns `itemstack, position`
+--       * `position`: the location the node was placed to. `nil` if nothing was placed.
+---@param itemstack ItemStack
+---@param placer PlayerRef
+---@param pointed_thing pointed_thing
+---@param param2 number?
+---@return ItemStack, vector?
+function core.item_place(itemstack, placer, pointed_thing, param2) end
+
+-- * `core.item_pickup(itemstack, picker, pointed_thing, time_from_last_punch, ...)`
+--     * Runs callbacks registered by `core.register_on_item_pickup` and adds
+--       the item to the picker's `"main"` inventory list.
+--     * Parameters are the same as in `on_pickup`.
+--     * Returns the leftover itemstack.
+---@param itemstack ItemStack
+---@param picker PlayerRef
+---@param pointed_thing pointed_thing
+---@param time_from_last_punch number
+---@return ItemStack
+function core.item_pickup(itemstack, picker, pointed_thing, time_from_last_punch, ...) end
+
+-- * `core.item_drop(itemstack, dropper, pos)`
+--     * Converts `itemstack` to an in-world Lua entity.
+--     * `itemstack` (`ItemStack`) is modified (cleared) on success.
+--       * In versions < 5.12.0, `itemstack` was cleared in all cases.
+--     * `dropper` (`ObjectRef`) is optional.
+--     * Returned values on success:
+--       1. leftover itemstack
+--       2. `ObjectRef` of the spawned object (provided since 5.12.0)
+---@param itemstack ItemStack
+---@param dropper PlayerRef?
+---@param pos vector
+function core.item_drop(itemstack, dropper, pos) end
+
+-- * `core.item_eat(hp_change[, replace_with_item])`
+--     * Returns `function(itemstack, user, pointed_thing)` as a
+--       function wrapper for `core.do_item_eat`.
+--     * `replace_with_item` is the itemstring which is added to the inventory.
+--       If the player is eating a stack and `replace_with_item` doesn't fit onto
+--       the eaten stack, then the remainings go to a different spot, or are dropped.
+---@param hp_change number
+---@param replace_with_item ItemStackAny?
+function core.item_eat(hp_change, replace_with_item) end
+
+-- * `core.node_punch(pos, node, puncher, pointed_thing)`
+--     * Calls functions registered by `core.register_on_punchnode()`
+---@param pos vector
+---@param node MapNode
+---@param puncher PlayerRef
+---@param pointed_thing pointed_thing
+function core.node_punch(pos, node, puncher, pointed_thing) end
+-- * `core.node_dig(pos, node, digger)`
+--     * Checks if node can be dug, puts item into inventory, removes node
+--     * Calls functions registered by `core.registered_on_dignodes()`
+---@param pos vector
+---@param node MapNode
+---@param digger PlayerRef
+function core.node_dig(pos, node, digger) end
+
+---@class pointed_thing
+---@field type "nothing"|"node"|"object"
+---@field under vector?
+---@field above vector?
+---@field ref ObjectRef?
+--- Only raycast supports this
+-- * `pointed_thing.intersection_point`: The absolute world coordinates of the
+--   point on the selection box which is pointed at. May be in the selection box
+--   if the pointer is in the box too.
+---@field intersection_point vector?
+--- Only raycast supports this
+-- * `pointed_thing.box_id`: The ID of the pointed selection box (counting starts
+--   from 1).
+---@field box_id integer?
+--- Only raycast supports this
+-- * `pointed_thing.intersection_normal`: Unit vector, points outwards of the
+--   selected selection box. This specifies which face is pointed at.
+--   Is a null vector `vector.zero()` when the pointer is inside the selection box.
+--   For entities with rotated selection boxes, this will be rotated properly
+--   by the entity's rotation - it will always be in absolute world space.
+---@field intersection_normal vector?

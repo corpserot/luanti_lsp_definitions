@@ -1,0 +1,130 @@
+---@meta
+-- `StorageRef`
+-- ------------
+--
+-- Mod metadata: per mod and world metadata, saved automatically.
+-- Can be obtained via `core.get_mod_storage()` during load time.
+--
+-- WARNING: This storage backend is incapable of saving raw binary data due
+-- to restrictions of JSON.
+--
+-- ### Methods
+--
+-- * All methods in MetaDataRef
+--
+---@class StorageRef: MetaDataRef
+
+--- Unofficial note: Usually not able to store the character "\1" (string.char(1))
+-- Note: If a metadata value is in the format `${k}`, an attempt to get the value
+-- will return the value associated with key `k`. There is a low recursion limit.
+-- This behavior is **deprecated** and will be removed in a future version. Usage
+-- of the `${k}` syntax in formspecs is not deprecated.
+---@class MetaDataRef
+-- * `contains(key)`: Returns true if key present, otherwise false.
+--     * Returns `nil` when the MetaData is inexistent.
+---@field contains fun(key:string):boolean?
+-- * `get(key)`: Returns `nil` if key not present, else the stored string.
+---@field get fun(key:string):string?
+-- * `set_string(key, value)`: Value of `""` will delete the key.
+---@field set_string fun(key:string, value:string)
+-- * `set_int(key, value)`
+--     * The range for the value is system-dependent (usually 32 bits).
+--       The value will be converted into a string when stored.
+---@field set_int fun(key:string, value:integer)
+-- * `get_int(key)`: Returns `0` if key not present.
+---@field get_int fun(key:string):integer
+-- * `set_float(key, value)`
+--     * Store a number (a 64-bit float) exactly.
+--     * The value will be converted into a string when stored.
+---@field set_float fun(key:string, value:number)
+---@field get_float fun(key:string):number
+---@field get_keys fun():string[]
+---@field to_table fun():{fields:table<string, string>,inventory:InvTable}
+
+-- * `core.get_mod_storage()`:
+--     * returns reference to mod private `StorageRef`
+--     * must be called during mod load time
+---@return StorageRef
+function core.get_mod_storage() end
+
+--- Inheritance is so nice
+
+---@class NodeMetaRef: MetaDataRef
+---@field get_inventory fun():InvRef
+-- * `mark_as_private(name or {name1, name2, ...})`: Mark specific vars as private
+--   This will prevent them from being sent to the client. Note that the "private"
+--   status will only be remembered if an associated key-value pair exists,
+--   meaning it's best to call this when initializing all other meta (e.g.
+--   `on_construct`).
+---@field mark_as_private fun(fields:string|string[])
+
+---@type Settings
+core.settings = core.settings
+
+---@param filename string
+---@return Settings
+function Settings(filename) end
+
+-- ### Format
+--
+-- The settings have the format `key = value`. Example:
+--
+--     foo = example text
+--     bar = """
+--     Multiline
+--     value
+--     """
+---@class Settings
+-- * `get(key)`: returns a value
+--     * Returns `nil` if `key` is not found.
+---@field get fun(key:string):any
+-- * `get_bool(key, [default])`: returns a boolean
+--     * `default` is the value returned if `key` is not found.
+--     * Returns `nil` if `key` is not found and `default` not specified.
+---@field get_bool fun(key:string, fundefault:any):any?
+-- * `get_np_group(key)`: returns a NoiseParams table
+--     * Returns `nil` if `key` is not found.
+---@field get_np_group fun(key:string):NoiseParams
+-- * `get_flags(key)`:
+--     * Returns `{flag = true/false, ...}` according to the set flags.
+--     * Is currently limited to mapgen flags `mg_flags` and mapgen-specific
+--       flags like `mgv5_spflags`.
+--     * Returns `nil` if `key` is not found.
+---@field get_flags fun(key: string):table<string, boolean>
+-- * `get_pos(key)`:
+--     * Returns a `vector`
+--     * Returns `nil` if no value is found or parsing failed.
+---@field get_pos fun(key:string):vector?
+-- * `set(key, value)`
+--     * Setting names can't contain whitespace or any of `="{}#`.
+--     * Setting values can't contain the sequence `\n"""`.
+--     * Setting names starting with "secure." can't be set on the main settings
+--       object (`core.settings`).
+---@field set fun(key:string, value:any)
+-- * `set_bool(key, value)`
+--     * See documentation for `set()` above.
+---@field set_bool fun(key:string, value:boolean)
+-- * `set_np_group(key, value)`
+--     * `value` is a NoiseParams table.
+--     * Also, see documentation for `set()` above.
+---@field set_np_group fun(key:string, value:NoiseParams)
+-- * `set_pos(key, value)`
+--     * `value` is a `vector`.
+--     * Also, see documentation for `set()` above.
+---@field set_pos fun(key:string, value:vector)
+-- * `remove(key)`: returns a boolean (`true` for success)
+---@field remove fun(key:boolean):boolean
+-- * `get_names()`: returns `{key1,...}`
+---@field get_names fun():string[]
+-- * `has(key)`:
+--     * Returns a boolean indicating whether `key` exists.
+--     * In contrast to the various getter functions, `has()` doesn't consider
+--       any default values.
+--     * This means that on the main settings object (`core.settings`),
+--       `get(key)` might return a value even if `has(key)` returns `false`.
+---@field has fun(key: string):boolean
+-- * `write()`: returns a boolean (`true` for success)
+--     * Writes changes to file.
+---@field write fun():boolean
+-- * `to_table()`: returns `{[key1]=value1,...}`
+---@field to_table fun():table

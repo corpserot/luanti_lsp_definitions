@@ -1,0 +1,62 @@
+---@meta
+
+---@param craft_recipe CraftRecipe
+function core.register_craft(craft_recipe) end
+
+--- Unofficial note:
+--- ... WHAT
+--- WHAT
+--- WHAT
+--- WHY CAN THE SAME TABLE DO COOKING, TOOLREPAIR AND CRAFTING
+--- WHAT
+--- WHY
+--- WHAT
+--- this is impressive
+
+---@class CraftRecipe
+---@field type "shaped"|"shapeless"|"toolrepair"|"cooking"|"fuel"
+---@field output? ItemStackAny
+---@field recipe? ItemStackAny[][]|ItemStackAny[]
+-- * `replacements`: (optional) Allows you to replace input items with some other items
+--       when something is crafted
+--     * Provided as a list of item pairs of the form `{ old_item, new_item }` where
+--       `old_item` is the input item to replace (same syntax as for a regular input
+--       slot; groups are allowed) and `new_item` is an itemstring for the item stack
+--       it will become
+--     * When the output is crafted, Luanti iterates through the list
+--       of input items if the crafting grid. For each input item stack, it checks if
+--       it matches with an `old_item` in the item pair list.
+--         * If it matches, the item will be replaced. Also, this item pair
+--           will *not* be applied again for the remaining items
+--         * If it does not match, the item is consumed (reduced by 1) normally
+--     * The `new_item` will appear in one of 3 places:
+--         * Crafting grid, if the input stack size was exactly 1
+--         * Player inventory, if input stack size was larger
+--         * Drops as item entity, if it fits neither in craft grid or inventory
+---@field replacements? {[1]:ItemStackAny, [2]:ItemStackAny}[]
+-- ### Tool repair
+--
+-- Syntax:
+--
+--     {
+--         type = "toolrepair",
+--         additional_wear = -0.02, -- multiplier of 65536
+--     }
+--
+-- Adds a shapeless recipe for *every* tool that doesn't have the `disable_repair=1`
+-- group. If this recipe is used, repairing is possible with any crafting grid
+-- with at least 2 slots.
+-- The player can put 2 equal tools in the craft grid to get one "repaired" tool
+-- back.
+-- The wear of the output is determined by the wear of both tools, plus a
+-- 'repair bonus' given by `additional_wear`. To reduce the wear (i.e. 'repair'),
+-- you want `additional_wear` to be negative.
+--
+-- The formula used to calculate the resulting wear is:
+--
+--     65536 * (1 - ( (1 - tool_1_wear) + (1 - tool_2_wear) + additional_wear))
+--
+-- The result is rounded and can't be lower than 0. If the result is 65536 or higher,
+-- no crafting is possible.
+---@field additional_wear? number
+---@field cooktime? number

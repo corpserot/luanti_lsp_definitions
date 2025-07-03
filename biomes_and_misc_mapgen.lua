@@ -1,0 +1,400 @@
+---@meta
+
+-- Key for special L-System symbols used in axioms
+-- -----------------------------------------------
+--
+-- * `G`: move forward one unit with the pen up
+-- * `F`: move forward one unit with the pen down drawing trunks and branches
+-- * `f`: move forward one unit with the pen down drawing leaves (100% chance)
+-- * `T`: move forward one unit with the pen down drawing trunks only
+-- * `R`: move forward one unit with the pen down placing fruit
+-- * `A`: replace with rules set A
+-- * `B`: replace with rules set B
+-- * `C`: replace with rules set C
+-- * `D`: replace with rules set D
+-- * `a`: replace with rules set A, chance 90%
+-- * `b`: replace with rules set B, chance 80%
+-- * `c`: replace with rules set C, chance 70%
+-- * `d`: replace with rules set D, chance 60%
+-- * `+`: yaw the turtle right by `angle` parameter
+-- * `-`: yaw the turtle left by `angle` parameter
+-- * `&`: pitch the turtle down by `angle` parameter
+-- * `^`: pitch the turtle up by `angle` parameter
+-- * `/`: roll the turtle to the right by `angle` parameter
+-- * `*`: roll the turtle to the left by `angle` parameter
+-- * `[`: save in stack current state info
+-- * `]`: recover from stack state info
+--
+-- Example
+-- -------
+--
+-- Spawn a small apple tree:
+--
+-- ```lua
+-- pos = {x=230,y=20,z=4}
+-- apple_tree={
+--     axiom="FFFFFAFFBF",
+--     rules_a="[&&&FFFFF&&FFFF][&&&++++FFFFF&&FFFF][&&&----FFFFF&&FFFF]",
+--     rules_b="[&&&++FFFFF&&FFFF][&&&--FFFFF&&FFFF][&&&------FFFFF&&FFFF]",
+--     trunk="default:tree",
+--     leaves="default:leaves",
+--     angle=30,
+--     iterations=2,
+--     random_level=0,
+--     trunk_type="single",
+--     thin_branches=true,
+--     fruit_chance=10,
+--     fruit="default:apple"
+-- }
+-- core.spawn_tree(pos,apple_tree)
+---@class lsystem
+---@field axiom string
+---@field rules_a string
+---@field rules_b string
+---@field rules_d string
+---@field trunk string trunk node name
+---@field leaves string leaves node name
+---@field leaves2 string secondary leaves node name
+---@field leaves2_chance number chance to replace leaves with leaves2
+---@field angle number in degrees
+---@field iterations number max # of iterations, usually 2 - 5
+---@field random_level number factor to lower number of iterations, usually 0 - 3
+---@field thin_branches boolean
+---@field fruit string fruit node name
+---@field fruit_chance number
+---@field seed number
+
+---@param pos vector
+---@param lsystem lsystem
+---@return nil
+function core.spawn_tree(pos, lsystem) end
+
+---@param vmanip VoxelManip
+---@param pos vector
+---@param treedef lsystem
+---@return nil
+function core.spawn_tree_on_vmanip(vmanip, pos, treedef) end
+
+---@class gen_notify: table<string, vector[]>
+---@field dungeon vector?
+---@field temple vector?
+---@field cave_begin vector?
+---@field cave_end vector?
+---@field large_cave_begin vector?
+---@field large_cave_end vector?
+---@field custom table<string, any>
+
+--- Unofficial Note: The types are a guess xD i have no idea how this works
+---@return string, table<string, vector>, table<string, any>
+function core.get_gen_notify() end
+
+--- Unofficial Note: The types are a guess xD i have no idea how this works
+-- * `core.set_gen_notify(flags, [deco_ids], [custom_ids])`
+--     * Set the types of on-generate notifications that should be collected.
+--     * `flags`: flag field, see [`gennotify`] for available generation notification types.
+--     * The following parameters are optional:
+--     * `deco_ids` is a list of IDs of decorations which notification
+--       is requested for.
+--     * `custom_ids` is a list of user-defined IDs (strings) which are
+--       requested. By convention these should be the mod name with an optional
+--       colon and specifier added, e.g. `"default"` or `"default:dungeon_loot"`
+---@param flags string
+---@param deco_ids string[]
+---@param custom_ids string[]
+function core.set_gen_notify(flags, deco_ids, custom_ids) end
+---@param decoration_name string
+function core.get_decoration_id(decoration_name) end
+---@param objectname string
+function core.get_mapgen_object(objectname) end
+
+--- Unofficial note: this relates to the biome heat, idk override it and make your own custom mapgen if you dare
+-- * `core.get_heat(pos)`
+--     * Returns the heat at the position, or `nil` on failure.
+---@return number?
+---@param pos vector
+function core.get_heat(pos) end
+
+--- Unofficial note: this relates to the biome humidity, idk override it and make your own custom mapgen if you dare
+-- * `core.get_humidity(pos)`
+--     * Returns the humidity at the position, or `nil` on failure.
+---@return number?
+---@param pos vector
+function core.get_humidity(pos) end
+
+-- * `core.get_biome_data(pos)`
+--     * Returns a table containing:
+--         * `biome` the biome id of the biome at that position
+--         * `heat` the heat at the position
+--         * `humidity` the humidity at the position
+--     * Or returns `nil` on failure.
+---@param pos vector
+---@return {biome:number, heat:number, humidity:number}?
+function core.get_biome_data(pos) end
+
+-- * `core.get_biome_id(biome_name)`
+--     * Returns the biome id, as used in the biomemap Mapgen object and returned
+--       by `core.get_biome_data(pos)`, for a given biome_name string.
+---@param biome_name string
+---@return number
+function core.get_biome_id(biome_name) end
+
+-- * `core.get_biome_name(biome_id)`
+--     * Returns the biome name string for the provided biome id, or `nil` on
+--       failure.
+--     * If no biomes have been registered, such as in mgv6, returns `default`.
+---@param biome_id number
+---@return string?
+function core.get_biome_name(biome_id) end
+
+-- * `core.get_mapgen_edges([mapgen_limit[, chunksize]])`
+--     * Returns the minimum and maximum possible generated node positions
+--       in that order.
+--     * `mapgen_limit` is an optional number. If it is absent, its value is that
+--       of the *active* mapgen setting `"mapgen_limit"`.
+--     * `chunksize` is an optional number. If it is absent, its value is that
+--       of the *active* mapgen setting `"chunksize"`.
+---@param mapgen_limit number?
+---@param chunksize number?
+function core.get_mapgen_edges(mapgen_limit, chunksize) end
+
+-- * `core.get_mapgen_setting(name)`
+--     * Gets the *active* mapgen setting (or nil if none exists) in string
+--       format with the following order of precedence:
+--         1) Settings loaded from map_meta.txt or overrides set during mod
+--            execution.
+--         2) Settings set by mods without a metafile override
+--         3) Settings explicitly set in the user config file, minetest.conf
+--         4) Settings set as the user config default
+---@param name string
+---@return string
+function core.get_mapgen_setting(name) end
+
+-- * `core.get_mapgen_setting_noiseparams(name)`
+--     * Same as above, but returns the value as a NoiseParams table if the
+--       setting `name` exists and is a valid NoiseParams.
+---@return NoiseParams
+---@param name string
+function core.get_mapgen_setting_noiseparams(name) end
+
+-- * `core.set_mapgen_setting(name, value, [override_meta])`
+--     * Sets a mapgen param to `value`, and will take effect if the corresponding
+--       mapgen setting is not already present in map_meta.txt.
+--     * `override_meta` is an optional boolean (default: `false`). If this is set
+--       to true, the setting will become the active setting regardless of the map
+--       metafile contents.
+--     * Note: to set the seed, use `"seed"`, not `"fixed_map_seed"`.
+---@param name string
+---@param value string
+---@param override_meta boolean?
+---@return nil
+function core.set_mapgen_setting(name, value, override_meta) end
+
+-- * `core.set_mapgen_setting_noiseparams(name, value, [override_meta])`
+--     * Same as above, except value is a NoiseParams table.
+---@param value NoiseParams
+---@param override_meta boolean?
+---@param name string
+function core.set_mapgen_setting_noiseparams(name, value, override_meta) end
+
+-- * `core.set_noiseparams(name, noiseparams, set_default)`
+--     * Sets the noiseparams setting of `name` to the noiseparams table specified
+--       in `noiseparams`.
+--     * `set_default` is an optional boolean (default: `true`) that specifies
+--       whether the setting should be applied to the default config or current
+--       active config.
+---@param name string
+---@param noiseparams NoiseParams
+---@param set_default boolean?
+---@return nil
+function core.set_noiseparams(name, noiseparams, set_default) end
+
+---@param name string
+---@return NoiseParams
+function core.get_noiseparams(name) end
+
+--- BIOME DEF
+
+---@class BiomeDef
+---@field name string
+-- Node dropped onto upper surface after all else is generated
+---@field node_dust? string
+-- Node forming surface layer of biome
+---@field node_top? string
+-- Node forming surface layer of biome and thickness of this layer
+---@field depth_top? integer
+-- Node forming lower layer of biome
+---@field node_filler? string
+-- Node forming lower layer of biome and thickness of this layer
+---@field depth_filler? integer
+-- Node that replaces all stone nodes between roughly y_min and y_max.
+---@field node_stone? string
+-- Node forming a surface layer in seawater with the defined thickness
+---@field node_water_top? string
+-- Node forming a surface layer in seawater with the defined thickness
+---@field depth_water_top? integer
+-- Node that replaces all seawater nodes not in the surface layer
+---@field node_water? string
+-- Node that replaces river water in mapgens that use
+-- default:river_water
+---@field node_river_water? string
+-- Node placed under river water and thickness of this layer
+---@field node_riverbed? string
+-- Node placed under river water and thickness of this layer
+---@field depth_riverbed? integer
+-- Nodes placed inside 50% of the medium size caves.
+-- Multiple nodes can be specified, each cave will use a randomly
+-- chosen node from the list.
+-- If this field is left out or 'nil', cave liquids fall back to
+-- classic behavior of lava and water distributed using 3D noise.
+-- For no cave liquid, specify "air".
+---@field node_cave_liquid? string|string[]
+-- Node used for primary dungeon structure.
+-- If absent, dungeon nodes fall back to the 'mapgen_cobble' mapgen
+-- alias, if that is also absent, dungeon nodes fall back to the biome
+-- 'node_stone'.
+-- If present, the following two nodes are also used.
+---@field node_dungeon? string
+-- Node used for randomly-distributed alternative structure nodes.
+-- If alternative structure nodes are not wanted leave this absent.
+---@field node_dungeon_alt? string
+-- Node used for dungeon stairs.
+-- If absent, stairs fall back to 'node_dungeon'.
+---@field node_dungeon_stair? string
+---@field y_max? integer
+---@field y_min? integer
+-- xyz limits for biome, an alternative to using 'y_min' and 'y_max'.
+-- Biome is limited to a cuboid defined by these positions.
+-- Any x, y or z field left undefined defaults to -31000 in 'min_pos' or
+-- 31000 in 'max_pos'.
+---@field max_pos? vector
+-- xyz limits for biome, an alternative to using 'y_min' and 'y_max'.
+-- Biome is limited to a cuboid defined by these positions.
+-- Any x, y or z field left undefined defaults to -31000 in 'min_pos' or
+-- 31000 in 'max_pos'.
+---@field min_pos? vector
+-- Vertical distance in nodes above 'y_max' over which the biome will
+-- blend with the biome above.
+-- Set to 0 for no vertical blend. Defaults to 0.
+---@field vertical_blend? number
+-- Characteristic temperature and humidity for the biome.
+-- These values create 'biome points' on a voronoi diagram with heat and
+-- humidity as axes. The resulting voronoi cells determine the
+-- distribution of the biomes.
+-- Heat and humidity have average values of 50, vary mostly between
+-- 0 and 100 but can exceed these values.
+---@field heat_point number
+-- Characteristic temperature and humidity for the biome.
+-- These values create 'biome points' on a voronoi diagram with heat and
+-- humidity as axes. The resulting voronoi cells determine the
+-- distribution of the biomes.
+-- Heat and humidity have average values of 50, vary mostly between
+-- 0 and 100 but can exceed these values.
+---@field humidity_point number
+-- Relative weight of the biome in the Voronoi diagram.
+-- A value of 0 (or less) is ignored and equivalent to 1.0.
+---@field weight? number
+
+---@class DecorationDef
+-- Type. "simple", "schematic" or "lsystem" supported
+---@field deco_type "simple"|"schematic"|"lsystem"
+-- Node (or list of nodes) that the decoration can be placed on
+---@field place_on? string[]|string
+-- Size of the square (X / Z) divisions of the mapchunk being generated.
+-- Determines the resolution of noise variation if used.
+-- If the chunk size is not evenly divisible by sidelen, sidelen is made
+-- equal to the chunk size.
+---@field sidelen? {x:number,z:number}
+-- The value determines 'decorations per surface node'.
+-- Used only if noise_params is not specified.
+-- If >= 10.0 complete coverage is enabled and decoration placement uses
+-- a different and much faster method.
+---@field fill_ratio? number
+-- NoiseParams structure describing the noise used for decoration
+-- distribution.
+-- A noise value is calculated for each square division and determines
+-- 'decorations per surface node' within each division.
+-- If the noise value >= 10.0 complete coverage is enabled and
+-- decoration placement uses a different and much faster method.
+---@field noise_params NoiseParams
+-- List of biomes in which this decoration occurs. Occurs in all biomes
+-- if this is omitted, and ignored if the Mapgen being used does not
+-- support biomes.
+-- Can be a list of (or a single) biome names, IDs, or definitions.
+---@field biomes? string|string[]
+---@field y_min? integer
+---@field y_max? integer
+-- Node (or list of nodes) that the decoration only spawns next to.
+-- Checks the 8 neighboring nodes on the same height,
+-- and also the ones at the height plus the check_offset, excluding both center nodes.
+---@field spawn_by? integer
+-- Specifies the offset that spawn_by should also check
+-- The default value of -1 is useful to e.g check for water next to the base node.
+-- 0 disables additional checks, valid values: {-1, 0, 1}
+---@field check_offset? integer
+-- Number of spawn_by nodes that must be surrounding the decoration
+-- position to occur.
+-- If absent or -1, decorations occur next to any nodes.
+---@field num_spawn_by? integer
+-- Flags for all decoration types.
+-- "liquid_surface": Find the highest liquid (not solid) surface under
+--   open air. Search stops and fails on the first solid node.
+--   Cannot be used with "all_floors" or "all_ceilings" below.
+-- "force_placement": Nodes other than "air" and "ignore" are replaced
+--   by the decoration.
+-- "all_floors", "all_ceilings": Instead of placement on the highest
+--   surface in a mapchunk the decoration is placed on all floor and/or
+--   ceiling surfaces, for example in caves and dungeons.
+--   Ceiling decorations act as an inversion of floor decorations so the
+--   effect of 'place_offset_y' is inverted.
+--   Y-slice probabilities do not function correctly for ceiling
+--   schematic decorations as the behavior is unchanged.
+--   If a single decoration registration has both flags the floor and
+--   ceiling decorations will be aligned vertically.
+-- ### Unofficial note: you can also fit schematic flags here i think
+---@field flags? string
+--- ### Type: "simple"
+-- The node name used as the decoration.
+-- If instead a list of strings, a randomly selected node from the list
+-- is placed as the decoration.
+---@field decoration? string
+--- ### Type: "simple"
+-- Decoration height in nodes.
+-- If height_max is not 0, this is the lower limit of a randomly
+-- selected height.
+---@field height? number
+--- ### Type: "simple"
+-- Upper limit of the randomly selected height.
+-- If absent, the parameter 'height' is used as a constant.
+---@field height_max? number
+--- ### Type: "simple"
+-- Param2 value of decoration nodes.
+-- If param2_max is not 0, this is the lower limit of a randomly
+-- selected param2.
+---@field param2? integer
+--- ### Type: "simple"
+-- Upper limit of the randomly selected param2.
+-- If absent, the parameter 'param2' is used as a constant.
+---@field param2_max? integer
+--- ### Type: "simple" and "schematic"
+-- Y offset of the decoration base node relative to the standard base
+-- node position.
+-- Can be positive or negative. Default is 0.
+-- Effect is inverted for "all_ceilings" decorations.
+-- Ignored by 'y_min', 'y_max' and 'spawn_by' checks, which always refer
+-- to the 'place_on' node.
+---@field place_offset_y? number
+--- ### Type: "schematic"
+-- If schematic is a string, it is the filepath relative to the current
+-- working directory of the specified Luanti schematic file.
+-- Could also be the ID of a previously registered schematic.
+---@field schematic? string|table
+--- ### Type: "schematic"
+-- Map of node names to replace in the schematic after reading it.
+---@field replacements? table<string,string>
+--- ### Type: "schematic"
+-- Rotation can be "0", "90", "180", "270", or "random"
+---@field rotation? string
+----- L-system-type parameters
+-- Same as for `core.spawn_tree`.
+-- See section [L-system trees] for more details.
+---@field treedef? lsystem

@@ -1,0 +1,245 @@
+---@meta
+
+--- "Oh hell no what are these types... man..."
+--- Anyway i omit the deprecated stuff, you shouldn't use it :)
+
+---@class Particle
+
+---@alias particle_spawner_vec3_range (number|vector|{min:vector|number,max:vector|number,bias:number?})
+---@alias particle_spawner_float_range (number|{min:number,max:number,bias:number?})
+
+--- Cannot be done using generics i think, if yes contribute in :)
+---@class particle_spawner_tween_vec3_range
+---@field style ("fwd"|"rev"|"pulse"|"flicker")?
+---@field reps number?
+---@field start number?
+---@field [integer] particle_spawner_vec3_range
+
+---@class particle_spawner_tween_float_range
+---@field style ("fwd"|"rev"|"pulse"|"flicker")?
+---@field reps number?
+---@field start number?
+---@field [integer] particle_spawner_float_range
+
+---@class particle_spawner_tween_vec3
+---@field style ("fwd"|"rev"|"pulse"|"flicker")?
+---@field reps number?
+---@field start number?
+---@field [integer] vector
+
+---@class particle_spawner_tween_vec2
+---@field style ("fwd"|"rev"|"pulse"|"flicker")?
+---@field reps number?
+---@field start number?
+---@field [integer] {x:number, y:number}
+
+---@class ParticleSpawnerAttract
+---@field kind "none"|"point"|"line"|"plane"
+---@field strength number
+---@field strength_tween particle_spawner_tween_float_range?
+---@field origin vector?
+---@field origin_tween particle_spawner_tween_vec3?
+---@field direction vector?
+---@field direction_tween particle_spawner_tween_vec3?
+---@field origin_attached ObjectRef?
+---@field direction_attached ObjectRef?
+---@field die_on_contact boolean?
+
+---@alias ParticleTextureI ParticleTexture|string
+
+---@class ParticleTexture
+---@field name string
+---@field alpha number?
+---@field alpha_tween particle_spawner_float_range?
+---@field scale number|{x:number, y:number}?
+---@field scale_tween particle_spawner_tween_vec2?
+---@field blend ("alpha"|"clip"|"add"|"screen"|"sub")?
+---@field animation TileAnimation?
+
+--- Unofficial note: i omit the deprecated stuff, you shouldn't use it :)
+-- `ParticleSpawner` definition
+-- ----------------------------
+--
+-- Used by `core.add_particlespawner`.
+--
+-- Before v5.6.0, particlespawners used a different syntax and had a more limited set
+-- of features. Definition fields that are the same in both legacy and modern versions
+-- are shown in the next listing, and the fields that are used by legacy versions are
+-- shown separated by a comment; the modern fields are too complex to compactly
+-- describe in this manner and are documented after the listing.
+--
+-- The older syntax can be used in combination with the newer syntax (e.g. having
+-- `minpos`, `maxpos`, and `pos` all set) to support older servers. On newer servers,
+-- the new syntax will override the older syntax; on older servers, the newer syntax
+-- will be ignored.
+---@class ParticleSpawner
+-- Number of particles spawned over the time period `time`.
+---@field amount number
+-- Lifespan of spawner in seconds.
+-- If time is 0 spawner has infinite lifespan and spawns the `amount` on
+-- a per-second basis.
+---@field time number
+-- If true collide with `walkable` nodes and, depending on the
+-- `object_collision` field, objects too.
+---@field collisiondetection boolean?
+-- If true particles are removed when they collide.
+-- Requires collisiondetection = true to have any effect.
+---@field collision_removal boolean?
+-- If true particles collide with objects that are defined as
+-- `physical = true,` and `collide_with_objects = true,`.
+-- Requires collisiondetection = true to have any effect.
+---@field object_collision boolean?
+-- If defined, particle positions, velocities and accelerations are
+-- relative to this object's position and yaw
+---@field attached ObjectRef?
+-- If true face player using y axis only
+---@field vertical boolean?
+-- The texture of the particle
+-- v5.6.0 and later: also supports the table format described in the
+-- following section.
+---@field texture ParticleTextureI?
+-- Optional, if specified spawns particles only on the player's client
+---@field playername string?
+-- Optional, specifies how to animate the particles' texture
+-- v5.6.0 and later: set length to -1 to synchronize the length
+-- of the animation with the expiration time of individual particles.
+-- (-2 causes the animation to be played twice, and so on)
+---@field animation TileAnimation?
+-- Optional, specify particle self-luminescence in darkness.
+-- Values 0-14.
+---@field glow number?
+-- Optional, if specified the particles will have the same appearance as
+-- node dig particles for the given node.
+-- `texture` and `animation` will be ignored if this is set.
+---@field node MapNodeOpt?
+-- Optional, only valid in combination with `node`
+-- If set to a valid number 1-6, specifies the tile from which the
+-- particle texture is picked.
+-- Otherwise, the default behavior is used. (currently: any random tile)
+---@field node_tile number?
+---@field pos particle_spawner_vec3_range?
+---@field vel particle_spawner_vec3_range?
+---@field acc particle_spawner_vec3_range?
+---@field jitter particle_spawner_vec3_range?
+---@field drag particle_spawner_vec3_range?
+---@field radius particle_spawner_vec3_range?
+---@field pos_tween particle_spawner_tween_vec3_range?
+---@field vel_tween particle_spawner_tween_vec3_range?
+---@field acc_tween particle_spawner_tween_vec3_range?
+---@field jitter_tween particle_spawner_tween_vec3_range?
+---@field drag_tween particle_spawner_tween_vec3_range? Unofficial note: oh its that thing conservatives are mad abou- nevermind no sorry wrong oops
+---@field radius_tween particle_spawner_tween_vec3_range?
+---@field size particle_spawner_float_range?
+---@field size_tween particle_spawner_tween_float_range?
+---@field bounce particle_spawner_float_range?
+---@field bounce_tween particle_spawner_tween_float_range?
+---@field exptime particle_spawner_float_range?
+---@field exptime_tween particle_spawner_tween_float_range?
+---@field attract ParticleSpawnerAttract?
+-- For particlespawners, it is also possible to set the `texpool` property instead
+-- of a single texture definition. A `texpool` consists of a list of possible
+-- particle textures. Every time a particle is spawned, the engine will pick a
+-- texture at random from the `texpool` and assign it as that particle's texture.
+-- You can also specify a `texture` in addition to a `texpool`; the `texture`
+-- value will be ignored on newer clients but will be sent to older (pre-v5.6.0)
+-- clients that do not implement texpools.
+--
+-- ```lua
+-- texpool = {
+--     "mymod_particle_texture.png";
+--     { name = "mymod_spark.png", alpha_tween = {1, 0} },
+--     {
+--       name = "mymod_dust.png",
+--       alpha = 0.3,
+--       scale = 1.5,
+--       animation = {
+--             type = "vertical_frames",
+--             aspect_w = 16, aspect_h = 16,
+--
+--             length = 3,
+--             -- the animation lasts for 3s and then repeats
+--             length = -3,
+--             -- repeat the animation three times over the particle's lifetime
+--             -- (post-v5.6.0 clients only)
+--       },
+--     },
+-- }
+-- ```
+---@field textpool ParticleTextureI[]?
+--- Unofficial note: Intentionally obscured type, i'll let you know a secret... it's a number, but don't act like it's a number
+---@class ParticleSpawner_id
+
+---@class Particle
+---@field pos vector
+---@field velocity vector?
+---@field acceleration vector?
+---@field expirationtime number
+-- Scales the visual size of the particle texture.
+-- If `node` is set, size can be set to 0 to spawn a randomly-sized
+-- particle (just like actual node dig particles).
+---@field size number?
+-- If true collides with `walkable` nodes and, depending on the
+-- `object_collision` field, objects too.
+---@field collisiondetection boolean?
+-- If true particle is removed when it collides.
+-- Requires collisiondetection = true to have any effect.
+---@field collision_removal boolean?
+-- If true particle collides with objects that are defined as
+-- `physical = true,` and `collide_with_objects = true,`.
+-- Requires collisiondetection = true to have any effect.
+---@field object_collision boolean?
+-- If true faces player using y axis only
+---@field vertical boolean?
+-- The texture of the particle
+-- v5.6.0 and later: also supports the table format described in the
+-- following section, but due to a bug this did not take effect
+-- (beyond the texture name).
+-- v5.9.0 and later: fixes the bug.
+-- Note: "texture.animation" is ignored here. Use "animation" below instead.
+---@field texture ParticleTextureI?
+-- Optional, if specified spawns particle only on the player's client
+---@field playername string?
+-- Optional, specifies how to animate the particle texture
+---@field animation TileAnimation?
+-- Optional, specify particle self-luminescence in darkness.
+-- Values 0-14.
+---@field glow number?
+-- Optional, if specified the particle will have the same appearance as
+-- node dig particles for the given node.
+-- `texture` and `animation` will be ignored if this is set.
+---@field node MapNodeOpt?
+-- Optional, only valid in combination with `node`
+-- If set to a valid number 1-6, specifies the tile from which the
+-- particle texture is picked.
+-- Otherwise, the default behavior is used. (currently: any random tile)
+---@field node_tile number?
+-- v5.6.0 and later: Optional drag value, consult the following section
+-- Note: Only a vector is supported here. Alternative forms like a single
+-- number are not supported.
+---@field drag vector?
+-- v5.6.0 and later: Optional jitter range, consult the following section
+---@field jitter number|{min:number,max:number,bias:number?}?
+-- v5.6.0 and later: Optional bounce range, consult the following section
+---@field bounce number|{min:number,max:number,bias:number?}?
+
+--- Unofficial note: Prefer not doing 100 000 particles in a single globalstep
+--- Because that will make the network scream, with no way to debug it
+--- Instead, invest time into particlespawners, invest time into creating an issue on luanti github, invest time into creating a client side mod
+---@param particle_def Particle
+function core.add_particle(particle_def) end
+
+-- * Add a `ParticleSpawner`, an object that spawns an amount of particles
+--   over `time` seconds.
+-- * Returns an `id`, and -1 if adding didn't succeed
+---@param particlespawner_def ParticleSpawner
+---@return ParticleSpawner_id|-1
+function core.add_particlespawner(particlespawner_def) end
+
+-- * `core.delete_particlespawner(id, player)`
+--     * Delete `ParticleSpawner` with `id` (return value from
+--       `core.add_particlespawner`).
+--     * If playername is specified, only deletes on the player's client,
+--       otherwise on all clients.
+---@param id ParticleSpawner_id
+---@param player PlayerRef?
+function core.delete_particlespawner(id, player) end

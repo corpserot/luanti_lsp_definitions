@@ -1,0 +1,195 @@
+---@meta
+---
+---You know, InvRefs ItemStacks things like thatt
+
+---@class inventory_location
+---@field type "node"|"player"|"detached"
+---@field name string?
+---@field pos vector?
+
+---@class InvRef
+-- * `is_empty(listname)`: return `true` if list is empty
+---@field is_empty fun(listname:string): boolean
+-- * `get_size(listname)`: get size of a list
+---@field get_size fun(listname:string):number
+-- * `set_size(listname, size)`: set size of a list
+--     * If `listname` is not known, a new list will be created
+--     * Setting `size` to 0 deletes a list
+--     * returns `false` on error (e.g. invalid `listname` or `size`)
+---@field set_size fun(listname:string, size:integer):boolean
+-- * `get_width(listname)`: get width of a list
+---@field get_width fun(listname:string):integer
+-- * `set_width(listname, width)`: set width of list; currently used for crafting
+--     * returns `false` on error (e.g. invalid `listname` or `width`)
+---@field set_width fun(listname:string, width:integer)
+-- * `get_stack(listname, i)`: get a copy of stack index `i` in list
+---@field get_stack fun(listname:string, i:integer)
+-- * `set_stack(listname, i, stack)`: copy `stack` to index `i` in list
+---@field set_stack fun(listname:string, i:integer, stack:ItemStackAny)
+-- * `get_list(listname)`: returns full list (list of `ItemStack`s)
+--                         or `nil` if list doesn't exist (size 0)
+---@field get_list fun(listname:string):InvList
+-- * `set_list(listname, list)`: set full list (size will not change)
+---@field set_list fun(listname:string, list:InvList)
+-- * `get_lists()`: returns table that maps listnames to inventory lists
+---@field get_lists fun():table<string, InvList>
+-- * `set_lists(lists)`: sets inventory lists (size will not change)
+---@field set_lists fun(lists:table<string, InvList>)
+-- * `add_item(listname, stack)`: add item somewhere in list, returns leftover
+--   `ItemStack`.
+---@field add_item fun(listname:string, stack:ItemStackAny)
+-- * `room_for_item(listname, stack):` returns `true` if the stack of items
+--   can be fully added to the list
+---@field room_for_item fun(listname:string, stack:ItemStackAny):boolean
+-- * `contains_item(listname, stack, [match_meta])`: returns `true` if
+--   the stack of items can be fully taken from the list.
+--     * If `match_meta` is `true`, item metadata is also considered when comparing
+--       items. Otherwise, only the items names are compared. Default: `false`
+--     * The method ignores wear.
+---@field contains_item fun(listname:string, stack:ItemStackAny, match_meta:boolean?)
+-- * `remove_item(listname, stack, [match_meta])`: take as many items as specified from the
+--   list, returns the items that were actually removed (as an `ItemStack`).
+--     * If `match_meta` is `true` (available since feature `remove_item_match_meta`),
+--       item metadata is also considered when comparing items. Otherwise, only the
+--       items names are compared. Default: `false`
+--     * The method ignores wear.
+---@field remove_item fun(listname:string, stack:ItemStackAny, match_meta: boolean?)
+-- * `get_location()`: returns a location compatible to
+--   `core.get_inventory(location)`.
+--     * returns `{type="undefined"}` in case location is not known
+---@field get_location fun():inventory_location
+
+---@alias InvList ItemStack[]
+-- * inventory table keys are inventory list names
+-- * inventory table values are item tables
+-- * item table keys are slot IDs (starting with 1)
+-- * item table values are ItemStacks
+---@class InvTable: table<string, InvList>
+
+---@alias ItemStackAny ItemStack|string|table
+
+---@class ItemStackMetaRef: MetaDataRef
+---@field set_tool_capabilities fun(tool_capabilities:tool_capabilities?)
+---@field set_wear_bar_params fun(wear_bar_params:wear_bar_params?)
+
+---@class ItemStack
+-- * `is_empty()`: returns `true` if stack is empty.
+---@field is_empty fun():boolean
+-- * `get_name()`: returns item name (e.g. `"default:stone"`).
+---@field get_name fun():string
+-- * `set_name(item_name)`: returns a boolean indicating whether the item was
+--   cleared.
+---@field set_name fun(item_name:string):boolean
+-- * `get_count()`: Returns number of items on the stack.
+---@field get_count fun():integer
+-- * `set_count(count)`: returns a boolean indicating whether the item was cleared
+--     * `count`: number, unsigned 16 bit integer
+---@field set_count fun(count:integer):boolean
+-- * `get_wear()`: returns tool wear (`0`-`65535`), `0` for non-tools.
+---@field get_wear fun():integer
+-- * `set_wear(wear)`: returns boolean indicating whether item was cleared
+--     * `wear`: number, unsigned 16 bit integer
+---@field set_wear fun(wear:integer):boolean
+-- * `get_meta()`: returns ItemStackMetaRef. See section for more details
+---@field get_meta fun():ItemStackMetaRef
+-- * `get_description()`: returns the description shown in inventory list tooltips.
+--     * The engine uses this when showing item descriptions in tooltips.
+--     * Fields for finding the description, in order:
+--         * `description` in item metadata (See [Item Metadata].)
+--         * `description` in item definition
+--         * item name
+---@field get_description fun():string
+-- * `get_short_description()`: returns the short description or nil.
+--     * Unlike the description, this does not include new lines.
+--     * Fields for finding the short description, in order:
+--         * `short_description` in item metadata (See [Item Metadata].)
+--         * `short_description` in item definition
+--         * first line of the description (From item meta or def, see `get_description()`.)
+--         * Returns nil if none of the above are set
+---@field get_short_description fun():string
+-- * `clear()`: removes all items from the stack, making it empty.
+---@field clear fun()
+-- * `replace(item)`: replace the contents of this stack.
+--     * `item` can also be an itemstring or table.
+---@field replace fun(item:ItemStackAny)
+-- * `to_string()`: returns the stack in itemstring form.
+---@field to_string fun():string
+-- * `to_table()`: returns the stack in Lua table form.
+---@field to_table fun():table
+-- * `get_stack_max()`: returns the maximum size of the stack (depends on the
+--   item).
+---@field get_stack_max fun():integer
+-- * `get_free_space()`: returns `get_stack_max() - get_count()`.
+---@field get_free_space fun():integer
+-- * `is_known()`: returns `true` if the item name refers to a defined item type.
+---@field is_known fun():boolean
+-- * `get_definition()`: returns the item definition table.
+---@field get_definition fun():ItemDef
+-- * `get_tool_capabilities()`: returns the digging properties of the item,
+--   or those of the hand if none are defined for this item type
+---@field get_tool_capabilities fun():tool_capabilities
+-- * `add_wear(amount)`
+--     * Increases wear by `amount` if the item is a tool, otherwise does nothing
+--     * Valid `amount` range is [0,65536]
+--     * `amount`: number, integer
+---@field add_wear fun(amount:integer)
+-- * `add_wear_by_uses(max_uses)`
+--     * Increases wear in such a way that, if only this function is called,
+--       the item breaks after `max_uses` times
+--     * Valid `max_uses` range is [0,65536]
+--     * Does nothing if item is not a tool or if `max_uses` is 0
+---@field add_wear_by_uses fun(max_uses:integer)
+-- * `get_wear_bar_params()`: returns the wear bar parameters of the item,
+--   or nil if none are defined for this item type or in the stack's meta
+---@field get_wear_bar_params fun():wear_bar_params?
+-- * `add_item(item)`: returns leftover `ItemStack`
+--     * Put some item or stack onto this stack
+---@field add_item fun(item:ItemStackAny)
+-- * `item_fits(item)`: returns `true` if item or stack can be fully added to
+--   this one.
+---@field item_fits fun(item:ItemStackAny):boolean
+-- * `take_item(n)`: returns taken `ItemStack`
+--     * Take (and remove) up to `n` items from this stack
+--     * `n`: number, default: `1`
+---@field take_item fun(n:integer):ItemStack
+-- * `peek_item(n)`: returns taken `ItemStack`
+--     * Copy (don't remove) up to `n` items from this stack
+--     * `n`: number, default: `1`
+---@field peek_item fun(n:integer):ItemStack
+-- * `equals(other)`:
+-- * returns `true` if this stack is identical to `other`.
+-- * Note: `stack1:to_string() == stack2:to_string()` is not reliable,
+--   as stack metadata can be serialized in arbitrary order.
+-- * Note: if `other` is an itemstring or table representation of an
+--   ItemStack, this will always return false, even if it is
+--   "equivalent".
+---@field equals fun(other:any):boolean
+
+---@class detached_inventory_callbacks
+---@field allow_move fun(inv:InvRef, from_list:InvList, from_index:number, to_list:InvList, to_index:number, count:number, player:PlayerRef)?
+---@field allow_put fun(inv:InvRef, listname:string, index:number, stack:ItemStack, player:PlayerRef)?
+---@field allow_take fun(inv:InvRef, listname:string, index:number, stack:ItemStack, player:PlayerRef)?
+---@field on_move fun(inv:InvRef, from_list:InvList, from_index:number, to_list:InvList, to_index:number, count:number, player:PlayerRef)?
+---@field on_put fun(inv:InvRef, listname:string, index:number, stack:ItemStack, player:PlayerRef)?
+---@field on_take fun(inv:InvRef, listname:string, index:number, stack:ItemStack, player:PlayerRef)?
+
+-- `core.get_inventory(location)`: returns an `InvRef`
+--
+-- * `location` = e.g.
+--     * `{type="player", name="celeron55"}`
+--     * `{type="node", pos={x=, y=, z=}}`
+--     * `{type="detached", name="creative"}`
+---@param location inventory_location
+---@return InvRef
+function core.get_inventory_location(location) end
+
+---@nodiscard
+---@param name string
+---@param callbacks nil
+---@param player_name string?
+---@return InvRef
+function core.create_detached_inventory(name, callbacks, player_name) end
+
+---@param name string
+---@return boolean
+function core.remove_detached_inventory(name) end
