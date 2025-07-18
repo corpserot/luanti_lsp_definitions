@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "--[[$(cat LICENSE)]] $(cat *.lua)" | wl-copy
+echo "--[[$(cat LICENSE)]] $(cat *.lua)" 
