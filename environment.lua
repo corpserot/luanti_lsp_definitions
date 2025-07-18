@@ -161,12 +161,12 @@ function core.get_meta(pos) end
 --     * `elapsed` is in seconds, and supports fractional values (0.1 etc)
 --     * will trigger the node's `on_timer` function after `(timeout - elapsed)`
 --       seconds.
----@field set fun(timeout:number, elapsed:number)
----@field start fun(timeout:number)
----@field stop fun()
----@field get_timeout fun():number
----@field get_elapsed fun():number
----@field is_started fun():boolean
+---@field set fun(self,timeout:number, elapsed:number)
+---@field start fun(self,timeout:number)
+---@field stop fun(self,)
+---@field get_timeout fun(self,):number
+---@field get_elapsed fun(self,):number
+---@field is_started fun(self,):boolean
 
 ---@nodiscard
 ---@param pos vector

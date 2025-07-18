@@ -18,8 +18,9 @@ Named colors are also supported and are equivalent to
 To specify the value of the alpha channel, append `#A` or `#AA` to the end of
 the color name (e.g. `colorname#08`).
 ]]
----@class ColorString: string
----@class ColorSpec: table|number|integer|string|any
+-- Unofficial note: sorry they need to be aliases
+---@alias ColorString string
+---@alias ColorSpec table|number|integer|string|any
 
 ---@class content_id: integer
 

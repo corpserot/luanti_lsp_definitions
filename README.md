@@ -28,7 +28,6 @@ My source for all of this API information is [lua_api.md](https://github.com/lua
         - `vectorlib` - the `vector.*` library
         - `MapNode` - for the `{node=, param2=, param1=}` structure
         - `MapNodeOpt` - for the `{node=?, param2=?, param1=?}` structure
-        - `ColorString` for colorstrings (where it is `---@class ColorString: string`)
 - Annotations can be opinionated (Marking things ---@deprecated to avoid usage in production and have unofficial notes which may sometimes be unfunny) 
 - Sometimes hide the internal types, like in `handle = core.sound_play(...)`, you don't need to know that the handle is a number (I think? i haven't checked), you just need to know that it's a sound handle (`---@class sound_handle`, or similar), and it's more useful that way
 - No discarding of `success` booleans

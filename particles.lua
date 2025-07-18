@@ -31,7 +31,7 @@
 ---@field style ("fwd"|"rev"|"pulse"|"flicker")?
 ---@field reps number?
 ---@field start number?
----@field [integer] {x:number, y:number}
+---@field [integer] {x:number, y:number}|number
 
 ---@class ParticleSpawnerAttract
 ---@field kind "none"|"point"|"line"|"plane"
@@ -50,8 +50,8 @@
 ---@class ParticleTexture
 ---@field name string
 ---@field alpha number?
----@field alpha_tween particle_spawner_float_range?
----@field scale number|{x:number, y:number}?
+---@field alpha_tween particle_spawner_tween_float_range?
+---@field scale number|{x:number, y:number}?|number[]
 ---@field scale_tween particle_spawner_tween_vec2?
 ---@field blend ("alpha"|"clip"|"add"|"screen"|"sub")?
 ---@field animation TileAnimation?

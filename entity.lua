@@ -10,7 +10,7 @@
 ---@class luaentity: table
 ---@field name string
 ---@field object ObjectRef
----@field on_activate fun(self:luaentity, staticdata:string, dtime_s:number)
+---@field on_activate fun(self, staticdata:string, dtime_s:number)
 -- * `on_deactivate(self, removal)`
 --     * Called when the object is about to get removed or unloaded.
 --     * `removal`: boolean indicating whether the object is about to get removed.
@@ -19,15 +19,15 @@
 --     * Note that this won't be called if the object hasn't been activated in the first place.
 --       In particular, `core.clear_objects({mode = "full"})` won't call this,
 --       whereas `core.clear_objects({mode = "quick"})` might call this.
----@field on_deactivate fun(self:luaentity, removal:boolean)
----@field on_step fun(self:luaentity, dtime: number, moveresult: moveresult)
----@field on_punch fun(self:luaentity, puncher:ObjectRef?, time_from_last_punch:number?, tool_capabilities:tool_capabilities?, dir: vector, damage: number):boolean
----@field on_death fun(self:luaentity, killer:ObjectRef?)
----@field on_rightclick fun(self:luaentity, clicker:ObjectRef)
----@field on_attach_child fun(self:luaentity, child:ObjectRef)
----@field on_detach_child fun(self:luaentity, child:ObjectRef)
----@field on_detach fun(self:luaentity, parent:ObjectRef)
----@field get_staticdata fun(self:luaentity)
+---@field on_deactivate fun(self, removal:boolean)
+---@field on_step fun(self, dtime: number, moveresult: moveresult)
+---@field on_punch fun(self, puncher:ObjectRef?, time_from_last_punch:number?, tool_capabilities:tool_capabilities?, dir: vector, damage: number):boolean
+---@field on_death fun(self, killer:ObjectRef?)
+---@field on_rightclick fun(self, clicker:ObjectRef)
+---@field on_attach_child fun(self, child:ObjectRef)
+---@field on_detach_child fun(self, child:ObjectRef)
+---@field on_detach fun(self, parent:ObjectRef)
+---@field get_staticdata fun(self)
 
 --- Unofficial note: Never mentioned anywhere but useful for me
 ---@class collision
@@ -295,17 +295,17 @@
 --- Unofficial note:I *assume* it's a PlayerHPChangeReason, i am not certain
 ---@field set_hp fun(self,hp:integer, reason:PlayerHPChangeReason)
 -- * `get_inventory()`: returns an `InvRef` for players, otherwise returns `nil`
----@field get_inventory fun(self,):InvRef?
+---@field get_inventory fun(self,):InvRef
 -- * `get_wield_list()`: returns the name of the inventory list the wielded item
 --    is in.
----@field get_wield_list fun(self,):string?
+---@field get_wield_list fun(self,):string
 -- * `get_wield_index()`: returns the wield list index of the wielded item (starting with 1)
----@field get_wield_index fun(self,):integer?
+---@field get_wield_index fun(self,):integer
 -- * `get_wielded_item()`: returns a copy of the wielded item as an `ItemStack`
----@field get_wielded_item fun(self,):ItemStack?
+---@field get_wielded_item fun(self,):ItemStack
 -- * `set_wielded_item(item)`: replaces the wielded item, returns `true` if
 --   successful.
----@field set_wielded_item fun(self,item:ItemStack):boolean?
+---@field set_wielded_item fun(self,item:ItemStack):boolean
 -- * `get_armor_groups()`:
 --     * returns a table with all of the object's armor group ratings
 --     * syntax: the table keys are the armor group names,
@@ -527,34 +527,34 @@
 -- * `get_luaentity()`:
 --     * Returns the object's associated luaentity table, if there is one
 --     * Otherwise returns `nil` (e.g. for players)
----@field get_luaentity fun(self,):luaentity?
+---@field get_luaentity fun(self,):luaentity
 --- Luaentity only
 -- * `get_entity_name()`:
 --     * **Deprecated**: Will be removed in a future version,
 --       use `:get_luaentity().name` instead.
----@field get_entity_name fun(self,):string?
+---@field get_entity_name fun(self,):string
 -- * `get_player_name()`: Returns player name or `""` if is not a player
 --- Player only
----@field get_player_name fun(self,):string?
+---@field get_player_name fun(self,):string
 -- Player only
 -- * `get_player_velocity()`: **DEPRECATED**, use get_velocity() instead.
 --   table {x, y, z} representing the player's instantaneous velocity in nodes/s
----@field get_player_velocity fun(self,):vector?
+---@field get_player_velocity fun(self,):vector
 -- Player only
 -- * `add_player_velocity(vel)`: **DEPRECATED**, use add_velocity(vel) instead.
 ---@field add_player_velocity fun(self,vel:vector)
 -- Player only
 -- * `get_look_dir()`: get camera direction as a unit vector
----@field get_look_dir fun(self,):vector?
+---@field get_look_dir fun(self,):vector
 -- Player only
 -- * `get_look_vertical()`: pitch in radians
 --     * Angle ranges between -pi/2 and pi/2, which are straight up and down
 --       respectively.
----@field get_look_vertical fun(self,):number?
+---@field get_look_vertical fun(self,):number
 -- Player only
 -- * `get_look_horizontal()`: yaw in radians
 --     * Angle is counter-clockwise from the +z direction.
----@field get_look_horizontal fun(self,):number?
+---@field get_look_horizontal fun(self,):number
 -- Player only
 -- * `set_look_vertical(radians)`: sets look pitch
 --     * radians: Angle from looking forward, where positive is downwards.
@@ -568,12 +568,12 @@
 --   `get_look_vertical`.
 --     * Angle ranges between -pi/2 and pi/2, which are straight down and up
 --       respectively.
----@field get_look_pitch fun(self,):number?
+---@field get_look_pitch fun(self,):number
 -- Player only
 -- * `get_look_yaw()`: yaw in radians - Deprecated as broken. Use
 --   `get_look_horizontal`.
 --     * Angle is counter-clockwise from the +x direction.
----@field get_look_yaw fun(self,):number?
+---@field get_look_yaw fun(self,):number
 -- Player only
 -- * `set_look_pitch(radians)`: sets look pitch - Deprecated. Use
 --   `set_look_vertical`.
@@ -584,7 +584,7 @@
 ---@field set_look_yaw fun(self,radians:number)
 -- Player only
 -- * `get_breath()`: returns player's breath
----@field get_breath fun(self,):number?
+---@field get_breath fun(self,):number
 -- Player only
 -- * `set_breath(value)`: sets player's breath
 --     * values:
@@ -783,21 +783,21 @@
 -- Player only
 -- * `hud_get_hotbar_itemcount()`: returns number of visible items
 --     * This value is also clamped by the `"main"` list size.
----@field hud_get_hotbar_itemcount fun(self,):integer?
+---@field hud_get_hotbar_itemcount fun(self,):integer
 -- Player only
 -- * `hud_set_hotbar_image(texturename)`
 --     * sets background image for hotbar
 ---@field hud_set_hotbar_image fun(self,texturename:string)
 -- Player only
 -- * `hud_get_hotbar_image()`: returns texturename
----@field hud_get_hotbar_image fun(self,):string?
+---@field hud_get_hotbar_image fun(self,):string
 -- Player only
 -- * `hud_set_hotbar_selected_image(texturename)`
 --     * sets image for selected item of hotbar
 ---@field hud_set_hotbar_selected_image fun(self,texturename:string)
 -- Player only
 -- * `hud_get_hotbar_selected_image()`: returns texturename
----@field hud_get_hotbar_selected_image fun(self,):string?
+---@field hud_get_hotbar_selected_image fun(self,):string
 -- Player only
 -- * `set_minimap_modes({mode, mode, ...}, selected_mode)`
 --     * Overrides the available minimap modes (and toggle order), and changes the
@@ -898,7 +898,7 @@
 --         * `true` returns a table containing sky parameters as defined in `set_sky(sky_parameters)`.
 --         * Deprecated: `false` or `nil` returns base_color, type, table of textures,
 --         clouds.
----@field get_sky fun(self,as_table: boolean): table?
+---@field get_sky fun(self,as_table: boolean): table
 -- Player only
 -- * `set_sun(sun_parameters)`:
 --     * Passing no arguments resets the sun to its default values.
@@ -922,7 +922,7 @@
 -- Player only
 -- * `get_sun()`: returns a table with the current sun parameters as in
 --     `set_sun`.
----@field get_sun fun(self,):table?
+---@field get_sun fun(self,):table
 -- Player only
 -- * `set_moon(moon_parameters)`:
 --     * Passing no arguments resets the moon to its default values.
@@ -944,7 +944,7 @@
 -- Player only
 -- * `get_moon()`: returns a table with the current moon parameters as in
 --     `set_moon`.
----@field get_moon fun(self,):table?
+---@field get_moon fun(self,):table
 -- Player only
 -- * `set_stars(star_parameters)`:
 --     * Passing no arguments resets stars to their default values.
@@ -965,7 +965,7 @@
 -- Player only
 -- * `get_stars()`: returns a table with the current stars parameters as in
 --     `set_stars`.
----@field get_stars fun(self,):table?
+---@field get_stars fun(self,):table
 -- Player only
 -- * `set_clouds(cloud_parameters)`: set cloud parameters
 --     * Passing no arguments resets clouds to their default values.
@@ -997,7 +997,7 @@
 ---@field override_day_night_ratio fun(self,number)
 -- Player only
 -- * `get_day_night_ratio()`: returns the ratio or nil if it isn't overridden
----@field get_day_night_ratio fun(self,):number?
+---@field get_day_night_ratio fun(self,):number
 -- Player only
 -- * `set_local_animation(idle, walk, dig, walk_while_dig, frame_speed)`:
 --   set animation for player model in third person view.
@@ -1023,7 +1023,7 @@
 ---@field set_eye_offset fun(self,firstperson: vector?, thirdperson_back:vector?, thirdperson_front:vector? )
 -- Player only
 -- * `get_eye_offset()`: Returns camera offset vectors as set via `set_eye_offset`.
----@field get_eye_offset fun(self,): vector?, vector?, vector?
+---@field get_eye_offset fun(self,): vector?, vector?, vector
 -- Player only
 -- * `set_camera(params)`: Sets camera parameters.
 --     * `mode`: Defines the camera mode used
@@ -1035,7 +1035,7 @@
 ---@field set_camera fun(self,params: { mode: "any"|"first"|"third"|"third_front"})
 -- Player only
 -- * `get_camera()`: Returns the camera parameters as a table as above.
----@field get_camera fun(self,):{ mode: "any"|"first"|"third"|"third_front"}?
+---@field get_camera fun(self,):{ mode: "any"|"first"|"third"|"third_front"}
 -- Player only
 -- * `send_mapblock(blockpos)`:
 --     * Sends an already loaded mapblock to the player.
@@ -1111,7 +1111,7 @@
 --   * `breathing`: Whether breathing (regaining air) is enabled, default `true`.
 --   * `drowning`: Whether drowning (losing air) is enabled, default `true`.
 --   * `node_damage`: Whether the player takes damage from nodes, default `true`.
----@field get_flags fun(self,):{breathing:boolean, drowning:boolean, node_damage:boolean}?
+---@field get_flags fun(self,):{breathing:boolean, drowning:boolean, node_damage:boolean}
 -- Player only
 -- * `set_flags(flags)`: sets flags
 --   * takes a table in the same format as returned by `get_flags`
@@ -1123,5 +1123,31 @@
 
 ---@class PlayerMetaRef: MetaDataRef
 
----@class EntityDef: luaentity
+---@class EntityDef
+---@field on_activate? fun(self, staticdata:string, dtime_s:number)
+-- * `on_deactivate(self, removal)`
+--     * Called when the object is about to get removed or unloaded.
+--     * `removal`: boolean indicating whether the object is about to get removed.
+--       Calling `object:remove()` on an active object will call this with `removal=true`.
+--       The mapblock the entity resides in being unloaded will call this with `removal=false`.
+--     * Note that this won't be called if the object hasn't been activated in the first place.
+--       In particular, `core.clear_objects({mode = "full"})` won't call this,
+--       whereas `core.clear_objects({mode = "quick"})` might call this.
+---@field on_deactivate? fun(self, removal:boolean)
+---@field on_step? fun(self, dtime: number, moveresult: moveresult)
+-- Called when somebody punches the object.
+-- Note that you probably want to handle most punches using the automatic armor group system.
+-- puncher: an ObjectRef (can be nil)
+-- time_from_last_punch: Meant for disallowing spamming of clicks (can be nil).
+-- tool_capabilities: capability table of used item (can be nil)
+-- dir: unit vector of direction of punch. Always defined. Points from the puncher to the punched.
+-- damage: damage that will be done to entity.
+-- Can return true to prevent the default damage mechanism.
+---@field on_punch? fun(self, puncher:ObjectRef?, time_from_last_punch:number?, tool_capabilities:tool_capabilities?, dir: vector, damage: number):boolean?
+---@field on_death? fun(self, killer:ObjectRef?)?
+---@field on_rightclick? fun(self, clicker:ObjectRef)
+---@field on_attach_child? fun(self, child:ObjectRef)
+---@field on_detach_child? fun(self, child:ObjectRef)
+---@field on_detach? fun(self, parent:ObjectRef)
+---@field get_staticdata? fun(self)
 ---@field initial_properties ObjectProps

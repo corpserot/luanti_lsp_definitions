@@ -6,8 +6,9 @@ function core.register_biome(biome_def) end
 ---@param decoration_def DecorationDef
 function core.register_decoration(decoration_def) end
 
+---@param name string
 ---@param chatcommand_def ChatCommandDef
-function core.register_chatcommand(chatcommand_def) end
+function core.register_chatcommand(name, chatcommand_def) end
 
 --- core.register_node defined somewhere else
 
@@ -36,7 +37,7 @@ function core.register_tool(name, itemdef) end
 --       removes the sounds from the definition of the mese block.
 ---@param name string
 ---@param redefinition table sorry no types for this one :)
----@param del_fields table sorry no types for this one :)
+---@param del_fields table? sorry no types for this one :)
 function core.override_item(name, redefinition, del_fields) end
 
 ---@param name string
@@ -233,10 +234,10 @@ function core.register_abm(abmdef) end
 ---@class ABMDef
 -- Descriptive label for profiling purposes (optional).
 -- Definitions with identical labels will be listed as one.
----@field label?  string
+---@field label  string
 -- Apply `action` function to these nodes.
 -- `group:groupname` can also be used here.
----@field nodenames? string[]
+---@field nodenames string[]
 -- Only apply `action` to nodes that have one of, or any
 -- combination of, these neighbors.
 -- If left out or empty, any neighbor will do.
@@ -247,9 +248,9 @@ function core.register_abm(abmdef) end
 -- `group:groupname` can also be used here.
 ---@field without_neighbors? string[]
 -- Operation interval in seconds
----@field interval? number
+---@field interval number
 -- Probability of triggering `action` per-node per-interval is 1.0 / chance (integers only)
----@field chance? number
+---@field chance number
 ---@field min_y? number
 ---@field max_y? number
 -- If true, catch-up behavior is enabled: The `chance` value is
@@ -450,22 +451,22 @@ function core.register_abm(abmdef) end
 --                                                   -- neighbors to the sides
 -- }
 ---@field type "regular"|"fixed"|"leveled"|"wallmounted"|"connected"
----@field fixed Box
----@field wall_top Box_single
----@field wall_bottom Box_single
----@field wall_side Box_single
----@field connect_top Box
----@field connect_front Box
----@field connect_back Box
----@field connect_right Box
----@field disconnected_top Box
----@field disconnected_bottom Box
----@field disconnected_front Box
----@field disconnected_left Box
----@field disconnected_back Box
----@field disconnected_right Box
----@field disconnected Box
----@field disconnected_sides Box
+---@field fixed? Box
+---@field wall_top? Box_single
+---@field wall_bottom? Box_single
+---@field wall_side? Box_single
+---@field connect_top? Box
+---@field connect_front? Box
+---@field connect_back? Box
+---@field connect_right? Box
+---@field disconnected_top? Box
+---@field disconnected_bottom? Box
+---@field disconnected_front? Box
+---@field disconnected_left? Box
+---@field disconnected_back? Box
+---@field disconnected_right? Box
+---@field disconnected? Box
+---@field disconnected_sides? Box
 
 ---@alias Box Box_single[]|Box_single
 ---@alias Box_single number[]
@@ -544,7 +545,7 @@ function core.register_abm(abmdef) end
 -- 4. `"blocking"` for any group
 -- 5. `liquids_pointable` if it is a liquid node
 -- 6. `pointable` property of the node or object
----@field pointabilities {nodes:table<string, "blocking"|boolean>, objects:table<string, "blocking"|boolean>}
+---@field pointabilities? {nodes:table<string, "blocking"|boolean>, objects:table<string, "blocking"|boolean>}
 -- When used for nodes: Defines amount of light emitted by node.
 -- Otherwise: Defines texture glow when viewed as a dropped item
 -- To set the maximum (14), use the value 'core.LIGHT_MAX'.
@@ -585,8 +586,8 @@ function core.register_abm(abmdef) end
 --     Equivalent to "long_dig_short_place".
 --   * The behavior of "user" may change in the future.
 -- The default value is "user".
----@field touch_interaction TouchInteractionMode | {pointed_nothing:TouchInteractionMode, pointed_node:TouchInteractionMode, pointed_object: TouchInteractionMode}
----@field sound {breaks:SimpleSoundSpec?, eat:SimpleSoundSpec?, punch_use:SimpleSoundSpec?, punch_use_dir:SimpleSoundSpec?}
+---@field touch_interaction? TouchInteractionMode | {pointed_nothing:TouchInteractionMode, pointed_node:TouchInteractionMode, pointed_object: TouchInteractionMode}
+---@field sound? {breaks:SimpleSoundSpec?, eat:SimpleSoundSpec?, punch_use:SimpleSoundSpec?, punch_use_dir:SimpleSoundSpec?}
 -- When the 'place' key was pressed with the item in hand
 -- and a node was pointed at.
 -- Shall place item and return the leftover itemstack
@@ -1658,22 +1659,22 @@ function core.node_dig(pos, node, digger) end
 
 ---@class pointed_thing
 ---@field type "nothing"|"node"|"object"
----@field under vector?
----@field above vector?
----@field ref ObjectRef?
+---@field under vector
+---@field above vector
+---@field ref ObjectRef
 --- Only raycast supports this
 -- * `pointed_thing.intersection_point`: The absolute world coordinates of the
 --   point on the selection box which is pointed at. May be in the selection box
 --   if the pointer is in the box too.
----@field intersection_point vector?
+---@field intersection_point vector
 --- Only raycast supports this
 -- * `pointed_thing.box_id`: The ID of the pointed selection box (counting starts
 --   from 1).
----@field box_id integer?
+---@field box_id integer
 --- Only raycast supports this
 -- * `pointed_thing.intersection_normal`: Unit vector, points outwards of the
 --   selected selection box. This specifies which face is pointed at.
 --   Is a null vector `vector.zero()` when the pointer is inside the selection box.
 --   For entities with rotated selection boxes, this will be rotated properly
 --   by the entity's rotation - it will always be in absolute world space.
----@field intersection_normal vector?
+---@field intersection_normal vector
