@@ -181,7 +181,7 @@ function core.get_node_timer(pos) end
 ---@param pos vector
 ---@param name string
 ---@param staticdata string?
----@return luaentity?
+---@return ObjectRef?
 function core.add_entity(pos, name, staticdata) end
 
 -- * `core.add_item(pos, item)`: Spawn item

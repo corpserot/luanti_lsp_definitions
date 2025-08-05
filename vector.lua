@@ -97,7 +97,6 @@ This will probably drastically reduce on garbage collector use, as vectors are H
 ---@field x number
 ---@field y number
 ---@field z number
-----@field protected [number] number you know... i don't know how to make this deprecated, so i'm just not going to include it in here, you should NOT!! index vectors like that
 ---@operator unm(vector):vector
 ---@operator add(vector):vector
 ---@operator sub(vector):vector

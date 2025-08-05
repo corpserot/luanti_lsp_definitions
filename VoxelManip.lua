@@ -306,10 +306,10 @@ function VoxelArea:containsi(i) end
 ---@param maxy number
 ---@param maxz number
 ---@return function
-function iter(minx, miny, minz, maxx, maxy, maxz) end
+function VoxelArea:iter(minx, miny, minz, maxx, maxy, maxz) end
 
 ---@nodiscard
 ---@param minp vector
 ---@param maxp vector
 ---@return function
-function iterp(minp, maxp) end
+function VoxelArea:iterp(minp, maxp) end

@@ -33,6 +33,8 @@ the color name (e.g. `colorname#08`).
 ---@class core
 core = {}
 
+core.LIGHT_MAX = 14
+
 --- Anyway, HERE Belongeth the misc stuff
 
 --- Unofficial note: In newer luanti versions, `core.*` is prefered, `core.*` existed in older versions too, really no reason to NOT lsp rename unless you got something scuffed going on

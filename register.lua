@@ -120,15 +120,15 @@ function core.clear_registered_ores() end
 
 function core.clear_registered_schematics() end
 
----@type table<string, ItemDef>
+---@type table<string, ItemDef?>
 core.registered_items = core.registered_items
----@type table<string, NodeDef>
+---@type table<string, NodeDef?>
 core.registered_nodes = core.registered_nodes
----@type table<string, ItemDef>
+---@type table<string, ItemDef?>
 core.registered_craftitems = core.registered_craftitems
----@type table<string, ItemDef>
+---@type table<string, ItemDef?>
 core.registered_tools = core.registered_tools
----@type table<string, EntityDef>
+---@type table<string, EntityDef?>
 core.registered_entities = core.registered_entities
 ---@type table<integer, ObjectRef>
 core.object_refs = core.object_refs
@@ -140,15 +140,15 @@ core.registered_abms = core.registered_abms
 core.registered_lbms = core.registered_lbms
 ---@type table<string, string>
 core.registered_aliases = core.registered_aliases
----@type table<string|integer, OreDef>
+---@type table<string|integer, OreDef?>
 core.registered_ores = core.registered_ores
----@type table<string|integer, BiomeDef>
+---@type table<string|integer, BiomeDef?>
 core.registered_biomes = core.registered_biomes
----@type table<string|integer, DecorationDef>
+---@type table<string|integer, DecorationDef?>
 core.registered_decorations = core.registered_decorations
----@type table<string, ChatCommandDef>
+---@type table<string, ChatCommandDef?>
 core.registered_chatcommands = core.registered_chatcommands
----@type table<string, PrivDef>
+---@type table<string, PrivDef?>
 core.registered_privileges = core.registered_privileges
 
 --- I got lazy, sowwy :<
@@ -490,7 +490,7 @@ function core.register_abm(abmdef) end
 
 ---@alias TouchInteractionMode "long_dig_short_place"|"short_dig_long_place"|"user"
 
----@class ItemDef: table
+---@class ItemDef
 -- Can contain new lines. "\n" has to be used as new line character.
 -- See also: `get_description` in [`ItemStack`]
 ---@field description string
@@ -1307,7 +1307,7 @@ function core.register_abm(abmdef) end
 -- This function does not get triggered by clients <=0.4.16 if the
 -- "formspec" node metadata field is set.
 -- Unofficial note: Ah, i love the "Not triggered in these specific old unusable versions you probably cannot support even if you tried, and which servers get penaltied for supporting them"
----@field on_rightclick? fun(pos:vector, node:MapNode, clicker:PlayerRef, itemstack:ItemStack, pointed_thing:pointed_thing):ItemStack
+---@field on_rightclick? fun(pos:vector, node:MapNode, clicker:PlayerRef, itemstack:ItemStack, pointed_thing:pointed_thing?):ItemStack
 -- on_dig = function(pos, node, digger),
 -- default: core.node_dig
 -- By default checks privileges, wears out item (if tool) and removes node.
