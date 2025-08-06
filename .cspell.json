@@ -1,0 +1,16 @@
+{
+    "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+    "allowCompoundWords": true,
+    "dictionaryDefinitions": [
+        {
+            "name": "luanti",
+            "path": ".cspell-luanti.txt",
+            "addWords": true
+        }
+    ],
+    "dictionaries": ["lua", "luanti", "public-licenses"],
+    "ignorePaths": [
+        ".cspell-luanti.txt",
+        "LICENSE"
+    ],
+}

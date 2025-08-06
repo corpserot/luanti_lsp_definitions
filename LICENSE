@@ -1,9 +1,9 @@
 
 ---------------------------------------------------
-Some parts of https://github.com/luanti-org/luanti/blob/5.12.0/doc/lua_api.md?plain=1 have been copy pasted into the definitions
+Some parts of https://github.com/luanti-org/luanti/blob/master/doc/lua_api.md?plain=1 have been copy pasted into the definitions
 
-License of what i did:
----
+0BSD license of original parts in this LuaLS addon:
+-----------------------------------------------
 Zero-Clause BSD
 =============
 
@@ -19,8 +19,8 @@ AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT
 OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ---
 
-the license of lua_api.md:
----------------------------------------------------
+LGPLv2.1 license of Luanti's lua_api.md document:
+--------------------------------------------
 
 Luanti
 Copyright (C) 2010-2024 celeron55, Perttu Ahola <celeron55@gmail.com>

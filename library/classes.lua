@@ -1,5 +1,5 @@
---- CLASS REFERENCE
 ---@meta
+--- CLASS REFERENCE
 --- "Misc.", "Helpers", "Utils", "Class reference"
 --- what will be their next invention
 

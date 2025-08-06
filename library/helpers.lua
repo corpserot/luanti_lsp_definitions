@@ -4,6 +4,9 @@
 --- So lua_api.md has a section for "utilities" and "helpers" and also "further helpers"
 --- I am going to have all of those be here
 
+---@type string
+DIR_DELIM = '/'
+
 --- Makes `obj` human-readable, handles reference loops
 ---@param obj any
 ---@param name string?
@@ -360,8 +363,8 @@ core.protocol_versions = core.protocol_versions
 -- such as side-by-side mode.
 ---@field size {x:integer,  y:integer}
 -- Estimated maximum formspec size before Luanti will start shrinking the
--- formspec to fit. For a fullscreen formspec, use this formspec size and
--- `padding[0,0]`. `bgcolor[;true]` is also recommended.
+-- formspec to fit. For a fullscreen formspec, use the size returned by
+-- this table  and `padding[0,0]`. `bgcolor[;true]` is also recommended.
 ---@field max_formspec_size {x: number, y:number}
 -- GUI Scaling multiplier
 -- Equal to the setting `gui_scaling` multiplied by `dpi / 96`
