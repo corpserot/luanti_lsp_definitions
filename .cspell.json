@@ -4,13 +4,19 @@
     "dictionaryDefinitions": [
         {
             "name": "luanti",
-            "path": ".cspell-luanti.txt",
+            "path": "utils/.cspell-luanti.txt",
+            "addWords": true
+        },
+        {
+            "name": "misc",
+            "path": "utils/.cspell-misc.txt",
             "addWords": true
         }
     ],
-    "dictionaries": ["lua", "luanti", "public-licenses"],
+    "dictionaries": ["lua", "luanti", "misc", "public-licenses"],
     "ignorePaths": [
-        ".cspell-luanti.txt",
+        "utils/.cspell-luanti.txt",
+        "utils/.cspell-misc.txt",
         "LICENSE"
     ],
 }
