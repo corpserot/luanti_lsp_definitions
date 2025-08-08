@@ -58,26 +58,21 @@ function PcgRandom:set_state(state) end
 -- * constructor `PseudoRandom(seed)`
 --   * `seed`: 32-bit signed number
 ---@class PseudoRandom
-PseudoRandom = {}
-
----@param seed integer
-function PseudoRandom(seed) end
-
 -- * `next()`: return next integer random number [`0`...`32767`]
----@return integer
-function PseudoRandom:next() end
 -- * `next(min, max)`: return next integer random number [`min`...`max`]
 --     * Either `max - min == 32767` or `max - min <= 6553` must be true
 --       due to the simple implementation making a bad distribution otherwise.
----@param min integer
----@param max integer
----@return integer
-function PseudoRandom:next(min, max) end
-
+---@overload fun(self):integer
+---@field next fun(self, min:integer, max:integer):integer
 -- * `get_state()`: return state of pseudorandom generator as number
 --     * use returned number as seed in PseudoRandom constructor to restore
----@return integer
-function PseudoRandom:get_state() end
+---@field get_state fun(self):integer
+
+---@param seed integer
+---@return PseudoRandom
+---@deprecated
+function PseudoRandom(seed) end
+
 
 -- `SecureRandom`
 -- --------------

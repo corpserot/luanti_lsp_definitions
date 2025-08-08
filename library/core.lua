@@ -2,6 +2,8 @@
 ---@meta
 ---@version 5.1, JIT # btw if you got a big complicated game, it might stop making sense targetting lua5.1
 
+-- cspell:ignore RRGGBB RRGGBBAA zstandard
+
 --- ALSO: My comments will be "Unofficial note: ..."
 
 --[[
@@ -103,11 +105,15 @@ function core.chat_send_player(name, text) end
 ---@return nil
 function core.format_chat_message(name, message) end
 
----@class SimpleSoundSpec
+---@class SimpleSoundSpecTable
 ---@field name string
 ---@field gain number?
 ---@field pitch number?
 ---@field fade number?
+
+---@alias SimpleSoundSpec
+--- | SimpleSoundSpecTable
+--- | string
 
 ---@class sound_params
 ---@field gain number?

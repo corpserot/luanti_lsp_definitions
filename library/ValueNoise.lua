@@ -1,6 +1,6 @@
 ---@meta
 
---Unofficial note: Hover over the fields to see what they do :)
+-- cspell:words noeased noisevals
 
 -- ### Format example
 --

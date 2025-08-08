@@ -4,6 +4,8 @@
 --- So lua_api.md has a section for "utilities" and "helpers" and also "further helpers"
 --- I am going to have all of those be here
 
+-- cspell:words cpdir mvdir noprefetch
+
 ---@type string
 DIR_DELIM = '/'
 
@@ -128,9 +130,10 @@ function table.key_value_swap(t) end
 ---@return nil
 function table.shuffle(table, from, to, random_func) end
 
+---@param placer PlayerRef
 ---@param pointed_thing pointed_thing
 ---@return vector
-function core.pointed_thing_to_face_pos(pointed_thing) end
+function core.pointed_thing_to_face_pos(placer, pointed_thing) end
 
 ---@param uses integer
 ---@param initial_wear integer?
@@ -182,7 +185,7 @@ function core.is_singleplayer() end
 --- Oh [[boy]], vim macros are totally not going to get involved hehe
 --- OK I love vim macros
 
----@class core.features
+---@class FeatureFlags
 -- 0.4.7
 ---@field glasslike_framed  boolean?
 -- 0.4.7
@@ -298,8 +301,7 @@ function core.is_singleplayer() end
 -- The HTTP API supports the HEAD and PATCH methods (5.12.0)
 ---@field httpfetch_additional_methods  boolean?
 
----@return core.features
-function core.features() end
+core.features = {} --[[@as FeatureFlags]]
 
 ---@nodiscard
 ---@param arg string[]|string
@@ -586,6 +588,13 @@ core.EMERGE_FROM_DISK = core.EMERGE_FROM_DISK
 ---@type core.EMERGE_GENERATED
 core.EMERGE_GENERATED = core.EMERGE_GENERATED
 
+---@alias EmergeAction
+--- | core.EMERGE_CANCELLED
+--- | core.EMERGE_ERRORED
+--- | core.EMERGE_FROM_MEMORY
+--- | core.EMERGE_FROM_DISK
+--- | core.EMERGE_GENERATED
+
 -- * `core.emerge_area(pos1, pos2, [callback], [param])`
 --     * Queue all blocks in the area from `pos1` to `pos2`, inclusive, to be
 --       asynchronously fetched from memory, loaded from disk, or if inexistent,
@@ -608,7 +617,7 @@ core.EMERGE_GENERATED = core.EMERGE_GENERATED
 --           nil if the parameter was absent).
 ---@param pos1 vector
 ---@param pos2 vector
----@param callback fun(blockpos:vector, action: core.EMERGE_CANCELLED|core.EMERGE_ERRORED|core.EMERGE_FROM_MEMORY|core.EMERGE_FROM_DISK|core.EMERGE_GENERATED, calls_remaining:number, param:any?)
+---@param callback fun(blockpos:vector, action:EmergeAction , calls_remaining:number, param:any?)?
 ---@param param any?
 ---@async
 function core.emerge_area(pos1, pos2, callback, param) end
@@ -876,7 +885,7 @@ function core.inventorycube(img1, img2, img3) end
 --     * If the optional `above` parameter is true and the `pointed_thing` refers
 --       to a node, then it will return the `above` position of the `pointed_thing`.
 ---@param pointed_thing pointed_thing
----@param above boolean
+---@param above boolean?
 ---@return vector
 function core.get_pointed_thing_position(pointed_thing, above) end
 

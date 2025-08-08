@@ -1,8 +1,6 @@
 ---@meta
 
---- Offtopic but what a cool name
-
---- Anyway i lied we are doing Content IDs here
+-- cspell:words containsi containsp iterp
 
 --- HACK:
 ---@type content_id

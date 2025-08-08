@@ -288,8 +288,15 @@ function core.find_node_near(pos, radius, nodenames, search_center) end
 ---@param pos1 vector
 ---@param pos2 vector
 ---@param nodenames string[]|string
----@param grouped boolean?
----@return table<string, vector[]>|vector[], table<string, number>?
+---@param grouped true
+---@return table<string, vector[]>
+function core.find_nodes_in_area(pos1, pos2, nodenames, grouped) end
+---@nodiscard
+---@param pos1 vector
+---@param pos2 vector
+---@param nodenames string[]|string
+---@param grouped false?
+---@return vector[], table<string, number>
 function core.find_nodes_in_area(pos1, pos2, nodenames, grouped) end
 
 -- * `core.find_nodes_in_area_under_air(pos1, pos2, nodenames)`: returns a

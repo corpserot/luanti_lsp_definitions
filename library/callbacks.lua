@@ -120,7 +120,7 @@ function core.register_on_player_hpchange(f, modifier) end
 ---@param f fun(ObjectRef:ObjectRef, reason:PlayerHPChangeReason)
 function core.register_on_dieplayer(f) end
 
----@param f fun(ObjectRef:ObjectRef)
+---@param f fun(ObjectRef:ObjectRef):boolean?
 function core.register_on_respawnplayer(f) end
 
 ---@param f fun(name:string, ip:string)
@@ -142,7 +142,7 @@ function core.register_on_leaveplayer(f) end
 function core.register_on_authplayer(f) end
 
 -- * Deprecated: use `core.register_on_authplayer(name, ip, is_success)` instead.
----@deprecatred
+---@deprecated
 ---@param f fun(name:string, ip:string)
 function core.register_on_auth_fail(f) end
 
@@ -242,10 +242,26 @@ function core.register_on_craft(f) end
 ---@param f fun(itemstack:ItemStack, player:PlayerRef, old_crafting_grid:table, craft_inv:InvRef):ItemStack?
 function core.register_craft_predict(f) end
 
----@class inventory_info: table
----@field move {from_list:string, to_list:string, from_index:number, to_index:number, count:number}?
----@field put {listname:string, index:string, stack:ItemStack}
----@field take {listname:string, index:string, stack:ItemStack}
+---@alias InventoryAction
+--- | "move"
+--- | "put"
+--- | "take"
+
+---@class InventoryInfoMove
+---@field from_list string
+---@field to_list string
+---@field from_index number
+---@field to_index number
+---@field count number
+
+---@class InventoryInfoPutOrTake
+---@field listname string
+---@field index string
+---@field stack ItemStack
+
+---@alias InventoryInfo
+--- | InventoryInfoMove
+--- | InventoryInfoPutOrTake
 
 -- * `core.register_allow_player_inventory_action(function(player, action, inventory, inventory_info))`
 --     * Determines how much of a stack may be taken, put or moved to a
@@ -253,10 +269,10 @@ function core.register_craft_predict(f) end
 --     * Function arguments: see `core.register_on_player_inventory_action`
 --     * Return a numeric value to limit the amount of items to be taken, put or
 --       moved. A value of `-1` for `take` will make the source stack infinite.
----@param f fun(player:PlayerRef, action:"move"|"put"|"take", inventory:InvRef, inventory_info: inventory_info):number
+---@param f fun(player:PlayerRef, action:InventoryAction, inventory:InvRef, inventory_info: InventoryInfo):number
 function core.register_allow_player_inventory_action(f) end
 
----@param f fun(player:PlayerRef, action:"move"|"put"|"take", inventory:InvRef, inventory_info: inventory_info):nil
+---@param f fun(player:PlayerRef, action:InventoryAction, inventory:InvRef, inventory_info: InventoryInfo):nil
 function core.register_on_player_inventory_action(f) end
 
 -- * `core.register_on_protection_violation(function(pos, name))`

@@ -1,5 +1,8 @@
 ---@meta
 
+-- cspell:ignore FFFFFAFFBF
+-- cspell:words voronoi
+
 -- Key for special L-System symbols used in axioms
 -- -----------------------------------------------
 --

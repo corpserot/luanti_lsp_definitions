@@ -28,7 +28,7 @@
 -- * `set_string(key, value)`: Value of `""` will delete the key.
 ---@field set_string fun(self, key:string, value:string)
 -- * `get_string(key)`: Returns `""` if key not present.
----@field get_string fun(self, key:string)
+---@field get_string fun(self, key:string):string
 -- * `set_int(key, value)`
 --     * The range for the value is system-dependent (usually 32 bits).
 --       The value will be converted into a string when stored.
@@ -41,6 +41,7 @@
 ---@field set_float fun(self, key:string, value:number)
 ---@field get_float fun(self, key:string):number
 ---@field get_keys fun(self):string[]
+---@field from_table fun(self,data:table?):boolean?
 ---@field to_table fun(self):{fields:table<string, string>,inventory:InvTable}
 
 -- * `core.get_mod_storage()`:
@@ -79,54 +80,54 @@ function Settings(filename) end
 ---@class Settings
 -- * `get(key)`: returns a value
 --     * Returns `nil` if `key` is not found.
----@field get fun(key:string):any
+---@field get fun(self, key:string):any
 -- * `get_bool(key, [default])`: returns a boolean
 --     * `default` is the value returned if `key` is not found.
 --     * Returns `nil` if `key` is not found and `default` not specified.
----@field get_bool fun(key:string, fundefault:any):any?
+---@field get_bool fun(self, key:string, fundefault:any):any?
 -- * `get_np_group(key)`: returns a NoiseParams table
 --     * Returns `nil` if `key` is not found.
----@field get_np_group fun(key:string):NoiseParams
+---@field get_np_group fun(self, key:string):NoiseParams
 -- * `get_flags(key)`:
 --     * Returns `{flag = true/false, ...}` according to the set flags.
 --     * Is currently limited to mapgen flags `mg_flags` and mapgen-specific
 --       flags like `mgv5_spflags`.
 --     * Returns `nil` if `key` is not found.
----@field get_flags fun(key: string):table<string, boolean>
+---@field get_flags fun(self, key: string):table<string, boolean>
 -- * `get_pos(key)`:
 --     * Returns a `vector`
 --     * Returns `nil` if no value is found or parsing failed.
----@field get_pos fun(key:string):vector?
+---@field get_pos fun(self, key:string):vector?
 -- * `set(key, value)`
 --     * Setting names can't contain whitespace or any of `="{}#`.
 --     * Setting values can't contain the sequence `\n"""`.
 --     * Setting names starting with "secure." can't be set on the main settings
 --       object (`core.settings`).
----@field set fun(key:string, value:any)
+---@field set fun(self, key:string, value:any)
 -- * `set_bool(key, value)`
 --     * See documentation for `set()` above.
----@field set_bool fun(key:string, value:boolean)
+---@field set_bool fun(self, key:string, value:boolean)
 -- * `set_np_group(key, value)`
 --     * `value` is a NoiseParams table.
 --     * Also, see documentation for `set()` above.
----@field set_np_group fun(key:string, value:NoiseParams)
+---@field set_np_group fun(self, key:string, value:NoiseParams)
 -- * `set_pos(key, value)`
 --     * `value` is a `vector`.
 --     * Also, see documentation for `set()` above.
----@field set_pos fun(key:string, value:vector)
+---@field set_pos fun(self, key:string, value:vector)
 -- * `remove(key)`: returns a boolean (`true` for success)
----@field remove fun(key:boolean):boolean
+---@field remove fun(self, key:boolean):boolean
 -- * `get_names()`: returns `{key1,...}`
----@field get_names fun():string[]
+---@field get_names fun(self):string[]
 -- * `has(key)`:
 --     * Returns a boolean indicating whether `key` exists.
 --     * In contrast to the various getter functions, `has()` doesn't consider
 --       any default values.
 --     * This means that on the main settings object (`core.settings`),
 --       `get(key)` might return a value even if `has(key)` returns `false`.
----@field has fun(key: string):boolean
+---@field has fun(self, key: string):boolean
 -- * `write()`: returns a boolean (`true` for success)
 --     * Writes changes to file.
----@field write fun():boolean
+---@field write fun(self):boolean
 -- * `to_table()`: returns `{[key1]=value1,...}`
----@field to_table fun():table
+---@field to_table fun(self):table

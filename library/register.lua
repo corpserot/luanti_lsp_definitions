@@ -1,5 +1,7 @@
 ---@meta
 
+-- cspell:words digparams mese redef clust
+
 ---@param biome_def BiomeDef
 function core.register_biome(biome_def) end
 
@@ -228,7 +230,7 @@ function core.register_abm(abmdef) end
 --
 -- Used by `core.register_abm`.
 --
--- An active block modifier (ABM) is used to define a function that is continously
+-- An active block modifier (ABM) is used to define a function that is continuously
 -- and randomly called for specific nodes (defined by `nodenames` and other conditions)
 -- in active mapblocks.
 ---@class ABMDef
@@ -237,16 +239,16 @@ function core.register_abm(abmdef) end
 ---@field label  string
 -- Apply `action` function to these nodes.
 -- `group:groupname` can also be used here.
----@field nodenames string[]
+---@field nodenames string[]|string
 -- Only apply `action` to nodes that have one of, or any
 -- combination of, these neighbors.
 -- If left out or empty, any neighbor will do.
 -- `group:groupname` can also be used here.
----@field neighbors? string[]
+---@field neighbors? string[]|string
 -- Only apply `action` to nodes that have no one of these neighbors.
 -- If left out or empty, it has no effect.
 -- `group:groupname` can also be used here.
----@field without_neighbors? string[]
+---@field without_neighbors? string[]|string
 -- Operation interval in seconds
 ---@field interval number
 -- Probability of triggering `action` per-node per-interval is 1.0 / chance (integers only)
@@ -493,7 +495,7 @@ function core.register_abm(abmdef) end
 ---@class ItemDef
 -- Can contain new lines. "\n" has to be used as new line character.
 -- See also: `get_description` in [`ItemStack`]
----@field description string
+---@field description? string
 -- Must not contain new lines.
 -- Defaults to nil.
 -- Use an [`ItemStack`] to get the short description, e.g.:
@@ -505,7 +507,7 @@ function core.register_abm(abmdef) end
 --      {soil = 2, outerspace = 1, crumbly = 1}
 --      {bendy = 2, snappy = 1},
 --      {hard = 1, metal = 1, spikes = 1}
----@field groups table<string, integer>
+---@field groups? table<string, integer>
 -- Texture shown in the inventory GUI
 -- Defaults to a 3D rendering of the node if left empty.
 ---@field inventory_image? string
@@ -625,10 +627,10 @@ function core.register_abm(abmdef) end
 -- Otherwise, the function is free to do what it wants.
 -- The user may be any ObjectRef or nil.
 -- The default functions handle regular use cases.
----@field on_use? fun(itemstack:ItemStack, user:PlayerRef?, pointed_thing:pointed_thing)
+---@field on_use? fun(itemstack:ItemStack, user:PlayerRef?, pointed_thing:pointed_thing):ItemStack?
 -- default: nil
 -- If defined, should return an itemstack and will be called instead of
--- wearing out the item (if tool). If returnskk nil, does nothing.
+-- wearing out the item (if tool). If returns nil, does nothing.
 -- If after_use doesn't exist, it is the same as:
 --   function(itemstack, user, node, digparams)
 --     itemstack:add_wear(digparams.wear)
@@ -1307,7 +1309,7 @@ function core.register_abm(abmdef) end
 -- This function does not get triggered by clients <=0.4.16 if the
 -- "formspec" node metadata field is set.
 -- Unofficial note: Ah, i love the "Not triggered in these specific old unusable versions you probably cannot support even if you tried, and which servers get penaltied for supporting them"
----@field on_rightclick? fun(pos:vector, node:MapNode, clicker:PlayerRef, itemstack:ItemStack, pointed_thing:pointed_thing?):ItemStack
+---@field on_rightclick? fun(pos:vector, node:MapNode, clicker:PlayerRef, itemstack:ItemStack, pointed_thing:pointed_thing?):ItemStack?
 -- on_dig = function(pos, node, digger),
 -- default: core.node_dig
 -- By default checks privileges, wears out item (if tool) and removes node.
@@ -1327,7 +1329,7 @@ function core.register_abm(abmdef) end
 -- Called when an UI form (e.g. sign text input) returns data.
 -- See core.register_on_player_receive_fields for more info.
 -- default: nil
----@field on_receive_fields? fun(pos:vector, _:nil, fields: table<string, string>):nil
+---@field on_receive_fields? fun(pos:vector, _:nil, fields: table<string, string>, sender:PlayerRef):nil
 -- allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player),
 -- Called when a player wants to move items inside the inventory.
 -- Return value: number of items allowed to move.

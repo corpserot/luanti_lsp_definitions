@@ -3,10 +3,10 @@
 
 --[[
 `core.get_translator(textdomain)` is a simple wrapper around
-`core.translate` and `core.translate_n`.  
+`core.translate` and `core.translate_n`.
 After `local S, PS = core.get_translator(textdomain)`, we have
 `S(str, ...)` equivalent to `core.translate(textdomain, str, ...)`, and
-`PS(str, str_plural, n, ...)` to `core.translate_n(textdomain, str, str_plural, n, ...)`.  
+`PS(str, str_plural, n, ...)` to `core.translate_n(textdomain, str, str_plural, n, ...)`.
 It is intended to be used in the following way, so that it avoids verbose
 repetitions of `core.translate`:
 
@@ -40,9 +40,10 @@ function core.get_translator(textdomain) end
 ---@param ... string
 function core.translate(textdomain, str, ...) end
 
+-- cspell:disable
 --[[
 * `core.translate_n(textdomain, str, str_plural, n, ...)` translates the
-  string `str` with the given `textdomain` for disambiguaion. The value of
+  string `str` with the given `textdomain` for disambiguation. The value of
   `n`, which must be a nonnegative integer, is used to decide whether to use
   the singular or the plural version of the string. Depending on the locale of
   the client, the choice between singular and plural might be more complicated,
@@ -102,6 +103,7 @@ and CoolGuy has set a German locale, they will see `Hallo CoolGuy, wie geht es
 dir heute?` when they join, and the `/playtime` command will show them `Du
 spielst seit 1 Minute.` or (for example) `Du spielst seit 4 Minuten.`
 ]]
+-- cspell:enable
 ---@nodiscard
 ---@param textdomain textdomain
 ---@param str string
@@ -109,3 +111,24 @@ spielst seit 1 Minute.` or (for example) `Du spielst seit 4 Minuten.`
 ---@param n number
 ---@param ... string
 function core.translate_n(textdomain, str, str_plural, n, ...) end
+
+--[[
+On some specific cases, server translation could be useful. For example, filter
+a list on labels and send results to client. A method is supplied to achieve
+that:
+
+`core.get_translated_string(lang_code, string)`: resolves translations in
+the given string just like the client would, using the translation files for
+`lang_code`. For this to have any effect, the string needs to contain translation
+markup, e.g. `core.get_translated_string("fr", S("Hello"))`.
+
+The `lang_code` to use for a given player can be retrieved from
+the table returned by `core.get_player_information(name)`.
+
+IMPORTANT: This functionality should only be used for sorting, filtering or similar purposes.
+You do not need to use this to get translated strings to show up on the client.
+]]
+---@param lang_code string
+---@param str string
+---@return string
+function core.get_translated_string(lang_code, str) end

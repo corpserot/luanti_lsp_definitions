@@ -66,7 +66,13 @@
 -- * item table values are ItemStacks
 ---@class InvTable: table<string, InvList>
 
----@alias ItemStackAny ItemStack|string|table
+---@class ItemTableFmt
+---@field name string
+---@field count integer?
+---@field wear integer?
+---@field metadata string?
+
+---@alias ItemStackAny ItemStack | ItemTableFmt | string
 
 ---@class ItemStackMetaRef: MetaDataRef
 ---@field set_tool_capabilities fun(self,tool_capabilities:tool_capabilities?)
@@ -134,7 +140,7 @@
 --     * `amount`: number, integer
 ---@field add_wear fun(self,amount:integer)
 -- * `add_wear_by_uses(max_uses)`
---     * Increases wear in such a way that, if only this function iself,s called,
+--     * Increases wear in such a way that, if only this function itself called,
 --       the item breaks after `max_uses` times
 --     * Valid `max_uses` range is [0,65536]
 --     * Does nothing if item is not a tool or if `max_uses` is 0
@@ -151,11 +157,11 @@
 -- * `take_item(n)`: returns taken `ItemStack`
 --     * Take (and remove) up to `n` items from this stack
 --     * `n`: number, default: `1`
----@field take_item fun(self,n:integer):ItemStack
+---@field take_item fun(self,n:integer?):ItemStack
 -- * `peek_item(n)`: returns taken `ItemStack`
 --     * Copy (don't remove) up to `n` items from this stack
 --     * `n`: number, default: `1`
----@field peek_item fun(self,n:integer):ItemStack
+---@field peek_item fun(self,n:integer?):ItemStack
 -- * `equals(other)`:
 -- * returns `true` if this stack is identical to `other`.
 -- * Note: `stack1:to_string() == stack2:to_string()` is not reliable,
@@ -181,7 +187,7 @@
 --     * `{type="detached", name="creative"}`
 ---@param location inventory_location
 ---@return InvRef
-function core.get_inventory_location(location) end
+function core.get_inventory(location) end
 
 ---@nodiscard
 ---@param name string
@@ -194,6 +200,6 @@ function core.create_detached_inventory(name, callbacks, player_name) end
 ---@return boolean
 function core.remove_detached_inventory(name) end
 
----@param any ItemStackAny
+---@param any ItemStackAny?
 ---@return ItemStack
 function ItemStack(any) end

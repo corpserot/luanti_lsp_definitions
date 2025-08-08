@@ -339,27 +339,17 @@ function vector.multiply(v, x) end
 function vector.divide(v, x) end
 
 ---@deprecated
----@class vector.Schur
----@field x vector
----@field y vector
----@field z vector
-
---- Unofficial note: Haha i know you did this and were confused
---- Anyway, this returns the schur product
----@deprecated
 ---@nodiscard
 ---@param v vector
 ---@param x vector
----@return vector.Schur
+---@return vector
 function vector.multiply(v, x) end
 
---- Unofficial note: Haha i know you did this and were confused
---- Anyway, this returns the schur quotient
 ---@deprecated
 ---@nodiscard
 ---@param v vector
 ---@param x vector
----@return vector.Schur
+---@return vector
 function vector.divide(v, x) end
 
 --[[

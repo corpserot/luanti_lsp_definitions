@@ -1,5 +1,7 @@
 ---@meta
 
+-- cspell:words priva privb
+
 -- * `core.request_shutdown([message],[reconnect],[delay])`: request for
 --   server shutdown. Will display `message` to clients.
 --     * `reconnect` == true displays a reconnect button
