@@ -1,30 +1,22 @@
+LGPLv2.1 license of parts original in Luanti_lsp_definitions:
+-------------------------------------------------------------
 
----------------------------------------------------
-Some parts of https://github.com/luanti-org/luanti/blob/master/doc/lua_api.md?plain=1 have been copy pasted into the definitions
+Luanti_lsp_definitions
+Copyright (C) 2025 TheEt1234 a.k.a frog <@TheEt1234 on github>,
+corpserot a.k.a Acorp <@corpserot on github>
+and contributors (see version control log for their names and contact)
 
-0BSD license of original parts in this LuaLS addon:
------------------------------------------------
-Zero-Clause BSD
-=============
 
-Permission to use, copy, modify, and/or distribute this software for
-any purpose with or without fee is hereby granted.
-
-THE SOFTWARE IS PROVIDED “AS IS” AND THE AUTHOR DISCLAIMS ALL
-WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES
-OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE
-FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY
-DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN
-AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT
-OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
----
-
-LGPLv2.1 license of Luanti's lua_api.md document:
---------------------------------------------
+LGPLv2.1 license of parts used from Luanti's lua_api.md document:
+-----------------------------------------------------------------
 
 Luanti
 Copyright (C) 2010-2024 celeron55, Perttu Ahola <celeron55@gmail.com>
 and contributors (see source file comments and the version control log)
+
+
+LGPLv2.1 license terms:
+-----------------------
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by
@@ -39,5 +31,4 @@ GNU Lesser General Public License for more details.
 You should have received a copy of the GNU Lesser General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-
-
+---
