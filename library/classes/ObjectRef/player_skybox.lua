@@ -222,27 +222,34 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field [1] string
+---@field [1] core.Texture
 --[[
 WIPDOC
 ]]
----@field [2] string
+---@field [2] core.Texture
 --[[
 WIPDOC
 ]]
----@field [3] string
+---@field [3] core.Texture
 --[[
 WIPDOC
 ]]
----@field [4] string
+---@field [4] core.Texture
 --[[
 WIPDOC
 ]]
----@field [5] string
+---@field [5] core.Texture
 --[[
 WIPDOC
 ]]
----@field [6] string
+---@field [6] core.Texture
+
+--[[
+WIPDOC
+]]
+---@alias core.PlayerSkyParameters.skybox.textures
+--- | core.PlayerSkyParameters.skybox.textures.strict
+--- | core.Texture[]
 
 --[[
 WIPDOC
@@ -255,7 +262,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field textures string[]|core.PlayerSkyParameters.skybox.textures.strict?
+---@field textures core.PlayerSkyParameters.skybox.textures?
 
 --[[
 WIPDOC
@@ -268,7 +275,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field textures string[]|core.PlayerSkyParameters.skybox.textures.strict
+---@field textures core.PlayerSkyParameters.skybox.textures
 
 -- ------------------------ PlayerSkyParameters.plain ----------------------- --
 
@@ -322,8 +329,9 @@ function PlayerRef:set_sky(sky_parameters) end
         * Deprecated: `false` or `nil` returns base_color, type, table of textures,
         clouds.
 ]]
+---@nodiscard
 ---@param as_table boolean
----@return core.PlayerSkyParameters.get
+---@return core.PlayerSkyParameters.get sky_parameters
 function PlayerRef:get_sky(as_table) end
 
 --[[
@@ -331,5 +339,7 @@ function PlayerRef:get_sky(as_table) end
     * Deprecated: Use `get_sky(as_table)` instead.
     * returns a table with the `sky_color` parameters as in `set_sky`.
 ]]
----@return core.PlayerSkyParameters.get
+---@deprecated
+---@nodiscard
+---@return core.PlayerSkyParameters.regular.color.get sky_color
 function PlayerRef:get_sky_color() end

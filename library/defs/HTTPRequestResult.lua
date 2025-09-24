@@ -22,7 +22,7 @@ If true, the request timed out
 --[[
 HTTP status code
 ]]
----@field  code number?
+---@field  code integer?
 --[[
 Response body
 ]]

@@ -68,7 +68,7 @@ Can be overridden by the `pointabilities` of the held item.
 Multipliers for the visual size. If `z` is not specified, `x` will be used
 to scale the entity along both horizontal axes.
 ]]
----@field visual_size vec3.xyz?
+---@field visual_size vector?
 --[[
 Currently unused.
 ]]
@@ -98,7 +98,7 @@ is within `stepheight`.
 Automatically set yaw to movement direction, offset in degrees.
 'false' to disable.
 ]]
----@field automatic_face_movement_dir number|boolean?
+---@field automatic_face_movement_dir number|false?
 --[[
 Limit automatic rotation to this value in degrees per second.
 No limit if value <= 0.
@@ -110,7 +110,7 @@ Value < 0 disables light's effect on texture color.
 For faking self-lighting, UI style entities, or programmatic coloring
 in mods.
 ]]
----@field glow integer?
+---@field glow core.Light.source?
 
 ---@class _.ObjectProperties.__base.get
 --[[
@@ -124,7 +124,7 @@ Can be overridden by the `pointabilities` of the held item.
 Multipliers for the visual size. If `z` is not specified, `x` will be used
 to scale the entity along both horizontal axes.
 ]]
----@field visual_size vec3.xyz
+---@field visual_size vector
 --[[
 Currently unused.
 ]]
@@ -154,7 +154,7 @@ is within `stepheight`.
 Automatically set yaw to movement direction, offset in degrees.
 'false' to disable.
 ]]
----@field automatic_face_movement_dir number|boolean
+---@field automatic_face_movement_dir number|false
 --[[
 Limit automatic rotation to this value in degrees per second.
 No limit if value <= 0.
@@ -166,7 +166,7 @@ Value < 0 disables light's effect on texture color.
 For faking self-lighting, UI style entities, or programmatic coloring
 in mods.
 ]]
----@field glow integer
+---@field glow core.Light.source
 
 -- --------------------------------- nametag -------------------------------- --
 
@@ -226,7 +226,7 @@ Defaults to 'true'.
 --[[
 Texture modifier to be applied for a short duration when object is hit
 ]]
----@field damage_texture_modifier string?
+---@field damage_texture_modifier core.Texture?
 --[[
 Defaults to true for players, false for other entities.
 If set to true the entity will show as a marker on the minimap.
@@ -248,7 +248,7 @@ Defaults to 'true'.
 --[[
 Texture modifier to be applied for a short duration when object is hit
 ]]
----@field damage_texture_modifier string
+---@field damage_texture_modifier core.Texture
 --[[
 Defaults to true for players, false for other entities.
 If set to true the entity will show as a marker on the minimap.

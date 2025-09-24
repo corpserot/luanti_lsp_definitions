@@ -2,26 +2,6 @@
 -- DRAFT 1 DONE
 -- lua_api.md: Class reference > `InvRef`
 
--- --------------------------------- InvList -------------------------------- --
-
---[[
-WIPDOC
-]]
----@alias core.InvList core.ItemStack[]
-
--- -------------------------------- InvTable -------------------------------- --
-
---[[
-* inventory table keys are inventory list names
-* inventory table values are item tables
-* item table keys are slot IDs (starting with 1)
-* item table values are ItemStacks
-]]
----@class core.InvTable : {[string]:core.InvList}
-
-
--- --------------------------------- InvRef --------------------------------- --
-
 --[[
 WIPDOC
 ]]
@@ -31,15 +11,17 @@ local InvRef = {}
 --[[
 * `is_empty(listname)`: return `true` if list is empty
 ]]
----@param listname string
+---@nodiscard
+---@param listname core.InventoryList
 ---@return  boolean
 function InvRef:is_empty(listname) end
 
 --[[
 * `get_size(listname)`: get size of a list
 ]]
----@param listname string
----@return number
+---@nodiscard
+---@param listname core.InventoryList
+---@return integer size
 function InvRef:get_size(listname) end
 
 --[[
@@ -48,7 +30,8 @@ function InvRef:get_size(listname) end
     * Setting `size` to 0 deletes a list
     * returns `false` on error (e.g. invalid `listname` or `size`
 ]]
----@param listname string
+---@nodiscard
+---@param listname core.InventoryList
 ---@param size integer
 ---@return boolean
 function InvRef:set_size(listname, size) end
@@ -56,65 +39,71 @@ function InvRef:set_size(listname, size) end
 --[[
 * `get_width(listname)`: get width of a list
 ]]
----@param listname string
----@return integer
+---@nodiscard
+---@param listname core.InventoryList
+---@return integer width
 function InvRef:get_width(listname) end
 
 --[[
 * `set_width(listname, width)`: set width of list; currently used for crafting
     * returns `false` on error (e.g. invalid `listname` or `width`
 ]]
----@param listname string
+---@nodiscard
+---@param listname core.InventoryList
 ---@param width integer
 function InvRef:set_width(listname, width) end
 
 --[[
 * `get_stack(listname, i)`: get a copy of stack index `i` in list
 ]]
----@param listname string
+---@nodiscard
+---@param listname core.InventoryList
 ---@param i integer
+---@return core.ItemStack stack
 function InvRef:get_stack(listname, i) end
 
 --[[
 * `set_stack(listname, i, stack)`: copy `stack` to index `i` in list
 ]]
----@param listname string
+---@param listname core.InventoryList
 ---@param i integer
----@param stack core.Item
+---@param stack core.ItemStack
 function InvRef:set_stack(listname, i, stack) end
 
 --[[
 * `get_list(listname)`: returns full list (list of `ItemStack`s
                         or `nil` if list doesn't exist (size 0
 ]]
----@param listname string
----@return core.InvList
+---@nodiscard
+---@param listname core.InventoryList
+---@return core.ItemList list
 function InvRef:get_list(listname) end
 
 --[[
 * `set_list(listname, list)`: set full list (size will not change
 ]]
----@param listname string
----@param list core.InvList
+---@param listname core.InventoryList
+---@param list core.ItemList
 function InvRef:set_list(listname, list) end
 
 --[[
 * `get_lists()`: returns table that maps listnames to inventory lists
 ]]
----@return table<string, core.InvList>
+---@nodiscard
+---@return core.InventoryTable lists
 function InvRef:get_lists() end
 
 --[[
 * `set_lists(lists)`: sets inventory lists (size will not change
 ]]
----@param lists table<string, core.InvList>
+---@param lists core.InventoryTable
 function InvRef:set_lists(lists) end
 
 --[[
 * `add_item(listname, stack)`: add item somewhere in list, returns leftover
   `ItemStack`.
 ]]
----@param listname string
+---@param listname core.InventoryList
 ---@param stack core.Item
 function InvRef:add_item(listname, stack) end
 
@@ -122,7 +111,8 @@ function InvRef:add_item(listname, stack) end
 * `room_for_item(listname, stack):` returns `true` if the stack of items
   can be fully added to the list
 ]]
----@param listname string
+---@nodiscard
+---@param listname core.InventoryList
 ---@param stack core.Item
 ---@return boolean
 function InvRef:room_for_item(listname, stack) end
@@ -134,9 +124,11 @@ function InvRef:room_for_item(listname, stack) end
       items. Otherwise, only the items names are compared. Default: `false`
     * The method ignores wear.
 ]]
----@param listname string
+---@nodiscard
+---@param listname core.InventoryList
 ---@param stack core.Item
 ---@param match_meta boolean?
+---@return boolean
 function InvRef:contains_item(listname, stack, match_meta) end
 
 --[[
@@ -147,9 +139,10 @@ function InvRef:contains_item(listname, stack, match_meta) end
       items names are compared. Default: `false`
     * The method ignores wear.
 ]]
----@param listname string
+---@param listname core.InventoryList
 ---@param stack core.Item
 ---@param match_meta boolean?
+---@return core.ItemStack
 function InvRef:remove_item(listname, stack, match_meta) end
 
 --[[

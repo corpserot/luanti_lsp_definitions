@@ -19,24 +19,19 @@ WIPDOC
 WIPDOC
 ]]
 ---@type core.ContentID
-core.CONTENT_UNKNOWN = nil
+core.CONTENT_UNKNOWN = 125
 
 --[[
 WIPDOC
 ]]
 ---@type core.ContentID
-core.CONTENT_AIR = nil
+core.CONTENT_AIR = 126
 
 --[[
 WIPDOC
 ]]
 ---@type core.ContentID
-core.CONTENT_IGNORE = nil
-
---[[
-WIPDOC
-]]
----@class core.Light: number
+core.CONTENT_IGNORE = 127
 
 -- ---------------------------- VoxelManip.light ---------------------------- --
 
@@ -49,13 +44,13 @@ local VoxelManipLight = {}
 --[[
 WIPDOC
 ]]
----@type core.Light
+---@type core.Light.part
 VoxelManipLight.day = nil
 
 --[[
 WIPDOC
 ]]
----@type core.Light
+---@type core.Light.part
 VoxelManipLight.night = nil
 
 -- ------------------------------- constructor ------------------------------ --
@@ -63,19 +58,19 @@ VoxelManipLight.night = nil
 --[[
 WIPDOC
 ]]
----@param p1 vector?
----@param p2 vector?
----@return core.VoxelManip
 ---@nodiscard
+---@param p1 vectori?
+---@param p2 vectori?
+---@return core.VoxelManip
 function VoxelManip(p1, p2) end
 
 --[[
 WIPDOC
 ]]
----@param p1 vector?
----@param p2 vector?
----@return core.VoxelManip
 ---@nodiscard
+---@param p1 vectori?
+---@param p2 vectori?
+---@return core.VoxelManip
 function core.get_voxel_manip(p1, p2) end
 
 -- ------------------------------- VoxelManip ------------------------------- --
@@ -119,9 +114,10 @@ local VoxelManip = {}
     * Note that calling this multiple times will *add* to the area loaded in the
       VoxelManip, and not reset it.
 ]]
----@param p1 vector
----@param p2 vector
----@return vector pmin, vector pmax
+---@nodiscard
+---@param p1 vectori
+---@param p2 vectori
+---@return veci pmin, veci pmax
 function VoxelManip:read_from_map(p1, p2) end
 
 --[[
@@ -134,10 +130,11 @@ function VoxelManip:read_from_map(p1, p2) end
    * returns actual emerged `pmin`, actual emerged `pmax` (MapBlock-aligned)
    * (introduced in 5.13.0)
 ]]
----@param p1 vector
----@param p2 vector
+---@nodiscard
+---@param p1 vectori
+---@param p2 vectori
 ---@param node core.Node.set
----@return vector pmin, vector pmax
+---@return veci pmin, veci pmax
 function VoxelManip:initialize(p1, p2, node) end
 
 --[[
@@ -161,7 +158,7 @@ function VoxelManip:write_to_map(light) end
 Unofficial note: i don't think you should be using this for performance reasons, this is a function i would personally NEVER use
 ]]
 ---@nodiscard
----@param pos vector
+---@param pos vectori
 ---@return core.Node.get
 function VoxelManip:get_node_at(pos) end
 
@@ -169,7 +166,7 @@ function VoxelManip:get_node_at(pos) end
 Unofficial note: i don't think you should be using this for performance reasons, this is a function i would personally NEVER use
 ]]
 ---@nodiscard
----@param pos vector
+---@param pos vectori
 ---@param node core.Node.set
 ---@return nil
 function VoxelManip:set_node_at(pos, node) end
@@ -186,7 +183,7 @@ Retrieves the node content data loaded into the `VoxelManip` object and returns 
 Unofficial note: I would recommend doing VoxelManip.get_data(data) instead, as this form will make the garbage collector scream, in a way that you can't profile very well
 ]]
 ---@nodiscard
----@return core.ContentID[]
+---@return core.ContentID[] data
 function VoxelManip:get_data() end
 
 --[[
@@ -215,8 +212,8 @@ function VoxelManip:update_map() end
       area if left out.
 ]]
 ---@param light core.VoxelManip.light
----@param p1 vector?
----@param p2 vector?
+---@param p1 vectori?
+---@param p2 vectori?
 function VoxelManip:set_lighting(light, p1, p2) end
 
 --[[
@@ -230,9 +227,24 @@ function VoxelManip:set_lighting(light, p1, p2) end
     * If the param `buffer` is present, this table will be used to store the
       result instead.
 ]]
----@param buffer core.Light[]?
----@return core.Light[]?
+---@param buffer core.Light[]
+---@return nil
 function VoxelManip:get_light_data(buffer) end
+
+--[[
+* `get_light_data([buffer])`: Gets the light data read into the
+  `VoxelManip` object
+    * Returns an array (indices 1 to volume) of integers ranging from `0` to
+      `255`.
+    * Each value is the bitwise combination of day and night light values
+      (`0` to `15` each).
+    * `light = day + (night * 16)`
+    * If the param `buffer` is present, this table will be used to store the
+      result instead.
+]]
+---@nodiscard
+---@return core.Light[] light_data
+function VoxelManip:get_light_data() end
 
 --[[
 * `set_light_data(light_data)`: Sets the `param1` (light) contents of each node
@@ -245,14 +257,21 @@ function VoxelManip:set_light_data(light_data) end
 --[[
 WIPDOC
 ]]
----@param buffer number[]?
----@return number[]?
+---@nodiscard
+---@return core.Param2[] param2_data
+function VoxelManip:get_param2_data() end
+
+--[[
+WIPDOC
+]]
+---@param buffer core.Param2[]?
+---@return nil
 function VoxelManip:get_param2_data(buffer) end
 
 --[[
 WIPDOC
 ]]
----@param param2_data number[]
+---@param param2_data core.Param2[]
 ---@return nil
 function VoxelManip:set_param2_data(param2_data) end
 
@@ -287,6 +306,7 @@ function VoxelManip:update_liquids() end
    * Note: this doesn't do what you think it does and is subject to removal. Don't use it!
 ]]
 ---@deprecated
+---@return boolean
 function VoxelManip:was_modified() end
 
 --[[
@@ -294,7 +314,7 @@ function VoxelManip:was_modified() end
 * "Emerged" does not imply that this region was actually loaded from the map,
    if `initialize()` has been used.
 ]]
----@return vector emin, vector emax
+---@return veci emin, veci emax
 function VoxelManip:get_emerged_area() end
 
 --[[

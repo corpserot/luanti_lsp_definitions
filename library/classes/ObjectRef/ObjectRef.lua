@@ -5,7 +5,7 @@
 -- INTERPRETATION: EntityRef does not override ObjectRef, merely supplies
 -- ObjectRef with exclusive entity methods. This is because of the relationship
 -- where PlayerRef overrides ObjectRef's methods. This is seen in how some
--- ObjectRef methods implicitly assumes it's an entity.
+-- ObjectRef methods assumes it's an entity and not a player.
 
 --[[
 WIPDOC
@@ -25,6 +25,7 @@ WIPDOC
 --[[
 * `is_valid()`: returns whether the object is valid.
 ]]
+---@nodiscard
 ---@return boolean
 function ObjectRefBase:is_valid() end
 
@@ -33,7 +34,8 @@ function ObjectRefBase:is_valid() end
 --[[
 * `get_pos()`: returns position as vector `{x=num, y=num, z=num}`
 ]]
----@return vector
+---@nodiscard
+---@return vector pos
 function ObjectRefBase:get_pos() end
 
 --[[
@@ -58,7 +60,8 @@ function ObjectRefBase:add_pos(pos) end
 --[[
 * `get_velocity()`: returns the velocity, a vector.
 ]]
----@return vector
+---@nodiscard
+---@return vector vel
 function ObjectRefBase:get_velocity() end
 
 --[[
@@ -100,12 +103,12 @@ function ObjectRefBase:move_to(pos, continuous) end
     * Arguments `time_from_last_punch`, `tool_capabilities`, and `dir`
       will be replaced with a default value when the caller sets them to `nil`.
 ]]
----@param puncher core.ObjectRef
+---@param puncher core.ObjectRef?
 ---@param time_from_last_punch number?
 ---@param tool_capabilities core.ToolCapabilities?
 ---@param dir vector?
----@param damage integer?
-function ObjectRefBase:punch(puncher, time_from_last_punch, tool_capabilities, dir, damage) end
+---@return core.Tool.wear wear
+function ObjectRefBase:punch(puncher, time_from_last_punch, tool_capabilities, dir) end
 
 --[[
 * `right_click(clicker)`:
@@ -114,7 +117,7 @@ function ObjectRefBase:punch(puncher, time_from_last_punch, tool_capabilities, d
     * `clicker` is another `ObjectRef` which has clicked
     * note: this is called `right_click` for historical reasons only
 ]]
----@param clicker core.PlayerRef
+---@param clicker core.ObjectRef?
 function ObjectRefBase:right_click(clicker) end
 
 -- --------------------------------- health --------------------------------- --
@@ -122,7 +125,8 @@ function ObjectRefBase:right_click(clicker) end
 --[[
 * `get_hp()`: returns number of health points
 ]]
----@return number
+---@nodiscard
+---@return integer hp
 function ObjectRefBase:get_hp() end
 
 --[[
@@ -147,26 +151,29 @@ function ObjectRefBase:get_inventory() end
 * `get_wield_list()`: returns the name of the inventory list the wielded item
    is in.
 ]]
----@return string
+---@nodiscard
+---@return core.InventoryList
 function ObjectRefBase:get_wield_list() end
 
 --[[
 * `get_wield_index()`: returns the wield list index of the wielded item (starting with 1)
 ]]
+---@nodiscard
 ---@return integer
 function ObjectRefBase:get_wield_index() end
 
 --[[
 * `get_wielded_item()`: returns a copy of the wielded item as an `ItemStack`
 ]]
----@return core.ItemStack
+---@nodiscard
+---@return core.ItemStack item
 function ObjectRefBase:get_wielded_item() end
 
 --[[
 * `set_wielded_item(item)`: replaces the wielded item, returns `true` if
   successful.
 ]]
----@param item core.ItemStack
+---@param item core.Item
 function ObjectRefBase:set_wielded_item(item) end
 
 -- ---------------------------------- armor --------------------------------- --
@@ -178,7 +185,8 @@ function ObjectRefBase:set_wielded_item(item) end
       the table values are the corresponding group ratings
     * see section '`ObjectRef` armor groups' for details
 ]]
----@return table<string, integer>
+---@nodiscard
+---@return core.Groups.armor groups
 function ObjectRefBase:get_armor_groups() end
 
 --[[
@@ -187,7 +195,7 @@ function ObjectRefBase:get_armor_groups() end
     * same table syntax as for `get_armor_groups`
     * note: all armor groups not in the table will be removed
 ]]
----@param groups table<string,integer>
+---@param groups core.Groups.armor
 function ObjectRefBase:set_armor_groups(groups) end
 
 -- -------------------------------- animation ------------------------------- --
@@ -208,7 +216,7 @@ function ObjectRefBase:set_armor_groups(groups) end
     * `frame_loop`: If `true`, animation will loop. If false, it will play once
        * default: `true`
 ]]
----@param frame_range {x:number, y:number}?
+---@param frame_range vec2.xy?
 ---@param frame_speed number?
 ---@param frame_blend number?
 ---@param frame_loop boolean?
@@ -218,7 +226,8 @@ function ObjectRefBase:set_animation(frame_range, frame_speed, frame_blend, fram
 * `get_animation()`: returns current animation parameters set by `set_animation`:
     * `frame_range`, `frame_speed`, `frame_blend`, `frame_loop`.
 ]]
----@return {x:number,y:number}, number, number, boolean
+---@nodiscard
+---@return vec2.xy frame_range, number frame_speed, number frame_blend, boolean frame_loop
 function ObjectRefBase:get_animation() end
 
 --[[
@@ -257,7 +266,8 @@ function ObjectRefBase:set_attach(parent, bone, position, rotation, forced_visib
     * returns current attachment parameters or nil if it isn't attached
     * If attached, returns `parent`, `bone`, `position`, `rotation`, `forced_visible`
 ]]
----@return core.ObjectRef?, string?, vector?, vector?, boolean?
+---@nodiscard
+---@return core.ObjectRef? parent, string? bones, vector? positions, vector? rotation, boolean? forced_visible
 function ObjectRefBase:get_attach() end
 
 --[[
@@ -286,6 +296,7 @@ function ObjectRefBase:set_properties(objprops) end
 --[[
 * `get_properties()`: returns a table of all object properties
 ]]
+---@nodiscard
 ---@return core.ObjectProperties.get
 function ObjectRefBase:get_properties() end
 
@@ -307,7 +318,7 @@ function ObjectRefBase:get_properties() end
     * Attached sounds do not work correctly and thus should not be used
       on objects with managed observers yet.
 ]]
----@param observers table<string, boolean>
+---@param observers table<string, boolean>?
 function ObjectRefBase:set_observers(observers) end
 
 --[[
@@ -316,7 +327,8 @@ function ObjectRefBase:set_observers(observers) end
     * returns `nil` if the observers are unmanaged
     * returns a table with all observer names as keys and `true` values (a "set") otherwise
 ]]
----@return  table<string, boolean>?
+---@nodiscard
+---@return  table<string, boolean>? observers
 function ObjectRefBase:get_observers() end
 
 --[[
@@ -326,6 +338,7 @@ function ObjectRefBase:get_observers() end
         * n: number of observers of the involved entities
         * m: number of ancestors along the attachment chain
 ]]
+---@nodiscard
 ---@return  table<string, boolean>
 function ObjectRefBase:get_effective_observers() end
 
@@ -334,6 +347,7 @@ function ObjectRefBase:get_effective_observers() end
 --[[
 * `is_player()`: returns true for players, false otherwise
 ]]
+---@nodiscard
 ---@return false
 function ObjectRefBase:is_player() end
 
@@ -352,5 +366,6 @@ function ObjectRefBase:is_player() end
     * GUIDs persist between object reloads, and their format is guaranteed not to change.
       Thus you can use the GUID to identify an object in a particular world online and offline.
 ]]
+---@nodiscard
 ---@return string
 function ObjectRefBase:get_guid() end

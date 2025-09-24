@@ -5,6 +5,11 @@
 --[[
 WIPDOC
 ]]
+---@alias core.ChatCommandDef.func fun(name:string, param:string): boolean?, string?
+
+--[[
+WIPDOC
+]]
 ---@class core.ChatCommandDef
 --[[
 Note that in params, the conventional use of symbols is as follows:
@@ -27,8 +32,8 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field privs table<string, boolean>?
+---@field privs core.PrivilegeSet?
 --[[
 WIPDOC
 ]]
----@field func fun(name:string, param:string): boolean?, string?
+---@field func core.ChatCommandDef.func

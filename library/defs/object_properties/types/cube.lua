@@ -11,27 +11,34 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field [1] string
+---@field [1] core.Texture
 --[[
 WIPDOC
 ]]
----@field [2] string
+---@field [2] core.Texture
 --[[
 WIPDOC
 ]]
----@field [3] string
+---@field [3] core.Texture
 --[[
 WIPDOC
 ]]
----@field [4] string
+---@field [4] core.Texture
 --[[
 WIPDOC
 ]]
----@field [5] string
+---@field [5] core.Texture
 --[[
 WIPDOC
 ]]
----@field [6] string
+---@field [6] core.Texture
+
+--[[
+WIPDOC
+]]
+---@alias core.ObjectProperties.cube.textures
+--- | core.ObjectProperties.cube.textures.strict
+--- | string[]
 
 -- -------------------------- ObjectProperties.cube ------------------------- --
 
@@ -59,7 +66,7 @@ Number of required textures depends on visual:
 Deprecated usage of "wielditem" expects 'textures = {itemname}' (see 'visual' above).
 Unofficial note: I *guessed* that it's string[] but i am not sure
 ]]
----@field textures string[]|core.ObjectProperties.cube.textures.strict?
+---@field textures core.ObjectProperties.cube.textures?
 
 ---@class _.ObjectProperties.cube.get.__partial : _.ObjectProperties.backface_culling.get.__partial, _.ObjectProperties.shaded.get.__partial
 --[[
@@ -75,4 +82,4 @@ Number of required textures depends on visual:
 Deprecated usage of "wielditem" expects 'textures = {itemname}' (see 'visual' above).
 Unofficial note: I *guessed* that it's string[] but i am not sure
 ]]
----@field textures string[]|core.ObjectProperties.cube.textures.strict
+---@field textures core.ObjectProperties.cube.textures

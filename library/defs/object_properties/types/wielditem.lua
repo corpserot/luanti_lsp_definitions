@@ -13,6 +13,13 @@ WIPDOC
 ]]
 ---@field [1] number
 
+--[[
+WIPDOC
+]]
+---@alias core.ObjectProperties.wielditem.textures
+--- | core.ObjectProperties.wielditem.textures.strict
+--- | string[]
+
 -- ----------------------- ObjectProperties.wielditem ----------------------- --
 
 --[[
@@ -33,13 +40,13 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field wield_item string
+---@field wield_item core.Item.name
 --[[
 WIPDOC
 
 * @deprecated
 ]]
----@field textures string[]|core.ObjectProperties.wielditem.textures.strict?
+---@field textures core.ObjectProperties.wielditem.textures?
 
 ---@class _.ObjectProperties.wielditem.get.__partial
 --[[
@@ -49,11 +56,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field wield_item string
+---@field wield_item core.Item.name
 --[[
 WIPDOC
 
 * @deprecated
 ]]
----@field textures string[]|core.ObjectProperties.wielditem.textures.strict
+---@field textures core.ObjectProperties.wielditem.textures
 

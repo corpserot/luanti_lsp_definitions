@@ -1,4 +1,4 @@
---@meta _
+---@meta _
 -- DRAFT 1 DONE
 -- lua_api.md: Spatial Vectors
 
@@ -13,12 +13,12 @@
 --[[
 WIPDOC
 ]]
----@class veci: vec3i.xyz, vec3i.123, _.vec.__base
+---@class veci: vec3i.xyz, _.vec.__base
 
 --[[
 WIPDOC
 ]]
----@class vec: vec3.xyz, vec3.123, _.vec.__base
+---@class vec: vec3.xyz, _.vec.__base
 
 --[[
 WIPDOC

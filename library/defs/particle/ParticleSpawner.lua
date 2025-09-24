@@ -20,7 +20,7 @@ WIPDOC
 --[[
 Number of particles spawned over the time period `time`.
 ]]
----@field  amount number
+---@field  amount integer
 --[[
 Lifespan of spawner in seconds.
 If time is 0 spawner has infinite lifespan and spawns the `amount` on
@@ -73,7 +73,7 @@ of the animation with the expiration time of individual particles.
 Optional, specify particle self-luminescence in darkness.
 Values 0-14.
 ]]
----@field  glow number?
+---@field  glow core.Light.source?
 
 -- -------------------- modern ParticleSpawner properties ------------------- --
 
@@ -177,4 +177,4 @@ If set to a valid number 1-6, specifies the tile from which the
 particle texture is picked.
 Otherwise, the default behavior is used. (currently: any random tile)
 ]]
----@field  node_tile number?
+---@field  node_tile integer?

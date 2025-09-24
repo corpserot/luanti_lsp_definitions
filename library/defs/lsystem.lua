@@ -29,7 +29,15 @@
 
 [L-System Trees on docs.luanti.org](https://docs.luanti.org/for-creators/l-system-trees/)
 ]]
----@class core.LsystemTreeDef.rules : string
+---@alias core.LsystemTreeDef.rules string
+
+--[[
+WIPDOC
+]]
+---@alias core.LSystemTreeDef.trunk_type
+--- | "single"
+--- | "double"
+--- | "crossed"
 
 --[[
 **LIBDEF REVISION**
@@ -66,31 +74,31 @@ Rules set D
 --[[
 Trunk node name (default: `"ignore"`)
 ]]
----@field trunk string?
+---@field trunk core.Node.name?
 --[[
 Leaves node name (default: `"ignore"`)
 ]]
----@field leaves string?
+---@field leaves core.Node.name?
 --[[
 Secondary leaves node name (default: `"ignore"`)
 ]]
----@field leaves2 string?
+---@field leaves2 core.Node.name?
 --[[
 Chance (0-100) to replace leaves with leaves2 (default: 0)
 ]]
----@field leaves2_chance number?
+---@field leaves2_chance integer?
 --[[
 Angle in deg (default: 0)
 ]]
----@field angle number?
+---@field angle integer?
 --[[
 Max # of iterations, usually 2 -5 (default 0)
 ]]
----@field iterations number?
+---@field iterations integer?
 --[[
 Factor to lower number of iterations, usually 0 - 3 (default: 0)
 ]]
----@field random_level number?
+---@field random_level integer?
 --[[
 **LIBDEF REVISION**
 
@@ -99,7 +107,7 @@ Type of trunk:
 - `"double"`: 2x2 nodes
 - `"crossed"`: 3x3 in cross shape
 ]]
----@field trunk_type "single"|"double"|"crossed"?
+---@field trunk_type core.LSystemTreeDef.trunk_type?
 --[[
 Whether to use thin (1 node) branches (default: `false`)
 ]]
@@ -107,12 +115,12 @@ Whether to use thin (1 node) branches (default: `false`)
 --[[
 Fruit node name. (default: `"air"`)
 ]]
----@field fruit string?
+---@field fruit core.Node.name?
 --[[
 Chance (0-100) to replace leaves with fruit node (default: 0)
 ]]
----@field fruit_chance number?
+---@field fruit_chance integer?
 --[[
 Random seed, if no seed is provided, the engine will create one.
 ]]
----@field seed number
+---@field seed integer

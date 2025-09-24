@@ -50,7 +50,8 @@ local PlayerRef
   * `drowning`: Whether drowning (losing air) is enabled, default `true`.
   * `node_damage`: Whether the player takes damage from nodes, default `true`.
 ]]
----@return core.PlayerFlags.get
+---@nodiscard
+---@return core.PlayerFlags.get flags
 function PlayerRef:get_flags() end
 
 --[[

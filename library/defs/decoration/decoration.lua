@@ -5,7 +5,7 @@
 -- lua_api.md: Mapgen objects
 -- lua_api.md: Definition tables > Decoration definition
 
--- ------------------------ DecorationDef.fill_ratio ------------------------ --
+-- ------------------------- DecorationDef partials ------------------------- --
 
 ---@class _.DecorationDef.fill_ratio.__partial
 --[[
@@ -16,9 +16,6 @@ a different and much faster method.
 ]]
 ---@field fill_ratio number?
 
-
--- ----------------------- DecorationDef.noise_params ----------------------- --
-
 ---@class _.DecorationDef.noise_params.__partial
 --[[
 NoiseParams structure describing the noise used for decoration
@@ -28,16 +25,31 @@ A noise value is calculated for each square division and determines
 If the noise value >= 10.0 complete coverage is enabled and
 decoration placement uses a different and much faster method.
 ]]
----@field noise_params core.NoiseParams?
-
+---@field noise_params core.NoiseParams.3d?
 
 -- -------------------------- DecorationDef.__base -------------------------- --
+
+--[[
+WIPDOC
+]]
+---@alias core.DecorationDef.check_offset
+--- | -1
+--- | 0
+--- | 1
+
+--[[
+WIPDOC
+]]
+---@alias core.DecorationDef.biome
+--- | string
+--- | core.BiomeID
+--- | core.BiomeDef
 
 ---@class _.DecorationDef.__base
 --[[
 Node (or list of nodes) that the decoration can be placed on
 ]]
----@field place_on string[]|string
+---@field place_on OneOrMany<core.Node.name>
 --[[
 Size of the square (X / Z) divisions of the mapchunk being generated.
 Determines the resolution of noise variation if used.
@@ -51,7 +63,7 @@ if this is omitted, and ignored if the Mapgen being used does not
 support biomes.
 Can be a list of (or a single) biome names, IDs, or definitions.
 ]]
----@field biomes string|string[]?
+---@field biomes OneOrMany<core.DecorationDef.biome>?
 --[[
 *@default* `-31000`
 
@@ -71,7 +83,7 @@ Node (or list of nodes) that the decoration only spawns next to.
 Checks the 8 neighboring nodes on the same height,
 and also the ones at the height plus the check_offset, excluding both center nodes.
 ]]
----@field spawn_by string | string[]?
+---@field spawn_by OneOrMany<core.Node.name>?
 --[[
 *@default* `0`
 
@@ -79,7 +91,7 @@ Specifies the offset that spawn_by should also check
 The default value of -1 is useful to e.g check for water next to the base node.
 0 disables additional checks, valid values: {-1, 0, 1}
 ]]
----@field check_offset -1 | 0 | 1?
+---@field check_offset core.DecorationDef.check_offset?
 --[[
 Number of spawn_by nodes that must be surrounding the decoration
 position to occur.
@@ -127,7 +139,7 @@ The node name used as the decoration.
 If instead a list of strings, a randomly selected node from the list
 is placed as the decoration.
 ]]
----@field decoration string | string[]
+---@field decoration OneOrMany<core.Node.name>
 --[[
 *@default* `1`
 
@@ -148,14 +160,14 @@ Param2 value of decoration nodes.
 If param2_max is not 0, this is the lower limit of a randomly
 selected param2.
 ]]
----@field param2 integer?
+---@field param2 core.Param2?
 --[[
 *@default* `0`
 
 Upper limit of the randomly selected param2.
 If absent, the parameter 'param2' is used as a constant.
 ]]
----@field param2_max integer?
+---@field param2_max core.Param2?
 --[[
 Y offset of the decoration base node relative to the standard base
 node position.
@@ -167,6 +179,16 @@ to the 'place_on' node.
 ---@field place_offset_y integer?
 
 -- ------------------------- DecorationDef.schematic ------------------------ --
+
+--[[
+WIPDOC
+]]
+---@alias core.DecorationDef.rotation
+--- | "0"
+--- | "90"
+--- | "180"
+--- | "270"
+--- | "random"
 
 ---@class _.DecorationDef.schematic.fill_ratio : _.DecorationDef.__base, _.DecorationDef.fill_ratio.__partial, _.DecorationDef.schematic.__partial
 ---@class _.DecorationDef.schematic.noise_params : _.DecorationDef.__base, _.DecorationDef.noise_params.__partial, _.DecorationDef.schematic.__partial
@@ -188,15 +210,15 @@ If schematic is a string, it is the filepath relative to the current
 working directory of the specified Luanti schematic file.
 Could also be the ID of a previously registered schematic.
 ]]
----@field schematic string|table
+---@field schematic core.Schematic
 --[[
 Map of node names to replace in the schematic after reading it.
 ]]
----@field replacements table<string,string>?
+---@field replacements table<core.Node.name,core.Node.name>?
 --[[
 Rotation can be "0", "90", "180", "270", or "random"
 ]]
----@field rotation "0" | "90" | "180" | "270" | "random"?
+---@field rotation core.DecorationDef.rotation?
 --[[
 Y offset of the decoration base node relative to the standard base
 node position.
@@ -205,11 +227,11 @@ Effect is inverted for "all_ceilings" decorations.
 Ignored by 'y_min', 'y_max' and 'spawn_by' checks, which always refer
 to the 'place_on' node.
 ]]
----@field place_offset_y number?
+---@field place_offset_y integer?
 --[[
 WIPDOC
 ]]
----@field flags string
+---@field flags core.DecorationDef.schematic.flags
 
 -- -------------------------- DecorationDef.lsystem ------------------------- --
 

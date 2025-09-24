@@ -49,7 +49,7 @@ Identifier of the LBM, should follow the modname:<whatever> convention
 --[[
 List of node names to trigger the LBM on.
 ]]
----@field nodenames string[]?
+---@field nodenames core.Node.namelike[]?
 --[[
 If `false`: The LBM only runs on mapblocks the first time they are
 activated after the LBM was introduced.
@@ -62,6 +62,11 @@ If `true`: The LBM runs every time a mapblock is activated.
 
 -- --------------------------------- LBMDef --------------------------------- --
 
+--[[
+WIPDOC
+]]
+---@alias core.LBMDef.action.fn fun(pos:veci, node:core.Node.get, dtime_s:number)
+
 ---@class core.LBMDef.action : _.LBMDef.__base
 --[[
 Function triggered for each qualifying node.
@@ -69,7 +74,12 @@ Function triggered for each qualifying node.
 `dtime_s` is the in-game time (in seconds) elapsed since the mapblock
 was last active (available since 5.7.0).
 ]]
----@field action fun(pos:vector, node:core.Node.get, dtime_s:number)
+---@field action core.LBMDef.action.fn
+
+--[[
+WIPDOC
+]]
+---@alias core.LBMDef.bulk_action.fn fun(pos_list:veci[], dtime_s:number)
 
 ---@class core.LBMDef.bulk_action : _.LBMDef.__base
 --[[
@@ -79,7 +89,7 @@ This can be provided as an alternative to `action` (not both).
 Available since `core.features.bulk_lbms` (5.10.0)
 `dtime_s`: as above
 ]]
----@field bulk_action fun(pos_list:vector[], dtime_s:number)
+---@field bulk_action core.LBMDef.bulk_action.fn
 
 ---@alias core.LBMDef
 --- | core.LBMDef.action

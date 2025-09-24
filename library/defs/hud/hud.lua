@@ -3,12 +3,30 @@
 -- lua_api.md: HUD
 -- lua_api.md: Definition tables > HUD Definition
 
--- ---------------------------------- HUDID --------------------------------- --
-
 --[[
 WIPDOC
 ]]
 ---@class core.HUDID : integer
+
+--[[
+WIPDOC
+]]
+---@alias core.HUDDef.keys
+--- | "position"
+--- | "name"
+--- | "scale"
+--- | "text"
+--- | "text2"
+--- | "number"
+--- | "item"
+--- | "direction"
+--- | "alignment"
+--- | "offset"
+--- | "world_pos"
+--- | "size"
+--- | "z_index"
+--- | "style"
+--- | "precision"
 
 -- ------------------------------ HUDDef.__base ----------------------------- --
 
@@ -24,11 +42,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field offset vec2i.xy?
+---@field offset vec2.xy?
 --[[
 WIPDOC
 ]]
----@field  z_index number
+---@field  z_index integer
 
 -- ----------------------------- HUDDef partials ---------------------------- --
 
@@ -38,11 +56,20 @@ Top left corner position of element
 ]]
 ---@field position vec2.xy
 
+--[[
+WIPDOC
+]]
+---@alias core.HUDDef.direction
+--- | 0
+--- | 1
+--- | 2
+--- | 3
+
 ---@class _.HUDDef.direction
 --[[
 WIPDOC
 ]]
----@field direction 0|1|2|3?
+---@field direction core.HUDDef.direction?
 
 ---@class _.HUDDef.alignment
 --[[
@@ -54,7 +81,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field world_pos vec3.xyz?
+---@field world_pos vec?
 
 -- --------------------------------- HUDDef --------------------------------- --
 

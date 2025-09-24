@@ -1,4 +1,4 @@
---@meta _
+---@meta _
 -- DRAFT 1 DONE
 -- lua_api.md: Nodes > Node boxes
 
@@ -56,7 +56,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@type type "regular"?
+---@field type "regular"?
 
 
 -- ------------------------------ NodeBox.fixed ----------------------------- --

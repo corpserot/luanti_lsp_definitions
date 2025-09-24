@@ -34,7 +34,7 @@ as the corresponding 2x2 recipe without the empty slots.\
 --[[
 * `output`: Itemstring of output itemstack (item counts >= 1 are allowed)
 ]]
----@field output string
+---@field output core.Item.stringfmt
 --[[
 * `recipe`: A 2-dimensional matrix of items, with a width *w* and height *h*.
     * *w* and *h* are chosen by you, they don't have to be equal but must be at least 1
@@ -44,7 +44,7 @@ as the corresponding 2x2 recipe without the empty slots.\
       Each inner table must contain a list of *w* items, specified from left to right
     * Empty slots *must* be filled with the empty string
 ]]
----@field recipe string[][]
+---@field recipe core.Item.namelike[][]
 --[[
 * `replacements`: (optional) Allows you to replace input items with some other items
       when something is crafted
@@ -63,7 +63,7 @@ as the corresponding 2x2 recipe without the empty slots.\
         * Player inventory, if input stack size was larger
         * Drops as item entity, if it fits neither in craft grid or inventory
 ]]
----@field replacements [string, string][]?
+---@field replacements [core.Item.namelike, core.Item.name][]?
 
 -- ----------------------- CraftingRecipeDef.shapeless ---------------------- --
 
@@ -84,11 +84,11 @@ larger *count* of slots. The grid dimensions do not matter.
 --[[
 * `output`: Itemstring of output itemstack (item counts >= 1 are allowed)
 ]]
----@field output string
+---@field output core.Item.stringfmt
 --[[
 * `recipe`: List of item names
 ]]
----@field recipe string[]
+---@field recipe core.Item.namelike[]
 --[[
 * `replacements`: (optional) Allows you to replace input items with some other items
       when something is crafted
@@ -107,7 +107,7 @@ larger *count* of slots. The grid dimensions do not matter.
         * Player inventory, if input stack size was larger
         * Drops as item entity, if it fits neither in craft grid or inventory
 ]]
----@field replacements [string, string][]?
+---@field replacements [core.Item.namelike, core.Item.name][]?
 
 -- ---------------------- CraftingRecipeDef.toolrepair ---------------------- --
 
@@ -181,11 +181,11 @@ have a consistent interface across different games/mods.
 --[[
 * `output`: Itemstring of output itemstack (item counts >= 1 are allowed)
 ]]
----@field output string
+---@field output core.Item.name
 --[[
 * `recipe`: An itemname of the single input item
 ]]
----@field recipe string
+---@field recipe core.Item.namelike
 --[[
 * `cooktime`: (optional) Time it takes to cook this item, in seconds.
               A floating-point number. (default: 3.0)
@@ -214,7 +214,7 @@ Note: Games and mods are free to re-interpret the cooktime in special
 Mods that utilize cooking recipes (e.g. for adding a furnace node) need to implement
 replacements on their own
 ]]
----@field replacements [string, string][]?
+---@field replacements  [core.Item.namelike, core.Item.name][]?
 
 -- ------------------------- CraftingRecipeDef.fuel ------------------------- --
 
@@ -237,7 +237,7 @@ them via `core.get_craft_result`.
 --[[
 * `recipe`: Itemname of the item to be used as fuel
 ]]
----@field recipe string
+---@field recipe core.Item.namelike
 --[[
 * `burntime`: (optional) Burning time this item provides, in seconds.
               A floating-point number. (default: 1.0)
@@ -266,7 +266,7 @@ long.
 
 Mods that utilize fuels need to implement replacements on their own
 ]]
----@field replacements {[1]:string, [2]:string}[]?
+---@field replacements  [core.Item.namelike, core.Item.name][]?
 
 -- ---------------------------- CraftingRecipeDef --------------------------- --
 

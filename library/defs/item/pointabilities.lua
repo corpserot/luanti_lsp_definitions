@@ -7,15 +7,22 @@
 --[[
 WIPDOC
 ]]
+---@alias core.ItemDef.pointabilities.value
+--- | boolean
+--- | "blocking"
+
+--[[
+WIPDOC
+]]
 ---@class core.ItemDef.pointabilities
 --[[
 WIPDOC
 ]]
----@field nodes table<string, boolean|"blocking">
+---@field nodes table<core.Node.namelike, core.ItemDef.pointabilities.value>
 --[[
 WIPDOC
 ]]
----@field objects table<string, boolean|"blocking">
+---@field objects table<core.Entity.namelike, core.ItemDef.pointabilities.value>>
 
 
 -- ----------------------------- ItemDef fields ----------------------------- --

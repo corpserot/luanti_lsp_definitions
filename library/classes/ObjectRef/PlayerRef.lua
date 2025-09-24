@@ -53,6 +53,7 @@ function PlayerRef:set_hp(hp, reason) end
 --[[
 * `get_inventory()`: returns an `InvRef` for players, otherwise returns `nil`
 ]]
+---@nodiscard
 ---@return core.InvRef
 function PlayerRef:get_inventory() end
 
@@ -65,12 +66,14 @@ function PlayerRef:set_properties(objprops) end
 --[[
 * `get_properties()`: returns a table of all object properties
 ]]
----@return core.PlayerProperties.get
+---@nodiscard
+---@return core.PlayerProperties.get objprops
 function PlayerRef:get_properties() end
 
 --[[
 * `is_player()`: returns true for players, false otherwise
 ]]
+---@nodiscard
 ---@return true
 function PlayerRef:is_player() end
 
@@ -83,6 +86,7 @@ function PlayerRef:is_player() end
     * GUIDs persist between object reloads, and their format is guaranteed not to change.
       Thus you can use the GUID to identify an object in a particular world online and offline.
 ]]
+---@nodiscard
 ---@return string
 function PlayerRef:get_guid() end
 
@@ -91,6 +95,7 @@ function PlayerRef:get_guid() end
 --[[
 * `get_player_name()`: Returns player name or `""` if is not a player
 ]]
+---@nodiscard
 ---@return string
 function PlayerRef:get_player_name() end
 
@@ -100,12 +105,15 @@ function PlayerRef:get_player_name() end
 * `get_player_velocity()`: **DEPRECATED**, use get_velocity() instead.
   table {x, y, z} representing the player's instantaneous velocity in nodes/s
 ]]
----@return vector
+---@deprecated
+---@nodiscard
+---@return vector vel
 function PlayerRef:get_player_velocity() end
 
 --[[
 * `add_player_velocity(vel)`: **DEPRECATED**, use add_velocity(vel) instead.
 ]]
+---@deprecated
 ---@param vel vector
 function PlayerRef:add_player_velocity(vel) end
 
@@ -114,7 +122,8 @@ function PlayerRef:add_player_velocity(vel) end
 --[[
 * `get_look_dir()`: get camera direction as a unit vector
 ]]
----@return vector
+---@nodiscard
+---@return vector radians
 function PlayerRef:get_look_dir() end
 
 --[[
@@ -122,14 +131,16 @@ function PlayerRef:get_look_dir() end
     * Angle ranges between -pi/2 and pi/2, which are straight up and down
       respectively.
 ]]
----@return number
+---@nodiscard
+---@return number radians
 function PlayerRef:get_look_vertical() end
 
 --[[
 * `get_look_horizontal()`: yaw in radians
     * Angle is counter-clockwise from the +z direction.
 ]]
----@return number
+---@nodiscard
+---@return number radians
 function PlayerRef:get_look_horizontal() end
 
 --[[
@@ -148,23 +159,27 @@ function PlayerRef:set_look_horizontal(radians) end
 
 --[[
 * `get_look_pitch()`: pitch in radians - Deprecated as broken. Use
-      respectively.
+  `get_look_vertical`.
 ]]
----@return number
+---@deprecated
+---@nodiscard
+---@return number radians
 function PlayerRef:get_look_pitch() end
 
 --[[
 * `get_look_yaw()`: yaw in radians - Deprecated as broken. Use
   `get_look_horizontal`.
-    * Angle is counter-clockwise from the +x direction.
 ]]
----@return number
+---@deprecated
+---@nodiscard
+---@return number radians
 function PlayerRef:get_look_yaw() end
 
 --[[
 * `set_look_pitch(radians)`: sets look pitch - Deprecated. Use
   `set_look_vertical`.
 ]]
+---@deprecated
 ---@param radians number
 function PlayerRef:set_look_pitch(radians) end
 
@@ -172,6 +187,7 @@ function PlayerRef:set_look_pitch(radians) end
 * `set_look_yaw(radians)`: sets look yaw - Deprecated. Use
   `set_look_horizontal`.
 ]]
+---@deprecated
 ---@param radians number
 function PlayerRef:set_look_yaw(radians) end
 
@@ -180,7 +196,8 @@ function PlayerRef:set_look_yaw(radians) end
 --[[
 * `get_breath()`: returns player's breath
 ]]
----@return number
+---@nodiscard
+---@return integer value
 function PlayerRef:get_breath() end
 
 --[[
@@ -189,7 +206,8 @@ function PlayerRef:get_breath() end
         * `0`: player is drowning
     * Is limited to range 0 ... 65535 (2^16 - 1)
 ]]
----@param value number
+---@nodiscard
+---@param value integer
 function PlayerRef:set_breath(value) end
 
 -- ------------------------------- player fov ------------------------------- --
@@ -215,7 +233,7 @@ function PlayerRef:set_fov(fov, is_multiplier, transition_time) end
     * Boolean indicating whether the FOV value is a multiplier.
     * Time (in seconds) taken for the FOV transition. Set by `set_fov`.
 ]]
----@return number, boolean, number
+---@return number fov, boolean is_multiplier, number transition_time
 function PlayerRef:get_fov() end
 
 -- ----------------------------- player metadata ---------------------------- --
@@ -227,6 +245,7 @@ function PlayerRef:get_fov() end
       string.
     * If `value` is `nil`, remove attribute from player.
 ]]
+---@deprecated
 ---@param attribute string
 ---@param value string|number
 function PlayerRef:set_attribute(attribute, value) end
@@ -236,6 +255,8 @@ function PlayerRef:set_attribute(attribute, value) end
     * Returns value (a string) for extra attribute.
     * Returns `nil` if no attribute found.
 ]]
+---@deprecated
+---@nodiscard
 ---@param attribute string
 ---@return string|nil
 function PlayerRef:get_attribute(attribute) end
@@ -243,6 +264,7 @@ function PlayerRef:get_attribute(attribute) end
 --[[
 * `get_meta()`: Returns metadata associated with the player (a PlayerMetaRef).
 ]]
+---@nodiscard
 ---@return core.PlayerMetaRef
 function PlayerRef:get_meta() end
 
@@ -257,13 +279,14 @@ function PlayerRef:get_meta() end
       updated immediately.
     * See also: `core.register_on_player_receive_fields`
 ]]
----@param formspec string
+---@param formspec core.Formspec
 function PlayerRef:set_inventory_formspec(formspec) end
 
 --[[
 * `get_inventory_formspec()`: returns a formspec string
 ]]
----@return string?
+---@nodiscard
+---@return core.Formspec? formspec
 function PlayerRef:get_inventory_formspec() end
 
 --[[
@@ -274,13 +297,14 @@ function PlayerRef:get_inventory_formspec() end
       bgcolor[], any non-style elements (eg: label) may result in weird behavior.
     * Only affects formspecs shown after this is called.
 ]]
----@param formspec string
+---@param formspec core.Formspec
 function PlayerRef:set_formspec_prepend(formspec) end
 
 --[[
 * `get_formspec_prepend()`: returns a formspec string.
 ]]
----@return string?
+---@nodiscard
+---@return core.Formspec? formspec
 function PlayerRef:get_formspec_prepend() end
 
 -- ----------------------------- player control ----------------------------- --
@@ -297,8 +321,9 @@ function PlayerRef:get_formspec_prepend() end
 * `hud_add(hud definition)`: add a HUD element described by HUD def, returns ID
    number on success
 ]]
+---@nodiscard
 ---@param hud_definition core.HUDDef
----@return core.HUDID?
+---@return core.HUDID? id
 function PlayerRef:hud_add(hud_definition) end
 
 --[[
@@ -314,14 +339,16 @@ function PlayerRef:hud_remove(id) end
       `"type"` (or the deprecated `"hud_elem_type"`).
 ]]
 ---@param id core.HUDID
----@param stat string
----@param value any
+---@param stat core.HUDDef.keys
+---@param value number|string|core.Texture|vec2.xy|vec?
 function PlayerRef:hud_change(id, stat, value) end
 
 --[[
 * `hud_get(id)`: gets the HUD element definition structure of the specified ID
 ]]
+---@nodiscard
 ---@param id core.HUDID
+---@return core.HUDDef? hud_definition
 function PlayerRef:hud_get(id) end
 
 --[[
@@ -330,6 +357,7 @@ function PlayerRef:hud_get(id) end
     * A mod should keep track of its introduced IDs and only use this to access foreign elements.
     * It is discouraged to change foreign HUD elements.
 ]]
+---@nodiscard
 ---@return table<core.HUDID, core.HUDDef>
 function PlayerRef:hud_get_all() end
 
@@ -347,99 +375,41 @@ function PlayerRef:hud_set_hotbar_itemcount(count) end
 * `hud_get_hotbar_itemcount()`: returns number of visible items
     * This value is also clamped by the `"main"` list size.
 ]]
----@return integer
+---@nodiscard
+---@return integer count
 function PlayerRef:hud_get_hotbar_itemcount() end
 
 --[[
 * `hud_set_hotbar_image(texturename)`
     * sets background image for hotbar
 ]]
----@param texturename string
+---@param texturename core.Texture
 function PlayerRef:hud_set_hotbar_image(texturename) end
 
 --[[
 * `hud_get_hotbar_image()`: returns texturename
 ]]
----@return string
+---@nodiscard
+---@return core.Texture texturename
 function PlayerRef:hud_get_hotbar_image() end
 
 --[[
 * `hud_set_hotbar_selected_image(texturename)`
     * sets image for selected item of hotbar
 ]]
----@param texturename string
+---@param texturename core.Texture
 function PlayerRef:hud_set_hotbar_selected_image(texturename) end
 
 --[[
 * `hud_get_hotbar_selected_image()`: returns texturename
 ]]
----@return string
+---@nodiscard
+---@return core.Texture texturename
 function PlayerRef:hud_get_hotbar_selected_image() end
 
 -- ----------------------------- player minimap ----------------------------- --
 
---[[
-WIPDOC
-]]
----@class core.MinimapMode
-local MinimapMode = {}
-
---[[
-WIPDOC
-]]
----@type "off"|"surface"|"radar"|"texture"
-MinimapMode.type = nil
-
---[[
-WIPDOC
-]]
----@type string?
-MinimapMode.label = nil
-
---[[
-WIPDOC
-]]
----@type integer
-MinimapMode.size = nil
-
---[[
-WIPDOC
-]]
----@type string?
-MinimapMode.texture = nil
-
---[[
-WIPDOC
-]]
----@type integer?
-MinimapMode.scale = nil
-
---[[
-* `set_minimap_modes({mode, mode, ...}, selected_mode)`
-    * Overrides the available minimap modes (and toggle order), and changes the
-    selected mode.
-    * `mode` is a table consisting of up to four fields:
-        * `type`: Available type:
-            * `off`: Minimap off
-            * `surface`: Minimap in surface mode
-            * `radar`: Minimap in radar mode
-            * `texture`: Texture to be displayed instead of terrain map
-              (texture is centered around 0,0 and can be scaled).
-              Texture size is limited to 512 x 512 pixel.
-        * `label`: Optional label to display on minimap mode toggle
-          The translation must be handled within the mod.
-        * `size`: Sidelength or diameter, in number of nodes, of the terrain
-          displayed in minimap
-        * `texture`: Only for texture type, name of the texture to display
-        * `scale`: Only for texture type, scale of the texture map in nodes per
-          pixel (for example a `scale` of 2 means each pixel represents a 2x2
-          nodes square)
-    * `selected_mode` is the mode index to be selected after modes have been changed
-    (0 is the first mode).
-]]
----@param modes core.MinimapMode[]
----@param selected_mode integer
-function PlayerRef:set_minimap_modes(modes, selected_mode) end
+--[[ PlayerRef:set_minimap_modes() split off into ./player_minimap.lua ]]--
 
 -- ------------------------------- player sky ------------------------------- --
 
@@ -462,7 +432,8 @@ function PlayerRef:override_day_night_ratio(ratio) end
 --[[
 * `get_day_night_ratio()`: returns the ratio or nil if it isn't overridden
 ]]
----@return number?
+---@nodiscard
+---@return number? ratio
 function PlayerRef:get_day_night_ratio() end
 
 -- ---------------------------- player animation ---------------------------- --
@@ -473,20 +444,19 @@ function PlayerRef:get_day_night_ratio() end
     * Every animation equals to a `{x=starting frame, y=ending frame}` table.
     * `frame_speed` sets the animations frame speed. Default is 30.
 ]]
----@param idle {x:integer, y:integer}
----@param walk {x:integer, y:integer}
----@param dig {x:integer, y:integer}
----@param walk_while_dig {x:integer, y:integer}
----@param frame_speed integer
+---@param idle vec2.xy
+---@param walk vec2.xy
+---@param dig vec2.xy
+---@param walk_while_dig vec2.xy
+---@param frame_speed number
 function PlayerRef:set_local_animation(idle, walk, dig, walk_while_dig, frame_speed) end
 
 --[[
 * `get_local_animation()`: returns idle, walk, dig, walk_while_dig tables and
   `frame_speed`.
 ]]
----@return {x:integer, y:integer} idle
----@return {x:integer, y:integer} walk
----@return {x:integer, y:integer} dig
+---@nodiscard
+---@return vec2.xy idle, vec2.xy walk, vec2.xy dig
 function PlayerRef:get_local_animation() end
 
 -- ------------------------------ player camera ----------------------------- --
@@ -510,8 +480,27 @@ function PlayerRef:set_eye_offset(firstperson, thirdperson_back, thirdperson_fro
 --[[
 * `get_eye_offset()`: Returns camera offset vectors as set via `set_eye_offset`.
 ]]
----@return  vector, vector, vector
+---@nodiscard
+---@return  vec firstperson, vec thirdperson_back, vec thirdperson_front
 function PlayerRef:get_eye_offset() end
+
+--[[
+WIPDOC
+]]
+---@alias core.PlayerCameraParams.mode
+--- | "any"
+--- | "first"
+--- | "third"
+--- | "third_front"
+
+--[[
+WIPDOC
+]]
+---@class core.PlayerCameraParams
+--[[
+WIPDOC
+]]
+---@field mode core.PlayerCameraParams.mode
 
 --[[
 * `set_camera(params)`: Sets camera parameters.
@@ -522,13 +511,14 @@ function PlayerRef:get_eye_offset() end
       - `third_front`: third-person camera, looking opposite of movement direction
     * Supported by client since 5.12.0.
 ]]
----@param params {mode: "any"|"first"|"third"|"third_front"}
+---@param params core.PlayerCameraParams
 function PlayerRef:set_camera(params) end
 
 --[[
 * `get_camera()`: Returns the camera parameters as a table as above.
 ]]
----@return {mode: "any"|"first"|"third"|"third_front"}
+---@nodiscard
+---@return core.PlayerCameraParams params
 function PlayerRef:get_camera() end
 
 -- ---------------------- player mapblock and lighting ---------------------- --
@@ -540,6 +530,7 @@ function PlayerRef:get_camera() end
       the client already has the block)
     * Resource intensive - use sparsely
 ]]
+---@nodiscard
 ---@param blockpos vector
 ---@return boolean?
 function PlayerRef:send_mapblock(blockpos) end

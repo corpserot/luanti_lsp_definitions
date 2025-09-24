@@ -2,31 +2,80 @@
 -- DRAFT 1 DONE
 -- lua_api.md: Groups
 
--- -------------------------- node and item groups -------------------------- --
+-- ------------------------------- Groups.item ------------------------------ --
 
 --[[
 WIPDOC
 ]]
----@class core.Groups.item : {[string]:integer}, _.Groups.item.__partial
-
----@class _.Groups.item.__partial
+---@class core.Groups.item : {[string]:integer}
 --[[
 WIPDOC
 ]]
 ---@field not_in_creative_inventory integer?
 
--- ---------------------------- node-only groups ---------------------------- --
+-- ------------------------------- Groups.node ------------------------------ --
 
 --[[
 WIPDOC
 ]]
----@class core.Groups.node : core.Groups.item, _.Groups.node.__partial
+---@alias core.Groups.special.attached_node
+--- | 0
+--- | 1
+--- | 2
+--- | 3
+--- | 4
+--- | integer
 
----@class _.Groups.node.__partial
 --[[
 WIPDOC
 ]]
----@field attached_node 0|1|2|3|4?
+---@alias core.Groups.special.dig_immediate
+--- | 0
+--- | 1
+--- | 2
+--- | 3
+--- | integer
+
+--[[
+WIPDOC
+]]
+---@alias core.Groups.special.disable_jump
+--- | 0
+--- | 1
+--- | integer
+
+--[[
+WIPDOC
+]]
+---@alias core.Groups.special.disable_descend
+--- | 0
+--- | 1
+--- | integer
+
+--[[
+WIPDOC
+]]
+---@alias core.Groups.special.falling_node
+--- | 0
+--- | 1
+--- | integer
+
+--[[
+WIPDOC
+]]
+---@alias core.Groups.special.float
+--- | 0
+--- | 1
+--- | integer
+
+--[[
+WIPDOC
+]]
+---@class core.Groups.node : core.Groups.item
+--[[
+WIPDOC
+]]
+---@field attached_node core.Groups.special.attached_node?
 --[[
 WIPDOC
 ]]
@@ -38,15 +87,15 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field dig_immediate 0|1|2|3?
+---@field dig_immediate core.Groups.special.dig_immediate?
 --[[
 WIPDOC
 ]]
----@field disable_jump 0|1?
+---@field disable_jump core.Groups.special.disable_jump?
 --[[
 WIPDOC
 ]]
----@field disabled_descend 0|1?
+---@field disable_descend core.Groups.special.disable_descend?
 --[[
 WIPDOC
 ]]
@@ -54,11 +103,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field falling_node 0|1?
+---@field falling_node core.Groups.special.falling_node?
 --[[
 WIPDOC
 ]]
----@field float 0|1?
+---@field float core.Groups.special.float?
 --[[
 WIPDOC
 ]]
@@ -68,30 +117,51 @@ WIPDOC
 ]]
 ---@field slippery integer?
 
--- ---------------------------- tool-only groups ---------------------------- --
+-- ------------------------------- Groups.tool ------------------------------ --
 
 --[[
 WIPDOC
 ]]
----@class core.Groups.tool : core.Groups.item, _.Groups.tool.__partial
-
----@class _.Groups.tool.__partial
---[[
-WIPDOC
-]]
----@field disable_repair 0|1?
-
-
--- ---------------------------- ObjectRef groups ---------------------------- --
+---@alias core.Groups.special.disable_repair
+--- | 0
+--- | 1
+--- | integer
 
 --[[
 WIPDOC
 ]]
----@class core.Groups.ObjectRef : {[string]:integer}
+---@class core.Groups.tool : core.Groups.item
 --[[
 WIPDOC
 ]]
----@field immortal 0|1?
+---@field disable_repair core.Groups.special.disable_repair?
+
+-- ------------------------------ Groups.armor ------------------------------ --
+
+--[[
+WIPDOC
+]]
+---@alias core.Groups.special.immortal
+--- | 0
+--- | 1
+--- | integer
+
+--[[
+WIPDOC
+]]
+---@alias core.Groups.special.punch_operable
+--- | 0
+--- | 1
+--- | integer
+
+--[[
+WIPDOC
+]]
+---@class core.Groups.armor : {[string]:integer}
+--[[
+WIPDOC
+]]
+---@field immortal core.Groups.special.immortal?
 --[[
 WIPDOC
 ]]
@@ -99,4 +169,4 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field punch_operable 0|1?
+---@field punch_operable core.Groups.special.punch_operable?

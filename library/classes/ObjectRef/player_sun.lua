@@ -15,15 +15,15 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field texture string?
+---@field texture core.Texture?
 --[[
 WIPDOC
 ]]
----@field tonemap string?
+---@field tonemap core.Texture?
 --[[
 WIPDOC
 ]]
----@field sunrise string?
+---@field sunrise core.Texture?
 --[[
 WIPDOC
 ]]
@@ -44,15 +44,15 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field texture string
+---@field texture core.Texture
 --[[
 WIPDOC
 ]]
----@field tonemap string
+---@field tonemap core.Texture
 --[[
 WIPDOC
 ]]
----@field sunrise string
+---@field sunrise core.Texture
 --[[
 WIPDOC
 ]]
@@ -77,5 +77,6 @@ function PlayerRef:set_sun(sun_parameters) end
 * `get_sun()`: returns a table with the current sun parameters as in
     `set_sun`.
 ]]
----@return core.PlayerSunParameters.get
+---@nodiscard
+---@return core.PlayerSunParameters.get sun_parameters
 function PlayerRef:get_sun() end

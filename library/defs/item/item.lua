@@ -5,11 +5,38 @@
 --[[
 WIPDOC
 ]]
+---@alias core.Tool.name
+--- | string
+
+--[[
+WIPDOC
+]]
+---@alias core.Item.name
+--- | ""
+--- | core.Tool.name
+--- | core.Node.name
+
+--[[
+WIPDOC
+]]
+---@alias core.Item.namelike
+--- | core.Groups.item
+--- | core.Groups.tool
+--- | core.Item.name
+
+--[[
+WIPDOC
+]]
+---@alias core.Tool.wear integer
+
+--[[
+WIPDOC
+]]
 ---@class core.Item.tablefmt
 --[[
 WIPDOC
 ]]
----@field name string
+---@field name core.Item.name
 --[[
 WIPDOC
 ]]
@@ -17,7 +44,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field wear integer?
+---@field wear core.Tool.wear?
 --[[
 WIPDOC
 ]]
@@ -26,7 +53,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.Item.stringfmt : string
+---@alias core.Item.stringfmt string
 
 --[[
 WIPDOC

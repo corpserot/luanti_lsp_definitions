@@ -30,7 +30,7 @@ Omit from "scatter" ore for a uniform ore distribution.
 Omit from "stratum" ore for a simple horizontal strata from y_min to
 y_max.
 ]]
----@field noise_params core.NoiseParams
+---@field noise_params core.NoiseParams.3d
 --[[
 "sheet" type
 ]]

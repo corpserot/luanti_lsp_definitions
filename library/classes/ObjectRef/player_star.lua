@@ -84,5 +84,6 @@ function PlayerRef:set_stars(star_parameters) end
 * `get_stars()`: returns a table with the current stars parameters as in
     `set_stars`.
 ]]
----@return core.PlayerStarParameters.get
+---@nodiscard
+---@return core.PlayerStarParameters.get star_parameters
 function PlayerRef:get_stars() end

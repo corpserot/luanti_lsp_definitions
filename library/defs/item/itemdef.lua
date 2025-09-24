@@ -3,13 +3,12 @@
 -- lua_api.md: Items
 -- lua_api.md: Definition tables > Item definition
 
---[[
-WIPDOC
-]]
----@class core.ItemDef
 
 -- ------------------------------- description ------------------------------ --
 
+--[[
+WIPDOC
+]]
 ---@class core.ItemDef
 --[[
 Can contain new lines. "\n" has to be used as new line character.
@@ -45,20 +44,20 @@ e.g. {wool = 1, fluffy = 3}
 Texture shown in the inventory GUI
 Defaults to a 3D rendering of the node if left empty.
 ]]
----@field inventory_image string?
+---@field inventory_image core.Texture?
 --[[
 An overlay texture which is not affected by colorization
 ]]
----@field inventory_overlay string?
+---@field inventory_overlay core.Texture?
 --[[
 Texture shown when item is held in hand
 Defaults to a 3D rendering of the node if left empty.
 ]]
----@field wield_image string?
+---@field wield_image core.Texture?
 --[[
 Like inventory_overlay but only used in the same situation as wield_image
 ]]
----@field wield_overlay string?
+---@field wield_overlay core.Texture?
 --[[
 Scale for the item when held in hand
 ]]
@@ -70,7 +69,7 @@ the item stack metadata.
 The palette is always stretched to fit indices between 0 and 255, to
 ensure compatibility with "colorfacedir" (and similar) nodes.
 ]]
----@field palette string?
+---@field palette core.Texture?
 --[[
 Color the item is colorized with. The palette overrides this.
 ]]
@@ -116,7 +115,7 @@ To set the maximum (14), use the value 'core.LIGHT_MAX'.
 A value outside the range 0 to core.LIGHT_MAX causes undefined
 behavior.
 ]]
----@field light_source integer?
+---@field light_source core.Light.source?
 --[[
 See "Tool Capabilities" section for an example including explanation
 ]]
@@ -134,14 +133,14 @@ Otherwise should be name of node which the client immediately places
 on ground when the player places the item. Server will always update
 with actual result shortly.
 ]]
----@field node_placement_prediction string?
+---@field node_placement_prediction core.Node.name?
 --[[
 if "", no prediction is made.
 if "air", node is removed.
 Otherwise should be name of node which the client immediately places
 upon digging. Server will always update with actual result shortly.
 ]]
----@field node_dig_prediction string?
+---@field node_dig_prediction core.Node.name?
 
 --[[ ItemDef.touch_interaction split off into ./touch_interaction.lua ]]--
 
@@ -149,7 +148,6 @@ upon digging. Server will always update with actual result shortly.
 
 -- -------------------------------- callbacks ------------------------------- --
 
----@class core.ItemDef
 --[[
 When the 'place' key was pressed with the item in hand
 and a node was pointed at.
@@ -158,7 +156,8 @@ or nil to not modify the inventory.
 The placer may be any ObjectRef or nil.
 default: core.item_place
 ]]
----@field on_place? fun(itemstack:core.ItemStack, placer:core.ObjectRef, pointed_thing:core.PointedThing): core.ItemStack?
+---@alias core.ItemDef.on_place fun(itemstack:core.ItemStack, placer:core.ObjectRef, pointed_thing:core.PointedThing): core.ItemStack?
+
 --[[
 Same as on_place but called when not pointing at a node.
 Function must return either nil if inventory shall not be modified,
@@ -166,13 +165,15 @@ or an itemstack to replace the original itemstack.
 The user may be any ObjectRef or nil.
 default: nil
 ]]
----@field on_secondary_use? fun(itemstack:core.ItemStack, user:core.ObjectRef, pointed_thing:core.PointedThing): core.ItemStack?
+---@alias core.ItemDef.on_secondary_use fun(itemstack:core.ItemStack, user:core.ObjectRef, pointed_thing:core.PointedThing): core.ItemStack?
+
 --[[
 Shall drop item and return the leftover itemstack.
 The dropper may be any ObjectRef or nil.
 default: core.item_drop
 ]]
----@field on_drop? fun(itemstack:core.ItemStack, dropper:core.ObjectRef, pos:vector): core.ItemStack?
+---@alias core.ItemDef.on_drop fun(itemstack:core.ItemStack, dropper:core.ObjectRef, pos:vector): core.ItemStack?
+
 --[[
 Called when a dropped item is punched by a player.
 Shall pick-up the item and return the leftover itemstack or nil to not
@@ -186,7 +187,8 @@ Parameters:
   `luaentity:on_punch`.
 default: `core.item_pickup`
 ]]
----@field on_pickup? fun(itemstack: core.ItemStack, picker:core.ObjectRef, pointed_thing:core.PointedThing, time_from_last_punch:number, tool_capabilities:core.ToolCapabilities, dir:vector, damage:number): core.ItemStack?
+---@alias core.ItemDef.on_pickup fun(itemstack: core.ItemStack, picker:core.ObjectRef, pointed_thing:core.PointedThing, time_from_last_punch:number?, tool_capabilities:core.ToolCapabilities?, dir:vector?, damage:integer?): core.ItemStack?
+
 --[[
 default: nil
 When user pressed the 'punch/mine' key with the item in hand.
@@ -197,7 +199,8 @@ Otherwise, the function is free to do what it wants.
 The user may be any ObjectRef or nil.
 The default functions handle regular use cases.
 ]]
----@field on_use? fun(itemstack:core.ItemStack, user:core.ObjectRef?, pointed_thing:core.PointedThing): core.ItemStack?
+---@alias core.ItemDef.on_use fun(itemstack:core.ItemStack, user:core.ObjectRef?, pointed_thing:core.PointedThing): core.ItemStack?
+
 --[[
 default: nil
 If defined, should return an itemstack and will be called instead of
@@ -209,4 +212,30 @@ If after_use doesn't exist, it is the same as:
   end
 The user may be any ObjectRef or nil.
 ]]
----@field after_use? fun(itemstack:core.ItemStack, user:core.ObjectRef?, node:core.Node.get, digparams:core.DigParams): core.ItemStack?
+---@alias core.ItemDef.after_use fun(itemstack:core.ItemStack, user:core.ObjectRef?, node:core.Node.get, digparams:core.DigParams): core.ItemStack?
+
+---@class core.ItemDef
+--[[
+WIPDOC
+]]
+---@field on_place core.ItemDef.on_place?
+--[[
+WIPDOC
+]]
+---@field on_secondary_use core.ItemDef.on_secondary_use?
+--[[
+WIPDOC
+]]
+---@field on_drop core.ItemDef.on_drop?
+--[[
+WIPDOC
+]]
+---@field on_pickup core.ItemDef.on_pickup?
+--[[
+WIPDOC
+]]
+---@field on_use core.ItemDef.on_use?
+--[[
+WIPDOC
+]]
+---@field after_use core.ItemDef.after_use?

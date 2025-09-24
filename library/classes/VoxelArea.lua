@@ -1,23 +1,25 @@
 ---@meta _
 -- DRAFT 1 DONE
+-- lua_api.md: Map terminology and coordinates
 -- lua_api.md: Lua Voxel Manipulator
+-- lua_api.md: Class reference > `VoxelArea`
 
 -- ------------------------------- constructor ------------------------------ --
 
 --[[
 WIPDOC
 ]]
----@param pmin vector
----@param pmax vector
----@return VoxelArea
 ---@nodiscard
+---@param pmin vectori
+---@param pmax vectori
+---@return VoxelArea
 function VoxelArea(pmin, pmax) end
 
 --[[
 WIPDOC
 ]]
 ---@nodiscard
----@param arg {MinEdge:vector, MaxEdge:vector}
+---@param arg {MinEdge:vectori, MaxEdge:vectori}
 ---@return VoxelArea
 function VoxelArea:new(arg) end
 
@@ -33,14 +35,14 @@ VoxelArea = {}
 WIPDOC
 ]]
 ---@nodiscard
----@return vector
+---@return veci
 function VoxelArea:getExtent() end
 
 --[[
 WIPDOC
 ]]
 ---@nodiscard
----@return vector
+---@return integer
 function VoxelArea:getVolume() end
 
 --[[
@@ -53,10 +55,10 @@ function VoxelArea:getVolume() end
       `ValueNoiseMap:get2d`/`3dMap`, and so on.
 ]]
 ---@nodiscard
----@param x number
----@param y number
----@param z number
----@return number
+---@param x integer
+---@param y integer
+---@param z integer
+---@return integer i
 function VoxelArea:index(x, y, z) end
 
 --[[
@@ -65,16 +67,17 @@ function VoxelArea:index(x, y, z) end
       is not checked for being inside the area volume.
 ]]
 ---@nodiscard
----@param p vector
----@return number
+---@param p vectori
+---@return integer i
 function VoxelArea:indexp(p) end
 
 --[[
 * `position(i)`: returns the absolute position vector corresponding to index
   `i`.
 ]]
----@param i number
----@return vector
+---@nodiscard
+---@param i integer
+---@return veci p
 function VoxelArea:position(i) end
 
 --[[
@@ -99,7 +102,7 @@ function VoxelArea:containsp(p) end
 WIPDOC
 ]]
 ---@nodiscard
----@param i number
+---@param i integer
 ---@return boolean
 function VoxelArea:containsi(i) end
 
@@ -107,20 +110,22 @@ function VoxelArea:containsi(i) end
 WIPDOC
 ]]
 ---@nodiscard
----@param minx number
----@param miny number
----@param minz number
----@param maxx number
----@param maxy number
----@param maxz number
----@return function
+---@generic IteratorState
+---@param minx integer
+---@param miny integer
+---@param minz integer
+---@param maxx integer
+---@param maxy integer
+---@param maxz integer
+---@return fun(state:`IteratorState`, index:integer): integer index, any ...
 function VoxelArea:iter(minx, miny, minz, maxx, maxy, maxz) end
 
 --[[
 WIPDOC
 ]]
 ---@nodiscard
----@param minp vector
----@param maxp vector
----@return function
+---@generic IteratorState
+---@param minp vectori
+---@param maxp vectori
+---@return fun(state:`IteratorState`, index:integer): integer index, any ...
 function VoxelArea:iterp(minp, maxp) end

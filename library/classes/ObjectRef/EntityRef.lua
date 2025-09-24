@@ -39,7 +39,8 @@ function EntityRef:set_acceleration(acc) end
 --[[
 * `get_acceleration()`: returns the acceleration, a vector
 ]]
----@return vector?
+---@nodiscard
+---@return vector? acc
 function EntityRef:get_acceleration() end
 
 -- --------------------- entity rotation and orientation -------------------- --
@@ -56,9 +57,10 @@ function EntityRef:get_acceleration() end
 function EntityRef:set_rotation(rot) end
 
 --[[
-* `get_rotation()`: returns the rotation, a vector (radians
+* `get_rotation()`: returns the rotation, a vector (radians)
 ]]
----@return vector?
+---@nodiscard
+---@return vector? rot
 function EntityRef:get_rotation() end
 
 --[[
@@ -70,7 +72,8 @@ function EntityRef:set_yaw(yaw) end
 --[[
 * `get_yaw()`: returns number in radians
 ]]
----@return number
+---@nodiscard
+---@return number yaw
 function EntityRef:get_yaw() end
 
 -- ----------------------------- entity texture ----------------------------- --
@@ -81,14 +84,51 @@ function EntityRef:get_yaw() end
     * When calling `set_texture_mod` again, the previous one is discarded.
     * `mod` the texture modifier. See [Texture modifiers].
 ]]
----@param mod string
+---@param mod core.Texture
 function EntityRef:set_texture_mod(mod) end
 
 --[[
 * `get_texture_mod()` returns current texture modifier
 ]]
----@return string?
+---@nodiscard
+---@return core.Texture? mod
 function EntityRef:get_texture_mod() end
+
+--[[
+WIPDOC
+]]
+---@class core.EntityRef.select_x_by_camera.strict
+--[[
+WIPDOC
+]]
+---@field [1] integer
+--[[
+WIPDOC
+]]
+---@field [2] integer
+--[[
+WIPDOC
+]]
+---@field [3] integer
+--[[
+WIPDOC
+]]
+---@field [4] integer
+--[[
+WIPDOC
+]]
+---@field [5] integer
+--[[
+WIPDOC
+]]
+---@field [6] integer
+
+--[[
+WIPDOC
+]]
+---@alias core.EntityRef.select_x_by_camera
+--- | core.EntityRef.select_x_by_camera.strict
+--- | string[]
 
 --[[
 * `set_sprite(start_frame, num_frames, framelength, select_x_by_camera)`
@@ -108,10 +148,10 @@ function EntityRef:get_texture_mod() end
         * Fifth column:  subject viewed from above
         * Sixth column:  subject viewed from below
 ]]
----@param start_frame {x:number,y:number}?
+---@param start_frame vec2.xy?
 ---@param num_frames integer?
 ---@param framelength number?
----@param select_x_by_camera string[]|boolean?
+---@param select_x_by_camera core.EntityRef.select_x_by_camera|boolean?
 function EntityRef:set_sprite(start_frame, num_frames, framelength, select_x_by_camera) end
 
 -- ------------------------------- entity misc ------------------------------ --
@@ -121,6 +161,7 @@ function EntityRef:set_sprite(start_frame, num_frames, framelength, select_x_by_
     * Returns the object's associated luaentity table, if there is one
     * Otherwise returns `nil` (e.g. for players
 ]]
+---@nodiscard
 ---@return core.Entity
 function EntityRef:get_luaentity() end
 
@@ -129,6 +170,7 @@ function EntityRef:get_luaentity() end
     * **Deprecated**: Will be removed in a future version,
       use `:get_luaentity().name` instead.
 ]]
+---@nodiscard
 ---@deprecated
----@return string
+---@return core.Entity.name
 function EntityRef:get_entity_name() end

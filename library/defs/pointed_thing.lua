@@ -2,26 +2,62 @@
 -- DRAFT 1 DONE
 -- lua_api.md: Representations of simple things
 
+-- -------------------------- PointedThing.nothing -------------------------- --
+
 --[[
 WIPDOC
 ]]
----@class core.PointedThing
+---@class core.PointedThing.nothing
 --[[
 WIPDOC
 ]]
----@field type "nothing"|"node"|"object"
+---@field type "nothing"
+
+-- ---------------------------- PointedThing.node --------------------------- --
+
 --[[
 WIPDOC
 ]]
----@field under vector
+---@class core.PointedThing.node
 --[[
 WIPDOC
 ]]
----@field above vector
+---@field type "node"
+--[[
+WIPDOC
+]]
+---@field under vectori
+--[[
+WIPDOC
+]]
+---@field above vectori
+
+-- --------------------------- PointedThing.object -------------------------- --
+
+--[[
+WIPDOC
+]]
+---@class core.PointedThing.object
+--[[
+WIPDOC
+]]
+---@field type "object"
 --[[
 WIPDOC
 ]]
 ---@field ref core.ObjectRef
+
+--[[
+WIPDOC
+]]
+---@alias core.PointedThing
+--- | core.PointedThing.nothing
+--- | core.PointedThing.node
+--- | core.PointedThing.object
+
+-- -------------------------- PointedThing.raycast -------------------------- --
+
+---@class _.PointedThing.raycast.__partial
 --[[
 Only raycast supports this
 * `pointed_thing.intersection_point`: The absolute world coordinates of the
@@ -44,3 +80,20 @@ Only raycast supports this
   by the entity's rotation - it will always be in absolute world space.
 ]]
 ---@field intersection_normal vector
+
+--[[
+WIPDOC
+]]
+---@class core.PointedThing.raycast.node : core.PointedThing.node, _.PointedThing.raycast.__partial
+
+--[[
+WIPDOC
+]]
+---@class core.PointedThing.raycast.object : core.PointedThing.object, _.PointedThing.raycast.__partial
+
+--[[
+WIPDOC
+]]
+---@alias core.PointedThing.raycast.all
+--- | core.PointedThing.raycast.node
+--- | core.PointedThing.raycast.object

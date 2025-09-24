@@ -157,5 +157,6 @@ function PlayerRef:set_physics_override(override_table) end
 --[[
 * `get_physics_override()`: returns the table given to `set_physics_override`
 ]]
----@return core.PlayerPhysicsOverride.get
+---@nodiscard
+---@return core.PlayerPhysicsOverride.get override_table
 function PlayerRef:get_physics_override() end

@@ -1,14 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Nodes
 -- lua_api.md: Definition tables > Node definition
-
--- --------------------- NodeDef.drop.items.tool_groups --------------------- --
-
---[[
-WIPDOC
-]]
----@class core.NodeDef.drop.item.tool_groups : {[integer]:string|{[integer]:string}}
 
 -- --------------------------- NodeDef.drop.items --------------------------- --
 
@@ -31,7 +23,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field tool_groups core.NodeDef.drop.item.tool_groups?
+---@field tool_groups OneOrMany<core.Groups.tool>[]?
 --[[
 WIPDOC
 ]]
@@ -50,19 +42,14 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field items integer?
-
---[[
-WIPDOC
-]]
----@class core.NodeDef.drop.stringfmt : string
+---@field items core.NodeDef.drop.item?
 
 --[[
 WIPDOC
 ]]
 ---@alias core.NodeDef.drop
 --- | core.NodeDef.drop.tablefmt
---- | core.NodeDef.drop.stringfmt
+--- | core.Item.stringfmt
 
 -- ----------------------------- NodeDef fields ----------------------------- --
 

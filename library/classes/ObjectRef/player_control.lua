@@ -85,6 +85,7 @@ local PlayerRef
           support different input methods correctly.
     * Returns an empty table `{}` if the object is not a player.
 ]]
+---@nodiscard
 ---@return core.PlayerControl
 function PlayerRef:get_player_control() end
 
@@ -104,5 +105,6 @@ function PlayerRef:get_player_control() end
         * 9 - zoom
     * Returns `0` (no bits set) if the object is not a player.
 ]]
+---@nodiscard
 ---@return integer
 function PlayerRef:get_player_control_bits() end

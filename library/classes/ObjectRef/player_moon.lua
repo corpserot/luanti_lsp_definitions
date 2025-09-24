@@ -15,11 +15,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field texture string?
+---@field texture core.Texture?
 --[[
 WIPDOC
 ]]
----@field tonemap string?
+---@field tonemap core.Texture?
 --[[
 WIPDOC
 ]]
@@ -36,11 +36,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field texture string
+---@field texture core.Texture
 --[[
 WIPDOC
 ]]
----@field tonemap string
+---@field tonemap core.Texture
 --[[
 WIPDOC
 ]]
@@ -61,5 +61,6 @@ function PlayerRef:set_moon(moon_parameters) end
 * `get_moon()`: returns a table with the current moon parameters as in
     `set_moon`.
 ]]
----@return core.PlayerMoonParameters.get
+---@nodiscard
+---@return core.PlayerMoonParameters.get moon_parameters
 function PlayerRef:get_moon() end

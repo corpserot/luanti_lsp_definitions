@@ -5,4 +5,4 @@
 --[[
 WIPDOC
 ]]
----@class core.Texture : string
+---@alias core.Texture string

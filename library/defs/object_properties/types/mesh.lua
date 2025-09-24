@@ -21,7 +21,7 @@ WIPDOC
 File name of mesh when using "mesh" visual.
 For legacy reasons, this uses a 10x scale for meshes: 10 units = 1 node.
 ]]
----@field mesh string?
+---@field mesh core.Path?
 --[[
 Number of required textures depends on visual:
 "cube" uses 6 textures just like a node, but all 6 must be defined.
@@ -31,7 +31,7 @@ Number of required textures depends on visual:
 Deprecated usage of "wielditem" expects 'textures = {itemname}' (see 'visual' above).
 Unofficial note: I *guessed* that it's string[] but i am not sure
 ]]
----@field textures string[]?
+---@field textures core.Texture[]?
 
 ---@class _.ObjectProperties.mesh.get.__partial : _.ObjectProperties.backface_culling.get.__partial, _.ObjectProperties.shaded.get.__partial
 --[[
@@ -42,7 +42,7 @@ WIPDOC
 File name of mesh when using "mesh" visual.
 For legacy reasons, this uses a 10x scale for meshes: 10 units = 1 node.
 ]]
----@field mesh string
+---@field mesh core.Path
 --[[
 Number of required textures depends on visual:
 "cube" uses 6 textures just like a node, but all 6 must be defined.
@@ -52,4 +52,4 @@ Number of required textures depends on visual:
 Deprecated usage of "wielditem" expects 'textures = {itemname}' (see 'visual' above).
 Unofficial note: I *guessed* that it's string[] but i am not sure
 ]]
----@field textures string[]
+---@field textures core.Texture[]

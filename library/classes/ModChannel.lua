@@ -22,6 +22,8 @@ function ModChannel:leave() end
 * `is_writeable()`: returns true if channel is writeable and mod can send over
   it.
 ]]
+---@nodiscard
+---@return boolean
 function ModChannel:is_writeable() end
 
 --[[

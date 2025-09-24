@@ -84,11 +84,20 @@ WIPDOC
 
 -- -------------------------- ParticleSpawner.tween ------------------------- --
 
+--[[
+WIPDOC
+]]
+---@alias core.ParticleSpawner.tween.style
+--- | "fwd"
+--- | "rev"
+--- | "pulse"
+--- | "flicker"
+
 ---@class _.ParticleSpawner.tween.__base
 --[[
 WIPDOC
 ]]
----@field  style "fwd"|"rev"|"pulse"|"flicker"?
+---@field  style core.ParticleSpawner.tween.style?
 --[[
 WIPDOC
 ]]

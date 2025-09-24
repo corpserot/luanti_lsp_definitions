@@ -15,7 +15,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field tint {r:integer, g:integer, b:integer}?
+---@field tint core.ColorSpec?
 
 --[[
 WIPDOC
@@ -28,7 +28,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field tint {r:integer, g:integer, b:integer}?
+---@field tint core.ColorSpec?
 
 -- ------------------------- PlayerLightDef.exposure ------------------------ --
 
@@ -214,5 +214,6 @@ function PlayerRef:set_lighting(light_definition) end
 * `get_lighting()`: returns the current state of lighting for the player.
     * Result is a table with the same fields as `light_definition` in `set_lighting`.
 ]]
----@return core.PlayerLightDef.get
+---@nodiscard
+---@return core.PlayerLightDef.get light_definition
 function PlayerRef:get_lighting() end

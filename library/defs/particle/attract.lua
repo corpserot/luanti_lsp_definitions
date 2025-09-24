@@ -5,11 +5,20 @@
 --[[
 WIPDOC
 ]]
+---@alias core.ParticleSpawner.kind
+--- | "none"
+--- | "point"
+--- | "line"
+--- | "plane"
+
+--[[
+WIPDOC
+]]
 ---@class core.ParticleSpawner.attract
 --[[
 WIPDOC
 ]]
----@field  kind "none"|"point"|"line"|"plane"
+---@field  kind core.ParticleSpawner.kind
 --[[
 WIPDOC
 ]]

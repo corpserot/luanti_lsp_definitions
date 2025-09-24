@@ -17,6 +17,13 @@ WIPDOC
 ]]
 ---@field [2] number
 
+--[[
+WIPDOC
+]]
+---@alias core.ObjectProperties.upright_sprite.textures
+--- | core.ObjectProperties.upright_sprite.textures.strict
+--- | string[]
+
 -- ------------------- ObjectProperties.upright_sprite.set ------------------ --
 
 --[[
@@ -43,7 +50,7 @@ Number of required textures depends on visual:
 Deprecated usage of "wielditem" expects 'textures = {itemname}' (see 'visual' above).
 Unofficial note: I *guessed* that it's string[] but i am not sure
 ]]
----@field textures string[]|core.ObjectProperties.upright_sprite.textures.strict?
+---@field textures core.ObjectProperties.upright_sprite.textures?
 
 ---@class _.ObjectProperties.upright_sprite.get.__partial : _.ObjectProperties.spritesheet.get.__partial, _.ObjectProperties.shaded.get.__partial
 --[[
@@ -59,4 +66,4 @@ Number of required textures depends on visual:
 Deprecated usage of "wielditem" expects 'textures = {itemname}' (see 'visual' above).
 Unofficial note: I *guessed* that it's string[] but i am not sure
 ]]
----@field textures string[]|core.ObjectProperties.upright_sprite.textures.strict
+---@field textures core.ObjectProperties.upright_sprite.textures

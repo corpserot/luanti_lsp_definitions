@@ -55,7 +55,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.DecorationDef.flags.stringfmt : string
+---@alias core.DecorationDef.flags.stringfmt string
 
 --[[
 WIPDOC
@@ -99,7 +99,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.DecorationDef.schematic.flags.stringfmt : string
+---@alias core.DecorationDef.schematic.flags.stringfmt string
 
 --[[
 WIPDOC

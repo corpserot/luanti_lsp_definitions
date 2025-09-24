@@ -3,7 +3,8 @@
 -- lua_api.md: HUD
 -- lua_api.md: Definition tables > HUD Definition
 
--- TODO does image_waypoint inherit from waypoint too?
+-- NOTE: while it *might* look like image_waypoint should derive from waypoint,
+-- that is false. It's instead derived from image
 
 --[[
 WIPDOC

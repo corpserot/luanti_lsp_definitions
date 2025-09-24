@@ -2,6 +2,47 @@
 -- DRAFT 1 DONE
 -- lua_api.md: Tool Capabilities
 
+-- ---------------------- ToolCapabilities.*.groupcaps ---------------------- --
+
+--[[
+WIPDOC
+]]
+---@class core.ToolCapabilities.item.groupcap
+--[[
+WIPDOC
+]]
+---@field times number[]?
+--[[
+WIPDOC
+]]
+---@field maxlevel integer?
+
+--[[
+WIPDOC
+]]
+---@alias core.ToolCapabilities.item.groupcaps table<core.Groups.node, core.ToolCapabilities.item.groupcap>
+
+--[[
+WIPDOC
+]]
+---@class core.ToolCapabilities.tool.groupcap : core.ToolCapabilities.item.groupcap
+--[[
+WIPDOC
+]]
+---@field uses integer?
+
+--[[
+WIPDOC
+]]
+---@alias core.ToolCapabilities.tool.groupcaps table<core.Groups.node, core.ToolCapabilities.tool.groupcap>
+
+-- --------------------- ToolCapabilities.damage_groups --------------------- --
+
+--[[
+WIPDOC
+]]
+---@alias core.ToolCapabilities.damage_groups table<core.Groups.armor, integer>
+
 -- -------------------------- ToolCapabilities.item ------------------------- --
 
 --[[
@@ -19,19 +60,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field maxlevel integer?
+---@field groupcaps core.ToolCapabilities.item.groupcaps?
 --[[
 WIPDOC
 ]]
----@field times table<integer,number>?
---[[
-WIPDOC
-]]
----@field groupcaps table<string, {times:number[]?, uses:number?, maxlevel:number?}>?
---[[
-WIPDOC
-]]
----@field damage_groups core.Groups.ObjectRef?
+---@field damage_groups core.ToolCapabilities.damage_groups?
 
 -- -------------------------- ToolCapabilities.tool ------------------------- --
 
@@ -42,7 +75,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field uses integer?
+---@field groupcaps core.ToolCapabilities.item.groupcaps?
 --[[
 Amount of uses this tool has for attacking players and entities
 by punching them (0 = infinite uses).

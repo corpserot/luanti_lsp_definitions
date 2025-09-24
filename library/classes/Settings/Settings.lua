@@ -1,13 +1,30 @@
 ---@meta _
--- DRAFT 1 WIP
+-- DRAFT 1 DONE
 -- lua_api.md: Class reference > `Settings`
+-- builtin/settingtype.txt
+
+--[[
+NOTE: types in a .conf settings file
+- int -> integer
+- string -> string
+- bool -> boolean
+- float -> number
+- enum -> string
+- path -> string
+- filepath -> string
+- key -> string
+- flags -> flag table
+- noise_params_2d -> noiseparams
+- noise_params_3d -> noiseparams
+- v3f -> vec
+]]
 
 -- ------------------------------- constructor ------------------------------ --
 
 --[[
 WIPDOC
 ]]
----@param filename string
+---@param filename core.Path
 ---@return core.Settings
 function Settings(filename) end
 
@@ -28,18 +45,12 @@ The settings have the format `key = value`. Example:
 Settings = {}
 
 --[[
-WIPDOC
-]]
----@type core.Settings
-core.settings = nil
-
---[[
 * `get(key)`: returns a value
     * Returns `nil` if `key` is not found.
 ]]
 ---@nodiscard
 ---@param key string
----@return any
+---@return string? value
 function Settings:get(key) end
 
 --[[
@@ -47,17 +58,30 @@ function Settings:get(key) end
     * `default` is the value returned if `key` is not found.
     * Returns `nil` if `key` is not found and `default` not specified.
 ]]
+---@nodiscard
 ---@param key string
----@param fundefault any
----@return any?
-function Settings:get_bool(key, fundefault) end
+---@return boolean? value
+function Settings:get_bool(key) end
+
+--[[
+* `get_bool(key, [default])`: returns a boolean
+    * `default` is the value returned if `key` is not found.
+    * Returns `nil` if `key` is not found and `default` not specified.
+]]
+---@nodiscard
+---@generic T
+---@param key string
+---@param default T
+---@return boolean|T value
+function Settings:get_bool(key, default) end
 
 --[[
 * `get_np_group(key)`: returns a NoiseParams table
     * Returns `nil` if `key` is not found.
 ]]
+---@nodiscard
 ---@param key string
----@return core.NoiseParams
+---@return core.NoiseParams? value
 function Settings:get_np_group(key) end
 
 --[[
@@ -67,8 +91,9 @@ function Settings:get_np_group(key) end
       flags like `mgv5_spflags`.
     * Returns `nil` if `key` is not found.
 ]]
+---@nodiscard
 ---@param key string
----@return table<string, boolean>
+---@return table<string, boolean>? value
 function Settings:get_flags(key) end
 
 --[[
@@ -76,8 +101,9 @@ function Settings:get_flags(key) end
     * Returns a `vector`
     * Returns `nil` if no value is found or parsing failed.
 ]]
+---@nodiscard
 ---@param key string
----@return vector?
+---@return vec? value
 function Settings:get_pos(key) end
 
 --[[
@@ -88,7 +114,7 @@ function Settings:get_pos(key) end
       object (`core.settings`).
 ]]
 ---@param key string
----@param value any
+---@param value string
 function Settings:set(key, value) end
 
 --[[
@@ -127,7 +153,8 @@ function Settings:remove(key) end
 --[[
 * `get_names()`: returns `{key1,...}`
 ]]
----@return string[]
+---@nodiscard
+---@return string[] keys
 function Settings:get_names() end
 
 --[[
@@ -138,6 +165,7 @@ function Settings:get_names() end
     * This means that on the main settings object (`core.settings`),
       `get(key)` might return a value even if `has(key)` returns `false`.
 ]]
+---@nodiscard
 ---@param key string
 ---@return boolean
 function Settings:has(key) end
@@ -146,12 +174,13 @@ function Settings:has(key) end
 * `write()`: returns a boolean (`true` for success
     * Writes changes to file.
 ]]
+---@nodiscard
 ---@return boolean
 function Settings:write() end
 
--- TODO we can be more precise with the value since we know all types allowed in settingstype.txt/minetest.conf
 --[[
 * `to_table()`: returns `{[key1]=value1,...}`
 ]]
+---@nodiscard
 ---@return table<string, any>
 function Settings:to_table() end

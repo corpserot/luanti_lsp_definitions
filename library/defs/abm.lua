@@ -3,6 +3,11 @@
 -- lua_api.md: Definition tables > ABM (ActiveBlockModifier) definition
 
 --[[
+WIPDOC
+]]
+---@alias core.ABMDef.action fun(pos:veci, node:core.Node.get, active_object_count:integer, active_object_count_wider:integer)
+
+--[[
 ABM (ActiveBlockModifier) definition
 ------------------------------------
 
@@ -22,20 +27,20 @@ Definitions with identical labels will be listed as one.
 Apply `action` function to these nodes.
 `group:groupname` can also be used here.
 ]]
----@field  nodenames string[]|string
+---@field  nodenames OneOrMany<core.Node.namelike>
 --[[
 Only apply `action` to nodes that have one of, or any
 combination of, these neighbors.
 If left out or empty, any neighbor will do.
 `group:groupname` can also be used here.
 ]]
----@field neighbors string[]|string?
+---@field neighbors OneOrMany<core.Node.namelike>?
 --[[
 Only apply `action` to nodes that have no one of these neighbors.
 If left out or empty, it has no effect.
 `group:groupname` can also be used here.
 ]]
----@field without_neighbors string[]|string?
+---@field without_neighbors OneOrMany<core.Node.namelike>?
 --[[
 Operation interval in seconds
 ]]
@@ -43,15 +48,15 @@ Operation interval in seconds
 --[[
 Probability of triggering `action` per-node per-interval is 1.0 / chance (integers only)
 ]]
----@field  chance number?
+---@field  chance integer?
 --[[
 WIPDOC
 ]]
----@field min_y number?
+---@field min_y integer?
 --[[
 WIPDOC
 ]]
----@field max_y number?
+---@field max_y integer?
 --[[
 If true, catch-up behavior is enabled: The `chance` value is
 temporarily reduced when returning to an area to simulate time lost
@@ -68,4 +73,4 @@ mapblock plus all 26 neighboring mapblocks. If any neighboring
 mapblocks are unloaded an estimate is calculated for them based on
 loaded mapblocks.
 ]]
----@field action fun(pos:vector, node:core.Node.get, active_object_count:number, active_object_count_wider:number)
+---@field action core.ABMDef.action

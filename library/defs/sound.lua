@@ -26,7 +26,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.SimpleSoundSpec.stringfmt : string
+---@alias core.SimpleSoundSpec.stringfmt string
 
 --[[
 WIPDOC

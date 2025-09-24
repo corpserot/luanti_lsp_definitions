@@ -24,12 +24,12 @@ Omit from "scatter" ore for a uniform ore distribution.
 Omit from "stratum" ore for a simple horizontal strata from y_min to
 y_max.
 ]]
----@field noise_params core.NoiseParams?
+---@field noise_params core.NoiseParams.3d?
 --[[
 WIPDOC
 ]]
----@field np_stratum_thickness core.NoiseParams?
+---@field np_stratum_thickness core.NoiseParams.3d?
 --[[
 WIPDOC
 ]]
----@field stratum_thickness number?
+---@field stratum_thickness integer?

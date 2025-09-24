@@ -28,7 +28,7 @@ Next, inheritance refers to how these `@class` types can mix together into one. 
 - `*.__partial`: Designates a sub-`@class` with extra fields and functions unique to a subset of variant types
 
 - `*.<Primitive type>fmt`: Designates a sub-type in the format of that `<Primitive type>`
-  - `Tablefmt` is the most common sub-type format, followed by `Stringfmt`
+  - `tablefmt` is the most common sub-type format, followed by `stringfmt`
 
 ### Field limitations
 Many annotation keywords just don't work with fields, so it's placed inside the documentation text.
@@ -48,6 +48,23 @@ Not supported:
 - `@default`
 - `@deprecated`
 - `@see`
+
+### Nominal types
+Some types derived from primitive types have no differences discernable in the annotation type system. In some cases, it is important to provide a name for these types anyways despite unable to express its true restrictions.\
+e.g. `core.Formspec` and `core.Texture` are simply `string`s yet has special rules and restrictions unable to be expressed in the type system.
+
+Nominal types must have special restrictions, rules or contents that is not expressible through the annotation type system. This is to prevent overcomplicating the library definition by flooding it iwth too many useless verbose nominal types. The following lists specifics about this rule:
+- Built-in special values satisfies this rule. A different interpretation is that a nominal type is needed to suggest special values\
+  e.g. Item names violates some subrules below. However, it has special values `"air"`, `"ignore"` and others. So, it is granted a `string` nominal type `core.Item.name`.
+- Name syntax/specification does not satisfy this rule.\
+  - e.g. LBM names has a special syntax. But, it isn't granted a `string` nominal type `core.LBMDef.name`
+  - e.g.
+- General integer/number range limitations does not satisfy this rule.
+  - e.g. world units in nodes are limited to within [-31000,31000]. So, it isn't granted a `number` or `integer` nominal type `core.WorldUnit`
+  - e.g. Node params has special meanings and conversion rules, not just a [0,255] range. So, it is granted an `integer` nominal type `core.Param2`
+- General units does not satisfy this rule.
+  - e.g. `ObjectRef` health does not use a unit, or could be interpreted as a very general unit used everywhere. So, it isn't granted an `integer` nominal type `core.ObjectRef.hp`
+  - e.g. Tool wear uses a unit unique to Luanti with some special rules in how to interpret it. So, it is granted an `integer` nominal type `core.Tool.wear`
 
 ### Other conventions
 

@@ -1,0 +1,3 @@
+---@meta _
+-- DRAFT 1 WIP
+-- lua_api.md: 'core' namespace reference > Mod channels

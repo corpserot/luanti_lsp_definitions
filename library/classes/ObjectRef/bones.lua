@@ -94,7 +94,7 @@ local ObjectRefBase
 ---@deprecated
 ---@param bone string
 ---@param position vector
----@param rotation number
+---@param rotation vector
 function ObjectRefBase:set_bone_position(bone, position, rotation) end
 
 --[[
@@ -103,9 +103,10 @@ function ObjectRefBase:set_bone_position(bone, position, rotation) end
     * **Note:** Returned rotation is in degrees, not radians.
     * **Deprecated:** Use `get_bone_override` instead.
 ]]
+---@nodiscard
 ---@deprecated
 ---@param bone string
----@return  vector
+---@return  vector position, vector rotation
 function ObjectRefBase:get_bone_position(bone) end
 
 --[[
@@ -136,6 +137,7 @@ function ObjectRefBase:set_bone_override(bone, override) end
 * `get_bone_override(bone)`: returns `override` in the above format
     * **Note:** Unlike `get_bone_position`, the returned rotation is in radians, not degrees.
 ]]
+---@nodiscard
 ---@param bone string
 ---@return core.BoneOverride.get
 function ObjectRefBase:get_bone_override(bone) end
@@ -143,5 +145,6 @@ function ObjectRefBase:get_bone_override(bone) end
 --[[
 * `get_bone_overrides()`: returns all bone overrides as table `{[bonename] = override, ...}`
 ]]
+---@nodiscard
 ---@return table<string, core.BoneOverride.get>
 function ObjectRefBase:get_bone_overrides() end

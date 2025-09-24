@@ -6,6 +6,19 @@
 --[[
 WIPDOC
 ]]
+---@alias core.HUDDef.text.style
+--- | 0
+--- | 1
+--- | 2
+--- | 3
+--- | 4
+--- | 5
+--- | 6
+--- | 7
+
+--[[
+WIPDOC
+]]
 ---@class core.HUDDef.text : _.HUDDef.__base, _.HUDDef.position, _.HUDDef.alignment
 --[[
 WIPDOC
@@ -30,4 +43,4 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field style 0|1|2|3|4|5|6|7?
+---@field style core.HUDDef.text.style?

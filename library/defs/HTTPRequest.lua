@@ -5,6 +5,17 @@
 --[[
 WIPDOC
 ]]
+---@alias core.HTTPRequestDef.method
+--- | "GET"
+--- | "HEAD"
+--- | "POST"
+--- | "PUT"
+--- | "PATCH"
+--- | "DELETE"
+
+--[[
+WIPDOC
+]]
 ---@class core.HTTPRequestDef
 --[[
 WIPDOC
@@ -17,7 +28,7 @@ Timeout for request to be completed in seconds. Default depends on engine settin
 --[[
 The http method to use. Defaults to "GET".
 ]]
----@field  method "GET"|"HEAD"|"POST"|"PUT"|"PATCH"|"DELETE"?
+---@field  method core.HTTPRequestDef.method?
 --[[
 Data for the POST, PUT, PATCH or DELETE request.
 Accepts both a string and a table. If a table is specified, encodes

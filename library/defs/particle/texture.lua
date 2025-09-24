@@ -5,11 +5,21 @@
 --[[
 WIPDOC
 ]]
+---@alias core.ParticleTexture.blend
+--- | "alpha"
+--- | "clip"
+--- | "add"
+--- | "screen"
+--- | "sub"
+
+--[[
+WIPDOC
+]]
 ---@class core.ParticleTexture.tablefmt
 --[[
 WIPDOC
 ]]
----@field  name string
+---@field  name core.Texture
 --[[
 WIPDOC
 ]]
@@ -29,7 +39,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field  blend "alpha"|"clip"|"add"|"screen"|"sub"?
+---@field  blend core.ParticleTexture.blend?
 --[[
 WIPDOC
 ]]

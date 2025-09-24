@@ -2,7 +2,7 @@
 -- DRAFT 1 DONE
 -- lua_api.md: Schematics
 
--- --------------------------------- yslice --------------------------------- --
+-- ------------------------ SchematicDef.yslice_prob ------------------------ --
 
 --[[
 WIPDOC
@@ -23,7 +23,7 @@ WIPDOC
 ]]
 ---@field  prob integer
 
--- ---------------------------------- node ---------------------------------- --
+-- ---------------------------- SchematicDef.node --------------------------- --
 
 --[[
 WIPDOC
@@ -37,7 +37,7 @@ WIPDOC
     * `param2`: the raw param2 value of the node being placed onto the map
       (default: 0)
 ]]
----@field param2 integer?
+---@field param2 core.Param2?
 --[[
     * `force_place`: boolean representing if the node should forcibly overwrite
       any previous contents (default: false)
@@ -64,11 +64,6 @@ WIPDOC
 ---@class core.SchematicHandle
 
 --[[
-WIPDOC
-]]
----@class core.SchematicDef.filepath : string
-
---[[
 A schematic specifier identifies a schematic by either a filename to a
 Luanti Schematic file (`.mts`) or through raw data supplied through Lua,
 in the form of a table.
@@ -78,7 +73,7 @@ in the form of a table.
 * The `size` field is a 3D vector containing the dimensions of the provided
   schematic. (required field)
 ]]
----@field  size vector
+---@field  size vectori
 --[[
 * The `yslice_prob` field is a table of {ypos, prob} slice tables. A slice table
   sets the probability of a particular horizontal slice of the schematic being
@@ -107,3 +102,11 @@ in the form of a table.
       any previous contents (default: false)
 ]=]
 ---@field  data core.SchematicDef.Node[]
+
+--[[
+WIPDOC
+]]
+---@alias core.Schematic
+--- | core.SchematicHandle
+--- | core.Path
+--- | core.SchematicDef

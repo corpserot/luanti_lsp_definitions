@@ -33,6 +33,7 @@ SecureRandom = {}
 * `next_bytes([count])`: return next `count` (default 1, capped at 2048) many
   random bytes, as a string.
 ]]
----@return string
+---@nodiscard
 ---@param count integer
+---@return string
 function SecureRandom:next_bytes(count) end

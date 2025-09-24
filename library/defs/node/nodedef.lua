@@ -15,6 +15,14 @@ WIPDOC
 ]]
 ---@class core.NodeDef: core.ItemDef
 --[[
+When used for nodes: Defines amount of light emitted by node.
+Otherwise: Defines texture glow when viewed as a dropped item
+To set the maximum (14), use the value 'core.LIGHT_MAX'.
+A value outside the range 0 to core.LIGHT_MAX causes undefined
+behavior.
+]]
+---@field light_source core.Light.source?
+--[[
 visual_scale = 1.0,
 Supported for drawtypes "plantlike", "signlike", "torchlike",
 "firelike", "mesh", "nodebox", "allfaces".
@@ -28,6 +36,14 @@ on the node.
 --[[ NodeDef.tiles .. NodeDef.special_tiles split off into ./tiles.lua ]]--
 
 -- ------------------------- color and transparency ------------------------- --
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.use_texture_alpha
+--- | "opaque"
+--- | "clip"
+--- | "blend"
 
 ---@class core.NodeDef
 --[[
@@ -57,7 +73,7 @@ mesh and nodebox or "clip" otherwise.
 If set to a boolean value (deprecated): true either sets it to blend
 or clip, false sets it to clip or opaque mode depending on the drawtype.
 ]]
----@field  use_texture_alpha "opaque"|"clip"|"blend"?
+---@field  use_texture_alpha core.NodeDef.use_texture_alpha?
 --[[
 palette = "",
 The node's `param2` is used to select a pixel from the image.
@@ -66,7 +82,7 @@ The node's color will be multiplied with the selected pixel's color.
 Tiles can override this behavior.
 Only when `paramtype2` supports palettes.
 ]]
----@field  palette string?
+---@field  palette core.Texture?
 --[[
 post_effect_color = "#00000000",
 Screen tint if a player is inside this node, see `ColorSpec`.
@@ -81,38 +97,14 @@ Determines whether `post_effect_color` is affected by lighting.
 
 -- ---------------------------------- param --------------------------------- --
 
----@class core.NodeDef
---[[
-paramtype = "none",  -- See "Nodes"
-* `paramtype = "light"`
-    * The value stores light with and without sun in its lower and upper 4 bits
-      respectively.
-    * Required by a light source node to enable spreading its light.
-    * Required by the following drawtypes as they determine their visual
-      brightness from their internal light value:
-        * torchlike
-        * signlike
-        * firelike
-        * fencelike
-        * raillike
-        * nodebox
-        * mesh
-        * plantlike
-        * plantlike_rooted
-* `paramtype = "none"`
-    * `param1` will not be used by the engine and can be used to store
-      an arbitrary value
-]]
----@field  paramtype "light"|"none"?
-
---[[ NodeDef.paramtype2 split off into ./paramtype2.lua ]]--
+--[[ NodeDef.paramtype .. NodeDef.paramtype2 split off into ./paramtype2.lua ]]--
 
 ---@class core.NodeDef
 --[[
 place_param2 = 0,
 Value for param2 that is set when player places node
 ]]
----@field place_param2 integer?
+---@field place_param2 core.Param2?
 --[[
 wallmounted_rotate_vertical = false,
 If true, place_param2 is nil, and this is a wallmounted node,
@@ -125,6 +117,20 @@ Otherwise, the rotation is always the same on vertical placement.
 
 
 -- -------------------------------------------------------------------------- --
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.move_resistance
+--- | 0
+--- | 1
+--- | 2
+--- | 3
+--- | 4
+--- | 5
+--- | 6
+--- | 7
+--- | integer
 
 ---@class core.NodeDef
 --[[
@@ -170,7 +176,7 @@ Note: If liquid movement physics apply to the node
 (see `liquid_move_physics`), the movement speed will also be
 affected by the `movement_liquid_*` settings.
 ]]
----@field move_resistance 0|1|2|3|4|5|6|7?
+---@field move_resistance core.NodeDef.move_resistance?
 --[[
 buildable_to = false,  -- If true, placed nodes can replace this node
 ]]
@@ -185,6 +191,28 @@ Warning: making a liquid node 'floodable' will cause problems.
 
 -- ---------------------------- liquid properties --------------------------- --
 
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.liquidtype
+--- | "none"
+--- | "source"
+--- | "flowing"
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.liquid_viscosity
+--- | 0
+--- | 1
+--- | 2
+--- | 3
+--- | 4
+--- | 5
+--- | 6
+--- | 7
+--- | integer
+
 ---@class core.NodeDef
 --[[
 liquidtype = "none",  -- specifies liquid flowing physics
@@ -198,7 +226,7 @@ liquidtype = "none",  -- specifies liquid flowing physics
 If it's "source" or "flowing", then the
 `liquid_alternative_*` fields _must_ be specified
 ]]
----@field liquidtype "none"|"source"|"flowing"?
+---@field liquidtype core.NodeDef.liquidtype?
 --[[
 `liquid_alternative_flowing` may contain the node name that represents
 the flowing version of a liquid.
@@ -244,7 +272,7 @@ Controls speed at which the liquid spreads/flows (max. 7).
 By default, this also slows down movement of players inside the node
 (can be overridden using `move_resistance`)
 ]]
----@field liquid_viscosity 0|1|2|3|4|5|6|7?
+---@field liquid_viscosity core.NodeDef.liquid_viscosity?
 --[[
 liquid_renewable = true,
 If true, a new liquid source can be created by placing two or more
@@ -280,16 +308,30 @@ Allows defining the nodebox height without using param2.
 The nodebox height is 'leveled' / 64 nodes.
 The maximum value of 'leveled' is `leveled_max`.
 ]]
----@field  leveled integer?
+---@field  leveled core.Param2.leveled?
 --[[
 leveled_max = 127,
 Maximum value for `leveled` (0-127), enforced in
 `core.set_node_level` and `core.add_node_level`.
 Values above 124 might causes collision detection issues.
 ]]
----@field  leveled_max integer?
+---@field  leveled_max core.Param2.leveled?
 
 -- -------------------------------------------------------------------------- --
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.liquid_range
+--- | 0
+--- | 1
+--- | 2
+--- | 3
+--- | 4
+--- | 5
+--- | 6
+--- | 7
+--- | 8
 
 ---@class core.NodeDef
 --[[
@@ -298,7 +340,7 @@ Maximum distance that flowing liquid nodes can spread around
 source on flat land;
 maximum = 8; set to 0 to disable liquid flow
 ]]
----@field liquid_range 0|1|2|3|4|5|6|7|8?
+---@field liquid_range core.NodeDef.liquid_range?
 --[[
 drowning = 0,
 Player will take this amount of damage if no bubbles are left
@@ -312,6 +354,17 @@ If player is inside node, this damage is caused
 
 -- -------------------------- node shape properties ------------------------- --
 
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.connect_side
+--- | "top"
+--- | "bottom"
+--- | "front"
+--- | "left"
+--- | "back"
+--- | "right"
+
 ---@class core.NodeDef
 --[[
 node_box = {type = "regular"},  -- See "Node boxes"
@@ -323,13 +376,13 @@ Used for nodebox nodes with the type == "connected".
 Specifies to what neighboring nodes connections will be drawn.
 e.g. `{"group:fence", "default:wood"}` or `"default:stone"`
 ]]
----@field connects_to string|string[]?
+---@field connects_to OneOrMany<core.Node.namelike>?
 --[[
 connect_sides = {},
 Tells connected nodebox nodes to connect only to these sides of this
 node. possible: "top", "bottom", "front", "left", "back", "right"
 ]]
----@field connect_sides ("top"|"bottom"|"front"|"left"|"back"|"right")[]?
+---@field connect_sides core.NodeDef.connect_side[]?
 --[[
 mesh = "",
 File name of mesh when using "mesh" drawtype
@@ -341,7 +394,7 @@ For legacy reasons, this uses a different scale depending on the mesh:
 Using static glTF or obj models is recommended.
 You can use the `visual_scale` multiplier to achieve the expected scale.
 ]]
----@field  mesh string?
+---@field  mesh core.Path?
 --[[
 selection_box = {
 see [Node boxes] for possibilities
@@ -362,6 +415,15 @@ definition is used for the collision box.
 ---@field collision_box core.NodeBox?
 
 -- -------------------------------------------------------------------------- --
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.waving
+--- | 0
+--- | 1
+--- | 2
+--- | 3
 
 ---@class core.NodeDef
 --[[
@@ -384,7 +446,7 @@ plantlike drawtype can only wave like plants.
 allfaces_optional drawtype can only wave like leaves.
 liquid, flowingliquid drawtypes can only wave like liquids.
 ]]
----@field  waving 0|1|2|3?
+---@field  waving core.NodeDef.waving?
 
 --[[ NodeDefBase.sounds split off into ./sounds.lua ]]--
 
@@ -403,6 +465,106 @@ nodename will show "othermodname", but mod_origin will say "modname"
 
 -- -------------------------------- callbacks ------------------------------- --
 
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.on_construct fun(pos:veci)
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.on_destruct fun(pos:veci?)
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.after_destruct fun(pos:veci, oldnode:core.Node.get)
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.on_flood fun(pos:veci, oldnode:core.Node.get, newnode:core.Node.get):boolean?
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.preserve_metadata fun(pos:veci, oldnode:core.Node.get, oldmeta:core.MetadataTable.node.get)
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.after_place_node fun(pos:veci, placer:core.ObjectRef?, itemstack:core.ItemStack, pointed_thing:core.PointedThing)
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.after_dig_node fun(pos:veci, oldnode:core.Node.get, oldmetadata:core.MetadataTable.node.get, digger:core.ObjectRef)
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.can_dig fun(pos:veci, player:core.ObjectRef?):boolean
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.on_punch fun(pos:veci, node:core.Node.get, puncher:core.ObjectRef, pointed_thing:core.PointedThing)
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.on_rightclick fun(pos:veci, node:core.Node.get, clicker:core.ObjectRef, itemstack:core.ItemStack, pointed_thing:core.PointedThing?):core.ItemStack?
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.on_dig fun(pos:veci, node:core.Node.get, digger:core.ObjectRef):boolean
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.on_timer fun(pos:veci, elapsed:number):boolean?
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.on_receive_fields fun(pos:veci, formname:"", fields: core.FormspecFields, sender:core.ObjectRef)
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.allow_metadata_inventory_move fun(pos:veci, from_list:core.InventoryList, from_index:integer, to_list:core.InventoryList, to_index:integer, count:integer, player:core.ObjectRef):integer
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.allow_metadata_inventory_put fun(pos:veci, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.ObjectRef):integer
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.allow_metadata_inventory_take fun(pos:veci, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.ObjectRef):integer
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.on_metadata_inventory_move fun(pos:veci, from_list:core.InventoryList, from_index:integer, to_list:core.InventoryList, to_index:integer, count:integer, player:core.ObjectRef):nil
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.on_metadata_inventory_put fun(pos:veci, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.ObjectRef):nil
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.on_metadata_inventory_take fun(pos:veci, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.ObjectRef):nil
+
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.on_blast fun(pos:veci, intensity:number?)
+
 ---@class core.NodeDef
 --[[
 on_construct = function(pos),
@@ -414,21 +576,21 @@ infinite loop if it invokes the same callback.
  Consider using core.swap_node instead.
 default: nil
 ]]
----@field on_construct? fun(pos:vector)
+---@field on_construct core.NodeDef.on_construct?
 --[[
 on_destruct = function(pos),
 Node destructor; called before removing node.
 Not called for bulk node placement.
 default: nil
 ]]
----@field on_destruct? fun(pos:vector?)
+---@field on_destruct core.NodeDef.on_destruct?
 --[[
 after_destruct = function(pos, oldnode),
 Node destructor; called after removing node.
 Not called for bulk node placement.
 default: nil
 ]]
----@field after_destruct? fun(pos:vector, oldnode:core.Node.get)
+---@field after_destruct core.NodeDef.after_destruct?
 --[[
 on_flood = function(pos, oldnode, newnode),
 Called when a liquid (newnode) is about to flood oldnode, if it has
@@ -439,7 +601,7 @@ over and over again every liquid update interval.
 Default: nil
 Warning: making a liquid node 'floodable' will cause problems.
 ]]
----@field on_flood? fun(pos:vector, oldnode:core.Node.get, newnode:core.Node.get):boolean?
+---@field on_flood core.NodeDef.on_flood?
 --[[
 preserve_metadata = function(pos, oldnode, oldmeta, drops),
 Called when `oldnode` is about be converted to an item, but before the
@@ -454,7 +616,7 @@ becoming detached.
   "ItemStackMetaRef".
 default: `nil`
 ]]
----@field preserve_metadata? fun(pos:vector, oldnode:core.Node.get, oldmeta:core.NodeMetaDataTable)
+---@field preserve_metadata core.NodeDef.preserve_metadata?
 --[[
 after_place_node = function(pos, placer, itemstack, pointed_thing),
 Called after constructing node when node was placed using
@@ -463,7 +625,7 @@ If return true no item is taken from itemstack.
 `placer` may be any valid ObjectRef or nil.
 default: nil
 ]]
----@field after_place_node? fun(pos:vector, placer:core.ObjectRef?, itemstack:core.ItemStack, pointed_thing:core.PointedThing)
+---@field after_place_node core.NodeDef.after_place_node?
 --[[
 after_dig_node = function(pos, oldnode, oldmetadata, digger),
 Called after destructing the node when node was dug using
@@ -475,20 +637,20 @@ Called after destructing the node when node was dug using
 * `digger`: ObjectRef of digger
 default: nil
 ]]
----@field after_dig_node? fun(pos:vector, oldnode:core.Node.get, oldmetadata:core.NodeMetaDataTable, digger:core.ObjectRef)
+---@field after_dig_node core.NodeDef.after_dig_node?
 --[[
 can_dig = function(pos, [player]),
 Returns true if node can be dug, or false if not.
 default: nil
 ]]
----@field can_dig? fun(pos:vector, player:core.ObjectRef?):boolean
+---@field can_dig core.NodeDef.can_dig?
 --[[
 on_punch = function(pos, node, puncher, pointed_thing),
 default: core.node_punch
 Called when puncher (an ObjectRef) punches the node at pos.
 By default calls core.register_on_punchnode callbacks.
 ]]
----@field on_punch? fun(pos:vector, node:core.Node.get, puncher:core.ObjectRef, pointed_thing:core.PointedThing)
+---@field on_punch core.NodeDef.on_punch?
 --[[
 on_rightclick = function(pos, node, clicker, itemstack, pointed_thing),
 default: nil
@@ -501,7 +663,7 @@ Note: pointed_thing can be nil, if a mod calls this function.
 This function does not get triggered by clients <=0.4.16 if the
 "formspec" node metadata field is set.
 ]]
----@field on_rightclick? fun(pos:vector, node:core.Node.get, clicker:core.ObjectRef, itemstack:core.ItemStack, pointed_thing:core.PointedThing?):core.ItemStack?
+---@field on_rightclick core.NodeDef.on_rightclick?
 --[[
 on_dig = function(pos, node, digger),
 default: core.node_dig
@@ -509,7 +671,7 @@ By default checks privileges, wears out item (if tool) and removes node.
 return true if the node was dug successfully, false otherwise.
 Deprecated: returning nil is the same as returning true.
 ]]
----@field on_dig? fun(pos:vector, node:core.Node.get, digger:core.ObjectRef):boolean
+---@field on_dig core.NodeDef.on_dig?
 --[[
 on_timer = function(pos, elapsed),
 default: nil
@@ -518,7 +680,7 @@ elapsed is the total time passed since the timer was started.
 return true to run the timer for another cycle with the same timeout
 value.
 ]]
----@field on_timer? fun(pos:vector, elapsed:number):boolean?
+---@field on_timer core.NodeDef.on_timer?
 --[[
 on_receive_fields = function(pos, formname, fields, sender),
 fields = {name1 = value1, name2 = value2, ...}
@@ -527,48 +689,48 @@ Called when an UI form (e.g. sign text input) returns data.
 See core.register_on_player_receive_fields for more info.
 default: nil
 ]]
----@field on_receive_fields? fun(pos:vector, formname:"", fields: core.FormspecFields, sender:core.ObjectRef)
+---@field on_receive_fields core.NodeDef.on_receive_fields?
 --[[
 allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player),
 Called when a player wants to move items inside the inventory.
 Return value: number of items allowed to move.
 ]]
----@field allow_metadata_inventory_move? fun(pos:vector, from_list:string, from_index:integer, to_list:string, to_index:integer, count:integer, player:core.ObjectRef):integer
+---@field allow_metadata_inventory_move core.NodeDef.allow_metadata_inventory_move?
 --[[
 allow_metadata_inventory_put = function(pos, listname, index, stack, player),
 Called when a player wants to put something into the inventory.
 Return value: number of items allowed to put.
 Return value -1: Allow and don't modify item count in inventory.
 ]]
----@field allow_metadata_inventory_put? fun(pos:vector, listname:string, index:integer, stack:core.ItemStack, player:core.ObjectRef):integer
+---@field allow_metadata_inventory_put core.NodeDef.allow_metadata_inventory_put?
 --[[
 allow_metadata_inventory_take = function(pos, listname, index, stack, player),
 Called when a player wants to take something out of the inventory.
 Return value: number of items allowed to take.
 Return value -1: Allow and don't modify item count in inventory.
 ]]
----@field allow_metadata_inventory_take? fun(pos:vector, listname:string, index:integer, stack:core.ItemStack, player:core.ObjectRef):integer
+---@field allow_metadata_inventory_take core.NodeDef.allow_metadata_inventory_take?
 --[[
 on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player),
 Called after the actual action has happened, according to what was
 allowed.
 No return value.
 ]]
----@field on_metadata_inventory_move? fun(pos:vector, from_list:string, from_index:integer, to_list:string, to_index:integer, count:integer, player:core.ObjectRef):nil
+---@field on_metadata_inventory_move core.NodeDef.on_metadata_inventory_move?
 --[[
 on_metadata_inventory_put = function(pos, listname, index, stack, player),
 Called after the actual action has happened, according to what was
 allowed.
 No return value.
 ]]
----@field on_metadata_inventory_put? fun(pos:vector, listname:string, index:integer, stack:core.ItemStack, player:core.ObjectRef):nil
+---@field on_metadata_inventory_put core.NodeDef.on_metadata_inventory_put?
 --[[
 on_metadata_inventory_take = function(pos, listname, index, stack, player),
 Called after the actual action has happened, according to what was
 allowed.
 No return value.
 ]]
----@field on_metadata_inventory_take? fun(pos:vector, listname:string, index:integer, stack:core.ItemStack, player:core.ObjectRef):nil
+---@field on_metadata_inventory_take core.NodeDef.on_metadata_inventory_take?
 --[[
 on_blast = function(pos, intensity),
 intensity: 1.0 = mid range of regular TNT.
@@ -576,4 +738,4 @@ If defined, called when an explosion touches the node, instead of
 removing the node.
 Unofficial note: this is a custom field, just documented in lua_api.md i assume because TNT mods usually don't handle indestructible nodes/whatever very well
 ]]
----@field on_blast? fun(pos:vector, intensity: number?)
+---@field on_blast core.NodeDef.on_blast?

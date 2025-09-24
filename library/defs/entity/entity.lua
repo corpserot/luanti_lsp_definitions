@@ -3,7 +3,69 @@
 -- lua_api.md: Registered entities
 -- lua_api.md: Definition tables > Entity definition
 
+--[[
+WIPDOC
+]]
+---@alias core.Entity.name string
+
+--[[
+WIPDOC
+]]
+---@alias core.Entity.namelike
+--- | core.Groups.armor
+--- | core.Entity.name
+
 -- -------------------------------- EntityDef ------------------------------- --
+
+--[[
+WIPDOC
+]]
+---@alias core.EntityDef.on_activate fun(self:core.Entity, staticdata:string, dtime_s:number)
+
+--[[
+WIPDOC
+]]
+---@alias core.EntityDef.on_deactivate fun(self:core.Entity, removal:boolean)
+
+--[[
+WIPDOC
+]]
+---@alias core.EntityDef.on_step fun(self:core.Entity, dtime:number, moveresult:core.Entity.moveresult?)
+
+--[[
+WIPDOC
+]]
+---@alias core.EntityDef.on_punch fun(self:core.Entity, puncher:core.EntityRef?, ime_from_last_punch:number?, tool_capabilities:core.ToolCapabilities?, dir:vector, damage:integer):boolean
+
+--[[
+WIPDOC
+]]
+---@alias core.EntityDef.on_death fun(self:core.Entity, killer:core.EntityRef?)
+
+--[[
+WIPDOC
+]]
+---@alias core.EntityDef.on_rightclick fun(self:core.Entity, clicker:core.EntityRef)
+
+--[[
+WIPDOC
+]]
+---@alias core.EntityDef.on_attach_child fun(self:core.Entity, child:core.EntityRef)
+
+--[[
+WIPDOC
+]]
+---@alias core.EntityDef.on_detach_child fun(self:core.Entity, child:core.EntityRef)
+
+--[[
+WIPDOC
+]]
+---@alias core.EntityDef.on_detach fun(self:core.Entity, parent:core.EntityRef)
+
+--[[
+WIPDOC
+]]
+---@alias core.EntityDef.get_staticdata fun(self:core.Entity):string
 
 --[[
 WIPDOC
@@ -16,43 +78,43 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field on_activate? fun(self:core.Entity, staticdata:string, dtime_s:number)
+---@field on_activate core.EntityDef.on_activate?
 --[[
 WIPDOC
 ]]
----@field on_deactivate? fun(self:core.Entity, removal:boolean)
+---@field on_deactivate core.EntityDef.on_deactivate?
 --[[
 WIPDOC
 ]]
----@field on_step? fun(self:core.Entity, dtime:number, moveresult:core.Entity.moveresult?)
+---@field on_step core.EntityDef.on_step?
 --[[
 WIPDOC
 ]]
----@field on_punch? fun(self:core.Entity, puncher:core.EntityRef?, ime_from_last_punch:number?, tool_capabilities:core.ToolCapabilities?, dir:vector, damage:number):boolean
+---@field on_punch core.EntityDef.on_punch?
 --[[
 WIPDOC
 ]]
----@field on_death? fun(self:core.Entity, killer:core.EntityRef?)
+---@field on_death core.EntityDef.on_death?
 --[[
 WIPDOC
 ]]
----@field on_rightclick? fun(self:core.Entity, clicker:core.EntityRef)
+---@field on_rightclick core.EntityDef.on_rightclick?
 --[[
 WIPDOC
 ]]
----@field on_attach_child? fun(self:core.Entity, child:core.EntityRef)
+---@field on_attach_child core.EntityDef.on_attach_child?
 --[[
 WIPDOC
 ]]
----@field on_detach_child? fun(self:core.Entity, child:core.EntityRef)
+---@field on_detach_child core.EntityDef.on_detach_child?
 --[[
 WIPDOC
 ]]
----@field on_detach? fun(self:core.Entity, parent:core.EntityRef)
+---@field on_detach core.EntityDef.on_detach?
 --[[
 WIPDOC
 ]]
----@field get_staticdata? fun(self:core.Entity):string
+---@field get_staticdata core.EntityDef.get_staticdata?
 
 -- --------------------------------- Entity --------------------------------- --
 
@@ -71,7 +133,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field  name string
+---@field  name core.Entity.name
 --[[
 WIPDOC
 ]]

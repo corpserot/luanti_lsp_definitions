@@ -50,10 +50,13 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field  object core.EntityRef|core.PlayerRef
+---@field  object core.ObjectRef
 
 -- ---------------------------- Entity.collision ---------------------------- --
 
+--[[
+WIPDOC
+]]
 ---@alias core.Entity.collision
 --- | core.Entity.collision.node
 --- | core.Entity.collision.object

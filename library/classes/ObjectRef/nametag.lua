@@ -56,7 +56,8 @@ local ObjectRefBase
       }
       ```
 ]]
----@return  core.NametagAttributes.get
+---@nodiscard
+---@return  core.NametagAttributes.get attributes
 function ObjectRefBase:get_nametag_attributes() end
 
 --[[

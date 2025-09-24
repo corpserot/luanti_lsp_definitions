@@ -6,6 +6,7 @@
     With a custom LuaLS config (To be published).
 - **Scheduled breaking changes**: Anytime, still in development.
   - This follows Luanti's minor releases, meaning we will schedule a breaking release when the target minor release is published.
+  - Breaking changes matters for writing annotations on top of library definition. Otherwise, it's inconsequential meaning you don't have to care about this if you merely want type checking.
 
 # How to use
 - Install [Lua Language Server, LuaLS](https://luals.github.io/) or [EmmyLua](https://github.com/EmmyLuaLs/emmylua-analyzer-rust) for your favourite text editor. Make sure it works first! ^v^
@@ -84,6 +85,9 @@ However, it's expected that you need delve into this project's definitions as yo
 
 Be on the lookout for scheduled breaking changes.
 
+## I think this primitive type should get a name, like how `core.Formspec` is just a `string`!
+Please open an issue for discusssion. In particular, you're encouraged to read about [*Nominal types*](https://github.com/corpserot/luanti_lsp_definitions/blob/master/MAINTENANCE.md#nominal-types) to help you justify why it should get a name. You should also search in this repo's issues if it's already discussed or not.
+
 ## Why not contribute to [`luanti-lls-definitions by @fgaz`](https://codeberg.org/fgaz/luanti-lls-definitions)?
 For context, that is the existing solution before this library definition was conceived.
 
@@ -93,5 +97,5 @@ And i felt like it would be easier to start from scratch than to attempt to comp
 (by @corpserot) Well, there's a couple of reasons:
 1. first and foremost that project uses an unreliable method to extract information from `lua_api.md` using TCL (seriously??)
 2. @fgaz is very inactive in updating the definition files (check commits since project inception). It's very incomplete.
-3. It uses EUPL license, which overcomplicates matters as it resembles closer to AGPLv3.0 than LGPLv2.1. Yet, it won't deter people that is already set on violating FOSS licenses. We don't use any definitions from that project, obviously.
+3. It uses EUPL license, which overcomplicates matters as it resembles closer to AGPLv3.0 than LGPLv2.1. Yet, it won't deter people that are already set on violating FOSS licenses. We don't use any definitions from that project, obviously.
 4. I don't think @fgaz actually uses the definitions themself (dogfooding).

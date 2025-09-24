@@ -13,30 +13,30 @@ WIPDOC
 --[[
 Ore node to place
 ]]
----@field  ore string
+---@field  ore core.Node.name
 --[[
 Param2 to set for ore (e.g. facedir rotation)
 ]]
----@field ore_param2 integer?
+---@field ore_param2 core.Param2?
 --[[
 Node to place ore in. Multiple are possible by passing a list.
 ]]
----@field  wherein string[]|string
+---@field  wherein OneOrMany<core.Node.name>
 --[[
 WIPDOC
 ]]
----@field y_min number?
+---@field y_min integer?
 --[[
 WIPDOC
 ]]
----@field y_max number?
+---@field y_max integer?
 --[[
 List of biomes in which this ore occurs.
 Occurs in all biomes if this is omitted, and ignored if the Mapgen
 being used does not support biomes.
 Can be a list of (or a single) biome names, IDs, or definitions.
 ]]
----@field biomes string[]|string?
+---@field biomes OneOrMany<string>?
 
 -- --------------------------------- OreDef --------------------------------- --
 

@@ -22,33 +22,38 @@ local ItemStack = {}
 --[[
 * `is_empty()`: returns `true` if stack is empty.
 ]]
+---@nodiscard
 ---@return boolean
 function ItemStack:is_empty() end
 
 --[[
 * `get_name()`: returns item name (e.g. `"default:stone"`).
 ]]
----@return string
+---@nodiscard
+---@return core.Item.name item_name
 function ItemStack:get_name() end
 
 --[[
 * `set_name(item_name)`: returns a boolean indicating whether the item was
   cleared.
 ]]
----@param item_name string
+---@nodiscard
+---@param item_name core.Item.name
 ---@return boolean
 function ItemStack:set_name(item_name) end
 
 --[[
 * `get_count()`: Returns number of items on the stack.
 ]]
----@return integer
+---@nodiscard
+---@return integer count
 function ItemStack:get_count() end
 
 --[[
 * `set_count(count)`: returns a boolean indicating whether the item was cleared
     * `count`: number, unsigned 16 bit integer
 ]]
+---@nodiscard
 ---@param count integer
 ---@return boolean
 function ItemStack:set_count(count) end
@@ -56,20 +61,22 @@ function ItemStack:set_count(count) end
 --[[
 * `get_wear()`: returns tool wear (`0`-`65535`), `0` for non-tools.
 ]]
----@return integer
+---@nodiscard
+---@return core.Tool.wear wear
 function ItemStack:get_wear() end
 
 --[[
 * `set_wear(wear)`: returns boolean indicating whether item was cleared
     * `wear`: number, unsigned 16 bit integer
 ]]
----@param wear integer
+---@param wear core.Tool.wear
 ---@return boolean
 function ItemStack:set_wear(wear) end
 
 --[[
 `get_meta()`: returns ItemStackMetaRef. See section for more details
 ]]
+---@nodiscard
 ---@return core.ItemStackMetaRef
 function ItemStack:get_meta() end
 
@@ -79,7 +86,8 @@ function ItemStack:get_meta() end
       use `stack:get_meta():get_string("")` instead.
 ]]
 ---@deprecated
----@return string
+---@nodiscard
+---@return string metadata
 function ItemStack:get_metadata() end
 
 --[[
@@ -100,6 +108,7 @@ function ItemStack:set_metadata(metadata) end
         * `description` in item definition
         * item name
 ]]
+---@nodiscard
 ---@return string
 function ItemStack:get_description() end
 
@@ -112,7 +121,8 @@ function ItemStack:get_description() end
         * first line of the description (From item meta or def, see `get_description()`.
         * Returns nil if none of the above are set
 ]]
----@return string
+---@nodiscard
+---@return string?
 function ItemStack:get_short_description() end
 
 --[[
@@ -130,37 +140,43 @@ function ItemStack:replace(item) end
 --[[
 * `to_string()`: returns the stack in itemstring form.
 ]]
----@return string
+---@nodiscard
+---@return core.Item.stringfmt
 function ItemStack:to_string() end
 
 --[[
 * `to_table()`: returns the stack in Lua table form.
 ]]
----@return table
+---@nodiscard
+---@return core.Item.tablefmt
 function ItemStack:to_table() end
 
 --[[
 * `get_stack_max()`: returns the maximum size of the stack (depends on the
   item).
 ]]
+---@nodiscard
 ---@return integer
 function ItemStack:get_stack_max() end
 
 --[[
 * `get_free_space()`: returns `get_stack_max() - get_count()`.
 ]]
+---@nodiscard
 ---@return integer
 function ItemStack:get_free_space() end
 
 --[[
 * `is_known()`: returns `true` if the item name refers to a defined item type.
 ]]
+---@nodiscard
 ---@return boolean
 function ItemStack:is_known() end
 
 --[[
 * `get_definition()`: returns the item definition table.
 ]]
+---@nodiscard
 ---@return core.ItemDef
 function ItemStack:get_definition() end
 
@@ -168,6 +184,7 @@ function ItemStack:get_definition() end
 * `get_tool_capabilities()`: returns the digging properties of the item,
   or those of the hand if none are defined for this item type
 ]]
+---@nodiscard
 ---@return core.ToolCapabilities
 function ItemStack:get_tool_capabilities() end
 
@@ -177,7 +194,7 @@ function ItemStack:get_tool_capabilities() end
     * Valid `amount` range is [0,65536]
     * `amount`: number, integer
 ]]
----@param amount integer
+---@param amount core.Tool.wear
 function ItemStack:add_wear(amount) end
 
 --[[
@@ -187,13 +204,14 @@ function ItemStack:add_wear(amount) end
     * Valid `max_uses` range is [0,65536]
     * Does nothing if item is not a tool or if `max_uses` is 0
 ]]
----@param max_uses integer
+---@param max_uses core.Tool.wear
 function ItemStack:add_wear_by_uses(max_uses) end
 
 --[[
 * `get_wear_bar_params()`: returns the wear bar parameters of the item,
   or nil if none are defined for this item type or in the stack's meta
 ]]
+---@nodiscard
 ---@return core.WearBarColor?
 function ItemStack:get_wear_bar_params() end
 
@@ -208,6 +226,7 @@ function ItemStack:add_item(item) end
 * `item_fits(item)`: returns `true` if item or stack can be fully added to
   this one.
 ]]
+---@nodiscard
 ---@param item core.Item
 ---@return boolean
 function ItemStack:item_fits(item) end
@@ -226,6 +245,7 @@ function ItemStack:take_item(n) end
     * Copy (don't remove) up to `n` items from this stack
     * `n`: number, default: `1`
 ]]
+---@nodiscard
 ---@param n integer?
 ---@return core.ItemStack
 function ItemStack:peek_item(n) end
@@ -239,7 +259,7 @@ function ItemStack:peek_item(n) end
       ItemStack, this will always return false, even if it is
       "equivalent".
 ]]
----@param other any
+---@nodiscard
+---@param other core.ItemStack
 ---@return boolean
 function ItemStack:equals(other) end
-

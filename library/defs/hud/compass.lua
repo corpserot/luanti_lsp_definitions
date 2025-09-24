@@ -3,12 +3,24 @@
 -- lua_api.md: HUD
 -- lua_api.md: Definition tables > HUD Definition
 
--- TODO further split this based on direction value
+--[[
+WIPDOC
+]]
+---@alias core.HUDDef.compass.regular.direction
+--- | 0
+--- | 1
 
 --[[
 WIPDOC
 ]]
----@class core.HUDDef.compass : _.HUDDef.__base, _.HUDDef.position, _.HUDDef.alignment
+---@alias core.HUDDef.compass.scalable.direction
+--- | 2
+--- | 3
+
+--[[
+WIPDOC
+]]
+---@class core.HUDDef.compass.regular : _.HUDDef.__base, _.HUDDef.position, _.HUDDef.alignment
 --[[
 WIPDOC
 ]]
@@ -22,11 +34,7 @@ WIPDOC
 
 If translation is chosen, texture is repeated horizontally to fill the whole element.
 ]]
----@field direction 0|1|2|3?
---[[
-WIPDOC
-]]
----@field scale vec2.xy?
+---@field direction core.HUDDef.compass.regular.direction?
 --[[
 WIPDOC
 ]]
@@ -35,3 +43,23 @@ WIPDOC
 WIPDOC
 ]]
 ---@field size vec2.xy
+
+--[[
+WIPDOC
+]]
+---@class core.HUDDef.compass.scalable
+--[[
+WIPDOC
+]]
+---@field scale vec2.xy?
+--[[
+WIPDOC
+]]
+---@field direction core.HUDDef.compass.scalable.direction
+
+--[[
+WIPDOC
+]]
+---@alias core.HUDDef.compass
+--- | core.HUDDef.compass.regular
+--- | core.HUDDef.compass.scalable

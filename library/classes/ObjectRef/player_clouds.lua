@@ -32,7 +32,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field speed {x:number, z:number}?
+---@field speed vec2.xy?
 --[[
 WIPDOC
 ]]
@@ -65,7 +65,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field speed {x:number, z:number}
+---@field speed vec2.xy
 --[[
 WIPDOC
 ]]
@@ -102,5 +102,6 @@ function PlayerRef:set_clouds(cloud_parameters) end
 * `get_clouds()`: returns a table with the current cloud parameters as in
   `set_clouds`.
 ]]
----@return core.PlayerCloudParameters.get
+---@nodiscard
+---@return core.PlayerCloudParameters.get cloud_parameters
 function PlayerRef:get_clouds() end

@@ -107,5 +107,6 @@ function PlayerRef:hud_set_flags(flags) end
 * `hud_get_flags()`: returns a table of player HUD flags with boolean values.
     * See `hud_set_flags` for a list of flags that can be toggled.
 ]]
----@return core.PlayerHudFlags.get
+---@nodiscard
+---@return core.PlayerHudFlags.get flags
 function PlayerRef:hud_get_flags() end

@@ -64,7 +64,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field name string
+---@field name core.Texture
 --[[
 WIPDOC
 
@@ -89,6 +89,14 @@ WIPDOC
 --[[
 WIPDOC
 ]]
+---@alias core.TileDef.align_style
+--- | "node"
+--- | "world"
+--- | "user"
+
+--[[
+WIPDOC
+]]
 ---@class core.TileDef.regular : _.TileDef.__base
 --[[
 WIPDOC
@@ -97,7 +105,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field align_style "node"|"world"|"user"?
+---@field align_style core.TileDef.align_style?
 --[[
 WIPDOC
 ]]
@@ -112,10 +120,6 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field name string
---[[
-WIPDOC
-]]
 ---@field color core.ColorSpec
 
 -- --------------------------------- TileDef -------------------------------- --
@@ -124,7 +128,7 @@ WIPDOC
 WIPDOC
 ]]
 ---@alias core.TileDef
---- | string
+--- | core.Texture
 --- | core.TileDef.animation
 --- | core.TileDef.regular
 --- | core.TileDef.color

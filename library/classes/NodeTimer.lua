@@ -34,17 +34,20 @@ function NodeTimerRef:stop() end
 --[[
 WIPDOC
 ]]
+---@nodiscard
 ---@return number
 function NodeTimerRef:get_timeout() end
 
 --[[
 WIPDOC
 ]]
+---@nodiscard
 ---@return number
 function NodeTimerRef:get_elapsed() end
 
 --[[
 WIPDOC
 ]]
+---@nodiscard
 ---@return boolean
 function NodeTimerRef:is_started() end
