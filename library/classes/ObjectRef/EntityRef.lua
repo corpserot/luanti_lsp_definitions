@@ -40,7 +40,7 @@ function EntityRef:set_acceleration(acc) end
 * `get_acceleration()`: returns the acceleration, a vector
 ]]
 ---@nodiscard
----@return vector? acc
+---@return vec? acc
 function EntityRef:get_acceleration() end
 
 -- --------------------- entity rotation and orientation -------------------- --
@@ -60,7 +60,7 @@ function EntityRef:set_rotation(rot) end
 * `get_rotation()`: returns the rotation, a vector (radians)
 ]]
 ---@nodiscard
----@return vector? rot
+---@return vec? rot
 function EntityRef:get_rotation() end
 
 --[[

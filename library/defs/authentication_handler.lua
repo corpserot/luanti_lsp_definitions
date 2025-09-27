@@ -58,6 +58,15 @@ WIPDOC
 ]]
 ---@alias core.AuthenticationHandlerDef.record_login fun(name:string)
 
+--[[
+WIPDOC
+]]
+---@alias _.AuthenticationHandlerDef.iterate fun():string?
+
+--[[
+WIPDOC
+]]
+---@alias core.AuthenticationHandlerDef.iterate fun():_.AuthenticationHandlerDef.iterate
 
 --[[
 WIPDOC
@@ -91,16 +100,7 @@ WIPDOC
 WIPDOC
 ]]
 ---@field record_login core.AuthenticationHandlerDef.record_login
-
--- NOTE: cannot express the following as an @alias
-
----@class core.AuthenticationHandlerDef
-local AuthenticationHandlerDef = {}
 --[[
 WIPDOC
 ]]
----@generic IteratorState
----@return fun(state:`IteratorState`, player_name:string): string player_name, any ...
----@return IteratorState state
----@return string player_name
-function AuthenticationHandlerDef.iterate() end
+---@field iterate core.AuthenticationHandlerDef.iterate

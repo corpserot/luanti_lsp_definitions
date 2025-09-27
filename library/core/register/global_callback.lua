@@ -5,20 +5,33 @@
 -- ---------------------- server step, start, shutdown ---------------------- --
 
 --[[
+WIPDOC
+]]
+---@alias core.fn.globalstep fun(dtime:number)
+
+--[[
 * Called every server step, usually interval of 0.1s.
 * `dtime` is the time since last execution in seconds.
 ]]
----@param f fun(dtime:number):nil
----@return nil
+---@param f core.fn.globalstep
 function core.register_globalstep(f) end
+
+--[[
+WIPDOC
+]]
+---@alias core.fn.on_mods_loaded fun()
 
 --[[
 * Called after mods have finished loading and before the media is cached or the
   aliases handled.
 ]]
----@param f fun():nil
----@return nil
+---@param f core.fn.on_mods_loaded
 function core.register_on_mods_loaded(f) end
+
+--[[
+WIPDOC
+]]
+---@alias core.fn.on_shutdown fun()
 
 --[[
 * Called before server shutdown
@@ -28,11 +41,15 @@ function core.register_on_mods_loaded(f) end
   registered callbacks **will likely not be run**. Data should be saved at
   semi-frequent intervals as well as on server shutdown.
 ]]
----@param f fun():nil
----@return nil
+---@param f core.fn.on_shutdown
 function core.register_on_shutdown(f) end
 
 -- ------------------------------- node events ------------------------------ --
+
+--[[
+WIPDOC
+]]
+---@alias core.fn.on_placenode fun(pos:ivec, newnode:core.Node.get, placer:core.ObjectRef?, oldnode:core.Node.get, itemstack:core.ItemStack, pointed_thing:core.PointedThing):boolean?
 
 --[[
 * `core.register_on_placenode(function(pos, newnode, placer, oldnode, itemstack, pointed_thing))`
@@ -42,9 +59,13 @@ function core.register_on_shutdown(f) end
     * **Not recommended**; use `on_construct` or `after_place_node` in node
       definition whenever possible.
 ]]
----@param f fun(pos:vector, newnode:core.Node.get, placer:ObjectRef, oldnode:core.Node.get, itemstack:ItemStack, pointed_thing:pointed_thing):boolean?
----@return nil
+---@param f core.fn.on_placenode
 function core.register_on_placenode(f) end
+
+--[[
+WIPDOC
+]]
+---@alias core.fn.on_dignode fun(pos:ivec, oldnode:core.Node.get, digger:core.ObjectRef?)
 
 --[[
 * `core.register_on_dignode(function(pos, oldnode, digger))`
@@ -52,23 +73,33 @@ function core.register_on_placenode(f) end
     * **Not recommended**; Use `on_destruct` or `after_dig_node` in node
       definition whenever possible.
 ]]
----@param f fun(pos:vector, oldnode:core.Node.get, digger:ObjectRef):nil
+---@param f core.fn.on_dignode
 ---@return nil
 function core.register_on_dignode(f) end
+
+--[[
+WIPDOC
+]]
+---@alias core.fn.on_punchnode fun(pos:ivec, node:core.Node.get, puncher:core.ObjectRef?, pointed_thing:core.PointedThing)
 
 --[[
 * `core.register_on_punchnode(function(pos, node, puncher, pointed_thing))`
     * Called when a node is punched
 ]]
----@param f fun(pos:vector, node:core.Node.get, puncher:ObjectRef, pointed_thing:pointed_thing):nil
+---@param f core.fn.on_punchnode
 ---@return nil
 function core.register_on_punchnode(f) end
+
+--[[
+WIPDOC
+]]
+---@alias core.fn.on_generated fun(minp:ivec, maxp:ivec, blockseed:integer)
 
 --[[
 Unofficial note: not actually deprecated but PLEASE use the mapgen env, use this only for prototyping/when you absolutely need to
 ]]
 ---@deprecated
----@param f fun(minp:vector, maxp:vector, blockseed:number):nil
+---@param f core.fn.on_generated
 function core.register_on_generated(f) end
 
 -- ------------------------------ player events ----------------------------- --
@@ -76,8 +107,18 @@ function core.register_on_generated(f) end
 --[[
 WIPDOC
 ]]
----@param f fun(ObjectRef: ObjectRef):nil
+---@alias core.fn.on_newplayer fun(ObjectRef:core.PlayerRef)
+
+--[[
+WIPDOC
+]]
+---@param f core.fn.on_newplayer
 function core.register_on_newplayer(f) end
+
+--[[
+WIPDOC
+]]
+---@alias core.fn.on_punchplayer fun(player:core.PlayerRef, hitter:core.PlayerRef?, time_from_last_punch:number?, tool_capabilities:core.ToolCapabilities?, dir:vec, damage: integer):boolean?
 
 --[[
 * `core.register_on_punchplayer(function(player, hitter, time_from_last_punch, tool_capabilities, dir, damage))`
@@ -93,8 +134,13 @@ function core.register_on_newplayer(f) end
     * `damage`: Number that represents the damage calculated by the engine
     * should return `true` to prevent the default damage mechanism
 ]]
----@param f fun(player:ObjectRef, hitter:ObjectRef, time_from_last_punch: number?, tool_capabilities: tool_capabilities?, dir:vector, damage: number):boolean?
+---@param f core.fn.on_punchplayer
 function core.register_on_punchplayer(f) end
+
+--[[
+WIPDOC
+]]
+---@alias core.fn.on_rightclickplayer fun(player:core.PlayerRef, clicker:core.PlayerRef)
 
 --[[
 * `core.register_on_rightclickplayer(function(player, clicker))`
@@ -103,103 +149,59 @@ function core.register_on_punchplayer(f) end
     * `player`: ObjectRef - Player that is acted upon
     * `clicker`: ObjectRef - Object that acted upon `player`, may or may not be a player
 ]]
----@param f fun(player:ObjectRef, clicker:ObjectRef)
+---@param f core.fn.on_rightclickplayer
 function core.register_on_rightclickplayer(f) end
 
---[[
-WIPDOC
-]]
----@class core.PlayerHPChangeReason
-local hpchange_reason = {}
+--[[ core.register_on_player_hpchange() .. core.register_on_dieplayer() split off into ./hpchange.lua ]]--
 
 --[[
 WIPDOC
 ]]
----@type  "set_hp"|"punch"|"fall"|"node_damage"|"drown"|"respawn"
-hpchange_reason.type = nil
+---@alias core.fn.on_respawnplayer fun(ObjectRef:core.PlayerRef):boolean?
 
 --[[
 WIPDOC
 ]]
----@type  "mod"|"engine"
-hpchange_reason.from = nil
-
---[[
-WIPDOC
-]]
----@type  core.Node.get?
-hpchange_reason.node = nil
-
---[[
-WIPDOC
-]]
----@type  vector?
-hpchange_reason.node_pos = nil
-
---[[
-* `core.register_on_player_hpchange(function(player, hp_change, reason), modifier)`
-    * Called when the player gets damaged or healed
-    * When `hp == 0`, damage doesn't trigger this callback.
-    * When `hp == hp_max`, healing does still trigger this callback.
-    * `player`: ObjectRef of the player
-    * `hp_change`: the amount of change. Negative when it is damage.
-      * Historically, the new HP value was clamped to [0, 65535] before
-        calculating the HP change. This clamping has been removed as of
-        version 5.10.0
-    * `reason`: a PlayerHPChangeReason table.
-        * The `type` field will have one of the following values:
-            * `set_hp`: A mod or the engine called `set_hp` without
-                        giving a type - use this for custom damage types.
-            * `punch`: Was punched. `reason.object` will hold the puncher, or nil if none.
-            * `fall`
-            * `node_damage`: `damage_per_second` from a neighboring node.
-                             `reason.node` will hold the node name or nil.
-                             `reason.node_pos` will hold the position of the node
-            * `drown`
-            * `respawn`
-        * Any of the above types may have additional fields from mods.
-        * `reason.from` will be `mod` or `engine`.
-    * `modifier`: when true, the function should return the actual `hp_change`.
-       Note: modifiers only get a temporary `hp_change` that can be modified by later modifiers.
-       Modifiers can return true as a second argument to stop the execution of further functions.
-       Non-modifiers receive the final HP change calculated by the modifiers.
-]]
----@param f fun(player:ObjectRef, hp_change:number, reason: core.PlayerHPChangeReason):number?
----@param modifier boolean?
-function core.register_on_player_hpchange(f, modifier) end
-
---[[
-* `core.register_on_dieplayer(function(ObjectRef, reason))`
-    * Called when a player dies
-    * `reason`: a PlayerHPChangeReason table, see register_on_player_hpchange
-    * For customizing the death screen, see `core.show_death_screen`.
-]]
----@param f fun(ObjectRef:ObjectRef, reason: core.PlayerHPChangeReason)
-function core.register_on_dieplayer(f) end
-
---[[
-WIPDOC
-]]
----@param f fun(ObjectRef:ObjectRef):boolean?
+---@param f core.fn.on_respawnplayer
 function core.register_on_respawnplayer(f) end
 
 --[[
 WIPDOC
 ]]
----@param f fun(name:string, ip:string)
+---@alias core.fn.on_prejoinplayer fun(name:string, ip:string):string?
+
+--[[
+WIPDOC
+]]
+---@param f core.fn.on_prejoinplayer
 function core.register_on_prejoinplayer(f) end
 
 --[[
 WIPDOC
 ]]
----@param f fun(ObjectRef:ObjectRef, last_login:string)
+---@alias core.fn.on_joinplayer fun(ObjectRef:core.PlayerRef, last_login:integer)
+
+--[[
+WIPDOC
+]]
+---@param f core.fn.on_joinplayer
 function core.register_on_joinplayer(f) end
 
 --[[
 WIPDOC
 ]]
----@param f fun(ObjectRef:ObjectRef, timed_out:string)
+---@alias core.fn.on_leaveplayer fun(ObjectRef:core.PlayerRef, timed_out:boolean)
+
+--[[
+WIPDOC
+]]
+---@param f core.fn.on_leaveplayer
 function core.register_on_leaveplayer(f) end
+
+--[[
+WIPDOC
+]]
+---@alias core.fn.on_authplayer fun(name:string, ip:string, is_success:boolean)
 
 --[[
 * `core.register_on_authplayer(function(name, ip, is_success))`
@@ -209,44 +211,31 @@ function core.register_on_leaveplayer(f) end
     * `is_success`: Whether the client was successfully authenticated
     * For newly registered accounts, `is_success` will always be true
 ]]
----@param f fun(name:string, ip:string, is_success: boolean)
+---@param f core.fn.on_authplayer
 function core.register_on_authplayer(f) end
+
+--[[
+WIPDOC
+]]
+---@alias core.fn.on_auth_fail fun(name:string, ip:string)
 
 --[[
 * Deprecated: use `core.register_on_authplayer(name, ip, is_success)` instead.
 ]]
 ---@deprecated
----@param f fun(name:string, ip:string)
+---@param f core.fn.on_auth_fail
 function core.register_on_auth_fail(f) end
 
---[[
-WIPDOC
-]]
----@class coer.CheatType
-local cheat_type = {}
+--[[ core.register_on_cheat() split into ./cheat.lua ]]--
 
---[[
-WIPDOC
-]]
----@type  string|"moved_too_fast"|"interacted_too_far"|"interacted_with_self"|"interacted_while_dead"|"finished_unknown_dig"|"dug_unbreakable"|"dug_too_fast"
-cheat_type.type = nil
-
---[[
-* `core.register_on_cheat(function(ObjectRef, cheat))`
-    * Called when a player cheats
-    * `cheat`: `{type=<cheat_type>}`, where `<cheat_type>` is one of:
-        * `moved_too_fast`
-        * `interacted_too_far`
-        * `interacted_with_self`
-        * `interacted_while_dead`
-        * `finished_unknown_dig`
-        * `dug_unbreakable`
-        * `dug_too_fast`
-]]
----@param f fun(ObjectRef:ObjectRef, cheat: cheat_type)
-function core.register_on_cheat(f) end
+--[[ core.register_playerevent() split into ./playerevent.lua ]]--
 
 -- ---------------------------------- chat ---------------------------------- --
+
+--[[
+WIPDOC
+]]
+---@alias core.fn.on_chat_message fun(name:string, message:string):boolean?
 
 --[[
 * `core.register_on_chat_message(function(name, message))`
@@ -254,8 +243,13 @@ function core.register_on_cheat(f) end
     * Return `true` to mark the message as handled, which means that it will
       not be sent to other players.
 ]]
----@param f fun(name:string, message:string): boolean?
+---@param f core.fn.on_chat_message
 function core.register_on_chat_message(f) end
+
+--[[
+WIPDOC
+]]
+---@alias core.fn.on_chatcommand fun(name:string, command:string, params:string)
 
 --[[
 * `core.register_on_chatcommand(function(name, command, params))`
@@ -264,58 +258,17 @@ function core.register_on_chat_message(f) end
     * Return `true` to mark the command as handled, which means that the default
       handlers will be prevented.
 ]]
----@param f fun(name:string, command:string, params:string)
+---@param f core.fn.on_chatcommand
 function core.register_on_chatcommand(f) end
 
 -- -------------------------------- formspec -------------------------------- --
 
+--[[ core.register_on_player_receive_fields() split off into ./player_receive_fields.lua ]]--
+
 --[[
-* `core.register_on_player_receive_fields(function(player, formname, fields))`
-* Called when the server received input from `player`.
-  Specifically, this is called on any of the
-  following events:
-      * a button was pressed,
-      * Enter was pressed while the focus was on a text field
-      * a checkbox was toggled,
-      * something was selected in a dropdown list,
-      * a different tab was selected,
-      * selection was changed in a textlist or table,
-      * an entry was double-clicked in a textlist or table,
-      * a scrollbar was moved, or
-      * the form was actively closed by the player.
-* `formname` is the name passed to `core.show_formspec`.
-  Special case: The empty string refers to the player inventory
-  (the formspec set by the `set_inventory_formspec` player method).
-* Fields are sent for formspec elements which define a field. `fields`
-  is a table containing each formspecs element value (as string), with
-  the `name` parameter as index for each. The value depends on the
-  formspec element type:
-    * `animated_image`: Returns the index of the current frame.
-    * `button` and variants: If pressed, contains the user-facing button
-      text as value. If not pressed, is `nil`
-    * `field`, `textarea` and variants: Text in the field
-    * `dropdown`: Either the index or value, depending on the `index event`
-      dropdown argument.
-    * `tabheader`: Tab index, starting with `"1"` (only if tab changed)
-    * `checkbox`: `"true"` if checked, `"false"` if unchecked
-    * `textlist`: See `core.explode_textlist_event`
-    * `table`: See `core.explode_table_event`
-    * `scrollbar`: See `core.explode_scrollbar_event`
-    * Special case: `["quit"]="true"` is sent when the user actively
-      closed the form by mouse click, keypress or through a `button_exit[]`
-      element.
-    * Special case: `["try_quit"]="true"` is sent when the user tries to
-      close the formspec, but the formspec used `allow_close[false]`.
-    * Special case: `["key_enter"]="true"` is sent when the user pressed
-      the Enter key and the focus was either nowhere (causing the formspec
-      to be closed) or on a button. If the focus was on a text field,
-      additionally, the index `key_enter_field` contains the name of the
-      text field. See also: `field_close_on_enter`.
-* Newest functions are called first
-* If function returns `true`, remaining functions are not called
+WIPDOC
 ]]
----@param f fun(player:PlayerRef, formname:string, fields:table<string, string>):boolean?
-function core.register_on_player_receive_fields(f) end
+---@alias core.fn.on_craft fun(itemstack:core.ItemStack, player:core.PlayerRef, old_crafting_grid:core.Item.name[][], craft_inv:core.InvRef):core.ItemStack?
 
 --[[
 * `core.register_on_craft(function(itemstack, player, old_craft_grid, craft_inv))`
@@ -327,56 +280,30 @@ function core.register_on_player_receive_fields(f) end
     * Return either an `ItemStack`, to replace the output, or `nil`, to not
       modify it.
 ]]
----@param f fun(itemstack:ItemStack, player:PlayerRef, old_crafting_grid:table, craft_inv:InvRef):ItemStack?
+---@param f core.fn.on_craft
 function core.register_on_craft(f) end
+
+--[[
+WIPDOC
+]]
+---@alias core.fn.craft_predict fun(itemstack:core.ItemStack, player:core.PlayerRef, old_crafting_grid:core.Item.name[][], craft_inv:core.InvRef):core.ItemStack?
 
 --[[
 * `core.register_craft_predict(function(itemstack, player, old_craft_grid, craft_inv))`
     * The same as before, except that it is called before the player crafts, to
       make craft prediction, and it should not change anything.
 ]]
----@param f fun(itemstack:ItemStack, player:PlayerRef, old_crafting_grid:table, craft_inv:InvRef):ItemStack?
+---@param f core.fn.craft_predict
 function core.register_craft_predict(f) end
 
----@alias InventoryAction
---- | "move"
---- | "put"
---- | "take"
+--[[ core.register_allow_player_inventory_action() .. core.register_on_player_inventory_action() split off into ./inventory_action.lua ]]--
 
----@class InventoryInfoMove
----@field from_list string
----@field to_list string
----@field from_index number
----@field to_index number
----@field count number
-
----@class InventoryInfoPutOrTake
----@field listname string
----@field index string
----@field stack ItemStack
-
----@alias InventoryInfo
---- | InventoryInfoMove
---- | InventoryInfoPutOrTake
-
---[[
-* `core.register_allow_player_inventory_action(function(player, action, inventory, inventory_info))`
-    * Determines how much of a stack may be taken, put or moved to a
-      player inventory.
-    * Function arguments: see `core.register_on_player_inventory_action`
-    * Return a numeric value to limit the amount of items to be taken, put or
-      moved. A value of `-1` for `take` will make the source stack infinite.
-]]
----@param f fun(player:PlayerRef, action:InventoryAction, inventory:InvRef, inventory_info: InventoryInfo):number
-function core.register_allow_player_inventory_action(f) end
+-- ------------------------------- protection ------------------------------- --
 
 --[[
 WIPDOC
 ]]
----@param f fun(player:PlayerRef, action:InventoryAction, inventory:InvRef, inventory_info: InventoryInfo):nil
-function core.register_on_player_inventory_action(f) end
-
--- ------------------------------- protection ------------------------------- --
+---@alias core.fn.on_protection_violation fun(pos:ivec, name:string)
 
 --[[
 * `core.register_on_protection_violation(function(pos, name))`
@@ -388,18 +315,28 @@ function core.register_on_player_inventory_action(f) end
       mod calling this function before it prints a message, if it does, to
       allow for multiple protection mods.
 ]]
----@param f fun(pos:vector, name: string)
+---@param f core.fn.on_protection_violation
 function core.register_on_protection_violation(f) end
 
 -- ------------------------------- item events ------------------------------ --
+
+--[[
+WIPDOC
+]]
+---@alias core.fn.on_item_eat fun(hp_change:integer, replace_with_item:core.ItemStack?, itemstack:core.ItemStack, user:core.PlayerRef, pointed_thing:core.PointedThing):core.ItemStack?
 
 --[[
 * `core.register_on_item_eat(function(hp_change, replace_with_item, itemstack, user, pointed_thing))`
     * Called when an item is eaten, by `core.item_eat`
     * Return `itemstack` to cancel the default item eat response (i.e.: hp increase).
 ]]
----@param f fun(hp_change:number, replace_with_item:ItemStack?, itemstack:ItemStack, user:PlayerRef, pointed_thing:pointed_thing):ItemStack?
+---@param f core.fn.on_item_eat
 function core.register_on_item_eat(f) end
+
+--[[
+WIPDOC
+]]
+---@alias core.fn.on_item_pickup fun(itemstack:core.ItemStack, picker:core.PlayerRef?, pointed_thing:core.PointedThing?, time_from_last_punch:number?, direction:vec?, damage:integer?):core.ItemStack?
 
 --[[
 * `core.register_on_item_pickup(function(itemstack, picker, pointed_thing, time_from_last_punch,  ...))`
@@ -410,10 +347,15 @@ function core.register_on_item_eat(f) end
     * Return an itemstack to cancel the default item pick-up response (i.e.: adding
       the item into inventory).
 ]]
----@param f fun(itemstack:ItemStack, picker:PlayerRef, pointed_thing:pointed_thing, time_from_last_punch:number, ...):ItemStack?
+---@param f core.ItemDef.on_pickup
 function core.register_on_item_pickup(f) end
 
 -- ------------------------------- privileges ------------------------------- --
+
+--[[
+WIPDOC
+]]
+---@alias core.fn.on_priv_grant fun(name:string, granter:core.PlayerRef?, priv:core.PrivilegeSet.keys)
 
 --[[
 * `core.register_on_priv_grant(function(name, granter, priv))`
@@ -421,8 +363,13 @@ function core.register_on_item_pickup(f) end
     * Note that the callback will be called twice if it's done by a player,
       once with granter being the player name, and again with granter being nil.
 ]]
----@param f fun(name:string, granter:PlayerRef?, priv:string)
+---@param f core.fn.on_priv_grant
 function core.register_on_priv_grant(f) end
+
+--[[
+WIPDOC
+]]
+---@alias core.fn.on_priv_revoke fun(name:string, revoker:core.PlayerRef?, priv:core.PrivilegeSet.keys)
 
 --[[
 * `core.register_on_priv_revoke(function(name, revoker, priv))`
@@ -430,24 +377,41 @@ function core.register_on_priv_grant(f) end
     * Note that the callback will be called twice if it's done by a player,
       once with revoker being the player name, and again with revoker being nil.
 ]]
----@param f fun(name:string, revoker:PlayerRef?, priv:string)
+---@param f core.fn.on_priv_revoke
 function core.register_on_priv_revoke(f) end
 
--- ---------------------------------- misc ---------------------------------- --
+-- -------------------------------------------------------------------------- --
+
+--[[
+WIPDOC
+]]
+---@alias core.fn.can_bypass_userlimit fun(name:string, ip:string):boolean?
 
 --[[
 * `core.register_can_bypass_userlimit(function(name, ip))`
     * Called when `name` user connects with `ip`.
     * Return `true` to by pass the player limit
 ]]
----@param f fun(name:string, ip:string)
+---@param f core.fn.can_bypass_userlimit
 function core.register_can_bypass_userlimit(f) end
 
 --[[
 WIPDOC
 ]]
----@param f fun(channel_name:string, sender:PlayerRef|string, message:string)
+---@alias core.fn.on_modchannel_message fun(channel_name:string, sender:string, message:string)
+
+--[[
+WIPDOC
+]]
+---@param f core.fn.on_modchannel_message
 function core.register_on_modchannel_message(f) end
+
+-- ------------------------------- map events ------------------------------- --
+
+--[[
+WIPDOC
+]]
+---@alias core.fn.on_liquid_transform fun(pos_list: ivec[], node_list: core.Node.get[])
 
 --[[
 * `core.register_on_liquid_transformed(function(pos_list, node_list))`
@@ -457,8 +421,13 @@ function core.register_on_modchannel_message(f) end
     * `node_list` is an array of the old node that was previously at the position
       with the corresponding index in pos_list.
 ]]
----@param f fun(pos_list: vector[], node_list: core.Node.get[])
+---@param f core.fn.on_liquid_transform
 function core.register_on_liquid_transformed(f) end
+
+--[[
+WIPDOC
+]]
+---@alias core.fn.on_mapblocks_changed fun(modified_blocks:table<core.PosHash,true>, modified_block_count:integer)
 
 --[[
 * `core.register_on_mapblocks_changed(function(modified_blocks, modified_block_count))`
@@ -472,5 +441,5 @@ function core.register_on_liquid_transformed(f) end
     * `modified_block_count` is the number of entries in the set.
     * Note: callbacks must be registered at mod load time.
 ]]
----@param f fun(modified_blocks: table<number, boolean>, modified_block_count: number)
+---@param f core.fn.on_mapblocks_changed
 function core.register_on_mapblocks_changed(f) end

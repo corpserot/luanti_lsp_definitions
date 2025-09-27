@@ -2,6 +2,8 @@
 -- DRAFT 1 DONE
 -- lua_api.md: Aliases > Mapgen aliases
 
+-- ------------------------------- MapgenAlias ------------------------------ --
+
 --[[
 WIPDOC
 ]]
@@ -60,3 +62,10 @@ WIPDOC
 --- | core.MapgenAlias.optional
 --- | core.MapgenAlias.v6.essential
 --- | core.MapgenAlias.v6.optional
+
+--[[
+WIPDOC
+]]
+---@alias core.Alias
+--- | core.MapgenAlias
+--- | string

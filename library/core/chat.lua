@@ -6,7 +6,6 @@
 WIPDOC
 ]]
 ---@param text string
----@return nil
 function core.chat_send_all(text) end
 
 --[[
@@ -14,7 +13,6 @@ WIPDOC
 ]]
 ---@param name string
 ---@param text string
----@return nil
 function core.chat_send_player(name, text) end
 
 --[[
@@ -25,7 +23,8 @@ function core.chat_send_player(name, text) end
     * Can be redefined by mods if required, for things like colored names or messages.
     * **Only** the first occurrence of each placeholder will be replaced.
 ]]
+---@nodiscard
 ---@param name string
 ---@param message string
----@return nil
+---@return string
 function core.format_chat_message(name, message) end

@@ -16,11 +16,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field min veci
+---@field min ivec
 --[[
 WIPDOC
 ]]
----@field max veci
+---@field max ivec
 
 
 --[[
@@ -67,7 +67,8 @@ Unofficial note: I am aware that "Luanti" isn't a valid AreaStore type, but that
         * When other values are specified, or SpatialIndex is not available,
           the custom Luanti functions are used.
 ]]
----@param type "LibSpatial"|any
+---@nodiscard
+---@param type "LibSpatial"|string?
 ---@return core.AreaStore
 function AreaStore(type) end
 
@@ -93,9 +94,9 @@ WIPDOC
 ]]
 ---@nodiscard
 ---@param id core.AreaStoreID
----@param include_corners nil|false
----@param include_data nil|false
----@return nil|true
+---@param include_corners false?
+---@param include_data false?
+---@return true?
 function AreaStore:get_area(id, include_corners, include_data) end
 
 --[[
@@ -104,8 +105,8 @@ WIPDOC
 ---@nodiscard
 ---@param id core.AreaStoreID
 ---@param include_corners true
----@param include_data nil|false
----@return nil|core.AreaStore.area.include_corners
+---@param include_data false?
+---@return core.AreaStore.area.include_corners?
 function AreaStore:get_area(id, include_corners, include_data) end
 
 --[[
@@ -113,9 +114,9 @@ WIPDOC
 ]]
 ---@nodiscard
 ---@param id core.AreaStoreID
----@param include_corners nil|false
+---@param include_corners false?
 ---@param include_data true
----@return nil|core.AreaStore.area.include_data
+---@return core.AreaStore.area.include_data?
 function AreaStore:get_area(id, include_corners, include_data) end
 
 --[[
@@ -125,7 +126,7 @@ WIPDOC
 ---@param id core.AreaStoreID
 ---@param include_corners true
 ---@param include_data true
----@return nil|core.AreaStore.area.include_all
+---@return core.AreaStore.area.include_all?
 function AreaStore:get_area(id, include_corners, include_data) end
 
 --[[
@@ -133,9 +134,9 @@ WIPDOC
 ]]
 ---@nodiscard
 ---@param id core.AreaStoreID
----@param include_corners nil|false
----@param include_data nil|false
----@return table<core.AreaStoreID, nil|true>
+---@param include_corners false?
+---@param include_data false?
+---@return table<core.AreaStoreID, true?>
 function AreaStore:get_areas_for_pos(id, include_corners, include_data) end
 
 --[[
@@ -144,8 +145,8 @@ WIPDOC
 ---@nodiscard
 ---@param id core.AreaStoreID
 ---@param include_corners true
----@param include_data nil|false
----@return table<core.AreaStoreID, nil|core.AreaStore.area.include_corners>
+---@param include_data false?
+---@return table<core.AreaStoreID, core.AreaStore.area.include_corners?>
 function AreaStore:get_areas_for_pos(id, include_corners, include_data) end
 
 --[[
@@ -153,9 +154,9 @@ WIPDOC
 ]]
 ---@nodiscard
 ---@param id core.AreaStoreID
----@param include_corners nil|false
+---@param include_corners false?
 ---@param include_data true
----@return table<core.AreaStoreID, nil|core.AreaStore.area.include_data>
+---@return table<core.AreaStoreID, core.AreaStore.area.include_data?>
 function AreaStore:get_areas_for_pos(id, include_corners, include_data) end
 
 --[[
@@ -165,55 +166,55 @@ WIPDOC
 ---@param id core.AreaStoreID
 ---@param include_corners true
 ---@param include_data true
----@return table<core.AreaStoreID, nil|core.AreaStore.area.include_all>
+---@return table<core.AreaStoreID, core.AreaStore.area.include_all?>
 function AreaStore:get_areas_for_pos(id, include_corners, include_data) end
 
 --[[
 WIPDOC
 ]]
 ---@nodiscard
----@param pos1 vectori
----@param pos2 vectori
+---@param pos1 ivector
+---@param pos2 ivector
 ---@param accept_overlap boolean
----@param include_corners nil|false
----@param include_data nil|false
----@return table<core.AreaStoreID, nil|true>
+---@param include_corners false?
+---@param include_data false?
+---@return table<core.AreaStoreID, true?>
 function AreaStore:get_areas_in_area(pos1, pos2, accept_overlap, include_corners, include_data) end
 
 --[[
 WIPDOC
 ]]
 ---@nodiscard
----@param pos1 vectori
----@param pos2 vectori
+---@param pos1 ivector
+---@param pos2 ivector
 ---@param accept_overlap boolean
 ---@param include_corners true
----@param include_data nil|false
----@return table<core.AreaStoreID, nil|core.AreaStore.area.include_corners>
+---@param include_data false?
+---@return table<core.AreaStoreID, core.AreaStore.area.include_corners?>
 function AreaStore:get_areas_in_area(pos1, pos2, accept_overlap, include_corners, include_data) end
 
 --[[
 WIPDOC
 ]]
 ---@nodiscard
----@param pos1 vectori
----@param pos2 vectori
+---@param pos1 ivector
+---@param pos2 ivector
 ---@param accept_overlap boolean
----@param include_corners nil|false
+---@param include_corners false?
 ---@param include_data true
----@return table<core.AreaStoreID, nil|core.AreaStore.area.include_data>
+---@return table<core.AreaStoreID, core.AreaStore.area.include_data?>
 function AreaStore:get_areas_in_area(pos1, pos2, accept_overlap, include_corners, include_data) end
 
 --[[
 WIPDOC
 ]]
 ---@nodiscard
----@param pos1 vectori
----@param pos2 vectori
+---@param pos1 ivector
+---@param pos2 ivector
 ---@param accept_overlap boolean
 ---@param include_corners true
 ---@param include_data true
----@return table<core.AreaStoreID, nil|core.AreaStore.area.include_all>
+---@return table<core.AreaStoreID, core.AreaStore.area.include_all?>
 function AreaStore:get_areas_in_area(pos1, pos2, accept_overlap, include_corners, include_data) end
 
 --[[
@@ -225,8 +226,8 @@ function AreaStore:get_areas_in_area(pos1, pos2, accept_overlap, include_corners
       number between 0 and 2^32-2.
 ]]
 ---@nodiscard
----@param corner1 vectori
----@param corner2 vectori
+---@param corner1 ivector
+---@param corner2 ivector
 ---@param data string
 ---@param id core.AreaStoreID?
 ---@return core.AreaStoreID?

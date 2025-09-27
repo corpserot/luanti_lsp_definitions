@@ -26,11 +26,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field under vectori
+---@field under ivector
 --[[
 WIPDOC
 ]]
----@field above vectori
+---@field above ivector
 
 -- --------------------------- PointedThing.object -------------------------- --
 

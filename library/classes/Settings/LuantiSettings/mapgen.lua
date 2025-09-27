@@ -344,27 +344,51 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field caves boolean
+---@field caves boolean?
 --[[
 WIPDOC
 ]]
----@field dungeons boolean
+---@field nocaves boolean?
 --[[
 WIPDOC
 ]]
----@field light boolean
+---@field dungeons boolean?
 --[[
 WIPDOC
 ]]
----@field decorations boolean
+---@field nodungeons boolean?
 --[[
 WIPDOC
 ]]
----@field biomes boolean
+---@field light boolean?
 --[[
 WIPDOC
 ]]
----@field ores boolean
+---@field nolight boolean?
+--[[
+WIPDOC
+]]
+---@field decorations boolean?
+--[[
+WIPDOC
+]]
+---@field nodecorations boolean?
+--[[
+WIPDOC
+]]
+---@field biomes boolean?
+--[[
+WIPDOC
+]]
+---@field nobiomes boolean?
+--[[
+WIPDOC
+]]
+---@field ores boolean?
+--[[
+WIPDOC
+]]
+---@field noores boolean?
 
 ---@class _.LuantiSettings.mapgen
 --[[
@@ -413,7 +437,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field caverns boolean
+---@field caverns boolean?
+--[[
+WIPDOC
+]]
+---@field nocaverns boolean?
 
 ---@class _.LuantiSettings.mapgen.mapgen_v5
 --[[
@@ -559,31 +587,59 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field jungles boolean
+---@field jungles boolean?
 --[[
 WIPDOC
 ]]
----@field biomeblend boolean
+---@field nojungles boolean?
 --[[
 WIPDOC
 ]]
----@field mudflow boolean
+---@field biomeblend boolean?
 --[[
 WIPDOC
 ]]
----@field snowbiomes boolean
+---@field nobiomeblend boolean?
 --[[
 WIPDOC
 ]]
----@field flat boolean
+---@field mudflow boolean?
 --[[
 WIPDOC
 ]]
----@field trees boolean
+---@field nomudflow boolean?
 --[[
 WIPDOC
 ]]
----@field temples boolean
+---@field snowbiomes boolean?
+--[[
+WIPDOC
+]]
+---@field nosnowbiomes boolean?
+--[[
+WIPDOC
+]]
+---@field flat boolean?
+--[[
+WIPDOC
+]]
+---@field noflat boolean?
+--[[
+WIPDOC
+]]
+---@field trees boolean?
+--[[
+WIPDOC
+]]
+---@field notrees boolean?
+--[[
+WIPDOC
+]]
+---@field temples boolean?
+--[[
+WIPDOC
+]]
+---@field notemples boolean?
 
 ---@class _.LuantiSettings.mapgen.mapgen_v6
 --[[
@@ -701,19 +757,35 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field mountains boolean
+---@field mountains boolean?
 --[[
 WIPDOC
 ]]
----@field ridges boolean
+---@field nomountains boolean?
 --[[
 WIPDOC
 ]]
----@field floatlands boolean
+---@field ridges boolean?
 --[[
 WIPDOC
 ]]
----@field caverns boolean
+---@field noridges boolean?
+--[[
+WIPDOC
+]]
+---@field floatlands boolean?
+--[[
+WIPDOC
+]]
+---@field nofloatlands boolean?
+--[[
+WIPDOC
+]]
+---@field caverns boolean?
+--[[
+WIPDOC
+]]
+---@field nocaverns boolean?
 
 ---@class _.LuantiSettings.mapgen.mapgen_v7
 --[[
@@ -965,11 +1037,19 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field caverns boolean
+---@field caverns boolean?
 --[[
 WIPDOC
 ]]
----@field rivers boolean
+---@field nocaverns boolean?
+--[[
+WIPDOC
+]]
+---@field rivers boolean?
+--[[
+WIPDOC
+]]
+---@field norivers boolean?
 
 ---@class _.LuantiSettings.mapgen.mapgen_carpathian
 --[[
@@ -1192,15 +1272,27 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field lakes boolean
+---@field lakes boolean?
 --[[
 WIPDOC
 ]]
----@field hills boolean
+---@field nolakes boolean?
 --[[
 WIPDOC
 ]]
----@field caverns boolean
+---@field hills boolean?
+--[[
+WIPDOC
+]]
+---@field nohills boolean?
+--[[
+WIPDOC
+]]
+---@field caverns boolean?
+--[[
+WIPDOC
+]]
+---@field nocaverns boolean?
 
 ---@class _.LuantiSettings.mapgen.mapgen_flat
 --[[
@@ -1368,7 +1460,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field terrain boolean
+---@field terrain boolean?
+--[[
+WIPDOC
+]]
+---@field noterrain boolean?
 
 ---@class _.LuantiSettings.mapgen.mapgen_fractal
 --[[
@@ -1584,19 +1680,35 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field altitude_chill boolean
+---@field altitude_chill boolean?
 --[[
 WIPDOC
 ]]
----@field humid_rivers boolean
+---@field noaltitude_chill boolean?
 --[[
 WIPDOC
 ]]
----@field vary_river_depth boolean
+---@field humid_rivers boolean?
 --[[
 WIPDOC
 ]]
----@field altitude_dry boolean
+---@field nohumid_rivers boolean?
+--[[
+WIPDOC
+]]
+---@field vary_river_depth boolean?
+--[[
+WIPDOC
+]]
+---@field novary_river_depth boolean?
+--[[
+WIPDOC
+]]
+---@field altitude_dry boolean?
+--[[
+WIPDOC
+]]
+---@field noaltitude_dry boolean?
 
 ---@class _.LuantiSettings.mapgen.mapgen_valleys
 --[[

@@ -8,6 +8,7 @@
     * `delim`: String separating the privs. Defaults to `","`.
     * Returns `{ priv1 = true, ... }`
 ]]
+---@nodiscard
 ---@param str string
 ---@param delim string?
 ---@return core.PrivilegeSet
@@ -18,13 +19,20 @@ function core.string_to_privs(str, delim) end
     * Returns the string representation of `privs`
     * `delim`: String to delimit privs. Defaults to `","`.
 ]]
+---@nodiscard
 ---@param privs core.PrivilegeSet
 ---@param delim string?
+---@return string
 function core.privs_to_string(privs, delim) end
 
 --[[
 * `core.get_player_privs(name) -> {priv1=true,...}`
+
+`core.set_player_password`, `core.set_player_privs`,
+`core.get_player_privs` and `core.auth_reload` call the authentication
+handler.
 ]]
+---@nodiscard
 ---@param name string
 ---@return core.PrivilegeSet
 function core.get_player_privs(name) end
@@ -37,11 +45,25 @@ function core.get_player_privs(name) end
     * `...` is either a list of strings, e.g. `"priva", "privb"` or
       a table, e.g. `{ priva = true, privb = true }`.
 ]]
----@param player_or_name core.PlayerRef | string
+---@nodiscard
+---@param player_or_name core.PlayerRef|string
 ---@param privs core.PrivilegeSet
----@return boolean
----@overload fun(player_or_name:core.PlayerRef|string, ...: string)
+---@return boolean, core.PrivilegeSet missing_privs
 function core.check_player_privs(player_or_name, privs) end
+
+--[[
+* `core.check_player_privs(player_or_name, ...)`:
+  returns `bool, missing_privs`
+    * A quickhand for checking privileges.
+    * `player_or_name`: Either a Player object or the name of a player.
+    * `...` is either a list of strings, e.g. `"priva", "privb"` or
+      a table, e.g. `{ priva = true, privb = true }`.
+]]
+---@nodiscard
+---@param player_or_name core.PlayerRef|string
+---@param ... core.PrivilegeSet.keys
+---@return boolean, core.PrivilegeSet missing_privs
+function core.check_player_privs(player_or_name, ...) end
 
 --[[
 * `core.check_password_entry(name, entry, password)`
@@ -52,6 +74,10 @@ function core.check_player_privs(player_or_name, privs) end
     * Only use this function for making it possible to log in via password from
       external protocols such as IRC, other uses are frowned upon.
 ]]
+---@param name string
+---@param entry string
+---@param password string
+---@return boolean
 function core.check_password_entry(name, entry, password) end
 
 --[[
@@ -63,6 +89,10 @@ function core.check_password_entry(name, entry, password) end
       in the db might use the new SRP verifier format.
     * For this purpose, use `core.check_password_entry` instead.
 ]]
+---@nodiscard
+---@param name string
+---@param raw_password string
+---@return string
 function core.get_password_hash(name, raw_password) end
 
 --[[
@@ -70,6 +100,9 @@ function core.get_password_hash(name, raw_password) end
   `name`.
     * The player needs to be online for this to be successful.
 ]]
+---@nodiscard
+---@param name string
+---@return string?
 function core.get_player_ip(name) end
 
 --[[
@@ -80,6 +113,8 @@ function core.get_player_ip(name) end
     * Use this to e.g. get the authentication data for a player:
       `local auth_data = core.get_auth_handler().get_auth(playername)`
 ]]
+---@nodiscard
+---@return core.AuthenticationHandlerDef
 function core.get_auth_handler() end
 
 --[[
@@ -87,12 +122,19 @@ function core.get_auth_handler() end
     * Must be called by the authentication handler for privilege changes.
     * `name`: string; if omitted, all auth data should be considered modified
 ]]
+---@param name string?
 function core.notify_authentication_modified(name) end
 
 --[[
 * `core.set_player_password(name, password_hash)`: Set password hash of
   player `name`.
+
+`core.set_player_password`, `core.set_player_privs`,
+`core.get_player_privs` and `core.auth_reload` call the authentication
+handler.
 ]]
+---@param name string
+---@param password_hash string
 function core.set_player_password(name, password_hash) end
 
 --[[
@@ -102,6 +144,10 @@ function core.set_player_password(name, password_hash) end
     * Example: `core.set_player_privs("singleplayer", {interact = true, fly = true})`.
       This **sets** the player privileges to `interact` and `fly`;
       `singleplayer` will only have these two privileges afterwards.
+
+`core.set_player_password`, `core.set_player_privs`,
+`core.get_player_privs` and `core.auth_reload` call the authentication
+handler.
 --]]
 ---@param name string
 ---@param privs core.PrivilegeSet
@@ -134,4 +180,6 @@ function core.change_player_privs(name, changes) end
 `core.get_player_privs` and `core.auth_reload` call the authentication
 handler.
 ]]
+---@nodiscard
+---@return boolean
 function core.auth_reload() end

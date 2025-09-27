@@ -22,9 +22,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.ItemList.stringfmt
---- | {[integer]:core.Item.stringfmt}
---- | core.Item.stringfmt[]
+---@alias core.ItemList.stringfmt SparseList<core.Item.stringfmt>
 
 --[[
 WIPDOC
@@ -54,9 +52,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.ItemList
---- | {[integer]:core.Item}
---- | core.Item[]
+---@alias core.ItemList SparseList<core.Item>
 
 --[[
 * inventory table keys are inventory list names

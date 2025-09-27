@@ -2,6 +2,49 @@
 -- DRAFT 1 DONE
 -- lua_api.md: Schematics
 
+-- ----------------------------- Schematic.flag ----------------------------- --
+
+--[[
+WIPDOC
+]]
+---@class core.Schematic.flags.tablefmt
+--[[
+WIPDOC
+]]
+---@field place_center_x boolean?
+--[[
+WIPDOC
+]]
+---@field noplace_center_x boolean?
+--[[
+WIPDOC
+]]
+---@field place_center_y boolean?
+--[[
+WIPDOC
+]]
+---@field noplace_center_y boolean?
+--[[
+WIPDOC
+]]
+---@field place_center_z boolean?
+--[[
+WIPDOC
+]]
+---@field noplace_center_z boolean?
+
+--[[
+WIPDOC
+]]
+---@alias core.Schematic.flags.stringfmt string
+
+--[[
+WIPDOC
+]]
+---@alias core.Schematic.flags
+--- | core.Schematic.flags.tablefmt
+--- | core.Schematic.flags.stringfmt
+
 -- ------------------------ SchematicDef.yslice_prob ------------------------ --
 
 --[[
@@ -61,7 +104,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.SchematicHandle
+---@class core.SchematicID
 
 --[[
 A schematic specifier identifies a schematic by either a filename to a
@@ -73,7 +116,7 @@ in the form of a table.
 * The `size` field is a 3D vector containing the dimensions of the provided
   schematic. (required field)
 ]]
----@field  size vectori
+---@field  size ivector
 --[[
 * The `yslice_prob` field is a table of {ypos, prob} slice tables. A slice table
   sets the probability of a particular horizontal slice of the schematic being
@@ -107,6 +150,6 @@ in the form of a table.
 WIPDOC
 ]]
 ---@alias core.Schematic
---- | core.SchematicHandle
+--- | core.SchematicID
 --- | core.Path
 --- | core.SchematicDef

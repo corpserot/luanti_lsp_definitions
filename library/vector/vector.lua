@@ -13,7 +13,7 @@
 --[[
 WIPDOC
 ]]
----@class veci: vec3i.xyz, _.vec.__base
+---@class ivec: vec3i.xyz, _.vec.__base
 
 --[[
 WIPDOC
@@ -23,9 +23,9 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias vectori
+---@alias ivector
 --- | vec3i.xyz
---- | veci
+--- | ivec
 
 --[[
 WIPDOC

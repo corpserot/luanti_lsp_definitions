@@ -65,7 +65,7 @@ If `true`: The LBM runs every time a mapblock is activated.
 --[[
 WIPDOC
 ]]
----@alias core.LBMDef.action.fn fun(pos:veci, node:core.Node.get, dtime_s:number)
+---@alias core.LBMDef.action.fn fun(pos:ivec, node:core.Node.get, dtime_s:number)
 
 ---@class core.LBMDef.action : _.LBMDef.__base
 --[[
@@ -79,7 +79,7 @@ was last active (available since 5.7.0).
 --[[
 WIPDOC
 ]]
----@alias core.LBMDef.bulk_action.fn fun(pos_list:veci[], dtime_s:number)
+---@alias core.LBMDef.bulk_action.fn fun(pos_list:ivec[], dtime_s:number)
 
 ---@class core.LBMDef.bulk_action : _.LBMDef.__base
 --[[

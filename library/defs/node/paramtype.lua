@@ -15,6 +15,16 @@ WIPDOC
 --[[
 WIPDOC
 ]]
+---@alias core.NodeDef.paramtype2.color
+--- | "color"
+--- | "colorfacedir"
+--- | "color4dir"
+--- | "colorwallmounted"
+--- | "colordegrotate"
+
+--[[
+WIPDOC
+]]
 ---@alias core.NodeDef.paramtype2
 --- | "flowingliquid"
 --- | "wallmounted"

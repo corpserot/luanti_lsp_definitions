@@ -9,6 +9,16 @@
 -- assumes it's an entity, and its fields overridden by PlayerProperties. If
 -- there were any entity exclusive fields, EntityProperties would exist
 
+--[[
+WIPDOC
+]]
+core.PLAYER_MAX_HP_DEFAULT = 20
+
+--[[
+WIPDOC
+]]
+core.PLAYER_MAX_BREATH_DEFAULT = 10
+
 -- ------------------------- ObjectProperties.__base ------------------------ --
 
 ---@class _.ObjectProperties.__base.set

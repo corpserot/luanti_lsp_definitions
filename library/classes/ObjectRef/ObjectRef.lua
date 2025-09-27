@@ -35,7 +35,7 @@ function ObjectRefBase:is_valid() end
 * `get_pos()`: returns position as vector `{x=num, y=num, z=num}`
 ]]
 ---@nodiscard
----@return vector pos
+---@return vec pos
 function ObjectRefBase:get_pos() end
 
 --[[
@@ -61,7 +61,7 @@ function ObjectRefBase:add_pos(pos) end
 * `get_velocity()`: returns the velocity, a vector.
 ]]
 ---@nodiscard
----@return vector vel
+---@return vec vel
 function ObjectRefBase:get_velocity() end
 
 --[[
@@ -103,10 +103,10 @@ function ObjectRefBase:move_to(pos, continuous) end
     * Arguments `time_from_last_punch`, `tool_capabilities`, and `dir`
       will be replaced with a default value when the caller sets them to `nil`.
 ]]
----@param puncher core.ObjectRef?
----@param time_from_last_punch number?
----@param tool_capabilities core.ToolCapabilities?
----@param dir vector?
+---@param puncher core.ObjectRef
+---@param time_from_last_punch number
+---@param tool_capabilities core.ToolCapabilities
+---@param dir vector
 ---@return core.Tool.wear wear
 function ObjectRefBase:punch(puncher, time_from_last_punch, tool_capabilities, dir) end
 
@@ -117,7 +117,7 @@ function ObjectRefBase:punch(puncher, time_from_last_punch, tool_capabilities, d
     * `clicker` is another `ObjectRef` which has clicked
     * note: this is called `right_click` for historical reasons only
 ]]
----@param clicker core.ObjectRef?
+---@param clicker core.ObjectRef
 function ObjectRefBase:right_click(clicker) end
 
 -- --------------------------------- health --------------------------------- --
@@ -144,6 +144,7 @@ function ObjectRefBase:set_hp(hp, reason) end
 --[[
 * `get_inventory()`: returns an `InvRef` for players, otherwise returns `nil`
 ]]
+---@nodiscard
 ---@return nil
 function ObjectRefBase:get_inventory() end
 
@@ -274,6 +275,7 @@ function ObjectRefBase:get_attach() end
 * `get_children()`: returns a list of ObjectRefs that are attached to the
     object.
 ]]
+---@nodiscard
 ---@return core.ObjectRef[]
 function ObjectRefBase:get_children() end
 

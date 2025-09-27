@@ -7,6 +7,7 @@
 --[[
 WIPDOC
 ]]
+---@nodiscard
 ---@param any core.Item?
 ---@return core.ItemStack
 function ItemStack(any) end
@@ -69,6 +70,7 @@ function ItemStack:get_wear() end
 * `set_wear(wear)`: returns boolean indicating whether item was cleared
     * `wear`: number, unsigned 16 bit integer
 ]]
+---@nodiscard
 ---@param wear core.Tool.wear
 ---@return boolean
 function ItemStack:set_wear(wear) end
@@ -236,6 +238,7 @@ function ItemStack:item_fits(item) end
     * Take (and remove) up to `n` items from this stack
     * `n`: number, default: `1`
 ]]
+---@nodiscard
 ---@param n integer?
 ---@return core.ItemStack
 function ItemStack:take_item(n) end

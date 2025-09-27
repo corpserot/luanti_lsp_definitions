@@ -777,7 +777,6 @@ WIPDOC
 WIPDOC
 ]]
 ---@alias core.LuantiSettings.enums.language
---- | "a"
 --- | "be"
 --- | "bg"
 --- | "ca"

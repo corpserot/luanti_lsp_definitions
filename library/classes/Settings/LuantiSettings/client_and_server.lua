@@ -243,6 +243,35 @@
 
 -- ----------------- [Client and Server] [*Server Security] ----------------- --
 
+--[[
+WIPDOC
+]]
+---@class core.LuantiSettings.flags.anticheat_flags
+--[[
+WIPDOC
+]]
+---@field digging boolean?
+--[[
+WIPDOC
+]]
+---@field nodigging boolean?
+--[[
+WIPDOC
+]]
+---@field interaction boolean?
+--[[
+WIPDOC
+]]
+---@field nointeraction boolean?
+--[[
+WIPDOC
+]]
+---@field movement boolean?
+--[[
+WIPDOC
+]]
+---@field nomovement boolean?
+
 ---@class _.LuantiSettings.client_and_server.server_security
 --[[
 #    New users need to input this password.

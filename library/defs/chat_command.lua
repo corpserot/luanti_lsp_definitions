@@ -5,6 +5,50 @@
 --[[
 WIPDOC
 ]]
+---@alias core.ChatCommandDef.keys
+--- | "pulverize"
+--- | "fixlight"
+--- | "dump"
+--- | "grantme"
+--- | "rollback_check"
+--- | "mods"
+--- | "days"
+--- | "last-login"
+--- | "help"
+--- | "privs"
+--- | "clearinv"
+--- | "status"
+--- | "msg"
+--- | "shutdown"
+--- | "revokeme"
+--- | "grant"
+--- | "revoke"
+--- | "admin"
+--- | "ban"
+--- | "kick"
+--- | "giveme"
+--- | "remove_player"
+--- | "unban"
+--- | "haspriv"
+--- | "kill"
+--- | "set"
+--- | "rollback"
+--- | "auth_reload"
+--- | "clearobjects"
+--- | "setpassword"
+--- | "me"
+--- | "emergeblocks"
+--- | "teleport"
+--- | "give"
+--- | "time"
+--- | "spawnentity"
+--- | "clearpassword"
+--- | "deleteblocks"
+--- | string
+
+--[[
+WIPDOC
+]]
 ---@alias core.ChatCommandDef.func fun(name:string, param:string): boolean?, string?
 
 --[[
@@ -37,3 +81,12 @@ WIPDOC
 WIPDOC
 ]]
 ---@field func core.ChatCommandDef.func
+
+--[[
+WIPDOC
+]]
+---@class core.ChatCommandDef.override
+--[[
+WIPDOC
+]]
+---@field func core.ChatCommandDef.func?

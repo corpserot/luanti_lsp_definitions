@@ -17,7 +17,7 @@ Returns a new vector `(a, b, c)`
 ---@param a number
 ---@param b number
 ---@param c number
----@return vector
+---@return vec
 function vector.new(a, b, c) end
 
 --[[
@@ -25,7 +25,7 @@ Returns a new vector `(a, a, a)`
 ]]
 ---@nodiscard
 ---@param a number
----@return vector
+---@return vec
 function vector.new(a) end
 
 --[[
@@ -34,7 +34,7 @@ function vector.new(a) end
 ---@deprecated
 ---@nodiscard
 ---@param a vector
----@return vector
+---@return vec
 function vector.new(a) end
 
 --[[
@@ -42,21 +42,21 @@ function vector.new(a) end
 ]]
 ---@deprecated
 ---@nodiscard
----@return vector
+---@return vec
 function vector.new() end
 
 --[[
 Returns a new vector `(0, 0, 0)`
 ]]
 ---@nodiscard
----@return vector
+---@return vec
 function vector.zero() end
 
 --[[
 Returns a new vector of length 1, pointing into a direction chosen uniformly at random.
 ]]
 ---@nodiscard
----@return vector
+---@return vec
 function vector.random_direction() end
 
 --[[
@@ -64,7 +64,7 @@ Returns a copy of the vector `v`.
 ]]
 ---@nodiscard
 ---@param v vector
----@return vector
+---@return vec
 function vector.copy(v) end
 
 -- ---------------------------- string conversion --------------------------- --
@@ -77,7 +77,7 @@ Returns nil on failure.
 ---@nodiscard
 ---@param s string Has to begin with a substring of the form `"(x, y, z)"`. Additional spaces, leaving away commas, and adding an additional comma to the end is allowed.
 ---@param init number? Starts looking for the vector at this string index
----@return vector? v, number? np
+---@return vec? v, integer? np
 function vector.from_string(s, init) end
 
 --[[
@@ -86,7 +86,7 @@ Returns a string of the form `"(x, y, z)"`
 ]]
 ---@nodiscard
 ---@param v vector
----@return string
+---@return vec
 function vector.to_string(v) end
 
 -- -------------------------------------------------------------------------- --
@@ -98,7 +98,7 @@ If p1 and p2 are identical, returns (0, 0, 0).
 ---@nodiscard
 ---@param p1 vector
 ---@param p2 vector
----@return vector
+---@return vec
 function vector.direction(p1, p2) end
 
 --[[
@@ -124,7 +124,7 @@ If v has zero length, returns (0, 0, 0).
 ]]
 ---@nodiscard
 ---@param v vector
----@return vector
+---@return vec
 function vector.normalize(v) end
 
 -- -------------------------- rounding and signness ------------------------- --
@@ -134,7 +134,7 @@ Returns a vector, each dimension rounded down.
 ]]
 ---@nodiscard
 ---@param v vector
----@return vectori
+---@return ivec
 function vector.floor(v) end
 
 --[[
@@ -142,7 +142,7 @@ Returns a vector, each dimension rounded up.
 ]]
 ---@nodiscard
 ---@param v vector
----@return vectori
+---@return ivec
 function vector.ceil(v) end
 
 --[[
@@ -151,7 +151,7 @@ At a multiple of 0.5, rounds away from zero.
 ]]
 ---@nodiscard
 ---@param v vector
----@return vectori
+---@return ivec
 function vector.round(v) end
 
 --[[
@@ -160,7 +160,7 @@ Returns a vector where `math.sign` was called for each component
 ---@nodiscard
 ---@param v vector
 ---@param tolerance number?
----@return vectori
+---@return ivec
 function vector.sign(v, tolerance) end
 
 --[[
@@ -168,7 +168,7 @@ Returns a vector with absolute values for each component
 ]]
 ---@nodiscard
 ---@param v vector
----@return vector
+---@return vec
 function vector.abs(v) end
 
 -- -------------------------------------------------------------------------- --
@@ -180,7 +180,7 @@ Applies `func` to each component
 ---@param v vector
 ---@param func fun(n: number): number
 ---@param ... any Optional arguments passed to `func`
----@return vector
+---@return vec
 function vector.apply(v, func, ...) end
 
 --[[
@@ -191,7 +191,7 @@ and `w` for each component
 ---@param v vector
 ---@param w vector
 ---@param func fun(x:number, y:number):number
----@return vector
+---@return vec
 function vector.combine(v, w, func) end
 
 --[[
@@ -200,7 +200,7 @@ Returns true if the vectors are identical, false if not
 ---@nodiscard
 ---@param v1 vector
 ---@param v2 vector
----@return boolean
+---@return vec
 function vector.equals(v1, v2) end
 
 --[[
@@ -210,7 +210,7 @@ Returns in order minp, maxp vectors of the cuboid defined by v1, v2.
 ---@nodiscard
 ---@param v1 vector
 ---@param v2 vector
----@return vector, vector
+---@return vec, vec
 function vector.sort(v1, v2) end
 
 -- -------------------------------------------------------------------------- --
@@ -219,27 +219,27 @@ function vector.sort(v1, v2) end
 Returns the angle between v1 and v2 in radians
 ]]
 ---@nodiscard
----@return number # in radians
 ---@param v1 vector
 ---@param v2 vector
+---@return number
 function vector.angle(v1, v2) end
 
 --[[
 Returns the dot product
 ]]
 ---@nodiscard
----@return number
 ---@param v1 vector
 ---@param v2 vector
+---@return number
 function vector.dot(v1, v2) end
 
 --[[
 Returns the cross product
 ]]
 ---@nodiscard
----@return vector
 ---@param v1 vector
 ---@param v2 vector
+---@return vec
 function vector.cross(v1, v2) end
 
 --[[
@@ -250,7 +250,7 @@ Returns the sum of vectors `v` and `(x,y,z)`
 ---@param x number
 ---@param y number
 ---@param z number
----@return vector
+---@return vec
 function vector.offset(v, x, y, z) end
 
 --[[
@@ -280,9 +280,9 @@ min and max are inclusive.
 You can use vector.sort if you have two vectors and don't know which are the minimum and the maximum.
 ]]
 ---@nodiscard
----@return vector
 ---@param min vector
 ---@param max vector
+---@return vec
 function vector.random_in_area(min, max) end
 
 -- ------------------------- arithmetic and products ------------------------ --
@@ -293,7 +293,7 @@ WIPDOC
 ---@nodiscard
 ---@param v vector
 ---@param x vector|number
----@return vector
+---@return vec
 function vector.add(v, x) end
 
 --[[
@@ -302,7 +302,7 @@ WIPDOC
 ---@nodiscard
 ---@param v vector
 ---@param x vector|number
----@return vector
+---@return vec
 function vector.subtract(v, x) end
 
 --[[
@@ -311,7 +311,7 @@ WIPDOC
 ---@nodiscard
 ---@param v vector
 ---@param x number
----@return vector
+---@return vec
 function vector.multiply(v, x) end
 
 --[[
@@ -320,7 +320,7 @@ WIPDOC
 ---@nodiscard
 ---@param v vector
 ---@param x number
----@return vector
+---@return vec
 function vector.divide(v, x) end
 
 --[[
@@ -330,7 +330,7 @@ WIPDOC
 ---@nodiscard
 ---@param v vector
 ---@param x vector
----@return vector
+---@return vec
 function vector.multiply(v, x) end
 
 --[[
@@ -340,7 +340,7 @@ WIPDOC
 ---@nodiscard
 ---@param v vector
 ---@param x vector
----@return vector
+---@return vec
 function vector.divide(v, x) end
 
 -- ----------------------- rotation-related functions ----------------------- --
@@ -352,7 +352,7 @@ vector.rotate(vector.new(0, 0, 1), r) and vector.rotate(vector.new(0, 1, 0), r) 
 ---@nodiscard
 ---@param v vector
 ---@param r vector Rotation vector {x=<pitch>, y=<yaw>, z=<roll>}
----@return vector
+---@return vec
 function vector.rotate(v, r) end
 
 --[[
@@ -362,7 +362,7 @@ Returns v1 rotated around axis v2 by a radians according to the right hand rule.
 ---@param v1 vector
 ---@param v2 vector
 ---@param a number radians
----@return vector
+---@return vec
 function vector.rotate_around_axis(v1, v2, a) end
 
 --[[
@@ -373,5 +373,5 @@ Otherwise direction and up need to be vectors in a 90 degree angle to each other
 ---@nodiscard
 ---@param up vector?
 ---@param direction vector
----@return vector
+---@return vec
 function vector.dir_to_rotation(direction, up) end

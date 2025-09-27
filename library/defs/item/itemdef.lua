@@ -3,6 +3,47 @@
 -- lua_api.md: Items
 -- lua_api.md: Definition tables > Item definition
 
+--[[
+WIPDOC
+]]
+---@alias core.ItemDef.keys
+--- | "description"
+--- | "short_description"
+--- | "groups"
+--- | "inventory_image"
+--- | "inventory_overlay"
+--- | "wield_image"
+--- | "wield_overlay"
+--- | "wield_scale"
+--- | "palette"
+--- | "color"
+--- | "stack_max"
+--- | "range"
+--- | "liquids_pointable"
+--- | "pointabilities"
+--- | "light_source"
+--- | "tool_capabilities"
+--- | "wear_color"
+--- | "node_placement_prediction"
+--- | "node_dig_prediction"
+--- | "touch_interaction"
+--- | "sounds"
+--- | "on_place"
+--- | "on_secondary_use"
+--- | "on_drop"
+--- | "on_pickup"
+--- | "on_use"
+--- | "after_use"
+
+-- --------------------------------- ToolDef -------------------------------- --
+--[[
+WIPDOC
+]]
+---@class core.ToolDef : core.ItemDef
+--[[
+WIPDOC
+]]
+---@field tool_capabilities core.ToolCapabilities
 
 -- ------------------------------- description ------------------------------ --
 
@@ -156,7 +197,7 @@ or nil to not modify the inventory.
 The placer may be any ObjectRef or nil.
 default: core.item_place
 ]]
----@alias core.ItemDef.on_place fun(itemstack:core.ItemStack, placer:core.ObjectRef, pointed_thing:core.PointedThing): core.ItemStack?
+---@alias core.ItemDef.on_place fun(itemstack:core.ItemStack, placer:core.ObjectRef?, pointed_thing:core.PointedThing): core.ItemStack?
 
 --[[
 Same as on_place but called when not pointing at a node.
@@ -165,14 +206,14 @@ or an itemstack to replace the original itemstack.
 The user may be any ObjectRef or nil.
 default: nil
 ]]
----@alias core.ItemDef.on_secondary_use fun(itemstack:core.ItemStack, user:core.ObjectRef, pointed_thing:core.PointedThing): core.ItemStack?
+---@alias core.ItemDef.on_secondary_use fun(itemstack:core.ItemStack, user:core.ObjectRef?, pointed_thing:core.PointedThing): core.ItemStack?
 
 --[[
 Shall drop item and return the leftover itemstack.
 The dropper may be any ObjectRef or nil.
 default: core.item_drop
 ]]
----@alias core.ItemDef.on_drop fun(itemstack:core.ItemStack, dropper:core.ObjectRef, pos:vector): core.ItemStack?
+---@alias core.ItemDef.on_drop fun(itemstack:core.ItemStack, dropper:core.ObjectRef?, pos:vec): core.ItemStack?
 
 --[[
 Called when a dropped item is punched by a player.
@@ -187,7 +228,7 @@ Parameters:
   `luaentity:on_punch`.
 default: `core.item_pickup`
 ]]
----@alias core.ItemDef.on_pickup fun(itemstack: core.ItemStack, picker:core.ObjectRef, pointed_thing:core.PointedThing, time_from_last_punch:number?, tool_capabilities:core.ToolCapabilities?, dir:vector?, damage:integer?): core.ItemStack?
+---@alias core.ItemDef.on_pickup fun(itemstack: core.ItemStack, picker:core.ObjectRef?, pointed_thing:core.PointedThing?, time_from_last_punch:number?, tool_capabilities:core.ToolCapabilities?, dir:vec?, damage:integer?): core.ItemStack?
 
 --[[
 default: nil

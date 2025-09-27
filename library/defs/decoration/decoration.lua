@@ -5,6 +5,11 @@
 -- lua_api.md: Mapgen objects
 -- lua_api.md: Definition tables > Decoration definition
 
+--[[
+WIPDOC
+]]
+---@class core.DecorationID : integer
+
 -- ------------------------- DecorationDef partials ------------------------- --
 
 ---@class _.DecorationDef.fill_ratio.__partial
@@ -180,16 +185,6 @@ to the 'place_on' node.
 
 -- ------------------------- DecorationDef.schematic ------------------------ --
 
---[[
-WIPDOC
-]]
----@alias core.DecorationDef.rotation
---- | "0"
---- | "90"
---- | "180"
---- | "270"
---- | "random"
-
 ---@class _.DecorationDef.schematic.fill_ratio : _.DecorationDef.__base, _.DecorationDef.fill_ratio.__partial, _.DecorationDef.schematic.__partial
 ---@class _.DecorationDef.schematic.noise_params : _.DecorationDef.__base, _.DecorationDef.noise_params.__partial, _.DecorationDef.schematic.__partial
 
@@ -218,7 +213,7 @@ Map of node names to replace in the schematic after reading it.
 --[[
 Rotation can be "0", "90", "180", "270", or "random"
 ]]
----@field rotation core.DecorationDef.rotation?
+---@field rotation core.Schematic.rotation?
 --[[
 Y offset of the decoration base node relative to the standard base
 node position.

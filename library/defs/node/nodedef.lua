@@ -6,7 +6,81 @@
 -- NOTE: not practical to separate out every mutually exclusive fields as there
 -- are too many states resulting in too many permutations.
 
--- --------------------------------- NodeDef -------------------------------- --
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.keys
+--- | core.ItemDef.keys
+--- | "light_source"
+--- | "drawtype"
+--- | "visual_scale"
+--- | "tiles"
+--- | "overlay_tiles"
+--- | "special_tiles"
+--- | "color"
+--- | "use_texture_alpha"
+--- | "palette"
+--- | "post_effect_color"
+--- | "post_effect_color_shaded"
+--- | "paramtype"
+--- | "paramtype2"
+--- | "place_param2"
+--- | "wallmounted_rotate_vertical"
+--- | "is_ground_content"
+--- | "sunlight_propagates"
+--- | "walkable"
+--- | "pointable"
+--- | "diggable"
+--- | "climbable"
+--- | "move_resistance"
+--- | "buildable_to"
+--- | "floodable"
+--- | "liquidtype"
+--- | "liquid_alternative_flowing"
+--- | "liquid_alternative_source"
+--- | "liquid_viscosity"
+--- | "liquid_renewable"
+--- | "liquid_move_physics"
+--- | "air_equivalent"
+--- | "leveled"
+--- | "leveled_max"
+--- | "liquid_range"
+--- | "drowning"
+--- | "damage_per_second"
+--- | "node_box"
+--- | "connects_to"
+--- | "connect_sides"
+--- | "mesh"
+--- | "selection_box"
+--- | "collision_box"
+--- | "legacy_wallmounted"
+--- | "legacy_facedir_simple"
+--- | "waving"
+--- | "mod_origin"
+--- | "sounds"
+--- | "drop"
+--- | "on_construct"
+--- | "on_destruct"
+--- | "after_destruct"
+--- | "on_flood"
+--- | "preserve_metadata"
+--- | "after_place_node"
+--- | "after_dig_node"
+--- | "can_dig"
+--- | "on_punch"
+--- | "on_rightclick"
+--- | "on_dig"
+--- | "on_timer"
+--- | "on_receive_fields"
+--- | "allow_metadata_inventory_move"
+--- | "allow_metadata_inventory_put"
+--- | "allow_metadata_inventory_take"
+--- | "on_metadata_inventory_move"
+--- | "on_metadata_inventory_put"
+--- | "on_metadata_inventory_take"
+--- | "on_blast"
+
+-- -------------------------------------------------------------------------- --
 
 --[[ NodeDef.drawtype split off into ./drawtype.lua ]]--
 
@@ -468,102 +542,102 @@ nodename will show "othermodname", but mod_origin will say "modname"
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.on_construct fun(pos:veci)
+---@alias core.NodeDef.on_construct fun(pos:ivec)
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.on_destruct fun(pos:veci?)
+---@alias core.NodeDef.on_destruct fun(pos:ivec?)
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.after_destruct fun(pos:veci, oldnode:core.Node.get)
+---@alias core.NodeDef.after_destruct fun(pos:ivec, oldnode:core.Node.get)
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.on_flood fun(pos:veci, oldnode:core.Node.get, newnode:core.Node.get):boolean?
+---@alias core.NodeDef.on_flood fun(pos:ivec, oldnode:core.Node.get, newnode:core.Node.get):boolean?
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.preserve_metadata fun(pos:veci, oldnode:core.Node.get, oldmeta:core.MetadataTable.node.get)
+---@alias core.NodeDef.preserve_metadata fun(pos:ivec, oldnode:core.Node.get, oldmeta:core.MetadataTable.node.get)
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.after_place_node fun(pos:veci, placer:core.ObjectRef?, itemstack:core.ItemStack, pointed_thing:core.PointedThing)
+---@alias core.NodeDef.after_place_node fun(pos:ivec, placer:core.ObjectRef?, itemstack:core.ItemStack, pointed_thing:core.PointedThing)
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.after_dig_node fun(pos:veci, oldnode:core.Node.get, oldmetadata:core.MetadataTable.node.get, digger:core.ObjectRef)
+---@alias core.NodeDef.after_dig_node fun(pos:ivec, oldnode:core.Node.get, oldmetadata:core.MetadataTable.node.get, digger:core.ObjectRef?)
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.can_dig fun(pos:veci, player:core.ObjectRef?):boolean
+---@alias core.NodeDef.can_dig fun(pos:ivec, player:core.ObjectRef?):boolean
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.on_punch fun(pos:veci, node:core.Node.get, puncher:core.ObjectRef, pointed_thing:core.PointedThing)
+---@alias core.NodeDef.on_punch fun(pos:ivec, node:core.Node.get, puncher:core.ObjectRef?, pointed_thing:core.PointedThing)
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.on_rightclick fun(pos:veci, node:core.Node.get, clicker:core.ObjectRef, itemstack:core.ItemStack, pointed_thing:core.PointedThing?):core.ItemStack?
+---@alias core.NodeDef.on_rightclick fun(pos:ivec, node:core.Node.get, clicker:core.ObjectRef?, itemstack:core.ItemStack, pointed_thing:core.PointedThing?):core.ItemStack?
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.on_dig fun(pos:veci, node:core.Node.get, digger:core.ObjectRef):boolean
+---@alias core.NodeDef.on_dig fun(pos:ivec, node:core.Node.get, digger:core.ObjectRef?):boolean
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.on_timer fun(pos:veci, elapsed:number):boolean?
+---@alias core.NodeDef.on_timer fun(pos:ivec, elapsed:number):boolean?
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.on_receive_fields fun(pos:veci, formname:"", fields: core.FormspecFields, sender:core.ObjectRef)
+---@alias core.NodeDef.on_receive_fields fun(pos:ivec, formname:"", fields: core.FormspecFields, sender:core.ObjectRef)
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.allow_metadata_inventory_move fun(pos:veci, from_list:core.InventoryList, from_index:integer, to_list:core.InventoryList, to_index:integer, count:integer, player:core.ObjectRef):integer
+---@alias core.NodeDef.allow_metadata_inventory_move fun(pos:ivec, from_list:core.InventoryList, from_index:integer, to_list:core.InventoryList, to_index:integer, count:integer, player:core.ObjectRef):integer
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.allow_metadata_inventory_put fun(pos:veci, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.ObjectRef):integer
+---@alias core.NodeDef.allow_metadata_inventory_put fun(pos:ivec, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.ObjectRef):integer
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.allow_metadata_inventory_take fun(pos:veci, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.ObjectRef):integer
+---@alias core.NodeDef.allow_metadata_inventory_take fun(pos:ivec, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.ObjectRef):integer
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.on_metadata_inventory_move fun(pos:veci, from_list:core.InventoryList, from_index:integer, to_list:core.InventoryList, to_index:integer, count:integer, player:core.ObjectRef):nil
+---@alias core.NodeDef.on_metadata_inventory_move fun(pos:ivec, from_list:core.InventoryList, from_index:integer, to_list:core.InventoryList, to_index:integer, count:integer, player:core.ObjectRef):nil
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.on_metadata_inventory_put fun(pos:veci, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.ObjectRef):nil
+---@alias core.NodeDef.on_metadata_inventory_put fun(pos:ivec, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.ObjectRef):nil
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.on_metadata_inventory_take fun(pos:veci, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.ObjectRef):nil
+---@alias core.NodeDef.on_metadata_inventory_take fun(pos:ivec, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.ObjectRef):nil
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.on_blast fun(pos:veci, intensity:number?)
+---@alias core.NodeDef.on_blast fun(pos:ivec, intensity:number?)
 
 ---@class core.NodeDef
 --[[

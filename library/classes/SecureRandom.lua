@@ -7,6 +7,7 @@
 --[[
 WIPDOC
 ]]
+---@nodiscard
 ---@return core.SecureRandom
 function SecureRandom() end
 

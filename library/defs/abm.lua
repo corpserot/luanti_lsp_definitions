@@ -5,7 +5,7 @@
 --[[
 WIPDOC
 ]]
----@alias core.ABMDef.action fun(pos:veci, node:core.Node.get, active_object_count:integer, active_object_count_wider:integer)
+---@alias core.ABMDef.action fun(pos:ivec, node:core.Node.get, active_object_count:integer, active_object_count_wider:integer)
 
 --[[
 ABM (ActiveBlockModifier) definition

@@ -1,5 +1,5 @@
 ---@meta _
--- DRAFT 1 WIP
+-- DRAFT 1 DONE
 -- lua_api.md: 'core' namespace reference > Environment access
 
 -- ---------------------------------- node ---------------------------------- --
@@ -12,7 +12,7 @@
       If param1 or param2 is omitted, it's set to `0`.
     * e.g. `core.set_node({x=0, y=10, z=0}, {name="default:wood"})`
 ]]
----@param pos vector
+---@param pos ivector
 ---@param node core.Node.set
 function core.set_node(pos, node) end
 
@@ -25,7 +25,7 @@ core.add_node = core.set_node
 --[[
 WIPDOC
 ]]
----@param posarr vector[]
+---@param posarr ivector[]
 ---@param node core.Node.set
 function core.bulk_set_node(posarr, node) end
 
@@ -34,7 +34,7 @@ function core.bulk_set_node(posarr, node) end
     * Swap node at position with another.
     * This keeps the metadata intact and will not run con-/destructor callbacks.
 ]]
----@param pos vector
+---@param pos ivector
 ---@param node core.Node.set
 function core.swap_node(pos, node) end
 
@@ -42,15 +42,15 @@ function core.swap_node(pos, node) end
 * `core.bulk_swap_node({pos1, pos2, pos3, ...}, node)`
     * Equivalent to `core.swap_node` but in bulk.
 ]]
----@param posarr vector[]
+---@param posarr ivector[]
 ---@param node core.Node.set
 function core.bulk_swap_node(posarr, node) end
 
 --[[
-* `core.bulk_swap_node({pos1, pos2, pos3, ...}, node)`
-    * Equivalent to `core.swap_node` but in bulk.
+* `core.remove_node(pos)`: Remove a node
+    * Equivalent to `core.set_node(pos, {name="air"})`, but a bit faster.
 ]]
----@param pos vector
+---@param pos ivector
 function core.remove_node(pos) end
 
 --[[
@@ -60,7 +60,7 @@ function core.remove_node(pos) end
       `{name="ignore", param1=0, param2=0}` for unloaded areas.
 ]]
 ---@nodiscard
----@param pos vector
+---@param pos ivector
 ---@return core.Node.set
 function core.get_node(pos) end
 
@@ -70,7 +70,7 @@ function core.get_node(pos) end
     * Note that even loaded areas can contain "ignore" nodes.
 ]]
 ---@nodiscard
----@param pos vector
+---@param pos ivector
 ---@return core.Node.get?
 function core.get_node_or_nil(pos) end
 
@@ -82,10 +82,10 @@ function core.get_node_or_nil(pos) end
     * If `pos_ok` is false, the area is unloaded and `content_id == core.CONTENT_IGNORE`
 ]]
 ---@nodiscard
----@param x number
----@param y number
----@param z number
----@return core.ContentID, number param1, number param2, boolean pos_ok
+---@param x integer
+---@param y integer
+---@param z integer
+---@return core.ContentID content_id, core.Param1 param1, core.Param2 param2, boolean pos_ok
 function core.get_node_raw(x, y, z) end
 
 --[[
@@ -98,9 +98,10 @@ function core.get_node_raw(x, y, z) end
     * Returns a number between `0` and `15` or `nil`
     * `nil` is returned e.g. when the map isn't loaded at `pos`
 ]]
----@param pos vector
+---@nodiscard
+---@param pos ivector
 ---@param timeofday number?
----@return core.Light?
+---@return core.Light.part?
 function core.get_node_light(pos, timeofday) end
 
 --[[
@@ -113,9 +114,9 @@ function core.get_node_light(pos, timeofday) end
     * This function tests 203 nodes in the worst case, which happens very
       unlikely
 ]]
----@param pos vector
+---@param pos ivector
 ---@param timeofday number?
----@return core.Light?
+---@return core.Light.part?
 function core.get_natural_light(pos, timeofday) end
 
 --[[
@@ -128,8 +129,8 @@ function core.get_natural_light(pos, timeofday) end
       ensures compatibility.
 ]]
 ---@nodiscard
----@param param1 number
----@return number
+---@param param1 core.Param1
+---@return core.Light.part
 function core.get_artificial_light(param1) end
 
 --[[
@@ -137,10 +138,11 @@ function core.get_artificial_light(param1) end
     * Place node with the same effects that a player would cause
     * `placer`: The ObjectRef that places the node (optional)
 ]]
----@param pos vector
+---@nodiscard
+---@param pos ivector
 ---@param node core.Node.get
 ---@param placer core.PlayerRef?
----@return nil
+---@return boolean
 function core.place_node(pos, node, placer) end
 
 --[[
@@ -149,7 +151,8 @@ function core.place_node(pos, node, placer) end
     * `digger`: The ObjectRef that digs the node (optional)
     * Returns `true` if successful, `false` on failure (e.g. protected location)
 ]]
----@param pos vector
+---@nodiscard
+---@param pos ivector
 ---@param digger core.PlayerRef?
 ---@return boolean
 function core.dig_node(pos, digger) end
@@ -159,9 +162,10 @@ function core.dig_node(pos, digger) end
     * Punch node with the same effects that a player would cause
     * `puncher`: The ObjectRef that punches the node (optional)
 ]]
----@param pos vector
+---@nodiscard
+---@param pos ivector
 ---@param puncher core.PlayerRef?
----@return nil
+---@return boolean
 function core.punch_node(pos, puncher) end
 
 --[[
@@ -169,7 +173,8 @@ function core.punch_node(pos, puncher) end
     * Change node into falling node
     * Returns `true` and the ObjectRef of the spawned entity if successful, `false` on failure
 ]]
----@param pos vector
+---@nodiscard
+---@param pos ivector
 ---@return boolean
 function core.spawn_falling_node(pos) end
 
@@ -179,25 +184,25 @@ function core.spawn_falling_node(pos) end
       {pos1, pos2}.
 ]]
 ---@nodiscard
----@param pos1 vector
----@param pos2 vector
----@return vector[]
+---@param pos1 ivector
+---@param pos2 ivector
+---@return vec[]
 function core.find_nodes_with_meta(pos1, pos2) end
 
 --[[
 WIPDOC
 ]]
 ---@nodiscard
----@param pos vector
----@return NodeMetaRef
+---@param pos ivector
+---@return core.NodeMetaRef
 function core.get_meta(pos) end
 
 --[[
 WIPDOC
 ]]
 ---@nodiscard
----@param pos vector
----@return NodeTimerRef
+---@param pos ivector
+---@return core.NodeTimerRef
 function core.get_node_timer(pos) end
 
 -- --------------------------------- entity --------------------------------- --
@@ -209,10 +214,11 @@ function core.get_node_timer(pos) end
     * Entities with `static_save = true` can be added also
       to unloaded and non-generated blocks.
 ]]
+---@nodiscard
 ---@param pos vector
 ---@param name string
 ---@param staticdata string?
----@return ObjectRef?
+---@return core.EntityRef?
 function core.add_entity(pos, name, staticdata) end
 
 --[[
@@ -220,17 +226,19 @@ function core.add_entity(pos, name, staticdata) end
     * Returns `ObjectRef`, or `nil` if failed
     * Items can be added also to unloaded and non-generated blocks.
 ]]
+---@nodiscard
 ---@param pos vector
----@param item ItemStack
----@return LuaEntityRef?
+---@param item core.Item
+---@return core.EntityRef?
 function core.add_item(pos, item) end
 
 --[[
 * `core.get_player_by_name(name)`: Get an `ObjectRef` to a player
     * Returns nothing in case of error (player offline, doesn't exist, ...).
 ]]
+---@nodiscard
 ---@param name string
----@return core.PlayerRef
+---@return core.PlayerRef?
 function core.get_player_by_name(name) end
 
 --[[
@@ -243,9 +251,10 @@ function core.get_player_by_name(name) end
       It is recommended to use `core.objects_inside_radius` instead, which
       transparently takes care of this possibility.
 ]]
+---@nodiscard
 ---@param center vector
 ---@param radius number
----@return ObjectRef[]
+---@return core.ObjectRef[]
 function core.get_objects_inside_radius(center, radius) end
 
 --[[
@@ -253,9 +262,10 @@ function core.get_objects_inside_radius(center, radius) end
     * returns an iterator of valid objects
     * example: `for obj in core.objects_inside_radius(center, radius) do obj:punch(...) end`
 ]]
+---@nodiscard
 ---@param center vector
 ---@param radius number
----@return function
+---@return fun():core.ObjectRef?
 function core.objects_inside_radius(center, radius) end
 
 --[[
@@ -268,7 +278,7 @@ function core.objects_inside_radius(center, radius) end
 ---@nodiscard
 ---@param minp vector
 ---@param maxp vector
----@return ObjectRef[]
+---@return core.ObjectRef[]
 function core.get_objects_in_area(minp, maxp) end
 
 --[[
@@ -278,7 +288,7 @@ function core.get_objects_in_area(minp, maxp) end
 ---@nodiscard
 ---@param minp vector
 ---@param maxp vector
----@return function
+---@return fun():core.ObjectRef?
 function core.objects_in_area(minp, maxp) end
 
 -- ---------------------------------- time ---------------------------------- --
@@ -292,6 +302,7 @@ function core.set_timeofday(val) end
 --[[
 * `core.get_timeofday()`: get time of day
 ]]
+---@nodiscard
 ---@return number
 function core.get_timeofday() end
 
@@ -299,6 +310,7 @@ function core.get_timeofday() end
 * `core.get_gametime()`: returns the time, in seconds, since the world was
   created. The time is not available (`nil`) before the first server step.
 ]]
+---@nodiscard
 ---@return number?
 function core.get_gametime() end
 
@@ -307,7 +319,8 @@ function core.get_gametime() end
   created.
     * Time changes are accounted for.
 ]]
----@return number
+---@nodiscard
+---@return integer
 function core.get_day_count() end
 
 -- -------------------------------- find node ------------------------------- --
@@ -326,10 +339,11 @@ But you can notice that it doesn't have that pesky volume limit, so it's impleme
       If true `pos` is also checked for the nodes
 ]]
 ---@nodiscard
----@param radius number
----@param nodenames string[]|string
+---@param pos ivector
+---@param radius integer
+---@param nodenames OneOrMany<core.Node.namelike>
 ---@param search_center boolean?
----@return vector?
+---@return vec?
 function core.find_node_near(pos, radius, nodenames, search_center) end
 
 --[[
@@ -345,22 +359,22 @@ function core.find_node_near(pos, radius, nodenames, search_center) end
     * Area volume is limited to 150,000,000 nodes
 ]]
 ---@nodiscard
----@param pos1 vector
----@param pos2 vector
----@param nodenames string[]|string
+---@param pos1 ivector
+---@param pos2 ivector
+---@param nodenames OneOrMany<core.Node.namelike>
 ---@param grouped true
----@return table<string, vector[]>
+---@return table<core.Node.name, ivec[]>
 function core.find_nodes_in_area(pos1, pos2, nodenames, grouped) end
 
 --[[
 WIPDOC
 ]]
 ---@nodiscard
----@param pos1 vector
----@param pos2 vector
----@param nodenames string[]|string
+---@param pos1 ivector
+---@param pos2 ivector
+---@param nodenames OneOrMany<core.Node.namelike>
 ---@param grouped false?
----@return vector[], table<string, number>
+---@return ivec[], table<core.Node.name, integer>
 function core.find_nodes_in_area(pos1, pos2, nodenames, grouped) end
 
 --[[
@@ -370,35 +384,98 @@ function core.find_nodes_in_area(pos1, pos2, nodenames, grouped) end
     * Return value: Table with all node positions with a node air above
     * Area volume is limited to 150,000,000 nodes
 ]]
----@param pos1 vector
----@param pos2 vector
----@param nodenames string[]|string
----@return vector[]
+---@nodiscard
+---@param pos1 ivector
+---@param pos2 ivector
+---@param nodenames OneOrMany<core.Node.namelike>
+---@return ivec[]
 function core.find_nodes_in_area_under_air(pos1, pos2, nodenames) end
 
 -- ---------------------- mapblocks and map generation ---------------------- --
 
---[[ core.get_value_noise() .. core.get_voxel_manip() split off into classes/ValueNoise.lua ]]--
+--[[ core.get_value_noise() .. core.get_perlin() split off into library/classes/ValueNoise.lua ]]--
 
---[[ core.set_gen_notify() .. core.get_gen_notify() split off into ./gen_notify.lua ]]
+--[[ core.get_voxel_manip() split off into library/classes/VoxelManip.lua ]]--
+
+--[[
+* `core.set_gen_notify(flags, [deco_ids], [custom_ids])`
+    * Set the types of on-generate notifications that should be collected.
+    * `flags`: flag field, see [`gennotify`] for available generation notification types.
+    * The following parameters are optional:
+    * `deco_ids` is a list of IDs of decorations which notification
+      is requested for.
+    * `custom_ids` is a list of user-defined IDs (strings) which are
+      requested. By convention these should be the mod name with an optional
+      colon and specifier added, e.g. `"default"` or `"default:dungeon_loot"`
+]]
+---@param flags core.GenNotify.flags
+---@param deco_ids core.DecorationID[]?
+---@param custom_ids string[]?
+function core.set_gen_notify(flags, deco_ids, custom_ids) end
+
+--[[
+* `core.get_gen_notify()`
+    * Returns a flagstring, a table with the `deco_id`s and a table with
+      user-defined IDs.
+]]
+---@nodiscard
+---@return core.GenNotify.flags.stringfmt flags, core.DecorationID[] deco_ids, string[] custom_ids
+function core.get_gen_notify() end
 
 --[[
 WIPDOC
 ]]
+---@nodiscard
 ---@param decoration_name string
+---@return core.DecorationID?
 function core.get_decoration_id(decoration_name) end
 
 --[[
 WIPDOC
 ]]
----@param objectname string
----@return unknown
----@overload fun(objectname:"voxelmanip"):VoxelManip,vector,vector
----@overload fun(objectname:"heightmap"):vector[]
----@overload fun(objectname:"biomemap"):integer
----@overload fun(objectname:"heatmap"):number
----@overload fun(objectname:"humiditymap"):number
----@overload fun(objectname:"gennotify"):table<string,any>
+---@nodiscard
+---@param objectname "voxelmanip"
+---@return core.VoxelManip, ivec emin, ivec emax
+function core.get_mapgen_object(objectname) end
+
+--[[
+WIPDOC
+]]
+---@nodiscard
+---@param objectname "heightmap"
+---@return integer[]
+function core.get_mapgen_object(objectname) end
+
+--[[
+WIPDOC
+]]
+---@nodiscard
+---@param objectname "biomemap"
+---@return core.BiomeID[]
+function core.get_mapgen_object(objectname) end
+
+--[[
+WIPDOC
+]]
+---@nodiscard
+---@param objectname "heatmap"
+---@return number[]
+function core.get_mapgen_object(objectname) end
+
+--[[
+WIPDOC
+]]
+---@nodiscard
+---@param objectname "humiditymap"
+---@return number[]
+function core.get_mapgen_object(objectname) end
+
+--[[
+WIPDOC
+]]
+---@nodiscard
+---@param objectname "gennotify"
+---@return core.GenNotify
 function core.get_mapgen_object(objectname) end
 
 --[[
@@ -406,8 +483,9 @@ Unofficial note: this relates to the biome heat, idk override it and make your o
 * `core.get_heat(pos)`
     * Returns the heat at the position, or `nil` on failure.
 ]]
+---@nodiscard
+---@param pos ivector
 ---@return number?
----@param pos vector
 function core.get_heat(pos) end
 
 --[[
@@ -415,29 +493,21 @@ Unofficial note: this relates to the biome humidity, idk override it and make yo
 * `core.get_humidity(pos)`
     * Returns the humidity at the position, or `nil` on failure.
 ]]
+---@nodiscard
+---@param pos ivector
 ---@return number?
----@param pos vector
 function core.get_humidity(pos) end
 
---[[
-* `core.get_biome_data(pos)`
-    * Returns a table containing:
-        * `biome` the biome id of the biome at that position
-        * `heat` the heat at the position
-        * `humidity` the humidity at the position
-    * Or returns `nil` on failure.
-]]
----@param pos vector
----@return {biome:number, heat:number, humidity:number}?
-function core.get_biome_data(pos) end
+--[[ core.get_biome_data() split off into ./biome_data.lua ]]--
 
 --[[
 * `core.get_biome_id(biome_name)`
     * Returns the biome id, as used in the biomemap Mapgen object and returned
       by `core.get_biome_data(pos)`, for a given biome_name string.
 ]]
+---@nodiscard
 ---@param biome_name string
----@return number
+---@return core.BiomeID
 function core.get_biome_id(biome_name) end
 
 --[[
@@ -446,41 +516,12 @@ function core.get_biome_id(biome_name) end
       failure.
     * If no biomes have been registered, such as in mgv6, returns `default`.
 ]]
----@param biome_id number
+---@nodiscard
+---@param biome_id core.BiomeID
 ---@return string?
 function core.get_biome_name(biome_id) end
 
---[[
-* `core.get_mapgen_params()`
-    * Deprecated: use `core.get_mapgen_setting(name)` instead.
-    * Returns a table containing:
-        * `mgname`
-        * `seed`
-        * `chunksize`
-        * `water_level`
-        * `flags`
-]]
-function core.get_mapgen_params() end
-
---[[
-* `core.set_mapgen_params(MapgenParams)`
-    * Deprecated: use `core.set_mapgen_setting(name, value, override)`
-      instead.
-    * Set map generation parameters.
-    * Function cannot be called after the registration period.
-    * Takes a table as an argument with the fields:
-        * `mgname`
-        * `seed`
-        * `chunksize`
-        * `water_level`
-        * `flags`
-    * Leave field unset to leave that parameter unchanged.
-    * `flags` contains a comma-delimited string of flags to set, or if the
-      prefix `"no"` is attached, clears instead.
-    * `flags` is in the same format and has the same options as `mg_flags` in
-      `minetest.conf`.
-]]
-function core.set_mapgen_params(MapgenParams) end
+--[[ core.get_mapgen_params() .. core.set_mapgen_params() split off into ./mapgen_params.lua ]]--
 
 --[=[
 * `core.get_mapgen_edges([mapgen_limit[, chunksize]])`
@@ -491,8 +532,10 @@ function core.set_mapgen_params(MapgenParams) end
     * `chunksize` is an optional number. If it is absent, its value is that
       of the *active* mapgen setting `"chunksize"`.
 ]=]
----@param mapgen_limit number?
----@param chunksize number?
+---@nodiscard
+---@param mapgen_limit integer?
+---@param chunksize integer?
+---@return ivec min, ivec max
 function core.get_mapgen_edges(mapgen_limit, chunksize) end
 
 --[[
@@ -500,7 +543,8 @@ function core.get_mapgen_edges(mapgen_limit, chunksize) end
     * Returns the currently active chunksize of the mapgen, as a vector.
       The size is specified in blocks.
 ]]
----@return vector
+---@nodiscard
+---@return ivec
 function core.get_mapgen_chunksize() end
 
 --[[
@@ -513,8 +557,9 @@ function core.get_mapgen_chunksize() end
         3) Settings explicitly set in the user config file, minetest.conf
         4) Settings set as the user config default
 ]]
----@param name string
----@return string
+---@nodiscard
+---@param name _.LuantiSettings.mapgen.keys
+---@return string?
 function core.get_mapgen_setting(name) end
 
 --[[
@@ -522,8 +567,19 @@ function core.get_mapgen_setting(name) end
     * Same as above, but returns the value as a NoiseParams table if the
       setting `name` exists and is a valid NoiseParams.
 ]]
----@return NoiseParams
----@param name string
+---@nodiscard
+---@param name _.LuantiSettings.mapgen.keys.noise_params.3d
+---@return core.NoiseParams.3d?
+function core.get_mapgen_setting_noiseparams(name) end
+
+--[[
+* `core.get_mapgen_setting_noiseparams(name)`
+    * Same as above, but returns the value as a NoiseParams table if the
+      setting `name` exists and is a valid NoiseParams.
+]]
+---@nodiscard
+---@param name _.LuantiSettings.mapgen.keys.noise_params.2d
+---@return core.NoiseParams.2d?
 function core.get_mapgen_setting_noiseparams(name) end
 
 --[[
@@ -535,19 +591,27 @@ function core.get_mapgen_setting_noiseparams(name) end
       metafile contents.
     * Note: to set the seed, use `"seed"`, not `"fixed_map_seed"`.
 ]]
----@param name string
+---@param name _.LuantiSettings.mapgen.keys
 ---@param value string
 ---@param override_meta boolean?
----@return nil
 function core.set_mapgen_setting(name, value, override_meta) end
 
 --[[
 * `core.set_mapgen_setting_noiseparams(name, value, [override_meta])`
     * Same as above, except value is a NoiseParams table.
 ]]
----@param value NoiseParams
+---@param name _.LuantiSettings.mapgen.keys.noise_params.3d
+---@param value core.NoiseParams.3d
 ---@param override_meta boolean?
----@param name string
+function core.set_mapgen_setting_noiseparams(name, value, override_meta) end
+
+--[[
+* `core.set_mapgen_setting_noiseparams(name, value, [override_meta])`
+    * Same as above, except value is a NoiseParams table.
+]]
+---@param name _.LuantiSettings.mapgen.keys.noise_params.2d
+---@param value core.NoiseParams.2d
+---@param override_meta boolean?
 function core.set_mapgen_setting_noiseparams(name, value, override_meta) end
 
 --[[
@@ -558,17 +622,38 @@ function core.set_mapgen_setting_noiseparams(name, value, override_meta) end
       whether the setting should be applied to the default config or current
       active config.
 ]]
----@param name string
----@param noiseparams NoiseParams
+---@param name _.LuantiSettings.mapgen.keys.noise_params.3d
+---@param noiseparams core.NoiseParams.3d
 ---@param set_default boolean?
----@return nil
+function core.set_noiseparams(name, noiseparams, set_default) end
+
+--[[
+* `core.set_noiseparams(name, noiseparams, set_default)`
+    * Sets the noiseparams setting of `name` to the noiseparams table specified
+      in `noiseparams`.
+    * `set_default` is an optional boolean (default: `true`) that specifies
+      whether the setting should be applied to the default config or current
+      active config.
+]]
+---@param name _.LuantiSettings.mapgen.keys.noise_params.2d
+---@param noiseparams core.NoiseParams.2d
+---@param set_default boolean?
 function core.set_noiseparams(name, noiseparams, set_default) end
 
 --[[
 WIPDOC
 ]]
----@param name string
----@return NoiseParams
+---@nodiscard
+---@param name _.LuantiSettings.mapgen.keys.noise_params.3d
+---@return core.NoiseParams.3d
+function core.get_noiseparams(name) end
+
+--[[
+WIPDOC
+]]
+---@nodiscard
+---@param name _.LuantiSettings.mapgen.keys.noise_params.2d
+---@return core.NoiseParams.2d
 function core.get_noiseparams(name) end
 
 --[[
@@ -577,9 +662,9 @@ function core.get_noiseparams(name) end
       from `pos1` to `pos2`.
     * `pos1` and `pos2` are optional and default to mapchunk minp and maxp.
 ]]
----@param vm VoxelManip
----@param pos1 vector?
----@param pos2 vector?
+---@param vm core.VoxelManip
+---@param pos1 ivector?
+---@param pos2 ivector?
 function core.generate_ores(vm, pos1, pos2) end
 
 --[[
@@ -588,10 +673,19 @@ function core.generate_ores(vm, pos1, pos2) end
       area from `pos1` to `pos2`.
     * `pos1` and `pos2` are optional and default to mapchunk minp and maxp.
 ]]
----@param vm VoxelManip
----@param pos1 vector?
----@param pos2 vector?
+---@param vm core.VoxelManip
+---@param pos1 ivector?
+---@param pos2 ivector?
 function core.generate_decorations(vm, pos1, pos2) end
+
+--[[
+WIPDOC
+]]
+---@class core.ClearObjectsOptions
+--[[
+WIPDOC
+]]
+---@field mode "full"|"quick"
 
 --[[
 * `core.clear_objects([options])`
@@ -603,8 +697,8 @@ function core.generate_decorations(vm, pos1, pos2) end
                             clear objects in unloaded mapblocks only when the
                             mapblocks are next activated.
 ]]
----@param opt ("full"|"quick")?
-function core.clear_objects(opt) end
+---@param options core.ClearObjectsOptions?
+function core.clear_objects(options) end
 
 --[[
 * `core.load_area(pos1[, pos2])`
@@ -612,84 +706,18 @@ function core.clear_objects(opt) end
       `pos2` defaults to `pos1` if not specified.
     * This function does not trigger map generation.
 ]]
----@param pos1 vector
----@param pos2 vector?
----@return nil
+---@param pos1 ivector
+---@param pos2 ivector?
 function core.load_area(pos1, pos2) end
 
---[[
-WIPDOC
-]]
----@class core.EMERGE_CANCELLED
-core.EMERGE_CANCELLED = nil
-
---[[
-WIPDOC
-]]
----@class core.EMERGE_ERRORED
-core.EMERGE_ERRORED = nil
-
---[[
-WIPDOC
-]]
----@class core.EMERGE_FROM_MEMORY
-core.EMERGE_FROM_MEMORY = nil
-
---[[
-WIPDOC
-]]
----@class core.EMERGE_FROM_DISK
-core.EMERGE_FROM_DISK = nil
-
---[[
-WIPDOC
-]]
----@class core.EMERGE_GENERATED
-core.EMERGE_GENERATED = nil
-
----@alias EmergeAction
---- | core.EMERGE_CANCELLED
---- | core.EMERGE_ERRORED
---- | core.EMERGE_FROM_MEMORY
---- | core.EMERGE_FROM_DISK
---- | core.EMERGE_GENERATED
-
---[[
-* `core.emerge_area(pos1, pos2, [callback], [param])`
-    * Queue all blocks in the area from `pos1` to `pos2`, inclusive, to be
-      asynchronously fetched from memory, loaded from disk, or if inexistent,
-      generates them.
-    * If `callback` is a valid Lua function, this will be called for each block
-      emerged.
-    * The function signature of callback is:
-      `function EmergeAreaCallback(blockpos, action, calls_remaining, param)`
-        * `blockpos` is the *block* coordinates of the block that had been
-          emerged.
-        * `action` could be one of the following constant values:
-            * `core.EMERGE_CANCELLED`
-            * `core.EMERGE_ERRORED`
-            * `core.EMERGE_FROM_MEMORY`
-            * `core.EMERGE_FROM_DISK`
-            * `core.EMERGE_GENERATED`
-        * `calls_remaining` is the number of callbacks to be expected after
-          this one.
-        * `param` is the user-defined parameter passed to emerge_area (or
-          nil if the parameter was absent).
-]]
----@param pos1 vector
----@param pos2 vector
----@param callback fun(blockpos:vector, action:EmergeAction , calls_remaining:number, param:any?)?
----@param param any?
----@async
-function core.emerge_area(pos1, pos2, callback, param) end
+--[[ core.emerge_area() split off into ./emerge_area.lua ]]--
 
 --[[
 * `core.delete_area(pos1, pos2)`
     * delete all mapblocks in the area from pos1 to pos2, inclusive
 ]]
----@param pos1 vector
----@param pos2 vector
----@return nil
+---@param pos1 ivector
+---@param pos2 ivector
 function core.delete_area(pos1, pos2) end
 
 -- ----------------------- ray casting and pathfinding ---------------------- --
@@ -705,9 +733,27 @@ Though i am sure you can make it work out
     * `pos1`: First position
     * `pos2`: Second position
 ]]
----@param pos1 vector
----@param pos2 vector
----@return boolean, core.Node.get?
+---@nodiscard
+---@param pos1 ivector
+---@param pos2 ivector
+---@return true
+function core.line_of_sight(pos1, pos2) end
+
+--[[
+Unofficial note: The annoying thing about this little function is that it is hardcoded to check specifically for "air", nothing else
+Though i am sure you can make it work out
+
+* `core.line_of_sight(pos1, pos2)`: returns `boolean, pos`
+    * Checks if there is anything other than air between pos1 and pos2.
+    * Returns false if something is blocking the sight.
+    * Returns the position of the blocking node when `false`
+    * `pos1`: First position
+    * `pos2`: Second position
+]]
+---@nodiscard
+---@param pos1 ivector
+---@param pos2 ivector
+---@return false, core.Node.get
 function core.line_of_sight(pos1, pos2) end
 
 --[[ core.raycast() split off into classes/Raycast.lua ]]--
@@ -735,13 +781,13 @@ function core.line_of_sight(pos1, pos2) end
       on-the-fly
 ]]
 ---@nodiscard
----@param pos1 vector
----@param pos2 vector
----@param searchdistance number
----@param max_jump number
----@param max_drop number
+---@param pos1 ivector
+---@param pos2 ivector
+---@param searchdistance integer
+---@param max_jump integer
+---@param max_drop integer
 ---@param algo "A*_noprefetch"|"A*"|"Dijkstra"
----@return vector[]?
+---@return ivec[]?
 function core.find_path(pos1, pos2, searchdistance, max_jump, max_drop, algo) end
 
 -- ------------------------------ L-system tree ----------------------------- --
@@ -749,18 +795,16 @@ function core.find_path(pos1, pos2, searchdistance, max_jump, max_drop, algo) en
 --[[
 WIPDOC
 ]]
----@param pos vector
----@param lsystem lsystem
----@return nil
+---@param pos ivector
+---@param lsystem core.LSystemTreeDef
 function core.spawn_tree(pos, lsystem) end
 
 --[[
 WIPDOC
 ]]
----@param vmanip VoxelManip
----@param pos vector
----@param treedef lsystem
----@return nil
+---@param vmanip core.VoxelManip
+---@param pos ivector
+---@param treedef core.LSystemTreeDef
 function core.spawn_tree_on_vmanip(vmanip, pos, treedef) end
 
 -- --------------------------------- liquid --------------------------------- --
@@ -769,6 +813,7 @@ function core.spawn_tree_on_vmanip(vmanip, pos, treedef) end
 * `core.transforming_liquid_add(pos)`
     * add node to liquid flow update queue
 ]]
+---@param pos ivector
 function core.transforming_liquid_add(pos) end
 
 -- ------------------------------- node level ------------------------------- --
@@ -777,12 +822,18 @@ function core.transforming_liquid_add(pos) end
 * `core.get_node_max_level(pos)`
     * get max available level for leveled node
 ]]
+---@nodiscard
+---@param pos ivector
+---@return core.Param2.leveled
 function core.get_node_max_level(pos) end
 
 --[[
 * `core.get_node_level(pos)`
     * get level of leveled node (water, snow)
 ]]
+---@nodiscard
+---@param pos ivector
+---@return core.Param2.leveled
 function core.get_node_level(pos) end
 
 --[[
@@ -790,6 +841,10 @@ function core.get_node_level(pos) end
     * set level of leveled node, default `level` equals `1`
     * if `totallevel > maxlevel`, returns rest (`total-max`).
 ]]
+---@nodiscard
+---@param pos ivector
+---@param level core.Param2.leveled
+---@return core.Param2.leveled?
 function core.set_node_level(pos, level) end
 
 --[[
@@ -798,6 +853,10 @@ function core.set_node_level(pos, level) end
     * if `totallevel > maxlevel`, returns rest (`total-max`)
     * `level` must be between -127 and 127
 ]]
+---@nodiscard
+---@param pos ivector
+---@param level core.Param2.leveled
+---@return core.Param2.leveled?
 function core.add_node_level(pos, level) end
 
 -- ---------------------------------- misc ---------------------------------- --
@@ -816,9 +875,9 @@ function core.add_node_level(pos, level) end
     * See also: [Node boxes](#node-boxes)
 ]]
 ---@param box_type "node_box"|"collision_box"|"selection_box"
----@param pos vector
+---@param pos ivector
 ---@param node core.Node.get?
----@return number[][]
+---@return core.NodeBox.box[]
 function core.get_node_boxes(box_type, pos, node) end
 
 --[[
@@ -839,8 +898,9 @@ function core.get_node_boxes(box_type, pos, node) end
     * returns `false` if the area is not fully generated,
       `true` otherwise
 ]]
----@param pos1 vector
----@param pos2 vector
+---@nodiscard
+---@param pos1 ivector
+---@param pos2 ivector
 ---@return boolean
 function core.fix_light(pos1, pos2) end
 
@@ -851,7 +911,7 @@ Unofficial note: You can override this one for your own custom cool falling bloc
       unattached `group:attached_node` node to fall.
     * does not spread these updates to neighbors.
 ]]
----@param pos vector
+---@param pos ivector
 function core.check_single_for_falling(pos) end
 
 --[[
@@ -861,7 +921,7 @@ function core.check_single_for_falling(pos) end
     * spread these updates to neighbors and can cause a cascade
       of nodes to fall.
 ]]
----@param pos vector
+---@param pos ivector
 function core.check_for_falling(pos) end
 
 --[[
@@ -875,7 +935,7 @@ function core.check_for_falling(pos) end
     * The spawn level is intentionally above terrain level to cope with
       full-node biome 'dust' nodes.
 ]]
----@param x number
----@param z number
----@return number y
+---@param x integer
+---@param z integer
+---@return integer? y
 function core.get_spawn_level(x, z) end

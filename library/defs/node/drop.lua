@@ -15,11 +15,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field items string[]?
+---@field items core.Item.name[]?
 --[[
 WIPDOC
 ]]
----@field tools string[]?
+---@field tools core.Tool.name[]?
 --[[
 WIPDOC
 ]]

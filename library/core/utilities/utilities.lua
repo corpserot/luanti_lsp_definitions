@@ -7,8 +7,8 @@
 --[[
 Returns currently loading mod's name WHEN LOADING A MOD
 ]]
----@return string
 ---@nodiscard
+---@return string
 function core.get_current_modname() end
 
 --[[
@@ -16,7 +16,7 @@ WIPDOC
 ]]
 ---@nodiscard
 ---@param modname string
----@return string
+---@return core.Path
 function core.get_modpath(modname) end
 
 --[[
@@ -26,34 +26,23 @@ WIPDOC
 ---@nodiscard
 function core.get_modnames() end
 
---[[
-Unofficial: Path is the root directory of the game, useful if you are looking for it
-]]
----@return {id:string, title:string, author:string, path:string}
-function core.get_game_info() end
+--[[ core.get_game_info() split off into ./game_info.lua ]]--
 
 --[[
 WIPDOC
 ]]
----@return string
 ---@nodiscard
+---@return core.Path
 function core.get_worldpath() end
 
 --[[
 WIPDOC
 ]]
+---@nodiscard
 ---@return boolean
 function core.is_singleplayer() end
 
---[[ core.features split off into ./features.lua  ]]--
-
---[[
-WIPDOC
-]]
----@nodiscard
----@param arg string[]|string
----@return boolean, table<string, boolean> missing_features
-function core.has_feature(arg) end
+--[[ core.features .. core.has_features() split off into ./features.lua  ]]--
 
 --[[ core.get_player_information() split off into ./player_information.lua ]]--
 
@@ -67,7 +56,7 @@ function core.has_feature(arg) end
 WIPDOC
 ]]
 ---@nodiscard
----@param path string
+---@param path core.Path
 ---@return boolean success
 function core.mkdir(path) end
 
@@ -75,7 +64,7 @@ function core.mkdir(path) end
 WIPDOC
 ]]
 ---@nodiscard
----@param path string
+---@param path core.Path
 ---@param recursive boolean?
 ---@return boolean success
 function core.rmdir(path, recursive) end
@@ -84,8 +73,8 @@ function core.rmdir(path, recursive) end
 WIPDOC
 ]]
 ---@nodiscard
----@param source string
----@param destination string
+---@param source core.Path
+---@param destination core.Path
 ---@return boolean success
 function core.cpdir(source, destination) end
 
@@ -93,8 +82,8 @@ function core.cpdir(source, destination) end
 WIPDOC
 ]]
 ---@nodiscard
----@param source string
----@param destination string
+---@param source core.Path
+---@param destination core.Path
 ---@return boolean success
 function core.mvdir(source, destination) end
 
@@ -108,6 +97,7 @@ function core.mvdir(source, destination) end
 ---@nodiscard
 ---@param path string
 ---@param is_dir nil|true|false
+---@return core.Path[]
 function core.get_dir_list(path, is_dir) end
 
 --[[
@@ -117,67 +107,16 @@ function core.get_dir_list(path, is_dir) end
       `local f = io.open(path, "wb"); f:write(content); f:close()`
 ]]
 ---@nodiscard
----@param path string
+---@param path core.Path
 ---@param content string
 ---@return boolean success
 function core.safe_file_write(path, content) end
 
 -- ----------------------------- engine version ----------------------------- --
 
---[[
-Use this for informational purposes only. The information in the returned
-  table does not represent the capabilities of the engine, nor is it
-  reliable or verifiable. Compatible forks will have a different name and
-  version entirely. To check for the presence of engine features, test
-  whether the functions exported by the wanted features exist. For example:
-  `if core.check_for_falling then ... end`.
-]]
----@class core.EngineVersion
-local version = {}
+--[[ core.get_version() split off into ./engine_version.lua ]]--
 
---[[
-Name of the project, eg, "Luanti"
-]]
----@type  "Luanti"
-version.project = nil
-
---[[
-Simple version, eg, "1.2.3-dev"
-]]
----@type  string
-version.string = nil
-
---[[
-The minimum supported protocol version
-]]
----@type  number
-version.proto_min = nil
-
---[[
-The maximum supported protocol version
-]]
----@type  number
-version.proto_max = nil
-
---[[
-Full git version (only set if available), eg, "1.2.3-dev-01234567-dirty".
-]]
----@type  string
-version.hash = nil
-
---[[
-Boolean value indicating whether it's a development build
-]]
----@type  boolean
-version.is_dev = nil
-
---[[
-WIPDOC
-]]
----@return core.EngineVersion
-function core.get_version() end
-
--- ---------------------------------- hash ---------------------------------- --
+-- --------------------------------- hashing -------------------------------- --
 
 --[[
 WIPDOC
@@ -202,6 +141,7 @@ function core.sha256(data, raw) end
 --[[
 Colorspec to hex basically
 ]]
+---@nodiscard
 ---@param colorspec core.ColorSpec
 ---@return core.ColorString
 function core.colorspec_to_colorstring(colorspec) end
@@ -209,15 +149,17 @@ function core.colorspec_to_colorstring(colorspec) end
 --[[
 Layout: RGBA
 ]]
----@return string
----@param colorspec core.ColorSpec
+---@nodiscard
+---@return core.ColorSpec
+---@param colorspec core.ColorSpec.numberfmt
 function core.colorspec_to_bytes(colorspec) end
 
 --[[
 WIPDOC
 ]]
+---@nodiscard
 ---@param colorspec core.ColorSpec
----@return {r:number,g:number,b:number,a:number}
+---@return core.ColorSpec.tablefmt
 function core.colorspec_to_table(colorspec) end
 
 -- ---------------------------------- misc ---------------------------------- --
@@ -233,7 +175,6 @@ function core.time_to_day_night_ratio(time_of_day) end
 Unofficial note: shhh.... but you can do this in `core.handle_async` instead, get like a really good Promise library
 Unofficial note: shh... but you can also use it real-time and it's real cool
 Unofficial note: you can do "[png:"..core.encode_base64(core.encode_png(...)) to have a png
-Unofficial note: Can we do jpeg XL next?
 * `core.encode_png(width, height, data, [compression])`: Encode a PNG
   image and return it in string form.
     * `width`: Width of the image
@@ -251,7 +192,7 @@ Unofficial note: Can we do jpeg XL next?
 ---@nodiscard
 ---@param width integer
 ---@param height integer
----@param data string | core.ColorSpec[]
+---@param data string|core.ColorSpec[]
 ---@param compression integer?
 ---@return string
 function core.encode_png(width, height, data, compression) end
@@ -261,6 +202,7 @@ function core.encode_png(width, height, data, compression) end
   percent sign followed by two hex digits. See
   [RFC 3986, section 2.3](https://datatracker.ietf.org/doc/html/rfc3986#section-2.3).
 ]]
+---@nodiscard
 ---@param str string
 ---@return string
 function core.urlencode(str) end

@@ -2,86 +2,60 @@
 -- DRAFT 1 DONE
 -- lua_api.md: 'core' namespace reference > Utilities
 
--- --------------------------- player information --------------------------- --
+-- ----------------------------- core.PlayerInfo ---------------------------- --
 
 --[[
 WIPDOC
 ]]
 ---@class core.PlayerInfo
-local player_info = {}
-
 --[[
 IP address of client
 ]]
----@type  string
-player_info.address = nil
-
+---@field address  string
 --[[
 IPv4 / IPv6
 ]]
----@type  number
-player_info.ip_version = nil
-
+---@field ip_version  4|6
 --[[
 seconds since client connected
 ]]
----@type  number
-player_info.connection_uptime = nil
-
+---@field connection_uptime  number
 --[[
 protocol version used by client
 ]]
----@type  number
-player_info.protocol_version = nil
-
+---@field protocol_version  core.Protocol
 --[[
 supported formspec version
 ]]
----@type  number
-player_info.formspec_version = nil
-
+---@field formspec_version  integer
 --[[
 Language code used for translation
 ]]
----@type  string
-player_info.lang_code = nil
-
+---@field lang_code  core.LuantiSettings.enums.language
 --[[
 minimum round trip time
 ]]
----@type  number?
-player_info.min_rtt = nil
-
+---@field min_rtt  number?
 --[[
 maximum round trip time
 ]]
----@type  number?
-player_info.max_rtt = nil
-
+---@field max_rtt  number?
 --[[
 average round trip time
 ]]
----@type  number?
-player_info.avg_rtt = nil
-
+---@field avg_rtt  number?
 --[[
 minimum packet time jitter
 ]]
----@type  number?
-player_info.min_jitter = nil
-
+---@field min_jitter  number?
 --[[
 maximum packet time jitter
 ]]
----@type  number?
-player_info.max_jitter = nil
-
+---@field max_jitter  number?
 --[[
 average packet time jitter
 ]]
----@type  number?
-player_info.avg_jitter = nil
-
+---@field avg_jitter  number?
 --[[
 The version information is provided by the client and may be spoofed
 or inconsistent in engine forks. You must not use this for checking
@@ -91,14 +65,9 @@ Use `core.protocol_versions` to map Luanti versions to protocol versions.
 This version string is only suitable for analysis purposes.
 full version string
 ]]
----@type  string
-player_info.version_string = nil
+---@field version_string  string
 
----@param player_name string
----@return core.PlayerInfo
-function core.get_player_information(player_name) end
-
--- ------------------------ player window information ----------------------- --
+-- ---------------------------- PlayerWindowInfo ---------------------------- --
 
 --[[
 Unofficial note: You can compute the pixel size from this, if you are crazy you can make a library based on this or something
@@ -112,51 +81,51 @@ OSes don't necessarily give the physical DPI, as they may allow user configurati
 real_*_scaling is just OS DPI / 96 but with another level of user configuration.
 ]]
 ---@class core.PlayerWindowInfo
-local player_window_info = {}
-
 --[[
 Current size of the in-game render target (pixels).
 
 This is usually the window size, but may be smaller in certain situations,
 such as side-by-side mode.
 ]]
----@type  {x:integer,  y:integer}
-player_window_info.size = nil
-
+---@field size  vec2i.xy
 --[[
 Estimated maximum formspec size before Luanti will start shrinking the
 formspec to fit. For a fullscreen formspec, use the size returned by
 this table  and `padding[0,0]`. `bgcolor[;true]` is also recommended.
 ]]
----@type  {x: number, y:number}
-player_window_info.max_formspec_size = nil
-
+---@field max_formspec_size  vec2i.xy
 --[[
 GUI Scaling multiplier
 Equal to the setting `gui_scaling` multiplied by `dpi / 96`
 ]]
----@type  number
-player_window_info.real_gui_scaling = nil
-
+---@field real_gui_scaling  number
 --[[
 HUD Scaling multiplier
 Equal to the setting `hud_scaling` multiplied by `dpi / 96`
 ]]
----@type  number
-player_window_info.real_hud_scaling = nil
-
+---@field real_hud_scaling  number
 --[[
 Whether the touchscreen controls are enabled.
 Usually (but not always) `true` on Android.
 Requires at least version 5.9.0 on the client. For older clients, it
 is always set to `false`.
 ]]
----@type  boolean
-player_window_info.touch_controls = nil
+---@field touch_controls  boolean
+
+-- ---------------------------- core.* functions ---------------------------- --
 
 --[[
 WIPDOC
 ]]
+---@nodiscard
 ---@param player_name string
----@return core.PlayerWindowInfo? Client must have version 5.7+
+---@return core.PlayerInfo
+function core.get_player_information(player_name) end
+
+--[[
+WIPDOC
+]]
+---@nodiscard
+---@param player_name string
+---@return core.PlayerWindowInfo? # Client must have version 5.7+
 function core.get_player_window_information(player_name) end

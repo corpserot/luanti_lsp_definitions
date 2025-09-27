@@ -1,9 +1,10 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: 'core' namespace reference > Registration functions
+-- lua_api.md: 'core' namespace reference > Registration functions > Environment
 
 --[[
-WIPDOC
+* Note: you must pass a clean table that hasn't already been used for
+  another registration to this function, as it will be modified.
 ]]
 ---@param name string
 ---@param node_def core.NodeDef
@@ -39,8 +40,8 @@ function core.register_tool(name, itemdef) end
       removes the sounds from the definition of the mese block.
 ]]
 ---@param name string
----@param redefinition table sorry no types for this one :)
----@param del_fields table? sorry no types for this one :)
+---@param redefinition core.ItemDef|core.NodeDef
+---@param del_fields core.ItemDef.keys|core.NodeDef.keys
 function core.override_item(name, redefinition, del_fields) end
 
 --[[
@@ -72,27 +73,30 @@ function core.register_lbm(lbmdef) end
 Also use this to set the 'mapgen aliases' needed in a game for the code mapgens.
 ]]
 ---@param alias core.Alias
----@param original_name string
+---@param original_name core.Item.name
 function core.register_alias(alias, original_name) end
 
 --[[
 WIPDOC
 ]]
 ---@param alias core.Alias
----@param original_name string
+---@param original_name core.Item.name
 function core.register_alias_force(alias, original_name) end
 
 --[[
 WIPDOC
 ]]
+---@nodiscard
 ---@param def core.OreDef
----@return number?
+---@return core.OreID?
 function core.register_ore(def) end
 
 --[[
 WIPDOC
 ]]
+---@nodiscard
 ---@param biome_def core.BiomeDef
+---@return core.BiomeID?
 function core.register_biome(biome_def) end
 
 --[[
@@ -108,13 +112,17 @@ function core.unregister_biome(name) end
 --[[
 WIPDOC
 ]]
+---@nodiscard
 ---@param decoration_def core.DecorationDef
+---@return core.DecorationID?
 function core.register_decoration(decoration_def) end
 
 --[[
 WIPDOC
 ]]
+---@nodiscard
 ---@param schem_def core.SchematicDef
+---@return core.SchematicID
 function core.register_schematic(schem_def) end
 
 --[[
@@ -124,7 +132,6 @@ function core.register_schematic(schem_def) end
       correspondences, so any decorations or ores using the 'biomes' field must
       afterwards be cleared and re-registered.
 ]]
----@return nil
 function core.clear_registered_biomes() end
 
 --[[

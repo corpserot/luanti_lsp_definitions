@@ -3,6 +3,11 @@
 -- lua_api.md: Ores
 -- lua_api.md: Definition tables > Ore Definition
 
+--[[
+WIPDOC
+]]
+---@class core.OreID : integer
+
 -- ------------------------------ OreDef.__base ----------------------------- --
 
 ---@class _.OreDef.__base

@@ -24,6 +24,7 @@ NOTE: types in a .conf settings file
 --[[
 WIPDOC
 ]]
+---@nodiscard
 ---@param filename core.Path
 ---@return core.Settings
 function Settings(filename) end
@@ -146,6 +147,7 @@ function Settings:set_pos(key, value) end
 --[[
 * `remove(key)`: returns a boolean (`true` for success
 ]]
+---@nodiscard
 ---@param key boolean
 ---@return boolean
 function Settings:remove(key) end

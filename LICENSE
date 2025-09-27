@@ -1,22 +1,26 @@
-LGPLv2.1 license of parts original in Luanti_lsp_definitions:
--------------------------------------------------------------
+For parts original in Luanti_lsp_definitions:
+---------------------------------------------
 
-Luanti_lsp_definitions
-Copyright (C) 2025 TheEt1234 a.k.a frog <@TheEt1234 on github>,
-corpserot a.k.a Acorp <@corpserot on github>
-and contributors (see version control log for their names and contact)
+Copyright (C) 2025
+    corpserot a.k.a Acorp <@corpserot on github>
+    TheEt1234 a.k.a frog <@TheEt1234 on github>
+and contributors (see version control log for their names and contact details)
 
+Licensed under the GNU Lesser General Public License, version 2.1 (or later).
+---
 
-LGPLv2.1 license of parts used from Luanti's lua_api.md document:
------------------------------------------------------------------
+For parts from Luanti:
+----------------------
 
-Luanti
-Copyright (C) 2010-2024 celeron55, Perttu Ahola <celeron55@gmail.com>
-and contributors (see source file comments and the version control log)
+Copyright (C) 2010-2025
+    celeron55, Perttu Ahola <celeron55@gmail.com>
+and contributors (see respective project source file comments and the version control log)
 
+Licensed under the GNU Lesser General Public License, version 2.1 (or later).
+---
 
-LGPLv2.1 license terms:
------------------------
+LGPLv2.1 license notice:
+------------------------
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by

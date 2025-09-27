@@ -2,7 +2,7 @@
 -- DRAFT 1 DONE
 -- lua_api.md: Helper functions
 
--- NOTE: core.* helpers are moved to library/core/utilities/helpers.lua
+-- NOTE: core.* helpers are in library/core/utilities/helpers.lua
 
 --[[
 Makes `obj` human-readable, handles reference loops

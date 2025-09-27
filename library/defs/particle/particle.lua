@@ -3,7 +3,7 @@
 -- lua_api.md: Definition tables > Particle definition
 -- lua_api.md: Definition tables > `ParticleSpawner` definition
 
--- --------------------------- ParticleDef.__base --------------------------- --
+-- --------------------------- ParticleDef.regular -------------------------- --
 
 ---@class core.ParticleDef.regular
 --[[
@@ -104,3 +104,12 @@ particle texture is picked.
 Otherwise, the default behavior is used. (currently: any random tile)
 ]]
 ---@field  node_tile number?
+
+-- ------------------------------- ParticleDef ------------------------------ --
+
+--[[
+WIPDOC
+]]
+---@alias core.ParticleDef
+--- | core.ParticleDef.regular
+--- | core.ParticleDef.node

@@ -106,7 +106,7 @@ function ObjectRefBase:set_bone_position(bone, position, rotation) end
 ---@nodiscard
 ---@deprecated
 ---@param bone string
----@return  vector position, vector rotation
+---@return  vec position, vec rotation
 function ObjectRefBase:get_bone_position(bone) end
 
 --[[

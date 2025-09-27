@@ -1,0 +1,47 @@
+---@meta _
+-- DRAFT 1 DONE
+-- lua_api.md: 'core' namespace reference > Particles
+
+--[[
+WIPDOC
+]]
+---@deprecated
+---@param pos vector
+---@param velocity vector
+---@param acceleration vector
+---@param expirationtime number
+---@param size number
+---@param collisiondetection boolean
+---@param texture core.Texture
+---@param playername string
+function core.add_particle(pos, velocity, acceleration,
+      expirationtime, size, collisiondetection, texture, playername) end
+
+--[[
+Unofficial note: Prefer not doing 100 000 particles in a single globalstep
+Because that will make the network scream, with no way to debug it
+Instead, invest time into particlespawners, invest time into creating an issue on luanti github, invest time into creating a client side mod
+]]
+---@param particle_def core.ParticleDef.regular
+function core.add_particle(particle_def) end
+
+--[[
+* Add a `ParticleSpawner`, an object that spawns an amount of particles
+  over `time` seconds.
+* Returns an `id`, and -1 if adding didn't succeed
+]]
+---@nodiscard
+---@param particlespawner_def core.ParticleSpawnerDef
+---@return core.ParticleSpawnerID
+function core.add_particlespawner(particlespawner_def) end
+
+--[[
+* `core.delete_particlespawner(id, player)`
+    * Delete `ParticleSpawner` with `id` (return value from
+      `core.add_particlespawner`).
+    * If playername is specified, only deletes on the player's client,
+      otherwise on all clients.
+]]
+---@param id core.ParticleSpawnerID
+---@param player string?
+function core.delete_particlespawner(id, player) end

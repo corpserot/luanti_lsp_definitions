@@ -1,12 +1,21 @@
 # Luanti LuaLS Definitions
-- **Status:** A bit incomplete for Luanti `5.13` and may have mistakes.
-- **Last Luanti commit accounted for:** `5ab66da6` (`5.13.X`)
+- **Status:** DRAFT 1 WIP (see [this issue tracker](https://github.com/corpserot/luanti_lsp_definitions/issues/6))
+- **Luanti commit coverage:** `5ab66da6` (`5.13.X`)
 - **Target projects when testing:**
   - [Minetest Game (MTG)](https://github.com/luanti-org/minetest_game) commit `8fbfc14c`\
     With a custom LuaLS config (To be published).
 - **Scheduled breaking changes**: Anytime, still in development.
+<!--
   - This follows Luanti's minor releases, meaning we will schedule a breaking release when the target minor release is published.
   - Breaking changes matters for writing annotations on top of library definition. Otherwise, it's inconsequential meaning you don't have to care about this if you merely want type checking.
+  - All changes, breaking or otherwise, are recorded in `CHANGELOG.md`
+-->
+
+# Why to use
+This enables a lua language server to operate with Luanti APIs and types. This in turn allows for IDE-like capabilities including but not limited to:
+- Typed annotation system called LuaCATS a la JSDoc annotations. Has definition files like Typescript `.d.ts` files.
+- Diagnostics through semantic analysis, replacing [luacheck](https://github.com/mpeterv/luacheck) completely
+- Autocompletion and hover information for API symbols, types, fields and more.
 
 # How to use
 - Install [Lua Language Server, LuaLS](https://luals.github.io/) or [EmmyLua](https://github.com/EmmyLuaLs/emmylua-analyzer-rust) for your favourite text editor. Make sure it works first! ^v^
@@ -41,21 +50,29 @@ After following the above instructions, in the context of annotations, you are l
 - *Annotated dependencies* and *Un-annotated dependencies* as-is:
   - Game developers simply just include them in their project without any further additions.
 
-  - Mod developers should put them inside a `.gitignore`d directory where you can safely fetch/clone your dependencies without distributing them.
+  - Mod developers should put them inside a `.gitignore`d directory where you can safely fetch/clone your dependencies without distributing them. `.git/info/exclude` is an alternative choice.
 
-  - You may notice errors due to how language server configurations are applied to the whole project instead of scoped to the dependencies. Unfortunately, this approach means that you're also inheriting any implementation detail diagnostics that come with the dependency. i.e. If your dependency ignored an error, you too will have to ignore that error.
+  - You may notice errors due to how language server configurations are applied project-wide instead of scoped to the dependencies. Unfortunately, this approach means that you need to apply the same project-wide diagnostics configuration.
+    - Please do not rely on setting project-wide diagnostics in your game/mod. Instead use file-scoped or line diagnostics directives.\
+    e.g `---@diagnostic disable-next-line: lowercase-global`
 
-  - Additionally, whatever language server configurations used by the dependency no longer applies. If they have a lenient diagnostics configuration and you don't, it's very likely you'll get more diagnostic messages than upstream maintainers.
-
-- *Un-annotated dependencies* and you wish to annotate a separate library definition:
-  - This is the *preferred* approach. This is because you're separating the implementation detail diagnostics from the annotations, the important information that downstream users like you want.
-
-- *Un-annotated dependencies* and you wish to annotate its source code and a separate library definition:
-  - This is the approach that would yield best results, but efforts are duplicated.
+- *Un-annotated dependencies* and you wish to annotate it:
+  - There's two ways of approaching this:
+    1. (*Simple, recommended*) Annotate the dependency's code.
+    2. (*Complicated, niche needs*) Annotate a separate library definition. This is the approach used by this Luanti library definition.
+  - There are benefits to either or both approaches, however the usual approach is to annotate the dependency's code.
 
 
 ### Namespace reservation
-If you use this library definition, you acknowledge that it reserves the type namespace `core.*` and `_.*`. Additionally, vector "primitive" types are also reserved.
+If you use this library definition, you acknowledge that it reserves the following type namespaces
+- `_.*`
+- `core.*`
+- `corelib.*`
+- vector "primitive" types.
+
+Helper types are listed below. More may be added.
+- `OneOrMany`
+- `SparseList`
 
 It's recommended that you own annotations sit inside a namespace i.e. `<mod or game name>.MyType`
 
@@ -67,9 +84,23 @@ It's recommended that you own annotations sit inside a namespace i.e. `<mod or g
 - `library/` has definition files related to engine API. There is a short description at the top of each file. The contents are arranged following `lua_api.md`
   - `library/classes/` has definition files related to classes.
   - `library/core/` has definition files related to the `core` namespace.
+  - `library/vector` has definition files related to vectors
   - `library/defs/` has definition files catching the rest of the `lua_api.md` contents.
 
 # Questions and Answers
+## If i use this, do i have to use a LGPL-compliant license for my game/mod?
+***Disclaimer: I am not a lawyer, and nothing in this material should be taken as legal advice. It may even be inaccurate. No attorney–client relationship is created by your use of this information provided for informative purposes. You should not act or rely on any information provided here without seeking the advice of a qualified attorney licensed in your jurisdiction. I disclaim all liability for actions you take or fail to take based on any content provided.***
+
+You may skip this if you're well-informed about copyleft software licenses.
+
+The answer is probably not... well, it depends. You can embed or use this library definition alongside your game/mod. However, please don't copy-paste contents of this library definition straight into your code. Particularly, the documentation text itself has to be treated a bit more carefully.
+
+**Example:** Person A wrote a mod with a permissive license like MIT or 0BSD. If person A carelessly include content of this library definition into the mod's `init.lua`, then a portion of that file is at risk of being subjected to LGPL terms due to documentation text.
+
+If you would like to modify or derive contents of this library definition, it's recommended to treat your derived work like a separate module from your game/mod. It could be simply a separate directory or file.
+
+**Example:** Person A, being careful this time, copy-pastes parts of this library definition into a separate definition file `.defs.lua`. This would help isolate where LGPL terms apply.
+
 ## How do i extend types?
 You can extend existing classes like so:
 ```lua
@@ -99,3 +130,6 @@ And i felt like it would be easier to start from scratch than to attempt to comp
 2. @fgaz is very inactive in updating the definition files (check commits since project inception). It's very incomplete.
 3. It uses EUPL license, which overcomplicates matters as it resembles closer to AGPLv3.0 than LGPLv2.1. Yet, it won't deter people that are already set on violating FOSS licenses. We don't use any definitions from that project, obviously.
 4. I don't think @fgaz actually uses the definitions themself (dogfooding).
+
+## Why not contribute to [luanti-api by @archie](https://git.minetest.land/archie/luanti-api/)?
+See this issue: [luanti-api#21](https://git.minetest.land/archie/luanti-api/issues/21)

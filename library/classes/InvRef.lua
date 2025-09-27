@@ -139,6 +139,7 @@ function InvRef:contains_item(listname, stack, match_meta) end
       items names are compared. Default: `false`
     * The method ignores wear.
 ]]
+---@nodiscard
 ---@param listname core.InventoryList
 ---@param stack core.Item
 ---@param match_meta boolean?
@@ -150,5 +151,6 @@ function InvRef:remove_item(listname, stack, match_meta) end
   `core.get_inventory(location)`.
     * returns `{type="undefined"}` in case location is not known
 ]]
+---@nodiscard
 ---@return core.InventoryLocation|core.InventoryLocation.undefined
 function InvRef:get_location() end

@@ -107,7 +107,7 @@ function PlayerRef:get_player_name() end
 ]]
 ---@deprecated
 ---@nodiscard
----@return vector vel
+---@return vec vel
 function PlayerRef:get_player_velocity() end
 
 --[[
@@ -233,6 +233,7 @@ function PlayerRef:set_fov(fov, is_multiplier, transition_time) end
     * Boolean indicating whether the FOV value is a multiplier.
     * Time (in seconds) taken for the FOV transition. Set by `set_fov`.
 ]]
+---@nodiscard
 ---@return number fov, boolean is_multiplier, number transition_time
 function PlayerRef:get_fov() end
 
@@ -258,7 +259,7 @@ function PlayerRef:set_attribute(attribute, value) end
 ---@deprecated
 ---@nodiscard
 ---@param attribute string
----@return string|nil
+---@return string?
 function PlayerRef:get_attribute(attribute) end
 
 --[[

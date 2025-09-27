@@ -7,6 +7,30 @@
 --[[
 WIPDOC
 ]]
+---@alias core.PrivilegeSet.keys
+--- | "shout"
+--- | "interact"
+--- | "fast"
+--- | "fly"
+--- | "noclip"
+--- | "teleport"
+--- | "bring"
+--- | "give"
+--- | "settime"
+--- | "debug"
+--- | "privs"
+--- | "basic_privs"
+--- | "kick"
+--- | "ban"
+--- | "password"
+--- | "protection_bypass"
+--- | "server"
+--- | "rollback"
+--- | string
+
+--[[
+WIPDOC
+]]
 ---@class core.PrivilegeSet : {[string]:boolean?}
 --[[
 WIPDOC

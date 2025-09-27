@@ -59,8 +59,8 @@ VoxelManipLight.night = nil
 WIPDOC
 ]]
 ---@nodiscard
----@param p1 vectori?
----@param p2 vectori?
+---@param p1 ivector?
+---@param p2 ivector?
 ---@return core.VoxelManip
 function VoxelManip(p1, p2) end
 
@@ -68,8 +68,8 @@ function VoxelManip(p1, p2) end
 WIPDOC
 ]]
 ---@nodiscard
----@param p1 vectori?
----@param p2 vectori?
+---@param p1 ivector?
+---@param p2 ivector?
 ---@return core.VoxelManip
 function core.get_voxel_manip(p1, p2) end
 
@@ -115,9 +115,9 @@ local VoxelManip = {}
       VoxelManip, and not reset it.
 ]]
 ---@nodiscard
----@param p1 vectori
----@param p2 vectori
----@return veci pmin, veci pmax
+---@param p1 ivector
+---@param p2 ivector
+---@return ivec pmin, ivec pmax
 function VoxelManip:read_from_map(p1, p2) end
 
 --[[
@@ -131,10 +131,10 @@ function VoxelManip:read_from_map(p1, p2) end
    * (introduced in 5.13.0)
 ]]
 ---@nodiscard
----@param p1 vectori
----@param p2 vectori
+---@param p1 ivector
+---@param p2 ivector
 ---@param node core.Node.set
----@return veci pmin, veci pmax
+---@return ivec pmin, ivec pmax
 function VoxelManip:initialize(p1, p2, node) end
 
 --[[
@@ -151,24 +151,21 @@ Unofficial note: If you can, try to not use this function for performance reason
       more lighting bugs.
 ]]
 ---@param light boolean?
----@return nil
 function VoxelManip:write_to_map(light) end
 
 --[[
 Unofficial note: i don't think you should be using this for performance reasons, this is a function i would personally NEVER use
 ]]
 ---@nodiscard
----@param pos vectori
+---@param pos ivector
 ---@return core.Node.get
 function VoxelManip:get_node_at(pos) end
 
 --[[
 Unofficial note: i don't think you should be using this for performance reasons, this is a function i would personally NEVER use
 ]]
----@nodiscard
----@param pos vectori
+---@param pos ivector
 ---@param node core.Node.set
----@return nil
 function VoxelManip:set_node_at(pos, node) end
 
 --[[
@@ -212,8 +209,8 @@ function VoxelManip:update_map() end
       area if left out.
 ]]
 ---@param light core.VoxelManip.light
----@param p1 vectori?
----@param p2 vectori?
+---@param p1 ivector?
+---@param p2 ivector?
 function VoxelManip:set_lighting(light, p1, p2) end
 
 --[[
@@ -272,7 +269,6 @@ function VoxelManip:get_param2_data(buffer) end
 WIPDOC
 ]]
 ---@param param2_data core.Param2[]
----@return nil
 function VoxelManip:set_param2_data(param2_data) end
 
 --[[
@@ -289,13 +285,11 @@ function VoxelManip:set_param2_data(param2_data) end
 ---@param p1 vector?
 ---@param p2 vector?
 ---@param propagate_shadow boolean?
----@return boolean
 function VoxelManip:calc_lighting(p1, p2, propagate_shadow) end
 
 --[[
 WIPDOC
 ]]
----@return nil
 function VoxelManip:update_liquids() end
 
 --[[
@@ -306,6 +300,7 @@ function VoxelManip:update_liquids() end
    * Note: this doesn't do what you think it does and is subject to removal. Don't use it!
 ]]
 ---@deprecated
+---@nodiscard
 ---@return boolean
 function VoxelManip:was_modified() end
 
@@ -314,7 +309,8 @@ function VoxelManip:was_modified() end
 * "Emerged" does not imply that this region was actually loaded from the map,
    if `initialize()` has been used.
 ]]
----@return veci emin, veci emax
+---@nodiscard
+---@return ivec emin, ivec emax
 function VoxelManip:get_emerged_area() end
 
 --[[
@@ -326,5 +322,4 @@ function VoxelManip:get_emerged_area() end
      with the VoxelManip.
    * (introduced in 5.13.0)
 ]]
----@return nil
 function VoxelManip:close() end

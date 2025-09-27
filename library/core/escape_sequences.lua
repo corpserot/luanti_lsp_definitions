@@ -1,5 +1,5 @@
 ---@meta _
--- STAGE 1 DONE
+-- DRAFT 1 DONE
 -- lua_api.md: Colors
 -- lua_api.md: Escape sequences
 

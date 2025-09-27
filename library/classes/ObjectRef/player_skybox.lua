@@ -47,7 +47,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field fog_tint_type "custom"|"default"|nil
+---@field fog_tint_type "custom"|"default"?
 
 --[[
 WIPDOC

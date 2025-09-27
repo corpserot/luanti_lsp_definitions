@@ -178,3 +178,12 @@ particle texture is picked.
 Otherwise, the default behavior is used. (currently: any random tile)
 ]]
 ---@field  node_tile integer?
+
+-- ----------------------------- ParticleSpawner ---------------------------- --
+
+--[[
+WIPDOC
+]]
+---@alias core.ParticleSpawnerDef
+--- | core.ParticleSpawnerDef.regular
+--- | core.ParticleSpawnerDef.node

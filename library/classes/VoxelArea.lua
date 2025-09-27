@@ -10,8 +10,8 @@
 WIPDOC
 ]]
 ---@nodiscard
----@param pmin vectori
----@param pmax vectori
+---@param pmin ivector
+---@param pmax ivector
 ---@return VoxelArea
 function VoxelArea(pmin, pmax) end
 
@@ -19,7 +19,7 @@ function VoxelArea(pmin, pmax) end
 WIPDOC
 ]]
 ---@nodiscard
----@param arg {MinEdge:vectori, MaxEdge:vectori}
+---@param arg {MinEdge:ivector, MaxEdge:ivector}
 ---@return VoxelArea
 function VoxelArea:new(arg) end
 
@@ -35,7 +35,7 @@ VoxelArea = {}
 WIPDOC
 ]]
 ---@nodiscard
----@return veci
+---@return ivec
 function VoxelArea:getExtent() end
 
 --[[
@@ -67,7 +67,7 @@ function VoxelArea:index(x, y, z) end
       is not checked for being inside the area volume.
 ]]
 ---@nodiscard
----@param p vectori
+---@param p ivector
 ---@return integer i
 function VoxelArea:indexp(p) end
 
@@ -77,7 +77,7 @@ function VoxelArea:indexp(p) end
 ]]
 ---@nodiscard
 ---@param i integer
----@return veci p
+---@return ivec p
 function VoxelArea:position(i) end
 
 --[[
@@ -110,22 +110,20 @@ function VoxelArea:containsi(i) end
 WIPDOC
 ]]
 ---@nodiscard
----@generic IteratorState
 ---@param minx integer
 ---@param miny integer
 ---@param minz integer
 ---@param maxx integer
 ---@param maxy integer
 ---@param maxz integer
----@return fun(state:`IteratorState`, index:integer): integer index, any ...
+---@return fun():integer?
 function VoxelArea:iter(minx, miny, minz, maxx, maxy, maxz) end
 
 --[[
 WIPDOC
 ]]
 ---@nodiscard
----@generic IteratorState
----@param minp vectori
----@param maxp vectori
----@return fun(state:`IteratorState`, index:integer): integer index, any ...
+---@param minp ivector
+---@param maxp ivector
+---@return fun():integer?
 function VoxelArea:iterp(minp, maxp) end

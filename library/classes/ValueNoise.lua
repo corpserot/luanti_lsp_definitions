@@ -54,10 +54,10 @@ function core.get_value_noise(noiseparams) end
 * `core.get_perlin(noiseparams)`
     * Deprecated: renamed to `core.get_value_noise` in version 5.12.0.
 ]]
+---@deprecated
 ---@nodiscard
 ---@param noiseparams core.NoiseParams
 ---@return core.ValueNoise
----@deprecated
 function core.get_perlin(noiseparams) end
 
 -- ---------------------------- old constructors ---------------------------- --

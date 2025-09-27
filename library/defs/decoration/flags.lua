@@ -69,32 +69,19 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class _.DecorationDef.schematic.flags.tablefmt.liquid_surface : _.DecorationDef.flags.tablefmt.liquid_surface, _.DecorationDef.schematic.flags.tablefmt.__partial
---[[
-WIPDOC
-]]
----@class _.DecorationDef.schematic.flags.tablefmt.all : _.DecorationDef.flags.tablefmt.all, _.DecorationDef.schematic.flags.tablefmt.__partial
+---@class core.DecorationDef.schematic.flags.tablefmt.liquid_surface : _.DecorationDef.flags.tablefmt.liquid_surface, core.Schematic.flags.tablefmt
 
----@class _.DecorationDef.schematic.flags.tablefmt.__partial
 --[[
 WIPDOC
 ]]
----@field place_center_x boolean?
---[[
-WIPDOC
-]]
----@field place_center_y boolean?
---[[
-WIPDOC
-]]
----@field place_center_z boolean?
+---@class core.DecorationDef.schematic.flags.tablefmt.all : _.DecorationDef.flags.tablefmt.all, core.Schematic.flags.tablefmt
 
 --[[
 WIPDOC
 ]]
 ---@alias core.DecorationDef.schematic.flags.tablefmt
---- | _.DecorationDef.schematic.flags.tablefmt.liquid_surface
---- | _.DecorationDef.schematic.flags.tablefmt.all
+--- | core.DecorationDef.schematic.flags.tablefmt.liquid_surface
+--- | core.DecorationDef.schematic.flags.tablefmt.all
 
 --[[
 WIPDOC

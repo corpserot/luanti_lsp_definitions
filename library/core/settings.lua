@@ -2,13 +2,13 @@
 -- DRAFT 1 DONE
 -- lua_api.md: 'core' namespace reference > Setting-related
 
---[[
-WIPDOC
-]]
----@type core.Settings
-core.settings = nil
+--[[ core.settings split off into library/classes/Settings/LuantiSettings.lua ]]--
 
 --[[
 WIPDOC
 ]]
+---@nodiscard
+---@deprecated
+---@param name core.LuantiSettings.keys.vector
+---@return vec?
 function core.setting_get_pos(name) end

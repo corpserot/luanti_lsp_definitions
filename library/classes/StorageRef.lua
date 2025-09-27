@@ -1,9 +1,23 @@
 ---@meta _
 -- DRAFT 1 DONE
+-- lua_api.md: 'core' namespace reference > Storage API
 -- lua_api.md: Class reference > `StorageRef`
 
 -- NOTE: changes are linked to MetaDataRef, ItemStackMetaRef, NodeMetaRef,
 -- PlayerMetaRef and StorageRef
+
+-- ------------------------------- constructor ------------------------------ --
+
+--[[
+* `core.get_mod_storage()`:
+    * returns reference to mod private `StorageRef`
+    * must be called during mod load time
+]]
+---@nodiscard
+---@return core.StorageRef
+function core.get_mod_storage() end
+
+-- ------------------------------- StorageRef ------------------------------- --
 
 --[[
 `StorageRef`
