@@ -59,9 +59,17 @@ following section.
 ]]
 ---@field  texture core.ParticleTexture?
 --[[
-Optional, if specified spawns particles only on the player's client
+TODO separate both fields
+Optional, if specified spawns particles only for this player
+Can't be used together with `exclude_player`.
 ]]
 ---@field  playername string?
+--[[
+TODO separate both fields
+Optional, if specified spawns particles not for this player
+Added in v5.14.0. Can't be used together with `playername`.
+]]
+---@field  exclude_player string?
 --[[
 Optional, specifies how to animate the particles' texture
 v5.6.0 and later: set length to -1 to synchronize the length

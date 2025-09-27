@@ -22,8 +22,8 @@ WIPDOC
 ---@alias core.fn.on_mods_loaded fun()
 
 --[[
-* Called after mods have finished loading and before the media is cached or the
-  aliases handled.
+* Called after all mods have finished loading and before the media is cached
+  or aliases are handled.
 ]]
 ---@param f core.fn.on_mods_loaded
 function core.register_on_mods_loaded(f) end
@@ -34,12 +34,11 @@ WIPDOC
 ---@alias core.fn.on_shutdown fun()
 
 --[[
-* Called before server shutdown
-* Players that were kicked by the shutdown procedure are still fully accessible
- in `core.get_connected_players()`.
-* **Warning**: If the server terminates abnormally (i.e. crashes), the
-  registered callbacks **will likely not be run**. Data should be saved at
-  semi-frequent intervals as well as on server shutdown.
+* `core.register_on_shutdown(function())`
+    * Called during server shutdown before players are kicked.
+    * **Warning**: If the server terminates abnormally (i.e. crashes), the
+      registered callbacks will likely **not run**. Data should be saved at
+      semi-frequent intervals as well as on server shutdown.
 ]]
 ---@param f core.fn.on_shutdown
 function core.register_on_shutdown(f) end
@@ -53,8 +52,8 @@ WIPDOC
 
 --[[
 * `core.register_on_placenode(function(pos, newnode, placer, oldnode, itemstack, pointed_thing))`
-    * Called when a node has been placed
-    * If return `true` no item is taken from `itemstack`
+    * Called after a node has been placed.
+    * If `true` is returned no item is taken from `itemstack`
     * `placer` may be any valid ObjectRef or nil.
     * **Not recommended**; use `on_construct` or `after_place_node` in node
       definition whenever possible.
@@ -69,7 +68,7 @@ WIPDOC
 
 --[[
 * `core.register_on_dignode(function(pos, oldnode, digger))`
-    * Called when a node has been dug.
+    * Called after a node has been dug.
     * **Not recommended**; Use `on_destruct` or `after_dig_node` in node
       definition whenever possible.
 ]]
@@ -84,7 +83,7 @@ WIPDOC
 
 --[[
 * `core.register_on_punchnode(function(pos, node, puncher, pointed_thing))`
-    * Called when a node is punched
+    * Called after a node is punched
 ]]
 ---@param f core.fn.on_punchnode
 ---@return nil
@@ -96,7 +95,12 @@ WIPDOC
 ---@alias core.fn.on_generated fun(minp:ivec, maxp:ivec, blockseed:integer)
 
 --[[
-Unofficial note: not actually deprecated but PLEASE use the mapgen env, use this only for prototyping/when you absolutely need to
+* `core.register_on_generated(function(minp, maxp, blockseed))`
+    * Called after a piece of world between `minp` and `maxp` has been
+      generated and written into the map.
+    * **Avoid using this** whenever possible. As with other callbacks this blocks
+      the main thread and is prone to introduce noticeable latency/lag.
+      Consider [Mapgen environment](#mapgen-environment) as an alternative.
 ]]
 ---@deprecated
 ---@param f core.fn.on_generated
@@ -110,7 +114,9 @@ WIPDOC
 ---@alias core.fn.on_newplayer fun(ObjectRef:core.PlayerRef)
 
 --[[
-WIPDOC
+* `core.register_on_newplayer(function(player))`
+    * Called when a new player enters the world for the first time
+    * `player`: ObjectRef
 ]]
 ---@param f core.fn.on_newplayer
 function core.register_on_newplayer(f) end

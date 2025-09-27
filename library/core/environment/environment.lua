@@ -667,16 +667,21 @@ function core.get_noiseparams(name) end
 ---@param pos2 ivector?
 function core.generate_ores(vm, pos1, pos2) end
 
---[[
-* `core.generate_decorations(vm, pos1, pos2)`
+--[=[
+* `core.generate_decorations(vm[, pos1, pos2, [use_mapgen_biomes]])`
     * Generate all registered decorations within the VoxelManip `vm` and in the
       area from `pos1` to `pos2`.
     * `pos1` and `pos2` are optional and default to mapchunk minp and maxp.
-]]
+    * `use_mapgen_biomes` (optional boolean). For use in on_generated callbacks only.
+       If set to true, decorations are placed in respect to the biome map of the current chunk.
+       `pos1` and `pos2` must match the positions of the current chunk, or an error will be raised.
+       default: `false`
+]=]
 ---@param vm core.VoxelManip
 ---@param pos1 ivector?
 ---@param pos2 ivector?
-function core.generate_decorations(vm, pos1, pos2) end
+---@param use_mapgen_biomes boolean?
+function core.generate_decorations(vm, pos1, pos2, use_mapgen_biomes) end
 
 --[[
 WIPDOC

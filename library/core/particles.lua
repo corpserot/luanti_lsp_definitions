@@ -3,7 +3,10 @@
 -- lua_api.md: 'core' namespace reference > Particles
 
 --[[
-WIPDOC
+* `core.add_particle(particle definition)`
+    * Spawn a single particle
+    * Deprecated: `core.add_particle(pos, velocity, acceleration,
+      expirationtime, size, collisiondetection, texture, playername)`
 ]]
 ---@deprecated
 ---@param pos vector

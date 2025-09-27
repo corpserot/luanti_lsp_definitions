@@ -53,3 +53,14 @@ Removes all color escape sequences.
 ---@param str string
 ---@return string
 function core.strip_colors(str) end
+
+--[[
+* `core.strip_escapes(str)`
+    * Removes all escape sequences, including client-side translations and
+      any unknown or future escape sequences that Luanti might define.
+    * You can use this to clean text before logging or handing to an external system.
+]]
+---@nodiscard
+---@param str string
+---@return string
+function core.strip_escape(str) end

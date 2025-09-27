@@ -101,7 +101,8 @@ Set to 0 to disable constant rotation.
 --[[
 If positive number, object will climb upwards when it moves
 horizontally against a `walkable` node, if the height difference
-is within `stepheight`.
+is within `stepheight` and if the object current max Y in the world
+is greater or equal than the node min Y.
 ]]
 ---@field stepheight number?
 --[[
@@ -157,7 +158,8 @@ Set to 0 to disable constant rotation.
 --[[
 If positive number, object will climb upwards when it moves
 horizontally against a `walkable` node, if the height difference
-is within `stepheight`.
+is within `stepheight` and if the object current max Y in the world
+is greater or equal than the node min Y.
 ]]
 ---@field stepheight number
 --[[
@@ -198,6 +200,18 @@ Sets background color of nametag
 Default: false
 ]]
 ---@field nametag_bgcolor core.ColorSpec?
+--[[
+Sets the font size of the nametag in pixels.
+`false` will cause the size to be set automatically based on user settings.
+Default: false
+]]
+---@field nametag_fontsize integer|false?
+--[[
+Sets the font size of the nametag in pixels.
+`false` will cause the size to be set automatically based on user settings.
+Default: false
+]]
+---@field nametag_scale_z boolean?
 
 ---@class _.ObjectProperties.__base.get
 --[[

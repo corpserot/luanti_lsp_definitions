@@ -16,6 +16,10 @@ WIPDOC
 WIPDOC
 ]]
 ---@field ephemeral boolean?
+--[[
+WIPDOC
+]]
+---@field client_cache boolean?
 
 --[[
 WIPDOC

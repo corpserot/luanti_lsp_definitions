@@ -603,7 +603,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.on_timer fun(pos:ivec, elapsed:number):boolean?
+---@alias core.NodeDef.on_timer fun(pos:ivec, elapsed:number, node:core.Node.get, timeout:number):boolean?
 
 --[[
 WIPDOC

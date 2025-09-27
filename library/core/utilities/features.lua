@@ -57,6 +57,9 @@ WIPDOC
 --- | "remove_item_match_meta"
 --- | "httpfetch_additional_methods"
 --- | "object_guids"
+--- | "on_timer_four_args"
+--- | "particlespawner_exclude_player"
+--- | "generate_decorations_biomes"
 
 --[[
 WIPDOC
@@ -279,6 +282,18 @@ The HTTP API supports the HEAD and PATCH methods (5.12.0)
 WIPDOC
 ]]
 ---@field object_guids boolean?
+--[[
+The NodeTimer `on_timer` callback is passed additional `node` and `timeout` args (5.14.0)
+]]
+---@field on_timer_four_args boolean?
+--[[
+`ParticleSpawner` definition supports `exclude_player` field (5.14.0)
+]]
+---@field particlespawner_exclude_player boolean?
+--[[
+core.generate_decorations() supports `use_mapgen_biomes` parameter (5.14.0)
+]]
+---@field generate_decorations_biomes boolean?
 
 -- ---------------------------- core.* functions ---------------------------- --
 

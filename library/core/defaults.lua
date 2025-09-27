@@ -56,8 +56,8 @@ function core.item_place(itemstack, placer, pointed_thing, param2) end
 * `core.item_pickup(itemstack, picker, pointed_thing, time_from_last_punch, ...)`
     * Runs callbacks registered by `core.register_on_item_pickup` and adds
       the item to the picker's `"main"` inventory list.
-    * Parameters are the same as in `on_pickup`.
-    * Returns the leftover itemstack.
+    * Parameters and return value are the same as `on_pickup`.
+    * **Note**: is not called when wielded item overrides `on_pickup`
 ]]
 ---@nodiscard
 ---@param itemstack core.ItemStack
@@ -69,6 +69,18 @@ function core.item_place(itemstack, placer, pointed_thing, param2) end
 ---@param damage integer?
 ---@return core.ItemStack
 function core.item_pickup(itemstack, picker, pointed_thing, time_from_last_punch, tool_capabilities, dir, damage) end
+
+--[[
+* `core.item_secondary_use(itemstack, user)`
+    * Global secondary use callback. Does nothing.
+    * Parameters and return value are the same as `on_secondary_use`.
+    * **Note**: is not called when wielded item overrides `on_secondary_use`
+]]
+---@nodiscard
+---@param itemstack core.ItemStack
+---@param user core.ObjectRef?
+---@return core.ItemStack?
+function core.item_secondary_use(itemstack, user) end
 
 --[[
 * `core.item_drop(itemstack, dropper, pos)`
@@ -136,7 +148,7 @@ function core.node_punch(pos, node, puncher, pointed_thing) end
 --[[
 * `core.node_dig(pos, node, digger)`
     * Checks if node can be dug, puts item into inventory, removes node
-    * Calls functions registered by `core.registered_on_dignodes()`
+    * Calls functions registered by `core.register_on_dignodes()`
 ]]
 ---@param pos ivector
 ---@param node core.Node.set

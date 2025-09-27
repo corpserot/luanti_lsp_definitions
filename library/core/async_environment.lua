@@ -5,9 +5,11 @@
 --[[
 WIPDOC
 ]]
+---@nodiscard
 ---@param f function
 ---@param callback function
 ---@param ... any
+---@return core.AsyncJob
 function core.handle_async(f, callback, ...) end
 
 --[[
