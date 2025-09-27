@@ -26,6 +26,28 @@ Instead, invest time into particlespawners, invest time into creating an issue o
 function core.add_particle(particle_def) end
 
 --[[
+WIPDOC
+]]
+---@deprecated
+---@nodiscard
+---@param amount integer
+---@param time number
+---@param minpos vector
+---@param maxpos vector
+---@param minvel vector
+---@param maxvel vector
+---@param minacc vector
+---@param maxacc vector
+---@param minexptime number
+---@param maxexptime number
+---@param minsize number
+---@param maxsize number
+---@param collisiondetection boolean
+---@param texture core.Texture
+---@param playername string
+---@return core.ParticleSpawnerID
+function core.add_particlespawner(amount, time, minpos, maxpos, minvel, maxvel, minacc, maxacc, minexptime, maxexptime, minsize, maxsize, collisiondetection, texture, playername) end
+--[[
 * Add a `ParticleSpawner`, an object that spawns an amount of particles
   over `time` seconds.
 * Returns an `id`, and -1 if adding didn't succeed

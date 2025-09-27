@@ -146,6 +146,8 @@ The default is "opaque" for drawtypes normal, liquid and flowingliquid,
 mesh and nodebox or "clip" otherwise.
 If set to a boolean value (deprecated): true either sets it to blend
 or clip, false sets it to clip or opaque mode depending on the drawtype.
+
+* @deprecated 5.X `true` may blend or clip, `false` had special handling depending on drawtype
 ]]
 ---@field  use_texture_alpha core.NodeDef.use_texture_alpha?
 --[[
@@ -369,6 +371,8 @@ air_equivalent = nil,
 unclear meaning, the engine sets this to true for 'air' and 'ignore'
 deprecated.
 Unofficial note: But what else are you supposed to do? i guess make an is_air function lmao
+
+* @deprecated 5.X
 ]]
 ---@field air_equivalent boolean?
 
@@ -591,6 +595,8 @@ WIPDOC
 
 --[[
 WIPDOC
+
+* @deprecated 5.X returning `nil` is the same are `true`
 ]]
 ---@alias core.NodeDef.on_dig fun(pos:ivec, node:core.Node.get, digger:core.ObjectRef?):boolean
 

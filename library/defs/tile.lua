@@ -68,7 +68,7 @@ WIPDOC
 --[[
 WIPDOC
 
-* @deprecated
+* @deprecated 5.X
 ]]
 ---@field image string?
 

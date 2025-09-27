@@ -60,7 +60,7 @@ WIPDOC
 --[[
 WIPDOC
 
-* @deprecated
+* @deprecated 5.X
 ]]
 ---@field textures core.ObjectProperties.wielditem.textures
 

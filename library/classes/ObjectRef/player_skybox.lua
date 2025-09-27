@@ -330,8 +330,31 @@ function PlayerRef:set_sky(sky_parameters) end
         clouds.
 ]]
 ---@nodiscard
----@param as_table boolean
+---@param as_table true
 ---@return core.PlayerSkyParameters.get sky_parameters
+function PlayerRef:get_sky(as_table) end
+
+--[[
+WIPDOC
+]]
+---@deprecated
+---@param base_color core.ColorSpec
+---@param type "regular"|"skybox"|"plain"
+---@param textures core.Texture[]
+---@param clouds boolean?
+function PlayerRef:set_sky(base_color, type, textures, clouds) end
+
+--[[
+* `get_sky(as_table)`:
+    * `as_table`: boolean that determines whether the deprecated version of this
+    function is being used.
+        * `true` returns a table containing sky parameters as defined in `set_sky(sky_parameters)`.
+        * Deprecated: `false` or `nil` returns base_color, type, table of textures,
+        clouds.
+]]
+---@deprecated
+---@nodiscard
+---@return core.ColorSpec base_color, "regular"|"skybox"|"plain" type, core.Texture[] textures, boolean? clouds
 function PlayerRef:get_sky(as_table) end
 
 --[[

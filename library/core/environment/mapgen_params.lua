@@ -64,5 +64,6 @@ function core.get_mapgen_params() end
     * `flags` is in the same format and has the same options as `mg_flags` in
       `minetest.conf`.
 ]]
+---@deprecated
 ---@param MapgenParams core.MapgenParams
 function core.set_mapgen_params(MapgenParams) end

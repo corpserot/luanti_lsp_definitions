@@ -248,7 +248,7 @@ function PlayerRef:get_fov() end
 ]]
 ---@deprecated
 ---@param attribute string
----@param value string|number
+---@param value string|number?
 function PlayerRef:set_attribute(attribute, value) end
 
 --[[

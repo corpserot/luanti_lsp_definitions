@@ -18,6 +18,7 @@ WIPDOC
 ---@field items core.Item.name[]?
 --[[
 WIPDOC
+* @deprecated 5.X Use `tool_groups` instead
 ]]
 ---@field tools core.Tool.name[]?
 --[[
