@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Schematics
+-- luanti/doc/lua_api.md: Schematics
 
 -- ----------------------------- Schematic.flag ----------------------------- --
 

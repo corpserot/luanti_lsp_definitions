@@ -1,8 +1,8 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Flag Specifier Format
--- lua_api.md: Ores
--- lua_api.md: Definition tables > Ore Definition
+-- luanti/doc/lua_api.md: Flag Specifier Format
+-- luanti/doc/lua_api.md: Ores
+-- luanti/doc/lua_api.md: Definition tables > Ore Definition
 
 -- ---------------------------- OreDef.puff.flags --------------------------- --
 

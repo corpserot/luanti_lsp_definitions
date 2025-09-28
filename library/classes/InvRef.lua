@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Class reference > `InvRef`
+-- luanti/doc/lua_api.md: Class reference > `InvRef`
 
 --[[
 WIPDOC

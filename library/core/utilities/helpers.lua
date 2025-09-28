@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Helper functions
+-- luanti/doc/lua_api.md: Helper functions
 
 -- NOTE: helpers not under core.* are in library/helpers.lua
 

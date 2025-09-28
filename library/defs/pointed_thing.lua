@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Representations of simple things
+-- luanti/doc/lua_api.md: Representations of simple things
 
 -- -------------------------- PointedThing.nothing -------------------------- --
 

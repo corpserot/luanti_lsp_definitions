@@ -1,7 +1,7 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: 'core' namespace reference > Storage API
--- lua_api.md: Class reference > `StorageRef`
+-- luanti/doc/lua_api.md: 'core' namespace reference > Storage API
+-- luanti/doc/lua_api.md: Class reference > `StorageRef`
 
 -- NOTE: changes are linked to MetaDataRef, ItemStackMetaRef, NodeMetaRef,
 -- PlayerMetaRef and StorageRef

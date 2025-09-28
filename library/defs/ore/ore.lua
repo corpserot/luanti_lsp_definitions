@@ -1,7 +1,7 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Ores
--- lua_api.md: Definition tables > Ore Definition
+-- luanti/doc/lua_api.md: Ores
+-- luanti/doc/lua_api.md: Definition tables > Ore Definition
 
 --[[
 WIPDOC

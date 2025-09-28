@@ -1,7 +1,7 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Definition tables > Particle definition
--- lua_api.md: Definition tables > `ParticleSpawner` definition
+-- luanti/doc/lua_api.md: Definition tables > Particle definition
+-- luanti/doc/lua_api.md: Definition tables > `ParticleSpawner` definition
 
 -- --------------------------- ParticleDef.regular -------------------------- --
 

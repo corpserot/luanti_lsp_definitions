@@ -1,7 +1,7 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Fractal Value Noise
--- lua_api.md: Flag Specifier Format
+-- luanti/doc/lua_api.md: Fractal Value Noise
+-- luanti/doc/lua_api.md: Flag Specifier Format
 
 -- ---------------------------- NoiseParams.flags --------------------------- --
 

@@ -1,7 +1,7 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Items
--- lua_api.md: Definition tables > Item definition
+-- luanti/doc/lua_api.md: Items
+-- luanti/doc/lua_api.md: Definition tables > Item definition
 
 --[[
 WIPDOC

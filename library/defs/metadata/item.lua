@@ -1,7 +1,7 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Metadata
--- lua_api.md: Class reference > `MetaDataRef`
+-- luanti/doc/lua_api.md: Metadata
+-- luanti/doc/lua_api.md: Class reference > `MetaDataRef`
 
 -- ------------------- MetadataTable.*.item special fields ------------------ --
 --[[

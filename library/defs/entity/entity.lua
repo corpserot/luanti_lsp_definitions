@@ -1,7 +1,7 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Registered entities
--- lua_api.md: Definition tables > Entity definition
+-- luanti/doc/lua_api.md: Registered entities
+-- luanti/doc/lua_api.md: Definition tables > Entity definition
 
 --[[
 WIPDOC

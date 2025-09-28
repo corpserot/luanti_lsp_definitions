@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: 'core' namespace reference > Environment access
+-- luanti/doc/lua_api.md: 'core' namespace reference > Environment access
 
 -- ------------------------------ MapgenParams ------------------------------ --
 

@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Mapgen objects
+-- luanti/doc/lua_api.md: Mapgen objects
 
 -- ----------------------------- GenNotify.flags ---------------------------- --
 

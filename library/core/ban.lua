@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: 'core' namespace reference > Bans
+-- luanti/doc/lua_api.md: 'core' namespace reference > Bans
 
 --[[
 * `core.get_ban_list()`: returns a list of all bans formatted as string

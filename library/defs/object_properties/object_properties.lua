@@ -1,7 +1,7 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Entity damage mechanism
--- lua_api.md: Definition tables > Object properties
+-- luanti/doc/lua_api.md: Entity damage mechanism
+-- luanti/doc/lua_api.md: Definition tables > Object properties
 
 -- Default values are injected, so nil value does not persist -> .set and .get
 

@@ -1,8 +1,8 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Fractal Value Noise
--- lua_api.md: 'core' namespace reference > Environment access
--- lua_api.md: Class Reference > `ValueNoise`
+-- luanti/doc/lua_api.md: Fractal Value Noise
+-- luanti/doc/lua_api.md: 'core' namespace reference > Environment access
+-- luanti/doc/lua_api.md: Class Reference > `ValueNoise`
 
 -- ------------------------------ constructors ------------------------------ --
 

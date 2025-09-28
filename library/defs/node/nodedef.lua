@@ -1,7 +1,7 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Nodes
--- lua_api.md: Definition tables > Node definition
+-- luanti/doc/lua_api.md: Nodes
+-- luanti/doc/lua_api.md: Definition tables > Node definition
 
 -- NOTE: not practical to separate out every mutually exclusive fields as there
 -- are too many states resulting in too many permutations.

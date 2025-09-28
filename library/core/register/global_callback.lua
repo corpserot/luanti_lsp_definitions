@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: 'core' namespace reference > Global callback registration functions
+-- luanti/doc/lua_api.md: 'core' namespace reference > Global callback registration functions
 
 -- ---------------------- server step, start, shutdown ---------------------- --
 

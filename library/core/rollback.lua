@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: 'core' namespace reference > Rollback
+-- luanti/doc/lua_api.md: 'core' namespace reference > Rollback
 
 --[[
 WIPDOC

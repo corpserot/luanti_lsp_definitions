@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Tool Capabilities
+-- luanti/doc/lua_api.md: Tool Capabilities
 
 -- ---------------------- ToolCapabilities.*.groupcaps ---------------------- --
 

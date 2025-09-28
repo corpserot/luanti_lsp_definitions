@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: 'core' namespace reference > Authentication
+-- luanti/doc/lua_api.md: 'core' namespace reference > Authentication
 
 --[[
 * `core.string_to_privs(str[, delim])`:

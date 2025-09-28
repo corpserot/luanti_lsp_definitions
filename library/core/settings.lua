@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: 'core' namespace reference > Setting-related
+-- luanti/doc/lua_api.md: 'core' namespace reference > Setting-related
 
 --[[ core.settings split off into library/classes/Settings/LuantiSettings.lua ]]--
 

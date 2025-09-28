@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: 'core' namespace reference > Formspec functions
+-- luanti/doc/lua_api.md: 'core' namespace reference > Formspec functions
 
 --[[
 * `core.show_formspec(playername, formname, formspec)`

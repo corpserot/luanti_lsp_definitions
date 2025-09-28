@@ -1,9 +1,9 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Flag Specifier Format
--- lua_api.md: Decoration types
--- lua_api.md: Mapgen objects
--- lua_api.md: Definition tables > Decoration definition
+-- luanti/doc/lua_api.md: Flag Specifier Format
+-- luanti/doc/lua_api.md: Decoration types
+-- luanti/doc/lua_api.md: Mapgen objects
+-- luanti/doc/lua_api.md: Definition tables > Decoration definition
 
 -- --------------------------- DecorationDef.flags -------------------------- --
 

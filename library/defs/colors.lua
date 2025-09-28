@@ -1,6 +1,6 @@
 ---@meta
 -- DRAFT 1 DONE
--- lua_api.md: Colors
+-- luanti/doc/lua_api.md: Colors
 
 --[[
 WIPDOC

@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Definition tables > Detached inventory callbacks
+-- luanti/doc/lua_api.md: Definition tables > Detached inventory callbacks
 
 --[[
 WIPDOC

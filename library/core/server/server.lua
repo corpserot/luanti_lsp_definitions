@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: 'core' namespace reference > Server
+-- luanti/doc/lua_api.md: 'core' namespace reference > Server
 
 --[[
 * `core.request_shutdown([message],[reconnect],[delay])`: request for

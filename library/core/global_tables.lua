@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: 'core' namespace reference > Global tables
+-- luanti/doc/lua_api.md: 'core' namespace reference > Global tables
 --[=[
 NOTE: manually searched from output log of below in a minimal game:
 core.log(dump2(core, 'core'))

@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Class reference > `ObjectRef`
+-- luanti/doc/lua_api.md: Class reference > `ObjectRef`
 
 -- INTERPRETATION: EntityRef does not override ObjectRef, merely supplies
 -- ObjectRef with exclusive entity methods. This is because of the relationship

@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Class reference > `SecureRandom`
+-- luanti/doc/lua_api.md: Class reference > `SecureRandom`
 
 -- ------------------------------- constructor ------------------------------ --
 

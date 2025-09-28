@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: 'core' namespace reference > Registration functions > Gameplay
+-- luanti/doc/lua_api.md: 'core' namespace reference > Registration functions > Gameplay
 
 --[[
 WIPDOC

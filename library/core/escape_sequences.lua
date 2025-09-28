@@ -1,7 +1,7 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Colors
--- lua_api.md: Escape sequences
+-- luanti/doc/lua_api.md: Colors
+-- luanti/doc/lua_api.md: Escape sequences
 
 --[[
 The escape sequence sets the text color to color

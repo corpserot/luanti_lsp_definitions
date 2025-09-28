@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Definition tables > Authentication handler definition
+-- luanti/doc/lua_api.md: Definition tables > Authentication handler definition
 
 -- --------------------------- AuthenticationData --------------------------- --
 

@@ -1,8 +1,8 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Representations of simple things
--- lua_api.md: 'core' namespace reference > Environment access
--- lua_api.md: Class reference > `Raycast`
+-- luanti/doc/lua_api.md: Representations of simple things
+-- luanti/doc/lua_api.md: 'core' namespace reference > Environment access
+-- luanti/doc/lua_api.md: Class reference > `Raycast`
 
 -- ------------------------------- constructor ------------------------------ --
 

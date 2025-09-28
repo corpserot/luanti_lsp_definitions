@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: 'core' namespace reference > Misc.
+-- luanti/doc/lua_api.md: 'core' namespace reference > Misc.
 
 --[[
 * `core.get_item_group(name, group)`: returns a rating

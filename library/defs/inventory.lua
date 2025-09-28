@@ -1,8 +1,8 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Inventory
--- lua_api.md: Class reference > `InvRef`
--- lua_api.md: Class reference > `MetaDataRef`
+-- luanti/doc/lua_api.md: Inventory
+-- luanti/doc/lua_api.md: Class reference > `InvRef`
+-- luanti/doc/lua_api.md: Class reference > `MetaDataRef`
 
 -- ------------------------------ InventoryList ----------------------------- --
 

@@ -1,7 +1,7 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: 'core' namespace reference > Defaults for the `on_place` and `on_drop` item definition functions
--- lua_api.md: 'core' namespace reference > Defaults for the `on_punch` and `on_dig` node definition callbacks
+-- luanti/doc/lua_api.md: 'core' namespace reference > Defaults for the `on_place` and `on_drop` item definition functions
+-- luanti/doc/lua_api.md: 'core' namespace reference > Defaults for the `on_punch` and `on_dig` node definition callbacks
 
 --[[
 * `core.item_place_node(itemstack, placer, pointed_thing[, param2, prevent_after_place])`

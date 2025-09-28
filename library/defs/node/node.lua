@@ -1,7 +1,7 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Nodes
--- lua_api.md: Nodes > Node paramtypes
+-- luanti/doc/lua_api.md: Nodes
+-- luanti/doc/lua_api.md: Nodes > Node paramtypes
 
 --[[
 WIPDOC

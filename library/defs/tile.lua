@@ -1,7 +1,7 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Definition tables > Tile definition
--- lua_api.md: Definition tables > Tile animation definition
+-- luanti/doc/lua_api.md: Definition tables > Tile definition
+-- luanti/doc/lua_api.md: Definition tables > Tile animation definition
 
 -- -------------------- TileAnimationDef.vertical_frames -------------------- --
 

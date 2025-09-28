@@ -1,8 +1,8 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Map terminology and coordinates
--- lua_api.md: Lua Voxel Manipulator
--- lua_api.md: Class reference > `VoxelArea`
+-- luanti/doc/lua_api.md: Map terminology and coordinates
+-- luanti/doc/lua_api.md: Lua Voxel Manipulator
+-- luanti/doc/lua_api.md: Class reference > `VoxelArea`
 
 -- ------------------------------- constructor ------------------------------ --
 

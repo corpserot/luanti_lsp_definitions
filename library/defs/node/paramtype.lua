@@ -1,7 +1,7 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Nodes > Node paramtypes
--- lua_api.md: Definition tables > Node definition
+-- luanti/doc/lua_api.md: Nodes > Node paramtypes
+-- luanti/doc/lua_api.md: Definition tables > Node definition
 
 -- --------------------------- NodeDef.paramtype2 --------------------------- --
 

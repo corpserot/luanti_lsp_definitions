@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: 'core' namespace reference > Registration functions > Environment
+-- luanti/doc/lua_api.md: 'core' namespace reference > Registration functions > Environment
 
 --[[
 * Note: you must pass a clean table that hasn't already been used for

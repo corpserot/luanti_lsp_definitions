@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: 'core' namespace reference > Particles
+-- luanti/doc/lua_api.md: 'core' namespace reference > Particles
 
 --[[
 * `core.add_particle(particle definition)`

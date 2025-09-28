@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Spatial Vectors
+-- luanti/doc/lua_api.md: Spatial Vectors
 
 ---@class _.vec.__base : core.VectorLib
 ---@field metatable core.VectorLib

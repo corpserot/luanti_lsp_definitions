@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Class reference > `MetaDataRef`
+-- luanti/doc/lua_api.md: Class reference > `MetaDataRef`
 
 -- NOTE: changes are linked to MetaDataRef, ItemStackMetaRef, NodeMetaRef,
 -- PlayerMetaRef and StorageRef

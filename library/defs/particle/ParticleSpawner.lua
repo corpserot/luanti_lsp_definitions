@@ -1,6 +1,6 @@
 ---@meta _
 -- DRAFT 1 DONE
--- lua_api.md: Definition tables > `ParticleSpawner` definition
+-- luanti/doc/lua_api.md: Definition tables > `ParticleSpawner` definition
 
 -- NOTE: only the modern ParticleSpawner definition is annotated. However,
 -- interested contributors seeking to additionally annotate the legacy
