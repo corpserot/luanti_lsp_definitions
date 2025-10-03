@@ -6,7 +6,7 @@
 High resolution persistent positional timer.
 
 * @see [luanti/doc/lua_api.md > Class reference > `NodeTimerRef`](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#nodetimerref)
-* @see `ServerEnvironment::step()` > `ServerEnvironment::activateBlock()` > `MapBlock::step()`
+* @see (Luanti C++) `ServerEnvironment::step()` > `ServerEnvironment::activateBlock()` > `MapBlock::step()`
 * @see [luanit/src/nodetimer.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/nodetimer.cpp)
 * @see [luanit/src/script/lua_api/l_nodetimer.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_nodetimer.cpp)
 ]]

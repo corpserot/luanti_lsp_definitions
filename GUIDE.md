@@ -40,7 +40,9 @@ These are extra annotations available to all.
 * @deprecated 5.2.0 This indicates the stable luanti version that deprecated this feature
 * @breaking 5.3.0 This indicates the stable luanti version that broke the compatibility of this feature or removed it
 * @internal This indicates that it's an undocumented internal implementation and subject to change
-* @see path/to/doc.md > Section #This indicates a section within a markdown document
+* @see (Context) `symbol` This indicates a symbol relevant to an optional context.
+* @see [`symbol`](lua://symbol) This indicates a navigable lua symbol without the optional context.
+* @see [path/to/doc.md > Section](git repo link...) This indicates a section within a markdown document
 * @see <https://web.site> This indicates an online resource
 ]]
 ---@type integer
