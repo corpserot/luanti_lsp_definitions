@@ -9,13 +9,13 @@ according to position relative to player.
 Defines the number of columns and rows in the spritesheet:
 {columns, rows}.
 ]]
----@field spritediv vec2i.xy?
+---@field spritediv ivec2.xy?
 --[[
 Used with spritesheet textures.
 Defines the {column, row} position of the initially used frame in the
 spritesheet.
 ]]
----@field initial_sprite_basepos vec2i.xy?
+---@field initial_sprite_basepos ivec2.xy?
 
 ---@class _.ObjectProperties.spritesheet.get.__partial
 --[[
@@ -24,10 +24,10 @@ according to position relative to player.
 Defines the number of columns and rows in the spritesheet:
 {columns, rows}.
 ]]
----@field spritediv vec2i.xy
+---@field spritediv ivec2.xy
 --[[
 Used with spritesheet textures.
 Defines the {column, row} position of the initially used frame in the
 spritesheet.
 ]]
----@field initial_sprite_basepos vec2i.xy
+---@field initial_sprite_basepos ivec2.xy

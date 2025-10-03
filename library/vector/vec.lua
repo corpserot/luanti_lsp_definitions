@@ -1,46 +1,46 @@
 ---@meta _
--- DRAFT 1 DONE
+-- 2D and 3D plain vectors
 -- luanti/doc/lua_api.md: Spatial Vectors
 
 -- ---------------------------------- vec2 ---------------------------------- --
 
 --[[
-WIPDOC
+2D integer plain vector with xy components.
 ]]
----@class vec2i.xy
+---@class ivec2.xy
 ---@field x integer
 ---@field y integer
 
 --[[
-WIPDOC
+2D integer plain vector with 12 components.
 ]]
----@class vec2i.12
+---@class ivec2.12
 ---@field [1] number
 ---@field [2] number
 
 --[[
-WIPDOC
+2D integer plain vector with either xy components, or 12 components
 ]]
----@alias vec2i
---- | vec2i.xy
---- | vec2i.12
+---@alias ivec2
+--- | ivec2.xy
+--- | ivec2.12
 
 --[[
-WIPDOC
+2D plain vector with xy components.
 ]]
 ---@class vec2.xy
 ---@field x number
 ---@field y number
 
 --[[
-WIPDOC
+2D plain vector with 12 components.
 ]]
 ---@class vec2.12
 ---@field [1] number
 ---@field [2] number
 
 --[[
-WIPDOC
+2D plain vector with either xy components, or 12 components
 ]]
 ---@alias vec2
 --- | vec2.xy
@@ -49,30 +49,30 @@ WIPDOC
 -- ---------------------------------- vec3 ---------------------------------- --
 
 --[[
-WIPDOC
+3D integer plain vector with xyz components.
 ]]
----@class vec3i.xyz
+---@class ivec3.xyz
 ---@field x integer
 ---@field y integer
 ---@field z integer
 
 --[[
-WIPDOC
+3D integer plain vector with 123 components.
 ]]
----@class vec3i.123
+---@class ivec3.123
 ---@field [1] integer
 ---@field [2] integer
 ---@field [3] integer
 
 --[[
-WIPDOC
+3D integer plain vector with xyz components or 123 components.
 ]]
----@alias vec3i
---- | vec3i.xyz
---- | vec3i.123
+---@alias ivec3
+--- | ivec3.xyz
+--- | ivec3.123
 
 --[[
-WIPDOC
+3D plain vector with xyz components.
 ]]
 ---@class vec3.xyz
 ---@field x number
@@ -80,7 +80,7 @@ WIPDOC
 ---@field z number
 
 --[[
-WIPDOC
+3D plain vector with 123 components.
 ]]
 ---@class vec3.123
 ---@field [1] number
@@ -88,7 +88,7 @@ WIPDOC
 ---@field [3] number
 
 --[[
-WIPDOC
+3D plain vector with xyz components or 123 components.
 ]]
 ---@alias vec3
 --- | vec3.xyz

@@ -34,5 +34,5 @@ local async = {
     registered_tools = core.registered_tools,
     registered_craftitems = core.registered_craftitems,
     registered_aliases = core.registered_aliases,
--- TODO ... and more. WHY THE FUCK DON'T THEY JUST LIST THE GODDAMN FUNCTIONS
+-- TODO ... and more. it would have been nice if they just list everything that's available
 }

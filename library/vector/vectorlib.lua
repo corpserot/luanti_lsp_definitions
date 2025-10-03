@@ -1,66 +1,53 @@
 ---@meta _
--- DRAFT 1 DONE
+-- 3D vector class and library
 -- luanti/doc/lua_api.md: Spatial Vectors
 
 --[[
-WIPDOC
+3D vector class library
 ]]
 ---@class core.VectorLib
 vector = {}
 
 -- ------------------------------ constructors ------------------------------ --
 
---[[
-Returns a new vector `(a, b, c)`
-]]
----@nodiscard
----@param a number
----@param b number
----@param c number
----@return vec
-function vector.new(a, b, c) end
-
---[[
-Returns a new vector `(a, a, a)`
-]]
----@nodiscard
----@param a number
----@return vec
-function vector.new(a) end
-
---[[
-`vector.new(v)` does the same as `vector.copy(v)`
-]]
----@deprecated
----@nodiscard
----@param a vector
----@return vec
-function vector.new(a) end
-
---[[
-`vector.new()` does the same as `vector.zero()`
-]]
----@deprecated
----@nodiscard
----@return vec
-function vector.new() end
+--[[ vector.new() split off into ./vector_new.lua ]]--
 
 --[[
 Returns a new vector `(0, 0, 0)`
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
----@return vec
+---@return ivec
 function vector.zero() end
 
 --[[
-Returns a new vector of length 1, pointing into a direction chosen uniformly at random.
+Returns a new length 1 vector, pointing at a uniformly random direction.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@return vec
 function vector.random_direction() end
 
 --[[
-Returns a copy of the vector `v`.
+Returns a copy of the given integer vector
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
+]]
+---@nodiscard
+---@param v ivector
+---@return ivec
+function vector.copy(v) end
+
+--[[
+Returns a copy of the given vector
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v vector
@@ -70,30 +57,54 @@ function vector.copy(v) end
 -- ---------------------------- string conversion --------------------------- --
 
 --[[
-Returns v, np, where v is a vector read from the given string s and np is the
-next position in the string after the vector.
-Returns nil on failure.
+Reads the format `"(x, y, z)"` from the start of given string to return:
+- `v`: vector read from given string.
+- `np`: next position after the vector.
+Returns `nil` on failure.
+
+Format may have less or more spaces, less commas, or an extra comma at the end.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
----@param s string Has to begin with a substring of the form `"(x, y, z)"`. Additional spaces, leaving away commas, and adding an additional comma to the end is allowed.
----@param init number? Starts looking for the vector at this string index
+---@param s string
+---@param init integer? #@default(`1`) *[1,`#s`]*
 ---@return vec? v, integer? np
 function vector.from_string(s, init) end
 
 --[[
-Returns a string of the form `"(x, y, z)"`
-`tostring(v)` does the same
+Returns vector in the string format `"(x, y, z)"`.
+
+* @see tostring() does the same
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v vector
----@return vec
+---@return string
 function vector.to_string(v) end
+
+--[[
+Returns vector in the string format `"(x, y, z)"`
+
+* @see vector.to_string() does the same
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
+]]
+---@nodiscard
+---@param v vector
+---@return string
+function tostring(v) end
 
 -- -------------------------------------------------------------------------- --
 
 --[[
-Returns a vector of length 1 with direction p1 to p2.
-If p1 and p2 are identical, returns (0, 0, 0).
+Returns a new length 1 vector following direction from `p1` to `p2`.
+If `p1` and `p2` are identical, returns `(0, 0, 0)`.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param p1 vector
@@ -102,25 +113,34 @@ If p1 and p2 are identical, returns (0, 0, 0).
 function vector.direction(p1, p2) end
 
 --[[
-Returns zero or a positive number, the distance between p1 and p2.
+Returns distance between `p1` and `p2`.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param p1 vector
 ---@param p2 vector
----@return number
+---@return number *>=0*
 function vector.distance(p1, p2) end
 
 --[[
-Returns zero or a positive number, the length of vector v.
+Returns length of `v`.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v vector
----@return number
+---@return number *>=0*
 function vector.length(v) end
 
 --[[
-Returns a vector of length 1 with direction of vector v.
-If v has zero length, returns (0, 0, 0).
+Returns a new length 1 vector following direction of `v`.
+If `v` has zero length, returns `(0, 0, 0)`.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v vector
@@ -130,7 +150,10 @@ function vector.normalize(v) end
 -- -------------------------- rounding and signness ------------------------- --
 
 --[[
-Returns a vector, each dimension rounded down.
+Returns a new vector with each component from `v` rounded down.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v vector
@@ -138,7 +161,10 @@ Returns a vector, each dimension rounded down.
 function vector.floor(v) end
 
 --[[
-Returns a vector, each dimension rounded up.
+Returns a new vector with each component from `v` rounded up.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v vector
@@ -146,8 +172,11 @@ Returns a vector, each dimension rounded up.
 function vector.ceil(v) end
 
 --[[
-Returns a vector, each dimension rounded to the nearest integer.
+Returns a new vector with each component from `v` rounded to the nearest integer.
 At a multiple of 0.5, rounds away from zero.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v vector
@@ -155,16 +184,23 @@ At a multiple of 0.5, rounds away from zero.
 function vector.round(v) end
 
 --[[
-Returns a vector where `math.sign` was called for each component
+Returns a new vector from sign of each component
+
+* @see math.sign()
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v vector
----@param tolerance number?
+---@param anchor number? #@default(`0`)
 ---@return ivec
-function vector.sign(v, tolerance) end
+function vector.sign(v, anchor) end
 
 --[[
-Returns a vector with absolute values for each component
+Returns a new vector from absolute values of each component
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v vector
@@ -174,49 +210,64 @@ function vector.abs(v) end
 -- -------------------------------------------------------------------------- --
 
 --[[
-Applies `func` to each component
+Returns a new vector from `func` applied on each component.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v vector
----@param func fun(n: number): number
----@param ... any Optional arguments passed to `func`
+---@param func fun(a:number, ...:any):number
+---@param ... any #Optional arguments passed to `func`
 ---@return vec
 function vector.apply(v, func, ...) end
 
 --[[
-Returns a vector where the function `func` has combined both components of `v`
-and `w` for each component
+Returns a new vector from `func` combining each component of `v`and `w`.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v vector
 ---@param w vector
----@param func fun(x:number, y:number):number
+---@param func fun(va:number, wa:number):number
 ---@return vec
 function vector.combine(v, w, func) end
 
 --[[
-Returns true if the vectors are identical, false if not
+Whether `v1` has components equal to `v2`
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v1 vector
 ---@param v2 vector
----@return vec
+---@return boolean
 function vector.equals(v1, v2) end
 
 --[[
-Returns in order minp, maxp vectors of the cuboid defined by v1, v2.
-(Unofficial note: In other words, each component of the minp is smaller than component in maxp)
+Returns new vectors `minp` and `maxp` from components of `v1` and `v2`.
+- `minp`: vector with smaller components from both vectors
+- `maxp`: vector with larger components from both vectors
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v1 vector
 ---@param v2 vector
----@return vec, vec
+---@return vec minp, vec maxp
 function vector.sort(v1, v2) end
 
 -- -------------------------------------------------------------------------- --
 
 --[[
-Returns the angle between v1 and v2 in radians
+Returns the angle between `v1` and `v2` in radians.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v1 vector
@@ -225,7 +276,10 @@ Returns the angle between v1 and v2 in radians
 function vector.angle(v1, v2) end
 
 --[[
-Returns the dot product
+Returns the dot product of `v1` and `v2`.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v1 vector
@@ -234,7 +288,10 @@ Returns the dot product
 function vector.dot(v1, v2) end
 
 --[[
-Returns the cross product
+Returns the cross product of `v1` and `v2`.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v1 vector
@@ -243,7 +300,10 @@ Returns the cross product
 function vector.cross(v1, v2) end
 
 --[[
-Returns the sum of vectors `v` and `(x,y,z)`
+Returns a new vector from summing `v` and `(x,y,z)`.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v vector
@@ -254,41 +314,50 @@ Returns the sum of vectors `v` and `(x,y,z)`
 function vector.offset(v, x, y, z) end
 
 --[[
-Checks if `v` is a vector, returns false even for tables like {x=,y=,z=}, has to be created with a vector function
+Whether `v` is a vector class instance. Plain vectors will return `false`
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
----@param v vector
+---@param v any
 ---@return boolean
 function vector.check(v) end
 
 --[[
-Checks if `pos` is inside an area formed by `min` and `max`
-`min` and `max` are inclusive
-If min is bigger than max on some axis, function always returns false.
-You can use vector.sort if you have two vectors and don't know which are the minimum and the maximum.
+Whether `pos` is inside an area formed by `min` and `max` (inclusive).
+`min` components must be smaller than `max`. Otherwise, returns `false`.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param pos vector
----@param min vector
----@param max vector
+---@param min vector *`min` < `max`* for xyx components
+---@param max vector *`min` < `max`* for xyz components
 ---@return boolean
 function vector.in_area(pos, min, max) end
 
 --[[
-Returns a random integer position in area formed by min and max
-min and max are inclusive.
-You can use vector.sort if you have two vectors and don't know which are the minimum and the maximum.
+Returns a random integer position in area formed by `min` and `max` (inclusive).
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
----@param min vector
----@param max vector
----@return vec
+---@param min vector *`min` < `max`* for xyx components
+---@param max vector *`min` < `max`* for xyz components
+---@return ivec
 function vector.random_in_area(min, max) end
 
 -- ------------------------- arithmetic and products ------------------------ --
 
 --[[
-WIPDOC
+- `x` is a vector: Returns a new vector from summing `v` and `x`.
+- `x` is a number: Returns a new vector from adding `x` to each component of `v`.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v vector
@@ -297,7 +366,11 @@ WIPDOC
 function vector.add(v, x) end
 
 --[[
-WIPDOC
+- `x` is a vector: Returns a new vector from difference of `v` and `x`.
+- `x` is a number: Returns a new vector from subtracting `x` from each component of `v`.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v vector
@@ -306,72 +379,101 @@ WIPDOC
 function vector.subtract(v, x) end
 
 --[[
-WIPDOC
+Returns a new vector from scaling `v` by `s`
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v vector
----@param x number
+---@param s number
 ---@return vec
-function vector.multiply(v, x) end
+function vector.multiply(v, s) end
 
 --[[
-WIPDOC
+Returns a new vector from scaling `v` by `1/s`
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v vector
----@param x number
+---@param s number
 ---@return vec
-function vector.divide(v, x) end
+function vector.divide(v, s) end
 
 --[[
-WIPDOC
+Returns the schur product between `v1` and `v2`.
+
+* @deprecated 5.X
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@deprecated
 ---@nodiscard
----@param v vector
----@param x vector
+---@param v1 vector
+---@param v2 vector
 ---@return vec
-function vector.multiply(v, x) end
+function vector.multiply(v1, v2) end
 
 --[[
-WIPDOC
+Returns the schur product between `v1` and `1/v2`.
+
+* @deprecated 5.X
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@deprecated
 ---@nodiscard
----@param v vector
----@param x vector
+---@param v1 vector
+---@param v2 vector
 ---@return vec
-function vector.divide(v, x) end
+function vector.divide(v1, v2) end
 
 -- ----------------------- rotation-related functions ----------------------- --
 
 --[[
-Applies the rotation r to v and returns the result.
-vector.rotate(vector.new(0, 0, 1), r) and vector.rotate(vector.new(0, 1, 0), r) return vectors pointing forward and up relative to an entity's rotation r.
+Returns a new vector from applying rotation `r` to `v`. Angles are in radians.
+
+Rotation order is right-handed extrinsic pitch-yaw-roll. This is exceptional,
+following `ObjectRef:set_rotation()`. As a rotation matrix, it's written as `z*y*x`.
+
+* @see [luanti/doc/lua_api.md > Coordinate System](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#coordinate-system)
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
 ---@param v vector
----@param r vector Rotation vector {x=<pitch>, y=<yaw>, z=<roll>}
+---@param r vector rotation vector
 ---@return vec
 function vector.rotate(v, r) end
 
 --[[
-Returns v1 rotated around axis v2 by a radians according to the right hand rule.
+Returns a new vector from rotating `v` around `axis` by `a` radians following
+the right hand rule, meaning it's counter clockwise looking inward from
+direction of `axis`.
+
+* @see luanti/doc/lua_api.md > Coordinate System
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
----@param v1 vector
----@param v2 vector
----@param a number radians
+---@param v vector
+---@param axis vector
+---@param angle number radians
 ---@return vec
-function vector.rotate_around_axis(v1, v2, a) end
+function vector.rotate_around_axis(v, axis, angle) end
 
 --[[
-Returns a rotation vector for direction pointing forward using up as the up vector.
-If up is omitted, the roll of the returned vector defaults to zero.
-Otherwise direction and up need to be vectors in a 90 degree angle to each other.
+Returns a new rotation vector that would rotate +Z towards `forward` and +Y
+towards `up`. `up` must be the intrinsic +Y of `forward`, determining the roll.
+
+* @see luanti/doc/lua_api.md > Coordinate System
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
----@param up vector?
----@param direction vector
+---@param forward vector
+---@param up vector? #@default(*vector perpendicular to `forward` where roll is 0*) perpendicular to `forward`
 ---@return vec
-function vector.dir_to_rotation(direction, up) end
+function vector.dir_to_rotation(forward, up) end

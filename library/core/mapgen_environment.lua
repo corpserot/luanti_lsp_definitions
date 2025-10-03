@@ -25,7 +25,7 @@ local mapgen = {
     get_mapgen_setting = core.get_mapgen_setting,
     get_noiseparams = core.get_noiseparams,
     get_decoration_id = core.get_decoration_id,
--- TODO ... and more. WHY THE FUCK DON'T THEY JUST LIST THE GODDAMN FUNCTIONS
+-- TODO ... and more. it would have been nice if they just list everything that's available
 
     -- TODO each needs a disclaimer that it operates only in the current chunk. separate this later
     get_node = core.get_node,
@@ -33,7 +33,7 @@ local mapgen = {
     find_node_near = core.find_node_near,
     find_nodes_in_area = core.find_nodes_in_area,
     spawn_tree = core.spawn_tree,
--- TODO ... and more. WHY THE FUCK DON'T THEY JUST LIST THE GODDAMN FUNCTIONS
+-- TODO ... and more. it would have been nice if they just list everything that's available
 
     settings = core.settings,
 
@@ -43,7 +43,7 @@ local mapgen = {
     registered_tools = core.registered_tools,
     registered_craftitems = core.registered_craftitems,
     registered_aliases = core.registered_aliases,
--- TODO ... and more. WHY THE FUCK DON'T THEY JUST LIST THE GODDAMN FUNCTIONS
+-- TODO ... and more. it would have been nice if they just list everything that's available
     registered_biomes = core.registered_biomes,
     registered_ores = core.registered_ores,
     registered_decorations = core.registered_decorations,

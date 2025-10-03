@@ -10,11 +10,12 @@ converted with `tostring` if it's not a string. This means that you can use
 tables as error objects so long as you give them `__tostring` metamethods.
 
 * @overrideable
-* @see luanti/builtin/init.lua
+* @see [luanti/doc/lua_api.md >> Error Handling](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#error-handling)
+* @see [luanti/builtin/init.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/init.lua)
 ]]
 ---@nodiscard
 ---@param err any
----@param level integer #@hint(`>=0`)
+---@param level integer *>=0*
 ---@return string
 function core.error_handler(err, level) end
 
@@ -22,7 +23,7 @@ function core.error_handler(err, level) end
 Path separator
 
 * @deprecated 5.X Recommended to use the forward slash `/` instead
-* @see
+* @see [luanti/src/script/cpp_api/s_base.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/cpp_api/s_base.cpp)
 ]]
 ---@deprecated
 ---@type "/"|"\\"
@@ -32,8 +33,9 @@ DIR_DELIM = nil
 Luanti provids the bitop library. Avoid using this unless you really need bit
 manipulation as it's not faster than JIT traced arithmetic operations.
 
-* @see <http://bitop.luajit.org/> for more information about the specifics in LuaJIT
-* @see luanti/lib/bitop/ for its implementation
+* @see [luanti/doc/lua_api.md >> Bit Library](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#bit-library)
+* @see <http://bitop.luajit.org/>
+* @see [luanti/lib/bitop/](https://github.com/luanti-org/luanti/blob/5.13.0/lib/bitop/)
 ]]
 ---@type bitlib
 bit = bit
