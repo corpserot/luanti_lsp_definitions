@@ -41,7 +41,7 @@ These are extra annotations available to all.
 * @breaking 5.3.0 This indicates the stable luanti version that broke the compatibility of this feature or removed it
 * @internal This indicates that it's an undocumented internal implementation and subject to change
 * @see path/to/doc.md > Section #This indicates a section within a markdown document
-* @see https://web.site This indicates an online resource
+* @see <https://web.site> This indicates an online resource
 ]]
 ---@type integer
 MY_CONSTANT = nil
@@ -99,6 +99,11 @@ Practices that don't need a section to explain it.
 
 - Do not set project-wide diagnostics in your game/mod. Instead use file-scoped or line diagnostics directives.\
     e.g `---@diagnostic disable-next-line: lowercase-global`
+
+# Referencing Luanti source code
+This library definition provides hints to relevant C++ code of classes, functions and more through `@see` references. However, they are incomplete in the sense that you *need* to explore the codebase on your own. It's a good start for game and mod developers if they ever need to dive deep, but simple file references could only take you so far.
+
+For example, the library definition points towards the `luanti/src/nodetimer.cpp` file but even after reading it you won't really understand where, when and how it is used. Or even how it might interact with other features of the engine.
 
 # Dependencies
 Dependencies matter for annotations. If code is annotated, you'll have to fetch the code. If it has a library definition, you'll have to fetch the library definition instead.
