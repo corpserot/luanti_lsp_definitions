@@ -33,12 +33,12 @@ nodes are coal ore.
 --[[
 WIPDOC
 ]]
----@class core.OreDef.scatter.uniform : _.OreDef.__base, _.OreDef.scatter.__partial
+---@class core.OreDef.scatter.uniform : _.OreDef.scatter.__partial, _.OreDef.__base
 
 --[[
 WIPDOC
 ]]
----@class core.OreDef.scatter.nonuniform : _.OreDef.__base, _.OreDef.scatter.__partial
+---@class core.OreDef.scatter.nonuniform : _.OreDef.scatter.__partial, _.OreDef.__base
 --[[
 If noise is above this threshold, ore is placed. Not needed for a
 uniform distribution.

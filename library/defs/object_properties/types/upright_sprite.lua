@@ -29,12 +29,12 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.ObjectProperties.upright_sprite.set : _.ObjectProperties.__base.set, _.ObjectProperties.upright_sprite.set.__partial
+---@class core.ObjectProperties.upright_sprite.set : _.ObjectProperties.upright_sprite.set.__partial, _.ObjectProperties.__base.set
 
 --[[
 WIPDOC
 ]]
----@class core.ObjectProperties.upright_sprite.get : _.ObjectProperties.__base.get, _.ObjectProperties.upright_sprite.get.__partial
+---@class core.ObjectProperties.upright_sprite.get : _.ObjectProperties.upright_sprite.get.__partial, _.ObjectProperties.__base.get
 
 ---@class _.ObjectProperties.upright_sprite.set.__partial : _.ObjectProperties.spritesheet.set.__partial, _.ObjectProperties.shaded.set.__partial
 --[[

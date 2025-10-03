@@ -45,12 +45,12 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.ObjectProperties.cube.set : _.ObjectProperties.__base.set, _.ObjectProperties.cube.set.__partial
+---@class core.ObjectProperties.cube.set : _.ObjectProperties.cube.set.__partial, _.ObjectProperties.__base.set
 
 --[[
 WIPDOC
 ]]
----@class core.ObjectProperties.cube.get : _.ObjectProperties.__base.get, _.ObjectProperties.cube.get.__partial
+---@class core.ObjectProperties.cube.get : _.ObjectProperties.cube.get.__partial, _.ObjectProperties.__base.get
 
 ---@class _.ObjectProperties.cube.set.__partial : _.ObjectProperties.backface_culling.set.__partial, _.ObjectProperties.shaded.set.__partial
 --[[

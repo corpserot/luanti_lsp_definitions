@@ -5,12 +5,12 @@
 --[[
 WIPDOC
 ]]
----@class core.ObjectProperties.mesh.set : _.ObjectProperties.__base.set, _.ObjectProperties.mesh.set.__partial
+---@class core.ObjectProperties.mesh.set : _.ObjectProperties.mesh.set.__partial, _.ObjectProperties.__base.set
 
 --[[
 WIPDOC
 ]]
----@class core.ObjectProperties.mesh.get : _.ObjectProperties.__base.get, _.ObjectProperties.mesh.get.__partial
+---@class core.ObjectProperties.mesh.get : _.ObjectProperties.mesh.get.__partial, _.ObjectProperties.__base.get
 
 ---@class _.ObjectProperties.mesh.set.__partial : _.ObjectProperties.backface_culling.set.__partial, _.ObjectProperties.shaded.set.__partial
 --[[

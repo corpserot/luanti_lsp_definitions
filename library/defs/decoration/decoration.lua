@@ -124,8 +124,8 @@ Flags for all decoration types.
 
 -- -------------------------- DecorationDef.simple -------------------------- --
 
----@class _.DecorationDef.simple.fill_ratio : _.DecorationDef.__base, _.DecorationDef.fill_ratio.__partial, _.DecorationDef.simple.__partial
----@class _.DecorationDef.simple.noise_params : _.DecorationDef.__base, _.DecorationDef.noise_params.__partial, _.DecorationDef.simple.__partial
+---@class _.DecorationDef.simple.fill_ratio : _.DecorationDef.simple.__partial, _.DecorationDef.fill_ratio.__partial, _.DecorationDef.__base
+---@class _.DecorationDef.simple.noise_params : _.DecorationDef.simple.__partial, _.DecorationDef.noise_params.__partial, _.DecorationDef.__base
 
 --[[
 WIPDOC
@@ -185,8 +185,8 @@ to the 'place_on' node.
 
 -- ------------------------- DecorationDef.schematic ------------------------ --
 
----@class _.DecorationDef.schematic.fill_ratio : _.DecorationDef.__base, _.DecorationDef.fill_ratio.__partial, _.DecorationDef.schematic.__partial
----@class _.DecorationDef.schematic.noise_params : _.DecorationDef.__base, _.DecorationDef.noise_params.__partial, _.DecorationDef.schematic.__partial
+---@class _.DecorationDef.schematic.fill_ratio : _.DecorationDef.schematic.__partial, _.DecorationDef.fill_ratio.__partial, _.DecorationDef.__base
+---@class _.DecorationDef.schematic.noise_params : _.DecorationDef.schematic.__partial, _.DecorationDef.noise_params.__partial, _.DecorationDef.__base
 
 --[[
 WIPDOC
@@ -230,8 +230,8 @@ WIPDOC
 
 -- -------------------------- DecorationDef.lsystem ------------------------- --
 
----@class _.DecorationDef.lsystem.fill_ratio : _.DecorationDef.__base, _.DecorationDef.fill_ratio.__partial, _.DecorationDef.lsystem.__partial
----@class _.DecorationDef.lsystem.noise_params : _.DecorationDef.__base, _.DecorationDef.noise_params.__partial, _.DecorationDef.lsystem.__partial
+---@class _.DecorationDef.lsystem.fill_ratio : _.DecorationDef.lsystem.__partial, _.DecorationDef.fill_ratio.__partial, _.DecorationDef.__base
+---@class _.DecorationDef.lsystem.noise_params : _.DecorationDef.lsystem.__partial, _.DecorationDef.noise_params.__partial, _.DecorationDef.__base
 
 --[[
 WIPDOC

@@ -5,12 +5,12 @@
 --[[
 WIPDOC
 ]]
----@class core.ObjectProperties.node.set : _.ObjectProperties.__base.set, _.ObjectProperties.node.set.__partial
+---@class core.ObjectProperties.node.set : _.ObjectProperties.node.set.__partial, _.ObjectProperties.__base.set
 
 --[[
 WIPDOC
 ]]
----@class core.ObjectProperties.node.get : _.ObjectProperties.__base.get, _.ObjectProperties.node.get.__partial
+---@class core.ObjectProperties.node.get : _.ObjectProperties.node.get.__partial, _.ObjectProperties.__base.get
 
 ---@class _.ObjectProperties.node.set.__partial
 --[[

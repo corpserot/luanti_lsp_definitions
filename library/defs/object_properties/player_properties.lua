@@ -76,13 +76,13 @@ If get to true the entity will show as a marker on the minimap.
 
 -- ---------------------------- PlayerProperties ---------------------------- --
 
----@class core.PlayerProperties.cube.set : _.PlayerProperties.__base.set, _.ObjectProperties.cube.set.__partial
----@class core.PlayerProperties.sprite.set : _.PlayerProperties.__base.set, _.ObjectProperties.sprite.set.__partial
----@class core.PlayerProperties.upright_sprite.set : _.PlayerProperties.__base.set, _.ObjectProperties.upright_sprite.set.__partial
----@class core.PlayerProperties.mesh.set : _.PlayerProperties.__base.set, _.ObjectProperties.mesh.set.__partial
----@class core.PlayerProperties.wielditem.set : _.PlayerProperties.__base.set, _.ObjectProperties.wielditem.set.__partial
----@class core.PlayerProperties.item.set : _.PlayerProperties.__base.set, _.ObjectProperties.item.__partial
----@class core.PlayerProperties.node.set : _.PlayerProperties.__base.set, _.ObjectProperties.node.set.__partial
+---@class core.PlayerProperties.cube.set : _.ObjectProperties.cube.set.__partial, _.PlayerProperties.__base.set
+---@class core.PlayerProperties.sprite.set : _.ObjectProperties.sprite.set.__partial, _.PlayerProperties.__base.set
+---@class core.PlayerProperties.upright_sprite.set : _.ObjectProperties.upright_sprite.set.__partial, _.PlayerProperties.__base.set
+---@class core.PlayerProperties.mesh.set : _.ObjectProperties.mesh.set.__partial, _.PlayerProperties.__base.set
+---@class core.PlayerProperties.wielditem.set : _.ObjectProperties.wielditem.set.__partial, _.PlayerProperties.__base.set
+---@class core.PlayerProperties.item.set : _.ObjectProperties.item.__partial, _.PlayerProperties.__base.set
+---@class core.PlayerProperties.node.set : _.ObjectProperties.node.set.__partial, _.PlayerProperties.__base.set
 
 ---@alias core.PlayerProperties.set
 --- | core.PlayerProperties.cube.set
@@ -93,13 +93,13 @@ If get to true the entity will show as a marker on the minimap.
 --- | core.PlayerProperties.item.set
 --- | core.PlayerProperties.node.set
 
----@class core.PlayerProperties.cube.get : _.PlayerProperties.__base.get, _.ObjectProperties.cube.get.__partial
----@class core.PlayerProperties.sprite.get : _.PlayerProperties.__base.get, _.ObjectProperties.sprite.get.__partial
----@class core.PlayerProperties.upright_sprite.get : _.PlayerProperties.__base.get, _.ObjectProperties.upright_sprite.get.__partial
----@class core.PlayerProperties.mesh.get : _.PlayerProperties.__base.get, _.ObjectProperties.mesh.get.__partial
----@class core.PlayerProperties.wielditem.get : _.PlayerProperties.__base.get, _.ObjectProperties.wielditem.get.__partial
----@class core.PlayerProperties.item.get : _.PlayerProperties.__base.get, _.ObjectProperties.item.__partial
----@class core.PlayerProperties.node.get : _.PlayerProperties.__base.get, _.ObjectProperties.node.get.__partial
+---@class core.PlayerProperties.cube.get : _.ObjectProperties.cube.get.__partial, _.PlayerProperties.__base.get
+---@class core.PlayerProperties.sprite.get : _.ObjectProperties.sprite.get.__partial, _.PlayerProperties.__base.get
+---@class core.PlayerProperties.upright_sprite.get : _.ObjectProperties.upright_sprite.get.__partial, _.PlayerProperties.__base.get
+---@class core.PlayerProperties.mesh.get : _.ObjectProperties.mesh.get.__partial, _.PlayerProperties.__base.get
+---@class core.PlayerProperties.wielditem.get : _.ObjectProperties.wielditem.get.__partial, _.PlayerProperties.__base.get
+---@class core.PlayerProperties.item.get : _.ObjectProperties.item.__partial, _.PlayerProperties.__base.get
+---@class core.PlayerProperties.node.get : _.ObjectProperties.node.get.__partial, _.PlayerProperties.__base.get
 
 ---@alias core.PlayerProperties.get
 --- | core.PlayerProperties.cube.get
