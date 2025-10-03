@@ -58,4 +58,4 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field drop core.NodeDef.drop
+---@field drop core.NodeDef.drop?

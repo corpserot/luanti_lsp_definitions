@@ -89,6 +89,10 @@ WIPDOC
 ]]
 ---@class core.NodeDef: core.ItemDef
 --[[
+WIPDOC
+]]
+---@field groups core.Groups.node?
+--[[
 When used for nodes: Defines amount of light emitted by node.
 Otherwise: Defines texture glow when viewed as a dropped item
 To set the maximum (14), use the value 'core.LIGHT_MAX'.

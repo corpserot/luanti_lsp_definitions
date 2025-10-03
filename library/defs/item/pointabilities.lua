@@ -18,11 +18,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field nodes table<core.Node.namelike, core.ItemDef.pointabilities.value>
+---@field nodes table<core.Node.namelike, core.ItemDef.pointabilities.value>?
 --[[
 WIPDOC
 ]]
----@field objects table<core.Entity.namelike, core.ItemDef.pointabilities.value>>
+---@field objects table<core.Entity.namelike, core.ItemDef.pointabilities.value>?
 
 
 -- ----------------------------- ItemDef fields ----------------------------- --

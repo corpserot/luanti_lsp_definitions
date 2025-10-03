@@ -226,7 +226,7 @@ to the 'place_on' node.
 --[[
 WIPDOC
 ]]
----@field flags core.DecorationDef.schematic.flags
+---@field flags core.DecorationDef.schematic.flags?
 
 -- -------------------------- DecorationDef.lsystem ------------------------- --
 

@@ -7,7 +7,19 @@
 --[[
 WIPDOC
 ]]
----@class core.MapgenParams
+---@alias core.MapgenSettings.keys
+--- | _.LuantiSettings.mapgen.keys
+--- | _.LuantiSettings.advanced.advanced.mapgen.keys
+--- | "mgname"
+--- | "seed"
+--- | "chunksize"
+--- | "water_level"
+--- | "flags"
+
+--[[
+WIPDOC
+]]
+---@class core.MapgenSettings
 --[[
 WIPDOC
 ]]
@@ -43,7 +55,7 @@ WIPDOC
 ]]
 ---@deprecated
 ---@nodiscard
----@return core.MapgenParams
+---@return core.MapgenSettings
 function core.get_mapgen_params() end
 
 --[[
@@ -65,5 +77,5 @@ function core.get_mapgen_params() end
       `minetest.conf`.
 ]]
 ---@deprecated
----@param MapgenParams core.MapgenParams
+---@param MapgenParams core.MapgenSettings
 function core.set_mapgen_params(MapgenParams) end

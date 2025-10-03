@@ -39,4 +39,4 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field sounds core.NodeDef.sounds
+---@field sounds core.NodeDef.sounds?

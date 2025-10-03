@@ -558,7 +558,7 @@ function core.get_mapgen_chunksize() end
         4) Settings set as the user config default
 ]]
 ---@nodiscard
----@param name _.LuantiSettings.mapgen.keys
+---@param name core.MapgenSettings.keys
 ---@return string?
 function core.get_mapgen_setting(name) end
 
@@ -591,7 +591,7 @@ function core.get_mapgen_setting_noiseparams(name) end
       metafile contents.
     * Note: to set the seed, use `"seed"`, not `"fixed_map_seed"`.
 ]]
----@param name _.LuantiSettings.mapgen.keys
+---@param name core.MapgenSettings.keys
 ---@param value string
 ---@param override_meta boolean?
 function core.set_mapgen_setting(name, value, override_meta) end

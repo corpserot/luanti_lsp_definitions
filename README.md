@@ -2,7 +2,7 @@
 - **Status:** DRAFT 2 WIP (see [issue#6](https://github.com/corpserot/luanti_lsp_definitions/issues/6))
 - **Luanti commit coverage:** `421835a3` (`5.14.X`)
 - **Target projects when testing:**
-  - [Minetest Game (MTG)](https://github.com/luanti-org/minetest_game) commit `0ebe46e4`\
+  - [Minetest Game (MTG)](https://github.com/luanti-org/minetest_game) commit `ac2bc0f5`\
     With a custom LuaLS config (To be published).
 - **Scheduled breaking changes**: Anytime, still in development.
 <!--

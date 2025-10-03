@@ -40,8 +40,8 @@ function core.register_tool(name, itemdef) end
       removes the sounds from the definition of the mese block.
 ]]
 ---@param name string
----@param redefinition core.ItemDef|core.NodeDef
----@param del_fields core.ItemDef.keys|core.NodeDef.keys
+---@param redefinition core.ItemDef|core.NodeDef?
+---@param del_fields core.ItemDef.keys|core.NodeDef.keys?
 function core.override_item(name, redefinition, del_fields) end
 
 --[[
