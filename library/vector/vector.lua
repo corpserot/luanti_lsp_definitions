@@ -2,53 +2,6 @@
 -- 3D vector class
 -- luanti/doc/lua_api.md: Spatial Vectors
 
----@class _.vec.__base : core.VectorLib
---[[
-Metatable used by the 3D vector class.
-
-* @added 5.5.0
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@field metatable core.VectorLib
---[[
-Returns a new vector from inverting the sign of each component.
-
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@operator unm():vec
---[[
-Returns a new vector from summing vectors.
-
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@operator add(vector):vec
---[[
-Returns a new vector from difference of vectors.
-
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@operator sub(vector):vec
---[[
-Returns a new vector from scaling vector by given number.
-Operand position can be reversed.
-
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@operator mul(number):vec
---[[
-Returns a new vector from scaling vector by reciprocal of given number.
-Operand position can be reversed.
-
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@operator div(number):vec
-
 --[[
 3D integer vector class instance
 
@@ -56,7 +9,23 @@ Operand position can be reversed.
 * @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
----@class ivec: ivec3.xyz, _.vec.__base
+---@class ivec: ivec3.xyz, core.VectorLib
+---@operator unm:ivec
+---@operator add(ivector):ivec
+---@operator add(vector):vec
+---@operator sub(ivector):ivec
+---@operator sub(vector):vec
+---@operator mul(integer):ivec
+---@operator mul(number):vec
+---@operator div(number):vec
+--[[
+Metatable used by the 3D integer vector class.
+
+* @added 5.5.0
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
+]]
+---@field metatable core.VectorLib
 --[[
 Not recommended as it is accessed and modified through `__index` and
 `__newindex` functions resulting in more work than using xyz.
@@ -92,7 +61,20 @@ Not recommended as it is accessed and modified through `__index` and
 * @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
----@class vec: vec3.xyz, _.vec.__base
+---@class vec: vec3.xyz, core.VectorLib
+---@operator unm:vec
+---@operator add(vector):vec
+---@operator sub(vector):vec
+---@operator mul(number):vec
+---@operator div(number):vec
+--[[
+Metatable used by the 3D vector class.
+
+* @added 5.5.0
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
+]]
+---@field metatable core.VectorLib
 --[[
 Not recommended as it is accessed and modified through `__index` and
 `__newindex` functions resulting in more work than using xyz.
