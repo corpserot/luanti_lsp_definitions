@@ -7,13 +7,13 @@
 - **Scheduled breaking changes**: Anytime, still in development.
 <!--
   - This follows Luanti's minor releases, meaning we will schedule a breaking release when the target minor release is published.
-  - Breaking changes matters for writing annotations on top of library definition. Otherwise, it's inconsequential meaning you don't have to care about this if you merely want type checking.
+  - Breaking changes matters for writing annotations on top of Luanti luadef. Otherwise, it's inconsequential meaning you don't have to care about this if you merely want type checking.
   - All changes, breaking or otherwise, are recorded in `CHANGELOG.md`
 -->
 
 # Why use this?
-This library definition enables a lua language server to operate with Luanti APIs and types. This in turn allows for IDE-like capabilities including but not limited to:
-- Typed annotation system called LuaCATS a la JSDoc annotations. In this case, this project uses definition files similar to Typescript definition files.
+This Luadef (lua definition library) enables a lua language server to operate with Luanti APIs and types. This in turn allows for IDE-like capabilities including but not limited to:
+- Typed annotation system called LuaCATS a la JSDoc annotations. In this case, definition files in this Luadef are similar to Typescript declaration files.
 - Diagnostics through semantic analysis, replacing [luacheck](https://github.com/mpeterv/luacheck) completely.
 - Autocompletion and hover information for API symbols, types, fields and more.
 
@@ -22,20 +22,48 @@ This library definition enables a lua language server to operate with Luanti API
   - For VSCode users, you get first-class support with extra features enabled. So, please visit relevant first-party guides.
   - For Neovim users, you have many ways to configure your language server. As of 2025-08-25 there isn't any (easy and simple) setup that interactively asks you whether to enable an addon for a workspace/project.
   - For EmmyLua users, you may encounter some issues as this project prioritises LuaLS.
-- Manual setup for single library definitions (Recommended for one-off uses):
-  - Git clone this repository.
-  - In your personal project config, add entries below. Optionally, manually inject whatever is inside `config.json` > `"settings"` into your LuaLS config. That entry contains recommended settings for Luanti game and mod development.
+  - (LuaLS) Suggested language server configs:
     ```json
     {
-      "workspace.library": ["/path/to/luanti-lsp-definitions/library"],
-      // e.g. selecting this specifically from "settings.Lua" entry in config.json:
-      "diagnostics.disable": [
-        "lowercase-global"
-      ],
+      // Do not expand alias or you will not know what `string` could be
+      "Lua.hover.expandAlias": false,
+      // LuaLS *should* tell you if the table shape doesn't match the type
+      "Lua.type.checkTableShape": true,
+      // *Don't* cast numbers as integers
+      "Lua.type.castNumberToInteger": false,
+      // Optional: infer larger literal table type
+      "Lua.type.inferTableSize": 16
     }
     ```
 
-Please read the friendly [`GUIDE.md`](https://github.com/corpserot/luanti_lsp_definitions/blob/master/GUIDE.md) as this library definition has some unique interpretations and conventions you should be aware of.
+There are a couple methods to setup this Luadef.
+
+- Manual setup for multiple Luadef:
+  - Prepare a directory where you'll store your personal collections of Luadefs. It will be referred to as `third_party/` here.
+  - Git clone this repository, and perhaps any other Luadefs you are interested on into `third_party/`.\
+  e.g. [LuaUnit Luadefs](https://github.com/serg3295/luaunit)
+  - In your personal project config, add entries below. Pre-defined settings in this Luadef will need to be applied manually, if desired.
+  ```json
+  // .luarc.json
+  {
+    // Only booleans, "Ask" and "Disable" work in VSCode
+    "workspace.checkThirdParty": "Apply",
+    // You can use environment variables like this: ${env:HOME}
+    "workspace.userThirdParty": ["/path/to/third_party/"]
+  }
+  ```
+
+- Manual setup for single Luadef:
+  - Git clone this repository.
+  - In your personal project config, add entries below. Pre-defined settings in this Luadef will need to be applied manually, if desired.
+  ```json
+  // .luarc.json or .emmyrc.json
+    {
+      "workspace.library": ["/path/to/luanti-lsp-definitions/library"],
+    }
+    ```
+
+Please read the friendly [`GUIDE.md`](https://github.com/corpserot/luanti_lsp_definitions/blob/master/GUIDE.md) as this Luadef has some unique interpretations and conventions you should be aware of.
 
 # Acknowledgements
 There are a couple projects that was developed with similar ideas that I remember seeing. I would like to show my appreciation for their efforts with this simple acknowledgement. Note that this project only look at Luanti's source code along with its documents, meaning I don't use any information elsewhere. Please don't bother me about the stricter licensing from some of these other projects.
@@ -54,6 +82,12 @@ No. You should use the language server's documentation generator instead ([LuaLS
 
 ## Should I use [Luanti Tools VSCode(ium) extension](https://marketplace.visualstudio.com/items?itemName=GreenXenith.minetest-tools) together with this?
 Probably wait until the developer (GreenXenith) is made aware about this project. There's no reason it wouldn't work however.
+
+## What's with table literals?
+In LuaLS, table literals are analyzed in limited capacity. You can configure this with [`type.checkTableShape`](https://luals.github.io/wiki/settings/#typechecktableshape) and [`type.inferTableSize`](https://luals.github.io/wiki/settings/#typeinfertablesize).
+
+## What's with passing functions as parameters?
+In LuaLS, functions passed as parameters don't get analyzed at all for correct signature.
 
 ## If i use this, do i have to use a LGPL-compliant license for my game/mod?
 ***Disclaimer: I am not a lawyer, and nothing in this material should be taken as legal advice. It may even be inaccurate. No attorney–client relationship is created by your use of this information provided for informative purposes. You should not act or rely on any information provided here without seeking the advice of a qualified attorney licensed in your jurisdiction. I disclaim all liability for actions you take or fail to take based on any content provided.***

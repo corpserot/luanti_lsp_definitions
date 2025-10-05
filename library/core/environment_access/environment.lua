@@ -61,7 +61,7 @@ function core.remove_node(pos) end
 ]]
 ---@nodiscard
 ---@param pos ivector
----@return core.Node.set
+---@return core.Node.get
 function core.get_node(pos) end
 
 --[[
@@ -186,7 +186,7 @@ function core.spawn_falling_node(pos) end
 ---@nodiscard
 ---@param pos1 ivector
 ---@param pos2 ivector
----@return vec[]
+---@return ivec[]
 function core.find_nodes_with_meta(pos1, pos2) end
 
 --[[
@@ -343,7 +343,7 @@ But you can notice that it doesn't have that pesky volume limit, so it's impleme
 ---@param radius integer
 ---@param nodenames OneOrMany<core.Node.namelike>
 ---@param search_center boolean?
----@return vec?
+---@return ivec?
 function core.find_node_near(pos, radius, nodenames, search_center) end
 
 --[[

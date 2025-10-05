@@ -20,9 +20,35 @@ function core.inventorycube(img1, img2, img3) end
       to a node, then it will return the `above` position of the `pointed_thing`.
 ]]
 ---@nodiscard
----@param pointed_thing core.PointedThing
+---@param pointed_thing core.PointedThing.nothing
 ---@param above boolean?
----@return vec?
+---@return nil
+function core.get_pointed_thing_position(pointed_thing, above) end
+
+--[[
+* `core.get_pointed_thing_position(pointed_thing, above)`
+    * Returns the position of a `pointed_thing` or `nil` if the `pointed_thing`
+      does not refer to a node or entity.
+    * If the optional `above` parameter is true and the `pointed_thing` refers
+      to a node, then it will return the `above` position of the `pointed_thing`.
+]]
+---@nodiscard
+---@param pointed_thing core.PointedThing.node
+---@param above boolean?
+---@return ivec
+function core.get_pointed_thing_position(pointed_thing, above) end
+
+--[[
+* `core.get_pointed_thing_position(pointed_thing, above)`
+    * Returns the position of a `pointed_thing` or `nil` if the `pointed_thing`
+      does not refer to a node or entity.
+    * If the optional `above` parameter is true and the `pointed_thing` refers
+      to a node, then it will return the `above` position of the `pointed_thing`.
+]]
+---@nodiscard
+---@param pointed_thing core.PointedThing.object
+---@param above boolean?
+---@return vec
 function core.get_pointed_thing_position(pointed_thing, above) end
 
 --[[

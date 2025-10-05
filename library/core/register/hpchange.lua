@@ -55,7 +55,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field node_pos vec?
+---@field node_pos ivec?
 
 --[[
 WIPDOC

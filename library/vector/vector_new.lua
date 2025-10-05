@@ -6,7 +6,7 @@
 local vector = {}
 
 --[[
-Returns a new integer vector `(a, b, c)`.
+Returns a new vector `(a, b, c)`.
 
 * @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
@@ -32,7 +32,7 @@ Returns a new vector `(a, b, c)`.
 function vector.new(x, y, z) end
 
 --[[
-Returns a copy of given integer vector.
+Returns a copy of given vector.
 
 * @deprecated 5.X
 * @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
@@ -53,12 +53,12 @@ Returns a copy of given vector.
 ]]
 ---@deprecated
 ---@nodiscard
----@param v vector
+---@param v fvector
 ---@return vec
 function vector.new(v) end
 
 --[[
-Returns a new integer vector `(0, 0, 0)`
+Returns a new vector `(0, 0, 0)`
 
 * @deprecated 5.X
 * @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)

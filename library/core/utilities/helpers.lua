@@ -85,7 +85,7 @@ WIPDOC
 ]]
 ---@nodiscard
 ---@param placer core.ObjectRef
----@param pointed_thing core.PointedThing
+---@param pointed_thing core.PointedThing.node
 ---@return vec
 function core.pointed_thing_to_face_pos(placer, pointed_thing) end
 

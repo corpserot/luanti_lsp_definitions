@@ -1,4 +1,4 @@
-This file contains information specifically related to annotations both for this library definition and in general. It is similar to [docs.luanti.org](https://docs.luanti.org) but much smaller in scope.
+This file contains information specifically related to annotations both for this library definition and in general. It is similar to [docs.luanti.org](https://docs.luanti.org) but much smaller in scope. For more specific concerns, you may also [read the Q&A in the `README.md`](https://github.com/corpserot/luanti_lsp_definitions/blob/master/README.md#quick-qa).
 
 # A quick brief on annotations in Lua
 Lua annotations are special comments used to provide metadata, type hints, or documentation for code without affecting execution. Before popularity of language servers, annotations merely supplement as comments for the programmer, documentation generators and a few linters.

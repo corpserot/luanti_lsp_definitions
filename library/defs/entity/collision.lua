@@ -12,15 +12,15 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field  new_pos vector
+---@field  new_pos vec
 --[[
 WIPDOC
 ]]
----@field  old_velocity vector
+---@field  old_velocity vec
 --[[
 WIPDOC
 ]]
----@field  new_velocity vector
+---@field  new_velocity vec
 
 -- -------------------------- Entity.collision.node ------------------------- --
 
@@ -35,7 +35,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field  node_pos vector
+---@field  node_pos ivec
 
 -- ------------------------- Entity.collision.object ------------------------ --
 
