@@ -35,7 +35,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field visual "sprite"
+---@field visual "sprite"?
 --[[
 Number of required textures depends on visual:
 "cube" uses 6 textures just like a node, but all 6 must be defined.
