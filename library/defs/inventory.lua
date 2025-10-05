@@ -22,62 +22,14 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.ItemList.stringfmt SparseList<core.Item.stringfmt>
+---@alias core.InventoryTable.stringfmt table<core.InventoryList, SparseList<core.Item.stringfmt>>
 
 --[[
 WIPDOC
 ]]
----@class core.InventoryTable.stringfmt : {[core.InventoryList]:core.ItemList.stringfmt?}
---[[
-WIPDOC
-]]
----@field main core.ItemList.stringfmt?
---[[
-WIPDOC
-]]
----@field craft core.ItemList.stringfmt?
---[[
-WIPDOC
-]]
----@field craftpreview core.ItemList.stringfmt?
---[[
-WIPDOC
-]]
----@field craftresult core.ItemList.stringfmt?
---[[
-WIPDOC
-]]
----@field hand core.ItemList.stringfmt?
+---@alias core.InventoryTable.ItemStack table<core.InventoryList, SparseList<core.ItemStack>>
 
 --[[
 WIPDOC
 ]]
----@alias core.ItemList SparseList<core.Item>
-
---[[
-* inventory table keys are inventory list names
-* inventory table values are item tables
-* item table keys are slot IDs (starting with 1)
-* item table values are ItemStacks
-]]
----@class core.InventoryTable : {[core.InventoryList]:core.ItemList}
---[[
-WIPDOC
-]]
----@field main core.ItemList?
---[[
-WIPDOC
-]]
----@field craft core.ItemList?
---[[
-WIPDOC
-]]
----@field craftpreview core.ItemList?
---[[
-WIPDOC
-]]
----@field craftresult core.ItemList?
---[[
-WIPDOC
-]]
----@field hand core.ItemList?
+---@alias core.InventoryTable table<core.InventoryList, SparseList<core.Item>>

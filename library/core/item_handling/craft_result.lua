@@ -34,7 +34,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field items core.ItemList
+---@field items SparseList<core.Item>
 
 --[[
 WIPDOC
@@ -51,7 +51,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field items core.ItemList
+---@field items SparseList<core.Item>
 
 --[[
 WIPDOC
@@ -64,7 +64,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field items core.ItemList
+---@field items SparseList<core.Item>
 
 --[[
 WIPDOC
@@ -77,7 +77,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field items core.ItemList
+---@field items SparseList<core.Item>
 
 --[[
 WIPDOC
