@@ -48,7 +48,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.ParticleTexture.stringfmt
+---@class core.ParticleTexture.stringfmt : string
 
 --[[
 WIPDOC

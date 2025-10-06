@@ -22,7 +22,7 @@ in active mapblocks.
 Descriptive label for profiling purposes (optional).
 Definitions with identical labels will be listed as one.
 ]]
----@field   label string
+---@field   label string?
 --[[
 Apply `action` function to these nodes.
 `group:groupname` can also be used here.

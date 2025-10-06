@@ -395,7 +395,7 @@ function core.record_protection_violation(pos, name) end
       `creative_mode` is `true` and `false` otherwise.
 ]]
 ---@nodiscard
----@param name string
+---@param name string?
 ---@return boolean
 function core.is_creative_enabled(name) end
 

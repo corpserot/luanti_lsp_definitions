@@ -39,7 +39,7 @@ WIPDOC
 ---@param noiseparams core.NoiseParams
 ---@param size ivector|ivec2.xy
 ---@return core.ValueNoiseMap
-function core.get_perlin_noise_map(noiseparams, size) end
+function core.get_perlin_map(noiseparams, size) end
 
 -- ------------------------------ ValueNoiseMap ----------------------------- --
 

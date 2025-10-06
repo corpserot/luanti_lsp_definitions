@@ -220,7 +220,7 @@ core.object_refs = {}
 --[[
 WIPDOC
 ]]
----@type table<integer, core.EntityRef>
+---@type table<integer, core.Entity>
 core.luaentities = {}
 
 --[[
