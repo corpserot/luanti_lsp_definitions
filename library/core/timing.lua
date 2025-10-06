@@ -23,7 +23,6 @@ WIPDOC
       measured with globalstep dtime.
     * If `time` is `0`, the job is executed in the next step.
 ]]
----@nodiscard
 ---@param time number
 ---@param f function
 ---@param ... any

@@ -80,7 +80,6 @@ function ValueNoiseMap:get_2d_map_flat(pos) end
 * `get_2d_map_flat(pos, buffer)`: returns a flat `<size.x * size.y>` element
   array of 2D noise with values starting at `pos={x=,y=}`
 ]]
----@nodiscard
 ---@param pos vec2.xy
 ---@param buffer number[]
 ---@return nil
@@ -97,7 +96,6 @@ function ValueNoiseMap:get_3d_map_flat(pos) end
 --[[
 * `get_3d_map_flat(pos, buffer)`: Same as `get2dMap_flat`, but 3D noise
 ]]
----@nodiscard
 ---@param pos vector
 ---@param buffer number[]
 ---@return nil
@@ -161,7 +159,6 @@ function ValueNoiseMap:get_map_slice(slice_offset, slice_size, buffer) end
   noisevals = noise:get_map_slice({x=24, z=1}, {x=1, z=1})
   ```
 ]]
----@nodiscard
 ---@param slice_offset vector
 ---@param slice_size vector
 ---@param buffer number[]

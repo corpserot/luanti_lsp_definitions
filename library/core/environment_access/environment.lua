@@ -151,7 +151,6 @@ function core.place_node(pos, node, placer) end
     * `digger`: The ObjectRef that digs the node (optional)
     * Returns `true` if successful, `false` on failure (e.g. protected location)
 ]]
----@nodiscard
 ---@param pos ivector
 ---@param digger core.PlayerRef?
 ---@return boolean
@@ -226,7 +225,6 @@ function core.add_entity(pos, name, staticdata) end
     * Returns `ObjectRef`, or `nil` if failed
     * Items can be added also to unloaded and non-generated blocks.
 ]]
----@nodiscard
 ---@param pos vector
 ---@param item core.Item
 ---@return core.EntityRef?

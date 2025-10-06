@@ -17,11 +17,25 @@ Unofficial note: i made ephemeral NOT be optional because it's a good idea to ex
       It is recommend to use this for short sounds that happen in response to
       player actions (e.g. door closing).
 ]]
----@nodiscard
 ---@param spec core.SimpleSoundSpec
 ---@param parameters core.SoundParamter
----@param ephemeral boolean?
----@return core.SoundID?
+---@return core.SoundID
+function core.sound_play(spec, parameters) end
+
+--[[
+Unofficial note: i made ephemeral NOT be optional because it's a good idea to explicitly set it (most of the time you don't use that, so set it to true)
+* `core.sound_play(spec, parameters, [ephemeral])`: returns a handle
+    * `spec` is a `SimpleSoundSpec`
+    * `parameters` is a sound parameter table
+    * `ephemeral` is a boolean (default: false)
+      Ephemeral sounds will not return a handle and can't be stopped or faded.
+      It is recommend to use this for short sounds that happen in response to
+      player actions (e.g. door closing).
+]]
+---@param spec core.SimpleSoundSpec
+---@param parameters core.SoundParamter
+---@param ephemeral true
+---@return nil
 function core.sound_play(spec, parameters, ephemeral) end
 
 --[[

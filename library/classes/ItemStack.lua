@@ -38,7 +38,6 @@ function ItemStack:get_name() end
 * `set_name(item_name)`: returns a boolean indicating whether the item was
   cleared.
 ]]
----@nodiscard
 ---@param item_name core.Item.name
 ---@return boolean
 function ItemStack:set_name(item_name) end
@@ -54,7 +53,6 @@ function ItemStack:get_count() end
 * `set_count(count)`: returns a boolean indicating whether the item was cleared
     * `count`: number, unsigned 16 bit integer
 ]]
----@nodiscard
 ---@param count integer
 ---@return boolean
 function ItemStack:set_count(count) end
@@ -70,7 +68,6 @@ function ItemStack:get_wear() end
 * `set_wear(wear)`: returns boolean indicating whether item was cleared
     * `wear`: number, unsigned 16 bit integer
 ]]
----@nodiscard
 ---@param wear core.Tool.wear
 ---@return boolean
 function ItemStack:set_wear(wear) end

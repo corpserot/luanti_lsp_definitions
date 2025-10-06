@@ -32,7 +32,6 @@ function core.add_particle(particle_def) end
 WIPDOC
 ]]
 ---@deprecated
----@nodiscard
 ---@param amount integer
 ---@param time number
 ---@param minpos vector
@@ -55,7 +54,6 @@ function core.add_particlespawner(amount, time, minpos, maxpos, minvel, maxvel, 
   over `time` seconds.
 * Returns an `id`, and -1 if adding didn't succeed
 ]]
----@nodiscard
 ---@param particlespawner_def core.ParticleSpawnerDef
 ---@return core.ParticleSpawnerID
 function core.add_particlespawner(particlespawner_def) end

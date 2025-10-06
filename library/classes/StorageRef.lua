@@ -57,7 +57,6 @@ function StorageRef:get(key) end
 --[[
 * `set_string(key, value)`: Value of `""` will delete the key.
 ]]
----@nodiscard
 ---@param key core.MetadataTable.fields.storage.keys
 ---@param value string
 function StorageRef:set_string(key, value) end
