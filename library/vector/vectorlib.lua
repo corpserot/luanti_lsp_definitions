@@ -76,7 +76,7 @@ function vector.from_string(s, init) end
 --[[
 Returns vector in the string format `"(x, y, z)"`.
 
-* @see tostring() does the same
+* @see [`tostring()`](lua://tostring) does the same
 * @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
@@ -84,18 +84,6 @@ Returns vector in the string format `"(x, y, z)"`.
 ---@param v vector
 ---@return string
 function vector.to_string(v) end
-
---[[
-Returns vector in the string format `"(x, y, z)"`
-
-* @see vector.to_string() does the same
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@nodiscard
----@param v vector
----@return string
-function tostring(v) end
 
 -- -------------------------------------------------------------------------- --
 
