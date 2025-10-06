@@ -10,6 +10,35 @@
 -- * [Client and Server] [*Server Security]: [server]
 -- * [Client and Server] [*Server Gameplay]: [server]
 
+---@alias _.LuantiSettings.client_and_server.keys.integer
+--- | "max_users"
+--- | "port"
+--- | "protocol_version_min"
+--- | "csm_restriction_flags"
+--- | "csm_restriction_noderange"
+--- | "chat_message_max_size"
+--- | "chat_message_limit_trigger_kick"
+--- | "time_speed"
+--- | "world_start_time"
+--- | "item_entity_ttl"
+--- | "default_stack_max"
+
+---@alias _.LuantiSettings.client_and_server.keys.number
+--- | "anticheat_movement_tolerance"
+--- | "chat_message_limit_per_10sec"
+--- | "movement_acceleration_default"
+--- | "movement_acceleration_air"
+--- | "movement_acceleration_fast"
+--- | "movement_speed_walk"
+--- | "movement_speed_crouch"
+--- | "movement_speed_fast"
+--- | "movement_speed_climb"
+--- | "movement_speed_jump"
+--- | "movement_liquid_fluidity"
+--- | "movement_liquid_fluidity_smooth"
+--- | "movement_liquid_sink"
+--- | "movement_gravity"
+
 ---@alias _.LuantiSettings.client_and_server.keys.boolean
 --- | "server_announce"
 --- | "server_announce_send_players"

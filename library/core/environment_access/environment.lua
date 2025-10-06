@@ -519,7 +519,7 @@ function core.get_biome_id(biome_name) end
 ---@return string?
 function core.get_biome_name(biome_id) end
 
---[[ core.get_mapgen_params() .. core.set_mapgen_params() split off into ./mapgen_params.lua ]]--
+--[[ core.get_mapgen_params() .. core.set_mapgen_setting_noiseparams() split off into ./mapgen_setting.lua ]]--
 
 --[=[
 * `core.get_mapgen_edges([mapgen_limit[, chunksize]])`
@@ -545,72 +545,7 @@ function core.get_mapgen_edges(mapgen_limit, chunksize) end
 ---@return ivec
 function core.get_mapgen_chunksize() end
 
---[[
-* `core.get_mapgen_setting(name)`
-    * Gets the *active* mapgen setting (or nil if none exists) in string
-      format with the following order of precedence:
-        1) Settings loaded from map_meta.txt or overrides set during mod
-           execution.
-        2) Settings set by mods without a metafile override
-        3) Settings explicitly set in the user config file, minetest.conf
-        4) Settings set as the user config default
-]]
----@nodiscard
----@param name core.MapgenSettings.keys
----@return string?
-function core.get_mapgen_setting(name) end
-
---[[
-* `core.get_mapgen_setting_noiseparams(name)`
-    * Same as above, but returns the value as a NoiseParams table if the
-      setting `name` exists and is a valid NoiseParams.
-]]
----@nodiscard
----@param name _.LuantiSettings.mapgen.keys.noise_params.3d
----@return core.NoiseParams.3d?
-function core.get_mapgen_setting_noiseparams(name) end
-
---[[
-* `core.get_mapgen_setting_noiseparams(name)`
-    * Same as above, but returns the value as a NoiseParams table if the
-      setting `name` exists and is a valid NoiseParams.
-]]
----@nodiscard
----@param name _.LuantiSettings.mapgen.keys.noise_params.2d
----@return core.NoiseParams.2d?
-function core.get_mapgen_setting_noiseparams(name) end
-
---[[
-* `core.set_mapgen_setting(name, value, [override_meta])`
-    * Sets a mapgen param to `value`, and will take effect if the corresponding
-      mapgen setting is not already present in map_meta.txt.
-    * `override_meta` is an optional boolean (default: `false`). If this is set
-      to true, the setting will become the active setting regardless of the map
-      metafile contents.
-    * Note: to set the seed, use `"seed"`, not `"fixed_map_seed"`.
-]]
----@param name core.MapgenSettings.keys
----@param value string
----@param override_meta boolean?
-function core.set_mapgen_setting(name, value, override_meta) end
-
---[[
-* `core.set_mapgen_setting_noiseparams(name, value, [override_meta])`
-    * Same as above, except value is a NoiseParams table.
-]]
----@param name _.LuantiSettings.mapgen.keys.noise_params.3d
----@param value core.NoiseParams.3d
----@param override_meta boolean?
-function core.set_mapgen_setting_noiseparams(name, value, override_meta) end
-
---[[
-* `core.set_mapgen_setting_noiseparams(name, value, [override_meta])`
-    * Same as above, except value is a NoiseParams table.
-]]
----@param name _.LuantiSettings.mapgen.keys.noise_params.2d
----@param value core.NoiseParams.2d
----@param override_meta boolean?
-function core.set_mapgen_setting_noiseparams(name, value, override_meta) end
+--[[ core.get_mapgen_setting() .. core.get_noiseparams() split off into ./mapgen_setting.lua ]]--
 
 --[[
 * `core.set_noiseparams(name, noiseparams, set_default)`
@@ -620,7 +555,7 @@ function core.set_mapgen_setting_noiseparams(name, value, override_meta) end
       whether the setting should be applied to the default config or current
       active config.
 ]]
----@param name _.LuantiSettings.mapgen.keys.noise_params.3d
+---@param name core.LuantiSettings.keys.noise_params.3d
 ---@param noiseparams core.NoiseParams.3d
 ---@param set_default boolean?
 function core.set_noiseparams(name, noiseparams, set_default) end
@@ -633,24 +568,26 @@ function core.set_noiseparams(name, noiseparams, set_default) end
       whether the setting should be applied to the default config or current
       active config.
 ]]
----@param name _.LuantiSettings.mapgen.keys.noise_params.2d
+---@param name core.LuantiSettings.keys.noise_params.2d
 ---@param noiseparams core.NoiseParams.2d
 ---@param set_default boolean?
 function core.set_noiseparams(name, noiseparams, set_default) end
 
 --[[
-WIPDOC
+* `core.get_noiseparams(name)`
+    * Returns a table of the noiseparams for name.
 ]]
 ---@nodiscard
----@param name _.LuantiSettings.mapgen.keys.noise_params.3d
+---@param name core.LuantiSettings.keys.noise_params.3d
 ---@return core.NoiseParams.3d
 function core.get_noiseparams(name) end
 
 --[[
-WIPDOC
+* `core.get_noiseparams(name)`
+    * Returns a table of the noiseparams for name.
 ]]
 ---@nodiscard
----@param name _.LuantiSettings.mapgen.keys.noise_params.2d
+---@param name core.LuantiSettings.keys.noise_params.2d
 ---@return core.NoiseParams.2d
 function core.get_noiseparams(name) end
 

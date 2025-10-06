@@ -41,6 +41,24 @@ WIPDOC
 --[[
 WIPDOC
 ]]
+---@alias core.LuantiSettings.keys.integer
+--- | _.LuantiSettings.advanced.keys.integer
+--- | _.LuantiSettings.client_and_server.keys.integer
+--- | _.LuantiSettings.mapgen.keys.integer
+--- | string
+
+--[[
+WIPDOC
+]]
+---@alias core.LuantiSettings.keys.number
+--- | _.LuantiSettings.advanced.keys.number
+--- | _.LuantiSettings.client_and_server.keys.number
+--- | _.LuantiSettings.mapgen.keys.number
+--- | string
+
+--[[
+WIPDOC
+]]
 ---@alias core.LuantiSettings.keys.boolean
 --- | _.LuantiSettings.advanced.keys.boolean
 --- | _.LuantiSettings.client_and_server.keys.boolean
@@ -175,6 +193,28 @@ function LuantiSettings:get_flags(key) end
 function LuantiSettings:get_pos(key) end
 
 --[[ LuantiSettings:set() split off into ./settings_enums.lua ]]--
+
+--[[
+* `set(key, value)`
+    * Setting names can't contain whitespace or any of `="{}#`.
+    * Setting values can't contain the sequence `\n"""`.
+    * Setting names starting with "secure." can't be set on the main settings
+      object (`core.settings`).
+]]
+---@param key core.LuantiSettings.keys.integer
+---@param value string|integer
+function LuantiSettings:set(key, value) end
+
+--[[
+* `set(key, value)`
+    * Setting names can't contain whitespace or any of `="{}#`.
+    * Setting values can't contain the sequence `\n"""`.
+    * Setting names starting with "secure." can't be set on the main settings
+      object (`core.settings`).
+]]
+---@param key core.LuantiSettings.keys.number
+---@param value string|number
+function LuantiSettings:set(key, value) end
 
 --[[
 * `set(key, value)`

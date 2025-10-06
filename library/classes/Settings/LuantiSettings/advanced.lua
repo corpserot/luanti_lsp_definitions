@@ -20,6 +20,46 @@
 -- * [Advanced] [*Gamepads]: [client]
 -- * [Advanced] [*Hide: Temporary Settings]: [common]
 
+---@alias _.LuantiSettings.advanced.keys.integer
+--- | "debug_log_size_max"
+--- | "profiler_print_interval"
+--- | "max_packets_per_iteration"
+--- | "max_simultaneous_block_sends_per_client"
+--- | "map_compression_level_net"
+--- | "player_transfer_distance"
+--- | "active_object_send_range_blocks"
+--- | "active_block_range"
+--- | "max_block_send_distance"
+--- | "max_forceloaded_blocks"
+--- | "server_unload_unused_data_timeout"
+--- | "max_objects_per_block"
+--- | "liquid_loop_max"
+--- | "liquid_queue_purge_time"
+--- | "block_send_optimize_distance"
+--- | "block_cull_optimize_distance"
+--- | "chunksize"
+--- | "emergequeue_limit_total"
+--- | "emergequeue_limit_diskonly"
+--- | "emergequeue_limit_generate"
+--- | "num_emerge_threads"
+--- | "curl_timeout"
+--- | "curl_parallel_limit"
+--- | "curl_file_download_timeout"
+--- | "max_clearobjects_extra_loaded_blocks"
+--- | "map_compression_level_disk"
+--- | "remote_port"
+
+---@alias _.LuantiSettings.advanced.keys.number
+--- | "full_block_send_enable_min_time_from_building"
+--- | "chatcommand_msg_time_threshold"
+--- | "dedicated_server_step"
+--- | "server_map_save_interval"
+--- | "active_block_mgmt_interval"
+--- | "abm_interval"
+--- | "abm_time_budget"
+--- | "nodetimer_interval"
+--- | "liquid_update"
+
 ---@alias _.LuantiSettings.advanced.keys.boolean
 --- | "secure.enable_security"
 --- | "random_mod_load_order"
@@ -1026,14 +1066,6 @@ WIPDOC
 ---@field block_cull_optimize_distance integer?
 
 -- -------------------- [Advanced] [*Advanced] [**Mapgen] ------------------- --
-
----@alias _.LuantiSettings.advanced.advanced.mapgen.keys
---- | "chunksize"
---- | "enable_mapgen_debug_info"
---- | "emergequeue_limit_total"
---- | "emergequeue_limit_diskonly"
---- | "emergequeue_limit_generate"
---- | "num_emerge_threads"
 
 ---@class _.LuantiSettings.advanced.advanced.mappgen.ctx_server
 --[[
