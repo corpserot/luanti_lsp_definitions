@@ -7,7 +7,11 @@
 --[[
 WIPDOC
 ]]
----@class core.PlayerSkyParameters.regular.color.set
+---@alias core.PlayerSkyParameters.regular.color.set
+--- | core.PlayerSkyParameters.regular.color.get
+--- | _.PlayerSkyParameters.regular.color.set
+
+---@class _.PlayerSkyParameters.regular.color.set
 --[[
 WIPDOC
 ]]
@@ -100,7 +104,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.PlayerSkyParameters.fog.set
+---@alias core.PlayerSkyParameters.fog.set
+--- | core.PlayerSkyParameters.fog.get
+--- | _.PlayerSkyParameters.fog.set
+
+---@class _.PlayerSkyParameters.fog.set
 --[[
 WIPDOC
 ]]
@@ -190,11 +198,15 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.PlayerSkyParameters.regular.set : _.PlayerSkyParameters.__base.set
+---@alias core.PlayerSkyParameters.regular.set
+--- | core.PlayerSkyParameters.regular.get
+--- | _.PlayerSkyParameters.regular.set
+
+---@class _.PlayerSkyParameters.regular.set : _.PlayerSkyParameters.__base.set
 --[[
 WIPDOC
 ]]
----@field type "regular"
+---@field type "regular"?
 --[[
 WIPDOC
 ]]
@@ -254,7 +266,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.PlayerSkyParameters.skybox.set : _.PlayerSkyParameters.__base.set
+---@alias core.PlayerSkyParameters.skybox.set
+--- | core.PlayerSkyParameters.skybox.get
+--- | _.PlayerSkyParameters.skybox.set
+
+---@class _.PlayerSkyParameters.skybox.set : _.PlayerSkyParameters.__base.set
 --[[
 WIPDOC
 ]]
@@ -282,7 +298,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.PlayerSkyParameters.plain.set : _.PlayerSkyParameters.__base.set
+---@alias core.PlayerSkyParameters.plain.set
+--- | core.PlayerSkyParameters.plain.get
+--- | _.PlayerSkyParameters.plain.set
+
+---@class _.PlayerSkyParameters.plain.set : _.PlayerSkyParameters.__base.set
 --[[
 WIPDOC
 ]]

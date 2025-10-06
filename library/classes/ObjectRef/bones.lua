@@ -7,7 +7,11 @@
 --[[
 WIPDOC
 ]]
----@class core.BoneOverride.property.set
+---@alias core.BoneOverride.property.set
+--- | core.BoneOverride.property.get
+--- | _.BoneOverride.property.set
+
+---@class _.BoneOverride.property.set
 --[[
 WIPDOC
 ]]
@@ -28,7 +32,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field vec vector
+---@field vec vec
 --[[
 WIPDOC
 ]]
@@ -44,7 +48,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.BoneOverride.set
+---@alias core.BoneOverride.set
+--- | core.BoneOverride.get
+--- | _.BoneOverride.set
+
+---@class _.BoneOverride.set
 --[[
 WIPDOC
 ]]

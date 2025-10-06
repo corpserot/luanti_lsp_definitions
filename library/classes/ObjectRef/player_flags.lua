@@ -24,7 +24,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.PlayerFlags.set
+---@alias core.PlayerFlags.set
+--- | core.PlayerFlags.get
+--- | _.PlayerFlags.set
+
+---@class _.PlayerFlags.set
 --[[
 WIPDOC
 ]]

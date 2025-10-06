@@ -140,7 +140,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.Node.set
+---@alias core.Node.set
+--- | core.Node.get
+--- | _.Node.set
+
+---@class _.Node.set
 --[[
 WIPDOC
 ]]

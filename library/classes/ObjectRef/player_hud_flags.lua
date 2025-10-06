@@ -7,7 +7,11 @@
 --[[
 WIPDOC
 ]]
----@class core.PlayerHudFlags.set
+---@alias core.PlayerHudFlags.set
+--- | core.PlayerHudFlags.get
+--- | _.PlayerHudFlags.set
+
+---@class _.PlayerHudFlags.set
 --[[
 WIPDOC
 ]]

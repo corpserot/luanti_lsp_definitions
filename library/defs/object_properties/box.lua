@@ -64,6 +64,7 @@ WIPDOC
 WIPDOC
 ]]
 ---@alias core.ObjectProperties.selectionbox.set
+--- | core.ObjectProperties.selectionbox.get
 --- | core.ObjectProperties.selectionbox.strict.set
 --- | number[]
 

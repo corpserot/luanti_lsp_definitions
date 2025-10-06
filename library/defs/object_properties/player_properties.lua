@@ -76,15 +76,44 @@ If get to true the entity will show as a marker on the minimap.
 
 -- ---------------------------- PlayerProperties ---------------------------- --
 
----@class core.PlayerProperties.cube.set : _.ObjectProperties.cube.set.__partial, _.PlayerProperties.__base.set
----@class core.PlayerProperties.sprite.set : _.ObjectProperties.sprite.set.__partial, _.PlayerProperties.__base.set
----@class core.PlayerProperties.upright_sprite.set : _.ObjectProperties.upright_sprite.set.__partial, _.PlayerProperties.__base.set
----@class core.PlayerProperties.mesh.set : _.ObjectProperties.mesh.set.__partial, _.PlayerProperties.__base.set
----@class core.PlayerProperties.wielditem.set : _.ObjectProperties.wielditem.set.__partial, _.PlayerProperties.__base.set
----@class core.PlayerProperties.item.set : _.ObjectProperties.item.__partial, _.PlayerProperties.__base.set
----@class core.PlayerProperties.node.set : _.ObjectProperties.node.set.__partial, _.PlayerProperties.__base.set
+---@class _.PlayerProperties.cube.set : _.ObjectProperties.cube.set.__partial, _.PlayerProperties.__base.set
+---@class _.PlayerProperties.sprite.set : _.ObjectProperties.sprite.set.__partial, _.PlayerProperties.__base.set
+---@class _.PlayerProperties.upright_sprite.set : _.ObjectProperties.upright_sprite.set.__partial, _.PlayerProperties.__base.set
+---@class _.PlayerProperties.mesh.set : _.ObjectProperties.mesh.set.__partial, _.PlayerProperties.__base.set
+---@class _.PlayerProperties.wielditem.set : _.ObjectProperties.wielditem.set.__partial, _.PlayerProperties.__base.set
+---@class _.PlayerProperties.item.set : _.ObjectProperties.item.__partial, _.PlayerProperties.__base.set
+---@class _.PlayerProperties.node.set : _.ObjectProperties.node.set.__partial, _.PlayerProperties.__base.set
+
+---@alias core.PlayerProperties.cube.set
+--- | core.PlayerProperties.cube.get
+--- | _.PlayerProperties.cube.set
+
+---@alias core.PlayerProperties.sprite.set
+--- | core.PlayerProperties.sprite.get
+--- | _.PlayerProperties.sprite.set
+
+---@alias core.PlayerProperties.upright_sprite.set
+--- | core.PlayerProperties.upright_sprite.get
+--- | _.PlayerProperties.upright_sprite.set
+
+---@alias core.PlayerProperties.mesh.set
+--- | core.PlayerProperties.mesh.get
+--- | _.PlayerProperties.mesh.set
+
+---@alias core.PlayerProperties.wielditem.set
+--- | core.PlayerProperties.wielditem.get
+--- | _.PlayerProperties.wielditem.set
+
+---@alias core.PlayerProperties.item.set
+--- | core.PlayerProperties.item.get
+--- | _.PlayerProperties.item.set
+
+---@alias core.PlayerProperties.node.set
+--- | core.PlayerProperties.node.get
+--- | _.PlayerProperties.node.set
 
 ---@alias core.PlayerProperties.set
+--- | core.PlayerProperties.get
 --- | core.PlayerProperties.cube.set
 --- | core.PlayerProperties.sprite.set
 --- | core.PlayerProperties.upright_sprite.set

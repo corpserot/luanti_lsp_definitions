@@ -5,7 +5,11 @@
 --[[
 WIPDOC
 ]]
----@class core.ObjectProperties.mesh.set : _.ObjectProperties.mesh.set.__partial, _.ObjectProperties.__base.set
+---@alias core.ObjectProperties.mesh.set
+--- | core.ObjectProperties.mesh.get
+--- | _.ObjectProperties.mesh.set
+
+---@class _.ObjectProperties.mesh.set : _.ObjectProperties.mesh.set.__partial, _.ObjectProperties.__base.set
 
 --[[
 WIPDOC

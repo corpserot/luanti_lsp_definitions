@@ -45,7 +45,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.ObjectProperties.cube.set : _.ObjectProperties.cube.set.__partial, _.ObjectProperties.__base.set
+---@alias core.ObjectProperties.cube.set
+--- | core.ObjectProperties.cube.get
+--- | _.ObjectProperties.cube.set
+
+---@class _.ObjectProperties.cube.set : _.ObjectProperties.cube.set.__partial, _.ObjectProperties.__base.set
 
 --[[
 WIPDOC

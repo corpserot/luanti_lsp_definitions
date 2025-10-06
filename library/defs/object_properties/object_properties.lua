@@ -282,6 +282,7 @@ If set to true the entity will show as a marker on the minimap.
 -- ---------------------------- ObjectProperties ---------------------------- --
 
 ---@alias core.ObjectProperties.set
+--- | core.ObjectProperties.get
 --- | core.ObjectProperties.cube.set
 --- | core.ObjectProperties.sprite.set
 --- | core.ObjectProperties.upright_sprite.set

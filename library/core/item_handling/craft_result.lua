@@ -22,7 +22,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.CraftRecipe.normal.set
+---@alias core.CraftRecipe.normal.set
+--- | core.CraftRecipe.normal.get
+--- | _.CraftRecipe.normal.set
+
+---@class _.CraftRecipe.normal.set
 --[[
 WIPDOC
 ]]
@@ -83,6 +87,7 @@ WIPDOC
 WIPDOC
 ]]
 ---@alias core.CraftRecipe.set
+--- | core.CraftRecipe.get
 --- | core.CraftRecipe.normal.set
 --- | core.CraftRecipe.cooking
 --- | core.CraftRecipe.fuel

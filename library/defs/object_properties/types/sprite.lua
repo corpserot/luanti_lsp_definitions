@@ -24,7 +24,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.ObjectProperties.sprite.set : _.ObjectProperties.sprite.set.__partial, _.ObjectProperties.__base.set
+---@alias core.ObjectProperties.sprite.set
+--- | core.ObjectProperties.sprite.get
+--- | _.ObjectProperties.sprite.set
+
+---@class _.ObjectProperties.sprite.set : _.ObjectProperties.sprite.set.__partial, _.ObjectProperties.__base.set
 
 --[[
 WIPDOC

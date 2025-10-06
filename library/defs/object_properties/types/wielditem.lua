@@ -25,7 +25,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.ObjectProperties.wielditem.set : _.ObjectProperties.wielditem.set.__partial, _.ObjectProperties.__base.set
+---@alias core.ObjectProperties.wielditem.set
+--- | core.ObjectProperties.wielditem.get
+--- | _.ObjectProperties.wielditem.set
+
+---@class _.ObjectProperties.wielditem.set : _.ObjectProperties.wielditem.set.__partial, _.ObjectProperties.__base.set
 
 --[[
 WIPDOC

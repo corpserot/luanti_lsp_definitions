@@ -24,7 +24,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.NametagAttributes.set
+---@alias core.NametagAttributes.set
+--- | core.NametagAttributes.get
+--- | _.NametagAttributes.set
+
+---@class _.NametagAttributes.set
 --[[
 WIPDOC
 ]]
@@ -36,7 +40,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field bgcolor core.ColorSpec | false | nil
+---@field bgcolor core.ColorSpec|false?
 
 
 -- ---------------------------- ObjectRef methods --------------------------- --
