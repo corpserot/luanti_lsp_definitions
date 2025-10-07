@@ -235,7 +235,6 @@ function ItemStack:item_fits(item) end
     * Take (and remove) up to `n` items from this stack
     * `n`: number, default: `1`
 ]]
----@nodiscard
 ---@param n integer?
 ---@return core.ItemStack
 function ItemStack:take_item(n) end

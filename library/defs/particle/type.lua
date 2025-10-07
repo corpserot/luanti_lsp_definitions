@@ -65,11 +65,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field min vector
+---@field min vector|number
 --[[
 WIPDOC
 ]]
----@field max vector
+---@field max vector|number
 --[[
 WIPDOC
 ]]
