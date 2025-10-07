@@ -26,11 +26,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field under ivector
+---@field under ivec
 --[[
 WIPDOC
 ]]
----@field above ivector
+---@field above ivec
 
 -- --------------------------- PointedThing.object -------------------------- --
 
@@ -64,7 +64,7 @@ Only raycast supports this
   point on the selection box which is pointed at. May be in the selection box
   if the pointer is in the box too.
 ]]
----@field intersection_point vector
+---@field intersection_point vec
 --[[
 Only raycast supports this
 * `pointed_thing.box_id`: The ID of the pointed selection box (counting starts
@@ -79,7 +79,7 @@ Only raycast supports this
   For entities with rotated selection boxes, this will be rotated properly
   by the entity's rotation - it will always be in absolute world space.
 ]]
----@field intersection_normal vector
+---@field intersection_normal vec
 
 --[[
 WIPDOC

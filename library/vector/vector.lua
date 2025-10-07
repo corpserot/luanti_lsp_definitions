@@ -135,3 +135,12 @@ instance.
 ---@alias vector
 --- | ivector
 --- | fvector
+
+--[[
+3D integer vector with xyz components. It is either a plain vector or vector
+class instance. Passing floats are unspecified.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
+]]
+---@alias ivector.soft vector

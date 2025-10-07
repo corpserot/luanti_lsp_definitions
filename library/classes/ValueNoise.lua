@@ -87,7 +87,7 @@ names still exist as aliases.
 ---@param seeddiff integer
 ---@param octaves integer
 ---@param persistence number
----@param spread ivector
+---@param spread ivector.soft
 ---@return core.ValueNoise
 function ValueNoise(seeddiff, octaves, persistence, spread) end
 
@@ -99,7 +99,7 @@ WIPDOC
 ---@param seeddiff integer
 ---@param octaves integer
 ---@param persistence number
----@param spread ivector
+---@param spread ivector.soft
 ---@return core.ValueNoise
 function PerlinNoise(seeddiff, octaves, persistence, spread) end
 
@@ -112,7 +112,7 @@ function PerlinNoise(seeddiff, octaves, persistence, spread) end
 ---@param seeddiff integer
 ---@param octaves integer
 ---@param persistence number
----@param spread ivector
+---@param spread ivector.soft
 ---@return core.ValueNoise
 function core.get_value_noise(seeddiff, octaves, persistence, spread) end
 
@@ -125,7 +125,7 @@ function core.get_value_noise(seeddiff, octaves, persistence, spread) end
 ---@param seeddiff integer
 ---@param octaves integer
 ---@param persistence number
----@param spread ivector
+---@param spread ivector.soft
 ---@return core.ValueNoise
 function core.get_perlin(seeddiff, octaves, persistence, spread) end
 

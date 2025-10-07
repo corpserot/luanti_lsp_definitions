@@ -34,7 +34,7 @@ WIPDOC
     * `actor`: `"player:<name>"`, also `"liquid"`.
 ]]
 ---@nodiscard
----@param pos ivector
+---@param pos ivector.soft
 ---@param range integer
 ---@param seconds number
 ---@param limit number

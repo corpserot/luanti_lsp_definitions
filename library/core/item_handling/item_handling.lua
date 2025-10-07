@@ -142,7 +142,7 @@ WIPDOC
 ---@param toolname core.Tool.name?
 ---@param tool core.ItemStack?
 ---@param digger core.ObjectRef?
----@param pos ivector?
+---@param pos ivector.soft?
 ---@return core.Item.stringfmt[]
 function core.get_node_drops(node, toolname, tool, digger, pos) end
 
@@ -156,7 +156,7 @@ function core.get_node_drops(node, toolname, tool, digger, pos) end
     * Can be overridden to get different functionality (e.g. dropping items on
       ground)
 ]]
----@param pos ivector
+---@param pos ivector.soft
 ---@param drops core.Item.stringfmt[]
 ---@param digger core.ObjectRef
 function core.handle_node_drops(pos, drops, digger) end

@@ -371,7 +371,7 @@ Unofficial note: Do NOT localize it, i know you want to, just don't
       ```
 ]]
 ---@nodiscard
----@param pos ivector
+---@param pos ivector.soft
 ---@param name string
 ---@return boolean
 function core.is_protected(pos, name) end
@@ -381,7 +381,7 @@ function core.is_protected(pos, name) end
     * This function calls functions registered with
       `core.register_on_protection_violation`.
 ]]
----@param pos ivector
+---@param pos ivector.soft
 ---@param name string
 function core.record_protection_violation(pos, name) end
 
@@ -416,8 +416,8 @@ function core.is_creative_enabled(name) end
       cuboid for intersections.
 ]]
 ---@nodiscard
----@param pos1 ivector
----@param pos2 ivector
+---@param pos1 ivector.soft
+---@param pos2 ivector.soft
 ---@param player_name string
 ---@param interval integer
 ---@return boolean
@@ -530,7 +530,7 @@ function core.calculate_knockback(player, hitter, time_from_last_punch, tool_cap
       If the call would put the number of blocks over the limit, the call fails.
 ]=]
 ---@nodiscard
----@param pos ivector
+---@param pos ivector.soft
 ---@param transient boolean?
 ---@param limit number?
 ---@return boolean
@@ -542,7 +542,7 @@ function core.forceload_block(pos, transient, limit) end
     * If `transient` is `false` or absent, frees a persistent forceload.
       If `true`, frees a transient forceload.
 ]]
----@param pos ivector
+---@param pos ivector.soft
 ---@param transient boolean?
 function core.forceload_free_block(pos, transient) end
 
@@ -561,7 +561,7 @@ function core.forceload_free_block(pos, transient) end
         * `nil`: Unsupported `condition` value
 ]]
 ---@nodiscard
----@param pos ivector
+---@param pos ivector.soft
 ---@param condition "unknown"|"emerging"|"loaded"|"active"
 ---@return boolean?
 function core.compare_block_status(pos, condition) end

@@ -68,8 +68,8 @@ WIPDOC
         * `param` is the user-defined parameter passed to emerge_area (or
           nil if the parameter was absent).
 ]]
----@param pos1 ivector
----@param pos2 ivector
+---@param pos1 ivector.soft
+---@param pos2 ivector.soft
 ---@param callback core.fn.emerge_area?
 ---@param param any?
 function core.emerge_area(pos1, pos2, callback, param) end

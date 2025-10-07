@@ -28,6 +28,6 @@ WIPDOC
     * Or returns `nil` on failure.
 ]]
 ---@nodiscard
----@param pos ivector
+---@param pos ivector.soft
 ---@return core.BiomeData?
 function core.get_biome_data(pos) end

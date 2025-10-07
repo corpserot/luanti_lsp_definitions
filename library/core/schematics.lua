@@ -24,8 +24,8 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@param p1 ivector
----@param p2 ivector
+---@param p1 ivector.soft
+---@param p2 ivector.soft
 ---@param probability_list core.Schematic.probability_list?
 ---@param filename core.Path
 ---@param slice_prob_list core.SchematicDef.yslice_prob?
@@ -67,7 +67,7 @@ WIPDOC
         * place_center_z
 ]]
 ---@nodiscard
----@param pos ivector
+---@param pos ivector.soft
 ---@param schematic core.Schematic
 ---@param rotation core.Schematic.rotation?
 ---@param replacements core.Schematic.replacements?

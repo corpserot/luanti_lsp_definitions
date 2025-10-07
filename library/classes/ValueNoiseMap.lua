@@ -10,7 +10,7 @@ WIPDOC
 ]]
 ---@nodiscard
 ---@param noiseparams core.NoiseParams
----@param size ivector|ivec2.xy
+---@param size ivector.soft|ivec2.xy.soft
 ---@return core.ValueNoiseMap
 function ValueNoiseMap(noiseparams, size) end
 
@@ -19,7 +19,7 @@ WIPDOC
 ]]
 ---@nodiscard
 ---@param noiseparams core.NoiseParams
----@param size ivector|ivec2.xy
+---@param size ivector.soft|ivec2.xy.soft
 ---@return core.ValueNoiseMap
 function core.get_value_noise_map(noiseparams, size) end
 
@@ -28,7 +28,7 @@ WIPDOC
 ]]
 ---@nodiscard
 ---@param noiseparams core.NoiseParams
----@param size ivector|ivec2.xy
+---@param size ivector.soft|ivec2.xy.soft
 ---@return core.ValueNoiseMap
 function PerlinNoiseMap(noiseparams, size) end
 
@@ -37,7 +37,7 @@ WIPDOC
 ]]
 ---@nodiscard
 ---@param noiseparams core.NoiseParams
----@param size ivector|ivec2.xy
+---@param size ivector.soft|ivec2.xy.soft
 ---@return core.ValueNoiseMap
 function core.get_perlin_map(noiseparams, size) end
 

@@ -532,7 +532,7 @@ function PlayerRef:get_camera() end
     * Resource intensive - use sparsely
 ]]
 ---@nodiscard
----@param blockpos ivector
+---@param blockpos ivector.soft
 ---@return boolean?
 function PlayerRef:send_mapblock(blockpos) end
 

@@ -173,8 +173,8 @@ function AreaStore:get_areas_for_pos(id, include_corners, include_data) end
 WIPDOC
 ]]
 ---@nodiscard
----@param pos1 ivector
----@param pos2 ivector
+---@param pos1 ivector.soft
+---@param pos2 ivector.soft
 ---@param accept_overlap boolean
 ---@param include_corners false?
 ---@param include_data false?
@@ -185,8 +185,8 @@ function AreaStore:get_areas_in_area(pos1, pos2, accept_overlap, include_corners
 WIPDOC
 ]]
 ---@nodiscard
----@param pos1 ivector
----@param pos2 ivector
+---@param pos1 ivector.soft
+---@param pos2 ivector.soft
 ---@param accept_overlap boolean
 ---@param include_corners true
 ---@param include_data false?
@@ -197,8 +197,8 @@ function AreaStore:get_areas_in_area(pos1, pos2, accept_overlap, include_corners
 WIPDOC
 ]]
 ---@nodiscard
----@param pos1 ivector
----@param pos2 ivector
+---@param pos1 ivector.soft
+---@param pos2 ivector.soft
 ---@param accept_overlap boolean
 ---@param include_corners false?
 ---@param include_data true
@@ -209,8 +209,8 @@ function AreaStore:get_areas_in_area(pos1, pos2, accept_overlap, include_corners
 WIPDOC
 ]]
 ---@nodiscard
----@param pos1 ivector
----@param pos2 ivector
+---@param pos1 ivector.soft
+---@param pos2 ivector.soft
 ---@param accept_overlap boolean
 ---@param include_corners true
 ---@param include_data true
@@ -226,8 +226,8 @@ function AreaStore:get_areas_in_area(pos1, pos2, accept_overlap, include_corners
       number between 0 and 2^32-2.
 ]]
 ---@nodiscard
----@param corner1 ivector
----@param corner2 ivector
+---@param corner1 ivector.soft
+---@param corner2 ivector.soft
 ---@param data string
 ---@param id core.AreaStoreID?
 ---@return core.AreaStoreID?
