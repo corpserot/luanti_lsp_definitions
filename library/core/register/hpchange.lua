@@ -3,16 +3,16 @@
 -- luanti/doc/lua_api.md: 'core' namespace reference > Global callback registration functions
 
 -- -------------------------- PlayerHPChangeReason -------------------------- --
-
---[[
-WIPDOC
-]]
----@alias core.PlayerHPChangeReason.regular.type
+---@alias _.PlayerHPChangeReason.regular.type
 --- | "set_hp"
 --- | "fall"
 --- | "drown"
 --- | "respawn"
---- | string
+
+--[[
+WIPDOC
+]]
+---@alias core.PlayerHPChangeReason.regular.type string | _.PlayerHPChangeReason.regular.type
 
 --[[
 WIPDOC
@@ -60,10 +60,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.PlayerHPChangeReason
---- | core.PlayerHPChangeReason.regular
---- | core.PlayerHPChangeReason.punch
---- | core.PlayerHPChangeReason.node_damage
+---@alias core.PlayerHPChangeReason core.PlayerHPChangeReason.regular | core.PlayerHPChangeReason.punch | core.PlayerHPChangeReason.node_damage
 
 -- ---------------------------- core.* functions ---------------------------- --
 

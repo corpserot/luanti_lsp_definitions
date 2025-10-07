@@ -7,9 +7,7 @@
 --[[
 WIPDOC
 ]]
----@alias core.PlayerPhysicsOverride.set
---- | core.PlayerPhysicsOverride.get
---- | _.PlayerPhysicsOverride.set
+---@alias core.PlayerPhysicsOverride.set core.PlayerPhysicsOverride.get | _.PlayerPhysicsOverride.set
 
 ---@class _.PlayerPhysicsOverride.set
 --[[

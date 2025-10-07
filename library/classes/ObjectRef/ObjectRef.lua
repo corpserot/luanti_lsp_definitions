@@ -16,9 +16,7 @@ local ObjectRefBase = {}
 --[[
 WIPDOC
 ]]
----@alias core.ObjectRef
---- | core.PlayerRef
---- | core.EntityRef
+---@alias core.ObjectRef core.PlayerRef | core.EntityRef
 
 -- -------------------------------- is valid -------------------------------- --
 
@@ -343,15 +341,6 @@ function ObjectRefBase:get_observers() end
 ---@nodiscard
 ---@return  table<string, boolean>
 function ObjectRefBase:get_effective_observers() end
-
--- -------------------------------- is player ------------------------------- --
-
---[[
-* `is_player()`: returns true for players, false otherwise
-]]
----@nodiscard
----@return false
-function ObjectRefBase:is_player() end
 
 -- --------------------------------- nametag -------------------------------- --
 

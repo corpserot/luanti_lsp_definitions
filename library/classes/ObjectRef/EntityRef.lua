@@ -8,6 +8,15 @@ WIPDOC
 ---@class core.EntityRef : _.ObjectRef.__base
 local EntityRef = {}
 
+-- -------------------------------- is player ------------------------------- --
+
+--[[
+* `is_player()`: returns true for players, false otherwise
+]]
+---@nodiscard
+---@return false
+function EntityRef:is_player() end
+
 -- ----------------------------- entity lifetime ---------------------------- --
 
 --[[
@@ -126,9 +135,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.EntityRef.select_x_by_camera
---- | core.EntityRef.select_x_by_camera.strict
---- | string[]
+---@alias core.EntityRef.select_x_by_camera core.EntityRef.select_x_by_camera.strict | string[]
 
 --[[
 * `set_sprite(start_frame, num_frames, framelength, select_x_by_camera)`

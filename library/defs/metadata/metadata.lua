@@ -38,14 +38,9 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.MetadataTable.set
---- | core.MetadataTable.get
---- | core.MetadataTable.node.set
---- | core.MetadataTable.item
+---@alias core.MetadataTable.set core.MetadataTable.get | core.MetadataTable.node.set | core.MetadataTable.item
 
 --[[
 WIPDOC
 ]]
----@alias core.MetadataTable.get
---- | core.MetadataTable.node.get
---- | core.MetadataTable.item
+---@alias core.MetadataTable.get core.MetadataTable.node.get | core.MetadataTable.item

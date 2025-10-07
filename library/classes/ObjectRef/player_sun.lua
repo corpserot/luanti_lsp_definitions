@@ -7,9 +7,7 @@
 --[[
 WIPDOC
 ]]
----@alias core.PlayerSunParameters.set
---- | core.PlayerSunParameters.get
---- | _.PlayerSunParameters.set
+---@alias core.PlayerSunParameters.set core.PlayerSunParameters.get | _.PlayerSunParameters.set
 
 ---@class _.PlayerSunParameters.set
 --[[

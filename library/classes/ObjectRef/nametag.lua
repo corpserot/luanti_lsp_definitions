@@ -24,9 +24,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.NametagAttributes.set
---- | core.NametagAttributes.get
---- | _.NametagAttributes.set
+---@alias core.NametagAttributes.set core.NametagAttributes.get | _.NametagAttributes.set
 
 ---@class _.NametagAttributes.set
 --[[

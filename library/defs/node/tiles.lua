@@ -36,9 +36,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.tiles
---- | core.NodeDef.tiles.strict
---- | core.TileDef[]
+---@alias core.NodeDef.tiles core.NodeDef.tiles.strict | core.TileDef[]
 
 -- -------------------------- NodeDef.special_tiles ------------------------- --
 
@@ -55,9 +53,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.special_tiles
---- | core.NodeDef.special_tiles.strict
---- | core.TileDef[]
+---@alias core.NodeDef.special_tiles core.NodeDef.special_tiles.strict | core.TileDef[]
 
 -- ----------------------------- NodeDef fields ----------------------------- --
 

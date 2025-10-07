@@ -63,9 +63,9 @@ WIPDOC
 --- | core.MapgenAlias.v6.essential
 --- | core.MapgenAlias.v6.optional
 
+---@alias _.Alias core.MapgenAlias
+
 --[[
 WIPDOC
 ]]
----@alias core.Alias
---- | core.MapgenAlias
---- | string
+---@alias core.Alias string | _.Alias

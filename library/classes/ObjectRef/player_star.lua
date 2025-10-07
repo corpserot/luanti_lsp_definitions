@@ -7,9 +7,7 @@
 --[[
 WIPDOC
 ]]
----@alias core.PlayerStarParameters.set
---- | core.PlayerStarParameters.get
---- | _.PlayerStarParameters.set
+---@alias core.PlayerStarParameters.set core.PlayerStarParameters.get | _.PlayerStarParameters.set
 
 ---@class _.PlayerStarParameters.set
 --[[

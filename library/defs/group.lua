@@ -15,58 +15,63 @@ WIPDOC
 
 -- ------------------------------- Groups.node ------------------------------ --
 
---[[
-WIPDOC
-]]
----@alias core.Groups.special.attached_node
+---@alias _.Groups.special.attached_node
 --- | 0
 --- | 1
 --- | 2
 --- | 3
 --- | 4
---- | integer
 
 --[[
 WIPDOC
 ]]
----@alias core.Groups.special.dig_immediate
+---@alias core.Groups.special.attached_node integer | _.Groups.special.attached_node
+
+--[[
+WIPDOC
+]]
+---@alias _.Groups.special.dig_immediate
 --- | 0
 --- | 1
 --- | 2
 --- | 3
---- | integer
+---@alias core.Groups.special.dig_immediate integer | _.Groups.special.dig_immediate
+
+---@alias _.Groups.special.disable_jump
+--- | 0
+--- | 1
 
 --[[
 WIPDOC
 ]]
----@alias core.Groups.special.disable_jump
+---@alias core.Groups.special.disable_jump integer | _.Groups.special.disable_jump
+
+---@alias _.Groups.special.disable_descend
 --- | 0
 --- | 1
---- | integer
 
 --[[
 WIPDOC
 ]]
----@alias core.Groups.special.disable_descend
+---@alias core.Groups.special.disable_descend integer | _.Groups.special.disable_descend
+
+---@alias _.Groups.special.falling_node
 --- | 0
 --- | 1
---- | integer
 
 --[[
 WIPDOC
 ]]
----@alias core.Groups.special.falling_node
+---@alias core.Groups.special.falling_node integer | _.Groups.special.falling_node
+
+---@alias _.Groups.special.float
 --- | 0
 --- | 1
---- | integer
 
 --[[
 WIPDOC
 ]]
----@alias core.Groups.special.float
---- | 0
---- | 1
---- | integer
+---@alias core.Groups.special.float integer | _.Groups.special.float
 
 --[[
 WIPDOC
@@ -119,13 +124,14 @@ WIPDOC
 
 -- ------------------------------- Groups.tool ------------------------------ --
 
+---@alias _.Groups.special.disable_repair
+--- | 0
+--- | 1
+
 --[[
 WIPDOC
 ]]
----@alias core.Groups.special.disable_repair
---- | 0
---- | 1
---- | integer
+---@alias core.Groups.special.disable_repair integer | _.Groups.special.disable_repair
 
 --[[
 WIPDOC
@@ -138,21 +144,23 @@ WIPDOC
 
 -- ------------------------------ Groups.armor ------------------------------ --
 
---[[
-WIPDOC
-]]
----@alias core.Groups.special.immortal
+---@alias _.Groups.special.immortal
 --- | 0
 --- | 1
---- | integer
 
 --[[
 WIPDOC
 ]]
----@alias core.Groups.special.punch_operable
+---@alias core.Groups.special.immortal integer | _.Groups.special.immortal
+
+---@alias _.Groups.special.punch_operable
 --- | 0
 --- | 1
---- | integer
+
+--[[
+WIPDOC
+]]
+---@alias core.Groups.special.punch_operable integer | _.Groups.special.punch_operable
 
 --[[
 WIPDOC

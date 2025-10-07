@@ -110,9 +110,7 @@ class instance.
 * @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
----@alias ivector
---- | ivec3.xyz
---- | ivec
+---@alias ivector ivec3.xyz | ivec
 
 --[[
 3D float vector with xyz components. It is either a plain vector or vector class
@@ -121,9 +119,7 @@ instance.
 * @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
----@alias fvector
---- | vec3.xyz
---- | vec
+---@alias fvector vec3.xyz | vec
 
 --[[
 3D vector with xyz components. It is either a plain vector or vector class
@@ -132,9 +128,7 @@ instance.
 * @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
----@alias vector
---- | ivector
---- | fvector
+---@alias vector ivector | fvector
 
 --[[
 3D integer vector with xyz components. It is either a plain vector or vector

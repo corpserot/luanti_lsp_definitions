@@ -7,9 +7,7 @@
 --[[
 WIPDOC
 ]]
----@alias core.BoneOverride.property.set
---- | core.BoneOverride.property.get
---- | _.BoneOverride.property.set
+---@alias core.BoneOverride.property.set core.BoneOverride.property.get | _.BoneOverride.property.set
 
 ---@class _.BoneOverride.property.set
 --[[
@@ -48,9 +46,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.BoneOverride.set
---- | core.BoneOverride.get
---- | _.BoneOverride.set
+---@alias core.BoneOverride.set core.BoneOverride.get | _.BoneOverride.set
 
 ---@class _.BoneOverride.set
 --[[

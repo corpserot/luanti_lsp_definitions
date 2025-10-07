@@ -41,9 +41,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.Schematic.flags
---- | core.Schematic.flags.tablefmt
---- | core.Schematic.flags.stringfmt
+---@alias core.Schematic.flags core.Schematic.flags.tablefmt | core.Schematic.flags.stringfmt
 
 -- ------------------------ SchematicDef.yslice_prob ------------------------ --
 
@@ -149,7 +147,4 @@ in the form of a table.
 --[[
 WIPDOC
 ]]
----@alias core.Schematic
---- | core.SchematicID
---- | core.Path
---- | core.SchematicDef
+---@alias core.Schematic core.SchematicID | core.Path | core.SchematicDef

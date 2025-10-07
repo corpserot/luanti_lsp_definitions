@@ -67,10 +67,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.fn.allow_player_inventory_action
---- | core.fn.allow_player_inventory_action.move
---- | core.fn.allow_player_inventory_action.put
---- | core.fn.allow_player_inventory_action.take
+---@alias core.fn.allow_player_inventory_action core.fn.allow_player_inventory_action.move | core.fn.allow_player_inventory_action.put | core.fn.allow_player_inventory_action.take
 
 --[[
 * `core.register_allow_player_inventory_action(function(player, action, inventory, inventory_info))`
@@ -101,10 +98,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.fn.on_player_inventory_action
---- | core.fn.on_player_inventory_action.move
---- | core.fn.on_player_inventory_action.put
---- | core.fn.on_player_inventory_action.take
+---@alias core.fn.on_player_inventory_action core.fn.on_player_inventory_action.move | core.fn.on_player_inventory_action.put | core.fn.on_player_inventory_action.take
 
 
 --[[

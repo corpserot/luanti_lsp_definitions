@@ -54,9 +54,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.TileAnimationDef
---- | core.TileAnimationDef.vertical_frames
---- | core.TileAnimationDef.sheet_2d
+---@alias core.TileAnimationDef core.TileAnimationDef.vertical_frames | core.TileAnimationDef.sheet_2d
 
 -- ----------------------------- TileDef.__base ----------------------------- --
 
@@ -127,8 +125,4 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.TileDef
---- | core.Texture
---- | core.TileDef.animation
---- | core.TileDef.regular
---- | core.TileDef.color
+---@alias core.TileDef core.Texture | core.TileDef.animation | core.TileDef.regular | core.TileDef.color

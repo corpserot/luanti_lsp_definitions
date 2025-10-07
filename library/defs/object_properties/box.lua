@@ -36,9 +36,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.ObjectProperties.collisionbox
---- | core.ObjectProperties.collisionbox.strict
---- | number[]
+---@alias core.ObjectProperties.collisionbox core.ObjectProperties.collisionbox.strict | number[]
 
 -- ------------------ ObjectProperties.selectionbox.strict ------------------ --
 
@@ -63,17 +61,12 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.ObjectProperties.selectionbox.set
---- | core.ObjectProperties.selectionbox.get
---- | core.ObjectProperties.selectionbox.strict.set
---- | number[]
+---@alias core.ObjectProperties.selectionbox.set core.ObjectProperties.selectionbox.get | core.ObjectProperties.selectionbox.strict.set | number[]
 
 --[[
 WIPDOC
 ]]
----@alias core.ObjectProperties.selectionbox.get
---- | core.ObjectProperties.selectionbox.strict.get
---- | number[]
+---@alias core.ObjectProperties.selectionbox.get core.ObjectProperties.selectionbox.strict.get | number[]
 
 -- ----------------------- ObjectPropertiesBase fields ---------------------- --
 

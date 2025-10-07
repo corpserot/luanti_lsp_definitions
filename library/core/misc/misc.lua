@@ -15,8 +15,8 @@ function core.get_connected_players() end
 * `core.is_player(obj)`: boolean, whether `obj` is a player
 ]]
 ---@nodiscard
----@param obj core.ObjectRef
----@return boolean
+---@param obj core.EntityRef
+---@return false
 function core.is_player(obj) end
 
 --[[

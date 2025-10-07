@@ -4,12 +4,13 @@
 
 -- ------------------------- ItemDef.pointabilities ------------------------- --
 
+---@alias _.ItemDef.pointabilities.value
+--- | "blocking"
+
 --[[
 WIPDOC
 ]]
----@alias core.ItemDef.pointabilities.value
---- | boolean
---- | "blocking"
+---@alias core.ItemDef.pointabilities.value boolean | _.ItemDef.pointabilities.value
 
 --[[
 WIPDOC

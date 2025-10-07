@@ -91,6 +91,4 @@ Available since `core.features.bulk_lbms` (5.10.0)
 ]]
 ---@field bulk_action core.LBMDef.bulk_action.fn
 
----@alias core.LBMDef
---- | core.LBMDef.action
---- | core.LBMDef.bulk_action
+---@alias core.LBMDef core.LBMDef.action | core.LBMDef.bulk_action

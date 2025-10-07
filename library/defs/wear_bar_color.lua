@@ -18,6 +18,4 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.WearBarColor
---- | core.ColorSpec
---- | core.WearBarColor.tablefmt
+---@alias core.WearBarColor core.ColorSpec | core.WearBarColor.tablefmt

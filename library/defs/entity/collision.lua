@@ -57,6 +57,4 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.Entity.collision
---- | core.Entity.collision.node
---- | core.Entity.collision.object
+---@alias core.Entity.collision core.Entity.collision.node | core.Entity.collision.object

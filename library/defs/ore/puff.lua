@@ -34,9 +34,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.OreDef.puff.flags
---- | core.OreDef.puff.flags.tablefmt
---- | core.OreDef.puff.flags.stringfmt
+---@alias core.OreDef.puff.flags core.OreDef.puff.flags.tablefmt | core.OreDef.puff.flags.stringfmt
 
 -- ------------------------------- OreDef.puff ------------------------------ --
 

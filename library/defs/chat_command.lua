@@ -2,10 +2,7 @@
 -- DRAFT 1 DONE
 -- luanti/doc/lua_api.md: Definition tables > Chat command definition
 
---[[
-WIPDOC
-]]
----@alias core.ChatCommandDef.keys
+---@alias _.ChatCommandDef.keys
 --- | "pulverize"
 --- | "fixlight"
 --- | "dump"
@@ -44,7 +41,11 @@ WIPDOC
 --- | "spawnentity"
 --- | "clearpassword"
 --- | "deleteblocks"
---- | string
+
+--[[
+WIPDOC
+]]
+---@alias core.ChatCommandDef.keys string | _.ChatCommandDef.keys
 
 --[[
 WIPDOC

@@ -84,43 +84,21 @@ If get to true the entity will show as a marker on the minimap.
 ---@class _.PlayerProperties.item.set : _.ObjectProperties.item.__partial, _.PlayerProperties.__base.set
 ---@class _.PlayerProperties.node.set : _.ObjectProperties.node.set.__partial, _.PlayerProperties.__base.set
 
----@alias core.PlayerProperties.cube.set
---- | core.PlayerProperties.cube.get
---- | _.PlayerProperties.cube.set
+---@alias core.PlayerProperties.cube.set core.PlayerProperties.cube.get | _.PlayerProperties.cube.set
 
----@alias core.PlayerProperties.sprite.set
---- | core.PlayerProperties.sprite.get
---- | _.PlayerProperties.sprite.set
+---@alias core.PlayerProperties.sprite.set core.PlayerProperties.sprite.get | _.PlayerProperties.sprite.set
 
----@alias core.PlayerProperties.upright_sprite.set
---- | core.PlayerProperties.upright_sprite.get
---- | _.PlayerProperties.upright_sprite.set
+---@alias core.PlayerProperties.upright_sprite.set core.PlayerProperties.upright_sprite.get | _.PlayerProperties.upright_sprite.set
 
----@alias core.PlayerProperties.mesh.set
---- | core.PlayerProperties.mesh.get
---- | _.PlayerProperties.mesh.set
+---@alias core.PlayerProperties.mesh.set core.PlayerProperties.mesh.get | _.PlayerProperties.mesh.set
 
----@alias core.PlayerProperties.wielditem.set
---- | core.PlayerProperties.wielditem.get
---- | _.PlayerProperties.wielditem.set
+---@alias core.PlayerProperties.wielditem.set core.PlayerProperties.wielditem.get | _.PlayerProperties.wielditem.set
 
----@alias core.PlayerProperties.item.set
---- | core.PlayerProperties.item.get
---- | _.PlayerProperties.item.set
+---@alias core.PlayerProperties.item.set core.PlayerProperties.item.get | _.PlayerProperties.item.set
 
----@alias core.PlayerProperties.node.set
---- | core.PlayerProperties.node.get
---- | _.PlayerProperties.node.set
+---@alias core.PlayerProperties.node.set core.PlayerProperties.node.get | _.PlayerProperties.node.set
 
----@alias core.PlayerProperties.set
---- | core.PlayerProperties.get
---- | core.PlayerProperties.cube.set
---- | core.PlayerProperties.sprite.set
---- | core.PlayerProperties.upright_sprite.set
---- | core.PlayerProperties.mesh.set
---- | core.PlayerProperties.wielditem.set
---- | core.PlayerProperties.item.set
---- | core.PlayerProperties.node.set
+---@alias core.PlayerProperties.set core.PlayerProperties.get | core.PlayerProperties.cube.set | core.PlayerProperties.sprite.set | core.PlayerProperties.upright_sprite.set | core.PlayerProperties.mesh.set | core.PlayerProperties.wielditem.set | core.PlayerProperties.item.set | core.PlayerProperties.node.set
 
 ---@class core.PlayerProperties.cube.get : _.ObjectProperties.cube.get.__partial, _.PlayerProperties.__base.get
 ---@class core.PlayerProperties.sprite.get : _.ObjectProperties.sprite.get.__partial, _.PlayerProperties.__base.get
@@ -130,11 +108,4 @@ If get to true the entity will show as a marker on the minimap.
 ---@class core.PlayerProperties.item.get : _.ObjectProperties.item.__partial, _.PlayerProperties.__base.get
 ---@class core.PlayerProperties.node.get : _.ObjectProperties.node.get.__partial, _.PlayerProperties.__base.get
 
----@alias core.PlayerProperties.get
---- | core.PlayerProperties.cube.get
---- | core.PlayerProperties.sprite.get
---- | core.PlayerProperties.upright_sprite.get
---- | core.PlayerProperties.mesh.get
---- | core.PlayerProperties.wielditem.get
---- | core.PlayerProperties.item.get
---- | core.PlayerProperties.node.get
+---@alias core.PlayerProperties.get core.PlayerProperties.cube.get | core.PlayerProperties.sprite.get | core.PlayerProperties.upright_sprite.get | core.PlayerProperties.mesh.get | core.PlayerProperties.wielditem.get | core.PlayerProperties.item.get | core.PlayerProperties.node.get

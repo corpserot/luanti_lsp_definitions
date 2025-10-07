@@ -48,9 +48,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.DecorationDef.flags.tablefmt
---- | _.DecorationDef.flags.tablefmt.liquid_surface
---- | _.DecorationDef.flags.tablefmt.all
+---@alias core.DecorationDef.flags.tablefmt _.DecorationDef.flags.tablefmt.liquid_surface | _.DecorationDef.flags.tablefmt.all
 
 --[[
 WIPDOC
@@ -60,9 +58,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.DecorationDef.flags
---- | core.DecorationDef.flags.tablefmt
---- | core.DecorationDef.flags.stringfmt
+---@alias core.DecorationDef.flags core.DecorationDef.flags.tablefmt | core.DecorationDef.flags.stringfmt
 
 -- ------------------- core.DecorationDef.schematic.flags ------------------- --
 
@@ -79,9 +75,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.DecorationDef.schematic.flags.tablefmt
---- | core.DecorationDef.schematic.flags.tablefmt.liquid_surface
---- | core.DecorationDef.schematic.flags.tablefmt.all
+---@alias core.DecorationDef.schematic.flags.tablefmt core.DecorationDef.schematic.flags.tablefmt.liquid_surface | core.DecorationDef.schematic.flags.tablefmt.all
 
 --[[
 WIPDOC
@@ -91,6 +85,4 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.DecorationDef.schematic.flags
---- | core.DecorationDef.schematic.flags.tablefmt
---- | core.DecorationDef.schematic.flags.stringfmt
+---@alias core.DecorationDef.schematic.flags core.DecorationDef.schematic.flags.tablefmt | core.DecorationDef.schematic.flags.stringfmt

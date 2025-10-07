@@ -50,9 +50,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.DynamicMediaOptions
---- | core.DynamicMediaOptions.filepath
---- | core.DynamicMediaOptions.filedata
+---@alias core.DynamicMediaOptions core.DynamicMediaOptions.filepath | core.DynamicMediaOptions.filedata
 
 -- ---------------------------- core.* functions ---------------------------- --
 

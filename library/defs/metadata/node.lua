@@ -63,9 +63,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.MetadataTable.node.set
---- | core.MetadataTable.node.get
---- | _.MetadataTable.node.set
+---@alias core.MetadataTable.node.set core.MetadataTable.node.get | _.MetadataTable.node.set
 
 ---@class _.MetadataTable.node.set
 --[[

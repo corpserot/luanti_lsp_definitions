@@ -81,9 +81,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.GenNotify.flags
---- | core.GenNotify.flags.tablefmt
---- | core.GenNotify.flags.stringfmt
+---@alias core.GenNotify.flags core.GenNotify.flags.tablefmt | core.GenNotify.flags.stringfmt
 
 -- -------------------------------- GenNotify ------------------------------- --
 

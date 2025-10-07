@@ -16,13 +16,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.CraftingRecipeDef.clear
---- | core.CraftingRecipeDef.shaped.input
---- | core.CraftingRecipeDef.shapeless.input
---- | core.CraftingRecipeDef.toolrepair
---- | core.CraftingRecipeDef.cooking.input
---- | core.CraftingRecipeDef.fuel
---- | core.CraftingRecipeDef.output
+---@alias core.CraftingRecipeDef.clear core.CraftingRecipeDef.shaped.input | core.CraftingRecipeDef.shapeless.input | core.CraftingRecipeDef.toolrepair | core.CraftingRecipeDef.cooking.input | core.CraftingRecipeDef.fuel | core.CraftingRecipeDef.output
 
 -- ---------------------------- CraftingRecipeDef --------------------------- --
 
@@ -50,9 +44,4 @@ following priority rules:
 * Otherwise, recipes without groups are preferred over recipes with groups.
 * Otherwise, earlier registered recipes are preferred.
 ]]
----@alias core.CraftingRecipeDef
---- | core.CraftingRecipeDef.shaped
---- | core.CraftingRecipeDef.shapeless
---- | core.CraftingRecipeDef.toolrepair
---- | core.CraftingRecipeDef.cooking
---- | core.CraftingRecipeDef.fuel
+---@alias core.CraftingRecipeDef core.CraftingRecipeDef.shaped | core.CraftingRecipeDef.shapeless | core.CraftingRecipeDef.toolrepair | core.CraftingRecipeDef.cooking | core.CraftingRecipeDef.fuel

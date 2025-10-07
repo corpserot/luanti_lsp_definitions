@@ -7,9 +7,7 @@
 --[[
 WIPDOC
 ]]
----@alias core.PlayerMoonParameters.set
---- | core.PlayerMoonParameters.get
---- | _.PlayerMoonParameters.set
+---@alias core.PlayerMoonParameters.set core.PlayerMoonParameters.get | _.PlayerMoonParameters.set
 
 ---@class _.PlayerMoonParameters.set
 --[[

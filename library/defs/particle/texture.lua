@@ -53,6 +53,4 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.ParticleTexture
---- | core.ParticleTexture.tablefmt
---- | core.ParticleTexture.stringfmt
+---@alias core.ParticleTexture core.ParticleTexture.tablefmt | core.ParticleTexture.stringfmt

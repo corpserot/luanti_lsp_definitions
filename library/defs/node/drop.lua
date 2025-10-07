@@ -48,9 +48,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.drop
---- | core.NodeDef.drop.tablefmt
---- | core.Item.stringfmt
+---@alias core.NodeDef.drop core.NodeDef.drop.tablefmt | core.Item.stringfmt
 
 -- ----------------------------- NodeDef fields ----------------------------- --
 

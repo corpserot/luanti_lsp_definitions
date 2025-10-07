@@ -16,17 +16,13 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.ObjectProperties.sprite.textures
---- | core.ObjectProperties.sprite.textures.strict
---- | string[]
+---@alias core.ObjectProperties.sprite.textures core.ObjectProperties.sprite.textures.strict | string[]
 
 -- ------------------------- ObjectProperties.sprite ------------------------ --
 --[[
 WIPDOC
 ]]
----@alias core.ObjectProperties.sprite.set
---- | core.ObjectProperties.sprite.get
---- | _.ObjectProperties.sprite.set
+---@alias core.ObjectProperties.sprite.set core.ObjectProperties.sprite.get | _.ObjectProperties.sprite.set
 
 ---@class _.ObjectProperties.sprite.set : _.ObjectProperties.sprite.set.__partial, _.ObjectProperties.__base.set
 

@@ -38,61 +38,68 @@ WIPDOC
 
 -- --------------------------- LuantiSettings.keys -------------------------- --
 
---[[
-WIPDOC
-]]
----@alias core.LuantiSettings.keys.integer
+---@alias _.LuantiSettings.keys.integer
 --- | _.LuantiSettings.advanced.keys.integer
 --- | _.LuantiSettings.client_and_server.keys.integer
 --- | _.LuantiSettings.mapgen.keys.integer
---- | string
 
 --[[
 WIPDOC
 ]]
----@alias core.LuantiSettings.keys.number
+--- @alias core.LuantiSettings.keys.integer string | _.LuantiSettings.keys.integer
+
+---@alias _.LuantiSettings.keys.number
 --- | _.LuantiSettings.advanced.keys.number
 --- | _.LuantiSettings.client_and_server.keys.number
 --- | _.LuantiSettings.mapgen.keys.number
---- | string
 
 --[[
 WIPDOC
 ]]
----@alias core.LuantiSettings.keys.boolean
+---@alias core.LuantiSettings.keys.number string | _.LuantiSettings.keys.number
+
+---@alias _.LuantiSettings.keys.boolean
 --- | _.LuantiSettings.advanced.keys.boolean
 --- | _.LuantiSettings.client_and_server.keys.boolean
---- | string
 
 --[[
 WIPDOC
 ]]
----@alias core.LuantiSettings.keys.noise_params.2d
+---@alias core.LuantiSettings.keys.boolean string | _.LuantiSettings.keys.boolean
+
+---@alias _.LuantiSettings.keys.noise_params.2d
 --- | _.LuantiSettings.mapgen.keys.noise_params.2d
---- | string
 
 --[[
 WIPDOC
 ]]
----@alias core.LuantiSettings.keys.noise_params.3d
+---@alias core.LuantiSettings.keys.noise_params.2d string | _.LuantiSettings.keys.noise_params.2d
+
+---@alias _.LuantiSettings.keys.noise_params.3d
 --- | _.LuantiSettings.mapgen.keys.noise_params.3d
---- | string
 
 --[[
 WIPDOC
 ]]
----@alias core.LuantiSettings.keys.vector
+---@alias core.LuantiSettings.keys.noise_params.3d string | _.LuantiSettings.keys.noise_params.3d
+
+---@alias _.LuantiSettings.keys.vector
 --- | _.LuantiSettings.mapgen.keys.vector
---- | string
 
 --[[
 WIPDOC
 ]]
----@alias core.LuantiSettings.keys
+---@alias core.LuantiSettings.keys.vector string | _.LuantiSettings.keys.vector
+
+---@alias _.LuantiSettings.keys
 --- | _.LuantiSettings.advanced.keys
 --- | _.LuantiSettings.client_and_server.keys
 --- | _.LuantiSettings.mapgen.keys
---- | string
+
+--[[
+WIPDOC
+]]
+---@alias core.LuantiSettings.keys string | _.LuantiSettings.keys
 
 -- ------------------------- LuantiSettings.tablefmt ------------------------ --
 

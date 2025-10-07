@@ -31,9 +31,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.SimpleSoundSpec
---- | core.SimpleSoundSpec.tablefmt
---- | core.SimpleSoundSpec.stringfmt
+---@alias core.SimpleSoundSpec core.SimpleSoundSpec.tablefmt | core.SimpleSoundSpec.stringfmt
 
 --[[
 WIPDOC
