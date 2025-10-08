@@ -7,6 +7,14 @@
 --[[
 WIPDOC
 ]]
+---@alias core.InventoryInfo.actions
+--- | "move"
+--- | "put"
+--- | "take"
+
+--[[
+WIPDOC
+]]
 ---@class core.InventoryInfo.move
 --[[
 WIPDOC
@@ -47,27 +55,17 @@ WIPDOC
 ]]
 ---@field stack core.ItemStack
 
+--[[
+WIPDOC
+]]
+---@alias core.InventoryInfo core.InventoryInfo.move | core.InventoryInfo.put_or_take
+
 -- ---------------------------- core.* functions ---------------------------- --
 
 --[[
 WIPDOC
 ]]
----@alias core.fn.allow_player_inventory_action.move fun(player:core.PlayerRef, action:"move", inventory:core.InvRef, inventory_info:core.InventoryInfo.move):integer
-
---[[
-WIPDOC
-]]
----@alias core.fn.allow_player_inventory_action.put fun(player:core.PlayerRef, action:"put", inventory:core.InvRef, inventory_info:core.InventoryInfo.put_or_take):integer
-
---[[
-WIPDOC
-]]
----@alias core.fn.allow_player_inventory_action.take fun(player:core.PlayerRef, action:"take", inventory:core.InvRef, inventory_info:core.InventoryInfo.put_or_take):integer
-
---[[
-WIPDOC
-]]
----@alias core.fn.allow_player_inventory_action core.fn.allow_player_inventory_action.move | core.fn.allow_player_inventory_action.put | core.fn.allow_player_inventory_action.take
+---@alias core.fn.allow_player_inventory_action fun(player:core.PlayerRef, action:core.InventoryInfo.actions, inventory:core.InvRef, inventory_info:core.InventoryInfo):integer
 
 --[[
 * `core.register_allow_player_inventory_action(function(player, action, inventory, inventory_info))`
@@ -83,22 +81,7 @@ function core.register_allow_player_inventory_action(f) end
 --[[
 WIPDOC
 ]]
----@alias core.fn.on_player_inventory_action.move fun(player:core.PlayerRef, action:"move", inventory:core.InvRef, inventory_info:core.InventoryInfo.move)
-
---[[
-WIPDOC
-]]
----@alias core.fn.on_player_inventory_action.put fun(player:core.PlayerRef, action:"put", inventory:core.InvRef, inventory_info:core.InventoryInfo.put_or_take)
-
---[[
-WIPDOC
-]]
----@alias core.fn.on_player_inventory_action.take fun(player:core.PlayerRef, action:"take", inventory:core.InvRef, inventory_info:core.InventoryInfo.put_or_take)
-
---[[
-WIPDOC
-]]
----@alias core.fn.on_player_inventory_action core.fn.on_player_inventory_action.move | core.fn.on_player_inventory_action.put | core.fn.on_player_inventory_action.take
+---@alias core.fn.on_player_inventory_action fun(player:core.PlayerRef, action:core.InventoryInfo.actions, inventory:core.InvRef, inventory_info:core.InventoryInfo)
 
 
 --[[
