@@ -26,7 +26,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.AuthenticationHandlerDef.get_auth fun(name:string?): core.AuthenticationData
+---@alias core.AuthenticationHandlerDef.get_auth fun(name:string?):core.AuthenticationData
 
 --[[
 WIPDOC
@@ -51,7 +51,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.AuthenticationHandlerDef.reload fun(): boolean
+---@alias core.AuthenticationHandlerDef.reload fun():boolean
 
 --[[
 WIPDOC
