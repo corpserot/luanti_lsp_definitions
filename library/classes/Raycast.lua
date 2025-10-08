@@ -138,7 +138,7 @@ function core.raycast(pos1, pos2, objects, liquids, pointabilities) end
 WIPDOC
 ]]
 ---@class core.Raycast.nodes
----@operator call:core.PointedThing.raycast.node
+---@overload fun():core.PointedThing.raycast.node
 local RaycastNodes = {}
 
 --[[
@@ -152,7 +152,7 @@ function RaycastNodes:next() end
 WIPDOC
 ]]
 ---@class core.Raycast.objects
----@operator call:core.PointedThing.raycast.object
+---@overload fun():core.PointedThing.raycast.object
 local RaycastObjects = {}
 
 --[[
@@ -166,7 +166,7 @@ function RaycastObjects:next() end
 WIPDOC
 ]]
 ---@class core.Raycast.all
----@operator call:core.PointedThing.raycast.all
+---@overload fun():core.PointedThing.raycast.all
 local RaycastAll = {}
 
 --[[
