@@ -9,139 +9,139 @@ core.log(dump2(core, 'core'))
 --[[
 WIPDOC
 ]]
----@type core.fn.on_mods_loaded[]
+---@type (fun())[]
 core.registered_on_mods_loaded = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_shutdown[]
+---@type (fun())[]
 core.registered_on_shutdown = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_generated[]
+---@type (fun(minp:ivec, maxp:ivec, blockseed:integer))[]
 core.registered_on_generateds = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_newplayer[]
+---@type (fun(ObjectRef:core.PlayerRef))[]
 core.registered_on_newplayers = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_dieplayer[]
+---@type (fun(ObjectRef:core.PlayerRef, reason: core.PlayerHPChangeReason))[]
 core.registered_on_dieplayers = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_respawnplayer[]
+---@type (fun(ObjectRef:core.PlayerRef):boolean?)[]
 core.registered_on_respawnplayers = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_prejoinplayer[]
+---@type (fun(name:string, ip:string):string?)[]
 core.registered_on_prejoinplayers = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_joinplayer[]
+---@type (fun(ObjectRef:core.PlayerRef, last_login:integer))[]
 core.registered_on_joinplayers = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_leaveplayer[]
+---@type (fun(ObjectRef:core.PlayerRef, timed_out:boolean))[]
 core.registered_on_leaveplayers = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_player_receive_fields[]
+---@type (fun(player:core.PlayerRef, formname:string, fields:core.FormspecFields):boolean?)[]
 core.registered_on_player_receive_fields = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_cheat[]
+---@type (fun(ObjectRef:core.PlayerRef, cheat:core.Cheat))[]
 core.registered_on_cheats = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_protection_violation[]
+---@type (fun(pos:ivec, name:string))[]
 core.registered_on_protection_violation = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_punchplayer[]
+---@type (fun(player:core.PlayerRef, hitter:core.PlayerRef?, time_from_last_punch:number?, tool_capabilities:core.ToolCapabilities?, dir:vec, damage: integer):boolean?)[]
 core.registered_on_punchplayers = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_priv_grant[]
+---@type (fun(name:string, granter:core.PlayerRef?, priv:core.PrivilegeSet.keys))[]
 core.registered_on_priv_grant = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_priv_revoke[]
+---@type (fun(name:string, revoker:core.PlayerRef?, priv:core.PrivilegeSet.keys))[]
 core.registered_on_priv_revoke = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_authplayer[]
+---@type (fun(name:string, ip:string, is_success:boolean))[]
 core.registered_on_authplayers = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.can_bypass_userlimit[]
+---@type (fun(name:string, ip:string):boolean?)[]
 core.registered_can_bypass_userlimit = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_modchannel_message[]
+---@type (fun(channel_name:string, sender:string, message:string))[]
 core.registered_on_modchannel_message = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_player_inventory_action[]
+---@type (fun(player:core.PlayerRef, action:core.InventoryInfo.actions, inventory:core.InvRef, inventory_info:core.InventoryInfo))[]
 core.registered_on_player_inventory_actions = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.allow_player_inventory_action[]
+---@type (fun(player:core.PlayerRef, action:core.InventoryInfo.actions, inventory:core.InvRef, inventory_info:core.InventoryInfo):integer)[]
 core.registered_allow_player_inventory_actions = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_rightclickplayer[]
+---@type (fun(player:core.PlayerRef, clicker:core.PlayerRef))[]
 core.registered_on_rightclickplayers = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_liquid_transform[]
+---@type (fun(pos_list: ivec[], node_list: core.Node.get[]))[]
 core.registered_on_liquid_transformed = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_mapblocks_changed[]
+---@type (fun(modified_blocks:table<core.PosHash,true>, modified_block_count:integer))[]
 core.registered_on_mapblocks_changed = {}
 
 --[[
@@ -165,43 +165,43 @@ core.registered_nodes = {}
 --[[
 WIPDOC
 ]]
----@type core.fn.on_craft[]
+---@type (fun(itemstack:core.ItemStack, player:core.PlayerRef, old_crafting_grid:core.Item.name[][], craft_inv:core.InvRef):core.ItemStack?)[]
 core.registered_on_crafts = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.craft_predict[]
+---@type (fun(itemstack:core.ItemStack, player:core.PlayerRef, old_crafting_grid:core.Item.name[][], craft_inv:core.InvRef):core.ItemStack?)[]
 core.registered_craft_predicts = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_item_pickup[]
+---@type (fun(itemstack:core.ItemStack, picker:core.PlayerRef?, pointed_thing:core.PointedThing?, time_from_last_punch:number?, direction:vec?, damage:integer?):core.ItemStack?)[]
 core.registered_on_item_pickups = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_item_eat[]
+---@type (fun(hp_change:integer, replace_with_item:core.ItemStack?, itemstack:core.ItemStack, user:core.PlayerRef, pointed_thing:core.PointedThing):core.ItemStack?)[]
 core.registered_on_item_eats = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_dignode[]
+---@type (fun(pos:ivec, oldnode:core.Node.get, digger:core.ObjectRef?))[]
 core.registered_on_dignodes = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_placenode[]
+---@type (fun(pos:ivec, newnode:core.Node.get, placer:core.ObjectRef?, oldnode:core.Node.get, itemstack:core.ItemStack, pointed_thing:core.PointedThing):boolean?)[]
 core.registered_on_placenodes = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_punchnode[]
+---@type (fun(pos:ivec, node:core.Node.get, puncher:core.ObjectRef?, pointed_thing:core.PointedThing))[]
 core.registered_on_punchnodes = {}
 
 --[[
@@ -274,13 +274,13 @@ core.registered_on_player_hpchanges = {}
 --[[
 WIPDOC
 ]]
----@type core.fn.on_player_hpchange.modifier[]
+---@type (fun(player:core.PlayerRef, hp_change:integer, reason:core.PlayerHPChangeReason):integer, boolean?)[]
 core.registered_on_player_hpchanges.modifiers = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_player_hpchange.logger[]
+---@type (fun(player:core.PlayerRef, hp_change:integer, reason:core.PlayerHPChangeReason))[]
 core.registered_on_player_hpchanges.loggers = {}
 
 --[[
@@ -304,25 +304,25 @@ core.registered_decorations = {}
 --[[
 WIPDOC
 ]]
----@type core.fn.on_chat_message[]
+---@type (fun(name:string, message:string):boolean?)[]
 core.registered_on_chat_messages = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.on_chatcommand[]
+---@type (fun(name:string, command:string, params:string))[]
 core.registered_on_chatcommands = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.globalstep[]
+---@type (fun(dtime:number))[]
 core.registered_globalsteps = {}
 
 --[[
 WIPDOC
 ]]
----@type core.fn.playerevent[]
+---@type (fun(player:core.PlayerRef, event:core.PlayerEvent))[]
 core.registered_playerevents = {}
 
 --[[

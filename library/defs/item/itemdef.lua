@@ -259,24 +259,24 @@ The user may be any ObjectRef or nil.
 --[[
 WIPDOC
 ]]
----@field on_place core.ItemDef.on_place?
+---@field on_place (fun(itemstack:core.ItemStack, placer:core.ObjectRef?, pointed_thing:core.PointedThing): core.ItemStack?)?
 --[[
 WIPDOC
 ]]
----@field on_secondary_use core.ItemDef.on_secondary_use?
+---@field on_secondary_use (fun(itemstack:core.ItemStack, user:core.ObjectRef?, pointed_thing:core.PointedThing): core.ItemStack?)?
 --[[
 WIPDOC
 ]]
----@field on_drop core.ItemDef.on_drop?
+---@field on_drop (fun(itemstack:core.ItemStack, dropper:core.ObjectRef?, pos:vec): core.ItemStack?)?
 --[[
 WIPDOC
 ]]
----@field on_pickup core.ItemDef.on_pickup?
+---@field on_pickup (fun(itemstack: core.ItemStack, picker:core.ObjectRef?, pointed_thing:core.PointedThing?, time_from_last_punch:number?, tool_capabilities:core.ToolCapabilities?, dir:vec?, damage:integer?): core.ItemStack?)?
 --[[
 WIPDOC
 ]]
----@field on_use core.ItemDef.on_use?
+---@field on_use (fun(itemstack:core.ItemStack, user:core.ObjectRef?, pointed_thing:core.PointedThing): core.ItemStack?)?
 --[[
 WIPDOC
 ]]
----@field after_use core.ItemDef.after_use?
+---@field after_use (fun(itemstack:core.ItemStack, user:core.ObjectRef?, node:core.Node.get, digparams:core.DigParams): core.ItemStack?)?

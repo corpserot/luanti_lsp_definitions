@@ -69,5 +69,5 @@ WIPDOC
 * Newest functions are called first
 * If function returns `true`, remaining functions are not called
 ]]
----@param f core.fn.on_player_receive_fields
+---@param f fun(player:core.PlayerRef, formname:string, fields:core.FormspecFields):boolean?
 function core.register_on_player_receive_fields(f) end

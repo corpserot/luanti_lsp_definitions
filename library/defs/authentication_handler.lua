@@ -75,32 +75,32 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field get_auth core.AuthenticationHandlerDef.get_auth
+---@field get_auth fun(name:string?):core.AuthenticationData
 --[[
 WIPDOC
 ]]
----@field create_auth core.AuthenticationHandlerDef.create_auth
+---@field create_auth fun(name:string, password:string)
 --[[
 WIPDOC
 ]]
----@field delete_auth core.AuthenticationHandlerDef.delete_auth
+---@field delete_auth fun(name:string): boolean
 --[[
 WIPDOC
 ]]
----@field set_password core.AuthenticationHandlerDef.set_password
+---@field set_password fun(name:string, password:string)
 --[[
 WIPDOC
 ]]
----@field set_privileges core.AuthenticationHandlerDef.set_privileges
+---@field set_privileges fun(name:string?, privileges:core.PrivilegeSet?)
 --[[
 WIPDOC
 ]]
----@field reload core.AuthenticationHandlerDef.reload
+---@field reload fun():boolean
 --[[
 WIPDOC
 ]]
----@field record_login core.AuthenticationHandlerDef.record_login
+---@field record_login fun(name:string)
 --[[
 WIPDOC
 ]]
----@field iterate core.AuthenticationHandlerDef.iterate
+---@field iterate fun(): (fun():string?)

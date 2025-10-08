@@ -230,5 +230,5 @@ Shuffles elements in given list from `from` to `to` in place.
 ---@param list T[]
 ---@param from integer? #@default(`1`)
 ---@param to integer? #@default(`#list`)
----@param random_func table.random_func? #@default(`math.random`)
+---@param random_func (fun(int1:integer, int2:integer):integer?)? #@default(`math.random`)
 function table.shuffle(list, from, to, random_func) end

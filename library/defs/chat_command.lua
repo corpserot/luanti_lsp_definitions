@@ -81,7 +81,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field func core.ChatCommandDef.func
+---@field func fun(name:string, param:string): boolean?, string?
 
 --[[
 WIPDOC

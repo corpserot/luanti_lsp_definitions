@@ -44,5 +44,5 @@ WIPDOC
         * `dug_unbreakable`
         * `dug_too_fast`
 ]]
----@param f core.fn.on_cheat
+---@param f fun(ObjectRef:core.PlayerRef, cheat:core.Cheat)
 function core.register_on_cheat(f) end

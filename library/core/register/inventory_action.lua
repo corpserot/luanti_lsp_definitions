@@ -75,7 +75,7 @@ WIPDOC
     * Return a numeric value to limit the amount of items to be taken, put or
       moved. A value of `-1` for `take` will make the source stack infinite.
 ]]
----@param f core.fn.allow_player_inventory_action
+---@param f fun(player:core.PlayerRef, action:core.InventoryInfo.actions, inventory:core.InvRef, inventory_info:core.InventoryInfo):integer
 function core.register_allow_player_inventory_action(f) end
 
 --[[
@@ -87,5 +87,5 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@param f core.fn.on_player_inventory_action
+---@param f fun(player:core.PlayerRef, action:core.InventoryInfo.actions, inventory:core.InvRef, inventory_info:core.InventoryInfo)
 function core.register_on_player_inventory_action(f) end

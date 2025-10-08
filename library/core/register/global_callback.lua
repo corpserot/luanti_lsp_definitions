@@ -13,7 +13,7 @@ WIPDOC
 * Called every server step, usually interval of 0.1s.
 * `dtime` is the time since last execution in seconds.
 ]]
----@param f core.fn.globalstep
+---@param f fun(dtime:number)
 function core.register_globalstep(f) end
 
 --[[
@@ -25,7 +25,7 @@ WIPDOC
 * Called after all mods have finished loading and before the media is cached
   or aliases are handled.
 ]]
----@param f core.fn.on_mods_loaded
+---@param f fun()
 function core.register_on_mods_loaded(f) end
 
 --[[
@@ -40,7 +40,7 @@ WIPDOC
       registered callbacks will likely **not run**. Data should be saved at
       semi-frequent intervals as well as on server shutdown.
 ]]
----@param f core.fn.on_shutdown
+---@param f fun()
 function core.register_on_shutdown(f) end
 
 -- ------------------------------- node events ------------------------------ --
@@ -58,7 +58,7 @@ WIPDOC
     * **Not recommended**; use `on_construct` or `after_place_node` in node
       definition whenever possible.
 ]]
----@param f core.fn.on_placenode
+---@param f fun(pos:ivec, newnode:core.Node.get, placer:core.ObjectRef?, oldnode:core.Node.get, itemstack:core.ItemStack, pointed_thing:core.PointedThing):boolean?
 function core.register_on_placenode(f) end
 
 --[[
@@ -72,7 +72,7 @@ WIPDOC
     * **Not recommended**; Use `on_destruct` or `after_dig_node` in node
       definition whenever possible.
 ]]
----@param f core.fn.on_dignode
+---@param f fun(pos:ivec, oldnode:core.Node.get, digger:core.ObjectRef?)
 ---@return nil
 function core.register_on_dignode(f) end
 
@@ -85,7 +85,7 @@ WIPDOC
 * `core.register_on_punchnode(function(pos, node, puncher, pointed_thing))`
     * Called after a node is punched
 ]]
----@param f core.fn.on_punchnode
+---@param f fun(pos:ivec, node:core.Node.get, puncher:core.ObjectRef?, pointed_thing:core.PointedThing)
 ---@return nil
 function core.register_on_punchnode(f) end
 
@@ -103,7 +103,7 @@ WIPDOC
       Consider [Mapgen environment](#mapgen-environment) as an alternative.
 ]]
 ---@deprecated
----@param f core.fn.on_generated
+---@param f fun(minp:ivec, maxp:ivec, blockseed:integer)
 function core.register_on_generated(f) end
 
 -- ------------------------------ player events ----------------------------- --
@@ -118,7 +118,7 @@ WIPDOC
     * Called when a new player enters the world for the first time
     * `player`: ObjectRef
 ]]
----@param f core.fn.on_newplayer
+---@param f fun(ObjectRef:core.PlayerRef)
 function core.register_on_newplayer(f) end
 
 --[[
@@ -140,7 +140,7 @@ WIPDOC
     * `damage`: Number that represents the damage calculated by the engine
     * should return `true` to prevent the default damage mechanism
 ]]
----@param f core.fn.on_punchplayer
+---@param f fun(player:core.PlayerRef, hitter:core.PlayerRef?, time_from_last_punch:number?, tool_capabilities:core.ToolCapabilities?, dir:vec, damage: integer):boolean?
 function core.register_on_punchplayer(f) end
 
 --[[
@@ -155,7 +155,7 @@ WIPDOC
     * `player`: ObjectRef - Player that is acted upon
     * `clicker`: ObjectRef - Object that acted upon `player`, may or may not be a player
 ]]
----@param f core.fn.on_rightclickplayer
+---@param f fun(player:core.PlayerRef, clicker:core.PlayerRef)
 function core.register_on_rightclickplayer(f) end
 
 --[[ core.register_on_player_hpchange() .. core.register_on_dieplayer() split off into ./hpchange.lua ]]--
@@ -168,7 +168,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@param f core.fn.on_respawnplayer
+---@param f fun(ObjectRef:core.PlayerRef):boolean?
 function core.register_on_respawnplayer(f) end
 
 --[[
@@ -179,7 +179,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@param f core.fn.on_prejoinplayer
+---@param f fun(name:string, ip:string):string?
 function core.register_on_prejoinplayer(f) end
 
 --[[
@@ -190,7 +190,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@param f core.fn.on_joinplayer
+---@param f fun(ObjectRef:core.PlayerRef, last_login:integer)
 function core.register_on_joinplayer(f) end
 
 --[[
@@ -201,7 +201,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@param f core.fn.on_leaveplayer
+---@param f fun(ObjectRef:core.PlayerRef, timed_out:boolean)
 function core.register_on_leaveplayer(f) end
 
 --[[
@@ -217,7 +217,7 @@ WIPDOC
     * `is_success`: Whether the client was successfully authenticated
     * For newly registered accounts, `is_success` will always be true
 ]]
----@param f core.fn.on_authplayer
+---@param f fun(name:string, ip:string, is_success:boolean)
 function core.register_on_authplayer(f) end
 
 --[[
@@ -229,7 +229,7 @@ WIPDOC
 * Deprecated: use `core.register_on_authplayer(name, ip, is_success)` instead.
 ]]
 ---@deprecated
----@param f core.fn.on_auth_fail
+---@param f fun(name:string, ip:string)
 function core.register_on_auth_fail(f) end
 
 --[[ core.register_on_cheat() split into ./cheat.lua ]]--
@@ -249,7 +249,7 @@ WIPDOC
     * Return `true` to mark the message as handled, which means that it will
       not be sent to other players.
 ]]
----@param f core.fn.on_chat_message
+---@param f fun(name:string, message:string):boolean?
 function core.register_on_chat_message(f) end
 
 --[[
@@ -264,7 +264,7 @@ WIPDOC
     * Return `true` to mark the command as handled, which means that the default
       handlers will be prevented.
 ]]
----@param f core.fn.on_chatcommand
+---@param f fun(name:string, command:string, params:string)
 function core.register_on_chatcommand(f) end
 
 -- -------------------------------- formspec -------------------------------- --
@@ -286,7 +286,7 @@ WIPDOC
     * Return either an `ItemStack`, to replace the output, or `nil`, to not
       modify it.
 ]]
----@param f core.fn.on_craft
+---@param f fun(itemstack:core.ItemStack, player:core.PlayerRef, old_crafting_grid:core.Item.name[][], craft_inv:core.InvRef):core.ItemStack?
 function core.register_on_craft(f) end
 
 --[[
@@ -299,7 +299,7 @@ WIPDOC
     * The same as before, except that it is called before the player crafts, to
       make craft prediction, and it should not change anything.
 ]]
----@param f core.fn.craft_predict
+---@param f fun(itemstack:core.ItemStack, player:core.PlayerRef, old_crafting_grid:core.Item.name[][], craft_inv:core.InvRef):core.ItemStack?
 function core.register_craft_predict(f) end
 
 --[[ core.register_allow_player_inventory_action() .. core.register_on_player_inventory_action() split off into ./inventory_action.lua ]]--
@@ -321,7 +321,7 @@ WIPDOC
       mod calling this function before it prints a message, if it does, to
       allow for multiple protection mods.
 ]]
----@param f core.fn.on_protection_violation
+---@param f fun(pos:ivec, name:string)
 function core.register_on_protection_violation(f) end
 
 -- ------------------------------- item events ------------------------------ --
@@ -336,7 +336,7 @@ WIPDOC
     * Called when an item is eaten, by `core.item_eat`
     * Return `itemstack` to cancel the default item eat response (i.e.: hp increase).
 ]]
----@param f core.fn.on_item_eat
+---@param f fun(hp_change:integer, replace_with_item:core.ItemStack?, itemstack:core.ItemStack, user:core.PlayerRef, pointed_thing:core.PointedThing):core.ItemStack?
 function core.register_on_item_eat(f) end
 
 --[[
@@ -353,7 +353,7 @@ WIPDOC
     * Return an itemstack to cancel the default item pick-up response (i.e.: adding
       the item into inventory).
 ]]
----@param f core.ItemDef.on_pickup
+---@param f fun(itemstack:core.ItemStack, picker:core.PlayerRef?, pointed_thing:core.PointedThing?, time_from_last_punch:number?, direction:vec?, damage:integer?):core.ItemStack?
 function core.register_on_item_pickup(f) end
 
 -- ------------------------------- privileges ------------------------------- --
@@ -369,7 +369,7 @@ WIPDOC
     * Note that the callback will be called twice if it's done by a player,
       once with granter being the player name, and again with granter being nil.
 ]]
----@param f core.fn.on_priv_grant
+---@param f fun(name:string, granter:core.PlayerRef?, priv:core.PrivilegeSet.keys)
 function core.register_on_priv_grant(f) end
 
 --[[
@@ -383,7 +383,7 @@ WIPDOC
     * Note that the callback will be called twice if it's done by a player,
       once with revoker being the player name, and again with revoker being nil.
 ]]
----@param f core.fn.on_priv_revoke
+---@param f fun(name:string, revoker:core.PlayerRef?, priv:core.PrivilegeSet.keys)
 function core.register_on_priv_revoke(f) end
 
 -- -------------------------------------------------------------------------- --
@@ -398,7 +398,7 @@ WIPDOC
     * Called when `name` user connects with `ip`.
     * Return `true` to by pass the player limit
 ]]
----@param f core.fn.can_bypass_userlimit
+---@param f fun(name:string, ip:string):boolean?
 function core.register_can_bypass_userlimit(f) end
 
 --[[
@@ -409,7 +409,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@param f core.fn.on_modchannel_message
+---@param f fun(channel_name:string, sender:string, message:string)
 function core.register_on_modchannel_message(f) end
 
 -- ------------------------------- map events ------------------------------- --
@@ -427,7 +427,7 @@ WIPDOC
     * `node_list` is an array of the old node that was previously at the position
       with the corresponding index in pos_list.
 ]]
----@param f core.fn.on_liquid_transform
+---@param f fun(pos_list: ivec[], node_list: core.Node.get[])
 function core.register_on_liquid_transformed(f) end
 
 --[[
@@ -447,5 +447,5 @@ WIPDOC
     * `modified_block_count` is the number of entries in the set.
     * Note: callbacks must be registered at mod load time.
 ]]
----@param f core.fn.on_mapblocks_changed
+---@param f fun(modified_blocks:table<core.PosHash,true>, modified_block_count:integer)
 function core.register_on_mapblocks_changed(f) end

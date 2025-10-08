@@ -36,15 +36,15 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field fetch core.HTTPApiTable.fetch
+---@field fetch fun(req:core.HTTPRequestDef, callback:fun(res:core.HTTPRequestDef))
 --[[
 WIPDOC
 ]]
----@field fetch_async core.HTTPApiTable.fetch_async
+---@field fetch_async fun(req:core.HTTPRequestDef)
 --[[
 WIPDOC
 ]]
----@field fetch_async_get core.HTTPApiTable.fetch_async_get
+---@field fetch_async_get fun(handle:core.HTTPFetchAsyncID):core.HTTPRequestResultDef
 
 -- ---------------------------- core.* functions ---------------------------- --
 

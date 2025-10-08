@@ -97,7 +97,7 @@ WIPDOC
        Modifiers can return true as a second argument to stop the execution of further functions.
        Non-modifiers receive the final HP change calculated by the modifiers.
 ]]
----@param f core.fn.on_player_hpchange.logger
+---@param f fun(player:core.PlayerRef, hp_change:integer, reason:core.PlayerHPChangeReason)
 function core.register_on_player_hpchange(f) end
 
 --[[
@@ -133,7 +133,7 @@ WIPDOC
        Modifiers can return true as a second argument to stop the execution of further functions.
        Non-modifiers receive the final HP change calculated by the modifiers.
 ]]
----@param f core.fn.on_player_hpchange.modifier
+---@param f fun(player:core.PlayerRef, hp_change:integer, reason:core.PlayerHPChangeReason):integer, boolean?
 ---@param modifier true
 function core.register_on_player_hpchange(f, modifier) end
 
@@ -148,5 +148,5 @@ WIPDOC
     * `reason`: a PlayerHPChangeReason table, see register_on_player_hpchange
     * For customizing the death screen, see `core.show_death_screen`.
 ]]
----@param f core.fn.on_dieplayer
+---@param f fun(ObjectRef:core.PlayerRef, reason: core.PlayerHPChangeReason)
 function core.register_on_dieplayer(f) end

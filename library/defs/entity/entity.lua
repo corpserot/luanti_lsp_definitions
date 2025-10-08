@@ -76,43 +76,43 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field on_activate core.EntityDef.on_activate?
+---@field on_activate (fun(self:core.Entity, staticdata:string, dtime_s:number))?
 --[[
 WIPDOC
 ]]
----@field on_deactivate core.EntityDef.on_deactivate?
+---@field on_deactivate (fun(self:core.Entity, removal:boolean))?
 --[[
 WIPDOC
 ]]
----@field on_step core.EntityDef.on_step?
+---@field on_step (fun(self:core.Entity, dtime:number, moveresult:core.Entity.moveresult?))?
 --[[
 WIPDOC
 ]]
----@field on_punch core.EntityDef.on_punch?
+---@field on_punch (fun(self:core.Entity, puncher:core.EntityRef?, ime_from_last_punch:number?, tool_capabilities:core.ToolCapabilities?, dir:vector, damage:integer):boolean)?
 --[[
 WIPDOC
 ]]
----@field on_death core.EntityDef.on_death?
+---@field on_death (fun(self:core.Entity, killer:core.EntityRef?))?
 --[[
 WIPDOC
 ]]
----@field on_rightclick core.EntityDef.on_rightclick?
+---@field on_rightclick (fun(self:core.Entity, clicker:core.EntityRef))?
 --[[
 WIPDOC
 ]]
----@field on_attach_child core.EntityDef.on_attach_child?
+---@field on_attach_child (fun(self:core.Entity, child:core.EntityRef))?
 --[[
 WIPDOC
 ]]
----@field on_detach_child core.EntityDef.on_detach_child?
+---@field on_detach_child (fun(self:core.Entity, child:core.EntityRef))?
 --[[
 WIPDOC
 ]]
----@field on_detach core.EntityDef.on_detach?
+---@field on_detach (fun(self:core.Entity, parent:core.EntityRef))?
 --[[
 WIPDOC
 ]]
----@field get_staticdata core.EntityDef.get_staticdata?
+---@field get_staticdata (fun(self:core.Entity):string)?
 
 -- --------------------------------- Entity --------------------------------- --
 
