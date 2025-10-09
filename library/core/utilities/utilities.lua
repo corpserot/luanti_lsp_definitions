@@ -16,7 +16,7 @@ WIPDOC
 ]]
 ---@nodiscard
 ---@param modname string
----@return core.Path
+---@return core.Path?
 function core.get_modpath(modname) end
 
 --[[

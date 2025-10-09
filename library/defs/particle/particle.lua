@@ -21,7 +21,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field  expirationtime number
+---@field  expirationtime number?
 --[[
 Scales the visual size of the particle texture.
 If `node` is set, size can be set to 0 to spawn a randomly-sized

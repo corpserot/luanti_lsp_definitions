@@ -58,7 +58,7 @@ Determines the resolution of noise variation if used.
 If the chunk size is not evenly divisible by sidelen, sidelen is made
 equal to the chunk size.
 ]]
----@field sidelen integer
+---@field sidelen integer?
 --[[
 List of biomes in which this decoration occurs. Occurs in all biomes
 if this is omitted, and ignored if the Mapgen being used does not
