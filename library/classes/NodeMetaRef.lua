@@ -87,8 +87,7 @@ function NodeMetaRef:get_keys() end
 --[[
 WIPDOC
 ]]
----@nodiscard
----@param data core.MetadataTable.node.set
+---@param data core.MetadataTable.node.set?
 ---@return boolean?
 function NodeMetaRef:from_table(data) end
 

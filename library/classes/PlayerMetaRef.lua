@@ -87,8 +87,7 @@ function PlayerMetaRef:get_keys() end
 --[[
 WIPDOC
 ]]
----@nodiscard
----@param data core.MetadataTable.player
+---@param data core.MetadataTable.player?
 ---@return boolean?
 function PlayerMetaRef:from_table(data) end
 

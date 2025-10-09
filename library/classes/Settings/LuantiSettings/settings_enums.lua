@@ -32,7 +32,6 @@ function LuantiSettings:set(key, value) end
 ---@return core.LuantiSettings.enums.profiler.default_report_format? value
 function LuantiSettings:get(key) end
 
----@nodiscard
 ---@param key "profiler.default_report_format"
 ---@param value core.LuantiSettings.enums.profiler.default_report_format?
 function LuantiSettings:set(key, value) end
@@ -42,7 +41,6 @@ function LuantiSettings:set(key, value) end
 ---@return core.LuantiSettings.enums.sqlite_synchronous? value
 function LuantiSettings:get(key) end
 
----@nodiscard
 ---@param key "sqlite_synchronous"
 ---@param value core.LuantiSettings.enums.sqlite_synchronous?
 function LuantiSettings:set(key, value) end
@@ -54,7 +52,6 @@ function LuantiSettings:set(key, value) end
 ---@return core.LuantiSettings.enums.mg_name? value
 function LuantiSettings:get(key) end
 
----@nodiscard
 ---@param key "mg_name"
 ---@param value core.LuantiSettings.enums.mg_name?
 function LuantiSettings:set(key, value) end

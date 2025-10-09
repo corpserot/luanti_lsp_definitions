@@ -87,8 +87,7 @@ function MetaDataRef:get_keys() end
 --[[
 WIPDOC
 ]]
----@nodiscard
----@param data core.MetadataTable.set
+---@param data core.MetadataTable.set?
 ---@return boolean?
 function MetaDataRef:from_table(data) end
 

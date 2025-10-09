@@ -59,7 +59,6 @@ function core.get_server_max_lag() end
       data too.
     * Returns a code (0: successful, 1: no such player, 2: player is connected)
 ]]
----@nodiscard
 ---@param name string
 ---@return 0|1|2
 function core.remove_player(name) end
@@ -68,7 +67,6 @@ function core.remove_player(name) end
 * `core.remove_player_auth(name)`: remove player authentication data
     * Returns boolean indicating success (false if player nonexistent)
 ]]
----@nodiscard
 ---@param name string
 ---@return boolean success
 function core.remove_player_auth(name) end

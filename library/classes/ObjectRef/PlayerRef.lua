@@ -206,7 +206,6 @@ function PlayerRef:get_breath() end
         * `0`: player is drowning
     * Is limited to range 0 ... 65535 (2^16 - 1)
 ]]
----@nodiscard
 ---@param value integer
 function PlayerRef:set_breath(value) end
 
@@ -322,7 +321,6 @@ function PlayerRef:get_formspec_prepend() end
 * `hud_add(hud definition)`: add a HUD element described by HUD def, returns ID
    number on success
 ]]
----@nodiscard
 ---@param hud_definition core.HUDDef
 ---@return core.HUDID? id
 function PlayerRef:hud_add(hud_definition) end
@@ -531,7 +529,6 @@ function PlayerRef:get_camera() end
       the client already has the block)
     * Resource intensive - use sparsely
 ]]
----@nodiscard
 ---@param blockpos ivector
 ---@return boolean?
 function PlayerRef:send_mapblock(blockpos) end

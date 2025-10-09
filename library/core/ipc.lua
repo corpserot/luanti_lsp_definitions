@@ -44,7 +44,6 @@ function core.ipc_set(key, value) end
   * `new_value`: value that will be set
   * returns: true on success, false otherwise
 ]]
----@nodiscard
 ---@param key string
 ---@param old_value core.Serializable
 ---@param new_value core.Serializable

@@ -461,7 +461,6 @@ WIPDOC
     * `prevent_after_place` is directly passed to `core.item_place_node`
     * Returns the new itemstack after placement
 ]]
----@nodiscard
 ---@param itemstack core.ItemStack
 ---@param placer core.ObjectRef?
 ---@param pointed_thing core.PointedThing
@@ -521,7 +520,6 @@ function core.calculate_knockback(player, hitter, time_from_last_punch, tool_cap
       absent, the limit is the value of the setting `"max_forceloaded_blocks"`.
       If the call would put the number of blocks over the limit, the call fails.
 ]=]
----@nodiscard
 ---@param pos ivector
 ---@param transient boolean?
 ---@param limit number?

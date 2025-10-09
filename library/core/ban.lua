@@ -22,7 +22,6 @@ function core.get_ban_description(ip_or_name) end
 * `core.ban_player(name)`: ban the IP of a currently connected player
     * Returns boolean indicating success
 ]]
----@nodiscard
 ---@param name string
 ---@return boolean success
 function core.ban_player(name) end
@@ -40,7 +39,6 @@ function core.unban_player_or_ip(ip_or_name) end
     * Returns boolean indicating success (false if player nonexistent)
     * If `reconnect` is true, allow the user to reconnect.
 ]=]
----@nodiscard
 ---@param name string
 ---@param reason string?
 ---@param reconnect boolean?
@@ -53,7 +51,6 @@ function core.kick_player(name, reason, reconnect) end
   If no reason is given, it will default to 'Disconnected.'
     * Returns boolean indicating success (false if player nonexistent)
 ]=]
----@nodiscard
 ---@param name string
 ---@param reason string?
 ---@param reconnect boolean?

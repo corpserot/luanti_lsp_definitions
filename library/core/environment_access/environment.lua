@@ -138,7 +138,6 @@ function core.get_artificial_light(param1) end
     * Place node with the same effects that a player would cause
     * `placer`: The ObjectRef that places the node (optional)
 ]]
----@nodiscard
 ---@param pos ivector
 ---@param node core.Node.get
 ---@param placer core.PlayerRef?
@@ -161,7 +160,6 @@ function core.dig_node(pos, digger) end
     * Punch node with the same effects that a player would cause
     * `puncher`: The ObjectRef that punches the node (optional)
 ]]
----@nodiscard
 ---@param pos ivector
 ---@param puncher core.PlayerRef?
 ---@return boolean
@@ -172,7 +170,6 @@ function core.punch_node(pos, puncher) end
     * Change node into falling node
     * Returns `true` and the ObjectRef of the spawned entity if successful, `false` on failure
 ]]
----@nodiscard
 ---@param pos ivector
 ---@return boolean
 function core.spawn_falling_node(pos) end
@@ -213,7 +210,6 @@ function core.get_node_timer(pos) end
     * Entities with `static_save = true` can be added also
       to unloaded and non-generated blocks.
 ]]
----@nodiscard
 ---@param pos vector
 ---@param name string
 ---@param staticdata string?
@@ -673,27 +669,9 @@ Though i am sure you can make it work out
     * `pos1`: First position
     * `pos2`: Second position
 ]]
----@nodiscard
 ---@param pos1 ivector
 ---@param pos2 ivector
----@return true
-function core.line_of_sight(pos1, pos2) end
-
---[[
-Unofficial note: The annoying thing about this little function is that it is hardcoded to check specifically for "air", nothing else
-Though i am sure you can make it work out
-
-* `core.line_of_sight(pos1, pos2)`: returns `boolean, pos`
-    * Checks if there is anything other than air between pos1 and pos2.
-    * Returns false if something is blocking the sight.
-    * Returns the position of the blocking node when `false`
-    * `pos1`: First position
-    * `pos2`: Second position
-]]
----@nodiscard
----@param pos1 ivector
----@param pos2 ivector
----@return false, core.Node.get
+---@return boolean, core.Node.get
 function core.line_of_sight(pos1, pos2) end
 
 --[[ core.raycast() split off into classes/Raycast.lua ]]--
@@ -781,7 +759,6 @@ function core.get_node_level(pos) end
     * set level of leveled node, default `level` equals `1`
     * if `totallevel > maxlevel`, returns rest (`total-max`).
 ]]
----@nodiscard
 ---@param pos ivector
 ---@param level core.Param2.leveled
 ---@return core.Param2.leveled?
@@ -793,7 +770,6 @@ function core.set_node_level(pos, level) end
     * if `totallevel > maxlevel`, returns rest (`total-max`)
     * `level` must be between -127 and 127
 ]]
----@nodiscard
 ---@param pos ivector
 ---@param level core.Param2.leveled
 ---@return core.Param2.leveled?
@@ -838,7 +814,6 @@ function core.get_node_boxes(box_type, pos, node) end
     * returns `false` if the area is not fully generated,
       `true` otherwise
 ]]
----@nodiscard
 ---@param pos1 ivector
 ---@param pos2 ivector
 ---@return boolean

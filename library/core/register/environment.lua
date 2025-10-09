@@ -86,7 +86,6 @@ function core.register_alias_force(alias, original_name) end
 --[[
 WIPDOC
 ]]
----@nodiscard
 ---@param def core.OreDef
 ---@return core.OreID?
 function core.register_ore(def) end
@@ -94,7 +93,6 @@ function core.register_ore(def) end
 --[[
 WIPDOC
 ]]
----@nodiscard
 ---@param biome_def core.BiomeDef
 ---@return core.BiomeID?
 function core.register_biome(biome_def) end
@@ -112,7 +110,6 @@ function core.unregister_biome(name) end
 --[[
 WIPDOC
 ]]
----@nodiscard
 ---@param decoration_def core.DecorationDef
 ---@return core.DecorationID?
 function core.register_decoration(decoration_def) end
@@ -120,7 +117,6 @@ function core.register_decoration(decoration_def) end
 --[[
 WIPDOC
 ]]
----@nodiscard
 ---@param schem_def core.SchematicDef
 ---@return core.SchematicID
 function core.register_schematic(schem_def) end

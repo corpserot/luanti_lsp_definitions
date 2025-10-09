@@ -55,7 +55,6 @@ function core.is_singleplayer() end
 --[[
 WIPDOC
 ]]
----@nodiscard
 ---@param path core.Path
 ---@return boolean success
 function core.mkdir(path) end
@@ -63,7 +62,6 @@ function core.mkdir(path) end
 --[[
 WIPDOC
 ]]
----@nodiscard
 ---@param path core.Path
 ---@param recursive boolean?
 ---@return boolean success
@@ -72,7 +70,6 @@ function core.rmdir(path, recursive) end
 --[[
 WIPDOC
 ]]
----@nodiscard
 ---@param source core.Path
 ---@param destination core.Path
 ---@return boolean success
@@ -81,7 +78,6 @@ function core.cpdir(source, destination) end
 --[[
 WIPDOC
 ]]
----@nodiscard
 ---@param source core.Path
 ---@param destination core.Path
 ---@return boolean success
@@ -106,7 +102,6 @@ function core.get_dir_list(path, is_dir) end
       way. Use this instead of below code when writing e.g. database files:
       `local f = io.open(path, "wb"); f:write(content); f:close()`
 ]]
----@nodiscard
 ---@param path core.Path
 ---@param content string
 ---@return boolean success

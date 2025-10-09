@@ -87,8 +87,7 @@ function ItemStackMetaRef:get_keys() end
 --[[
 WIPDOC
 ]]
----@nodiscard
----@param data core.MetadataTable.item
+---@param data core.MetadataTable.item?
 ---@return boolean?
 function ItemStackMetaRef:from_table(data) end
 

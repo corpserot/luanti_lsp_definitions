@@ -63,7 +63,6 @@ function mapgen.register_on_generated(f) end
 --[[
 WIPDOC
 ]]
----@nodiscard
 ---@param id string
 ---@param data core.Serializable
 ---@return true?

@@ -66,7 +66,6 @@ WIPDOC
         * place_center_y
         * place_center_z
 ]]
----@nodiscard
 ---@param pos ivector
 ---@param schematic core.Schematic
 ---@param rotation core.Schematic.rotation?
@@ -92,7 +91,6 @@ function core.place_schematic(pos, schematic, rotation, replacements, force_plac
         * place_center_y
         * place_center_z
 ]]
----@nodiscard
 ---@param vmanip core.VoxelManip
 ---@param schematic core.Schematic
 ---@param rotation core.Schematic.rotation?

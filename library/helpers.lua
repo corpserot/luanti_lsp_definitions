@@ -189,7 +189,6 @@ Inserts all values from `other_list` into `list`. Returns `list`.
 * @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#helper-functions)
 * @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/misc_helpers.lua)
 ]]
----@nodiscard
 ---@generic T
 ---@param list T[]
 ---@param other_list T[]

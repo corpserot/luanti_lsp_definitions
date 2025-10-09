@@ -228,7 +228,6 @@ Returns an empty [`ItemStack`](lua://core.ItemStack) for invalid inventory or `l
 * @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#invref)
 * @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
 ]]
----@nodiscard
 ---@param list core.InventoryList
 ---@param item core.Item
 ---@param match_meta boolean? #@default(`false`)

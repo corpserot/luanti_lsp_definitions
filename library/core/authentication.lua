@@ -180,6 +180,5 @@ function core.change_player_privs(name, changes) end
 `core.get_player_privs` and `core.auth_reload` call the authentication
 handler.
 ]]
----@nodiscard
 ---@return boolean
 function core.auth_reload() end

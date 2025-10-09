@@ -47,7 +47,6 @@ function core.rollback_get_node_actions(pos, range, seconds, limit) end
     * Revert latest actions of someone
     * `actor`: `"player:<name>"`, also `"liquid"`.
 ]]
----@nodiscard
 ---@param actor string|"liquid"
 ---@param seconds number
 ---@return boolean success, string[] log_messages

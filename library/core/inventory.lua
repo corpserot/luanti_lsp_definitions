@@ -84,7 +84,6 @@ function core.create_detached_inventory(name, callbacks, player_name) end
 --[[
 WIPDOC
 ]]
----@nodiscard
 ---@param name string
 ---@return boolean
 function core.remove_detached_inventory(name) end

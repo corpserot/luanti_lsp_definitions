@@ -12,7 +12,6 @@
     * returns `itemstack, position`
       * `position`: the location the node was placed to. `nil` if nothing was placed.
 ]]
----@nodiscard
 ---@param itemstack core.ItemStack
 ---@param placer core.ObjectRef
 ---@param pointed_thing core.PointedThing
@@ -28,7 +27,6 @@ function core.item_place_node(itemstack, placer, pointed_thing, param2, prevent_
     * **Note**: This function is deprecated and will never be called.
 ]]
 ---@deprecated
----@nodiscard
 ---@param itemstack core.ItemStack
 ---@param placer core.ObjectRef
 ---@param pointed_thing core.PointedThing
@@ -44,7 +42,6 @@ function core.item_place_object(itemstack, placer, pointed_thing) end
     * returns `itemstack, position`
       * `position`: the location the node was placed to. `nil` if nothing was placed.
 ]]
----@nodiscard
 ---@param itemstack core.ItemStack
 ---@param placer core.ObjectRef
 ---@param pointed_thing core.PointedThing
@@ -59,7 +56,6 @@ function core.item_place(itemstack, placer, pointed_thing, param2) end
     * Parameters and return value are the same as `on_pickup`.
     * **Note**: is not called when wielded item overrides `on_pickup`
 ]]
----@nodiscard
 ---@param itemstack core.ItemStack
 ---@param picker core.ObjectRef
 ---@param pointed_thing core.PointedThing
@@ -76,7 +72,6 @@ function core.item_pickup(itemstack, picker, pointed_thing, time_from_last_punch
     * Parameters and return value are the same as `on_secondary_use`.
     * **Note**: is not called when wielded item overrides `on_secondary_use`
 ]]
----@nodiscard
 ---@param itemstack core.ItemStack
 ---@param user core.ObjectRef?
 ---@return core.ItemStack?
@@ -92,7 +87,6 @@ function core.item_secondary_use(itemstack, user) end
       1. leftover itemstack
       2. `ObjectRef` of the spawned object (provided since 5.12.0)
 ]]
----@nodiscard
 ---@param itemstack core.ItemStack
 ---@param dropper core.ObjectRef?
 ---@param pos vector
@@ -109,7 +103,6 @@ function core.item_drop(itemstack, dropper, pos) end
       1. leftover itemstack
       2. `ObjectRef` of the spawned object (provided since 5.12.0)
 ]]
----@nodiscard
 ---@param itemstack core.ItemStack
 ---@param dropper core.ObjectRef?
 ---@param pos vector
@@ -129,7 +122,6 @@ WIPDOC
       If the player is eating a stack and `replace_with_item` doesn't fit onto
       the eaten stack, then the remaining go to a different spot, or are dropped.
 ]]
----@nodiscard
 ---@param hp_change integer
 ---@param replace_with_item core.Item.stringfmt?
 ---@return fun(itemstack:core.ItemStack, user:core.ObjectRef, pointed_thing:core.PointedThing):core.ItemStack?

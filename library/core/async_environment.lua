@@ -5,7 +5,6 @@
 --[[
 WIPDOC
 ]]
----@nodiscard
 ---@param f function
 ---@param callback function
 ---@param ... any

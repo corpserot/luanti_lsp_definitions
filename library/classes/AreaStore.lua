@@ -229,7 +229,7 @@ function AreaStore:get_areas_in_area(pos1, pos2, accept_overlap, include_corners
 ---@param corner1 ivector
 ---@param corner2 ivector
 ---@param data string
----@param id core.AreaStoreID?
+---@param id core.AreaStoreID
 ---@return core.AreaStoreID?
 function AreaStore:insert_area(corner1, corner2, data, id) end
 
@@ -247,7 +247,6 @@ function AreaStore:reserve(count) end
 * `remove_area(id)`: removes the area with the given id from the store, returns
   success.
 ]]
----@nodiscard
 ---@param id core.AreaStoreID
 ---@return boolean
 function AreaStore:remove_area(id) end

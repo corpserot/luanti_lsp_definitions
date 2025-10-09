@@ -23,7 +23,6 @@ Returns `false` if candidates could not be found. Otherwise, returns `true`.
 * @see [luanti/doc/lua_api.md > 'core' namespace reference > Registration functions > Gameplay](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gameplay)
 * @see [luanti/src/script/lua_api/l_craft.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_craft.cpp)
 ]]
----@nodiscard
 ---@param recipe core.CraftingRecipeDef.clear?
 ---@return boolean success
 function core.clear_craft(recipe) end

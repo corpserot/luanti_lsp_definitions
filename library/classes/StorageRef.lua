@@ -112,8 +112,7 @@ function StorageRef:get_keys() end
 --[[
 WIPDOC
 ]]
----@nodiscard
----@param data core.MetadataTable.storage
+---@param data core.MetadataTable.storage?
 ---@return boolean?
 function StorageRef:from_table(data) end
 

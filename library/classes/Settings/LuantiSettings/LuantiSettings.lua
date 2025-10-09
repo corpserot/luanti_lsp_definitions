@@ -272,7 +272,6 @@ function LuantiSettings:set_pos(key, value) end
 --[[
 * `remove(key)`: returns a boolean (`true`) for success
 ]]
----@nodiscard
 ---@param key core.LuantiSettings.keys
 ---@return boolean
 function LuantiSettings:remove(key) end

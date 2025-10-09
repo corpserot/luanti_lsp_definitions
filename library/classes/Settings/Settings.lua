@@ -119,6 +119,17 @@ function Settings:get_pos(key) end
 function Settings:set(key, value) end
 
 --[[
+* `set(key, value)`
+    * Setting names can't contain whitespace or any of `="{}#`.
+    * Setting values can't contain the sequence `\n"""`.
+      object (`core.settings`).
+]]
+---@deprecated
+---@param key string
+---@param value number
+function Settings:set(key, value) end
+
+--[[
 * `set_bool(key, value)`
     * See documentation for `set()` above.
 ]]
@@ -147,7 +158,6 @@ function Settings:set_pos(key, value) end
 --[[
 * `remove(key)`: returns a boolean (`true` for success
 ]]
----@nodiscard
 ---@param key boolean
 ---@return boolean
 function Settings:remove(key) end
