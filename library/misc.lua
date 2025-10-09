@@ -58,11 +58,9 @@ Serializable types
 --[[
 Helper type: `T` or a list of `T`
 ]]
----@generic T
----@alias OneOrMany T|T[]
+---@alias OneOrMany<T> T | T[]
 
 --[[
 Helper type: accepts a sparse list of `T` with holes
 ]]
----@generic T
----@alias SparseList {[integer]:T}|T[]
+---@alias SparseList<T> {[integer]:T}|T[]

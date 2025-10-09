@@ -15,16 +15,8 @@ function core.get_connected_players() end
 * `core.is_player(obj)`: boolean, whether `obj` is a player
 ]]
 ---@nodiscard
----@param obj core.EntityRef
----@return false
-function core.is_player(obj) end
-
---[[
-* `core.is_player(obj)`: boolean, whether `obj` is a player
-]]
----@nodiscard
----@param obj core.PlayerRef
----@return true
+---@param obj any
+---@return boolean
 function core.is_player(obj) end
 
 --[[
@@ -471,7 +463,7 @@ WIPDOC
 ]]
 ---@nodiscard
 ---@param itemstack core.ItemStack
----@param placer core.ObjectRef
+---@param placer core.ObjectRef?
 ---@param pointed_thing core.PointedThing
 ---@param infinitestacks boolean?
 ---@param orient_flags core.RotateAndPlace.orient_flags?

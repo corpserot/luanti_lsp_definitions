@@ -34,7 +34,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field speed vec2.xy?
+---@field speed {x:number, z:number}?
 --[[
 WIPDOC
 ]]
@@ -67,7 +67,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field speed vec2.xy
+---@field speed {x:number, z:number}
 --[[
 WIPDOC
 ]]
