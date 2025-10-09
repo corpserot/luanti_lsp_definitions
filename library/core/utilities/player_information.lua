@@ -87,13 +87,13 @@ Current size of the in-game render target (pixels).
 This is usually the window size, but may be smaller in certain situations,
 such as side-by-side mode.
 ]]
----@field size  ivec2.xy.soft
+---@field size  ivec2
 --[[
 Estimated maximum formspec size before Luanti will start shrinking the
 formspec to fit. For a fullscreen formspec, use the size returned by
 this table  and `padding[0,0]`. `bgcolor[;true]` is also recommended.
 ]]
----@field max_formspec_size  ivec2.xy.soft
+---@field max_formspec_size  ivec2
 --[[
 GUI Scaling multiplier
 Equal to the setting `gui_scaling` multiplied by `dpi / 96`

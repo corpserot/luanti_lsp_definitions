@@ -78,7 +78,7 @@ Can be overridden by the `pointabilities` of the held item.
 Multipliers for the visual size. If `z` is not specified, `x` will be used
 to scale the entity along both horizontal axes.
 ]]
----@field visual_size vector|vec2.xy?
+---@field visual_size vector|vec2?
 --[[
 Currently unused.
 ]]

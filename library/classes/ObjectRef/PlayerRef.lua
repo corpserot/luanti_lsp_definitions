@@ -341,7 +341,7 @@ function PlayerRef:hud_remove(id) end
 ]]
 ---@param id core.HUDID
 ---@param stat core.HUDDef.keys
----@param value number|string|core.Texture|vec2.xy|vec?
+---@param value number|string|core.Texture|vec2|vec?
 function PlayerRef:hud_change(id, stat, value) end
 
 --[[
@@ -445,10 +445,10 @@ function PlayerRef:get_day_night_ratio() end
     * Every animation equals to a `{x=starting frame, y=ending frame}` table.
     * `frame_speed` sets the animations frame speed. Default is 30.
 ]]
----@param idle vec2.xy
----@param walk vec2.xy
----@param dig vec2.xy
----@param walk_while_dig vec2.xy
+---@param idle vec2
+---@param walk vec2
+---@param dig vec2
+---@param walk_while_dig vec2
 ---@param frame_speed number
 function PlayerRef:set_local_animation(idle, walk, dig, walk_while_dig, frame_speed) end
 
@@ -457,7 +457,7 @@ function PlayerRef:set_local_animation(idle, walk, dig, walk_while_dig, frame_sp
   `frame_speed`.
 ]]
 ---@nodiscard
----@return vec2.xy idle, vec2.xy walk, vec2.xy dig
+---@return vec2 idle, vec2 walk, vec2 dig
 function PlayerRef:get_local_animation() end
 
 -- ------------------------------ player camera ----------------------------- --
@@ -532,7 +532,7 @@ function PlayerRef:get_camera() end
     * Resource intensive - use sparsely
 ]]
 ---@nodiscard
----@param blockpos ivector.soft
+---@param blockpos ivector
 ---@return boolean?
 function PlayerRef:send_mapblock(blockpos) end
 

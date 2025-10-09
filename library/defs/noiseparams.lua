@@ -161,7 +161,7 @@ size of the largest structures in the final noise variation.
 stretched or compressed in the desired axes.
 Values are positive numbers.
 ]]
----@field spread ivector.soft
+---@field spread ivector
 
 --[[
 WIPDOC

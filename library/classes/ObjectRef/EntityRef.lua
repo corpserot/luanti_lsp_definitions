@@ -155,7 +155,7 @@ WIPDOC
         * Fifth column:  subject viewed from above
         * Sixth column:  subject viewed from below
 ]]
----@param start_frame vec2.xy?
+---@param start_frame vec2?
 ---@param num_frames integer?
 ---@param framelength number?
 ---@param select_x_by_camera core.EntityRef.select_x_by_camera|boolean?

@@ -1,58 +1,32 @@
 ---@meta _
--- 3D vector class
+-- 3D vector class, along with 2D and 3D plain vectors
 -- luanti/doc/lua_api.md: Spatial Vectors
 
---[[
-3D integer vector class instance
+-- ---------------------------------- vec2 ---------------------------------- --
 
-* @added 5.5.0
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@class ivec: ivec3.xyz, core.VectorLib
----@operator unm:ivec
----@operator add(ivector):ivec
----@operator add(vector):vec
----@operator sub(ivector):ivec
----@operator sub(vector):vec
----@operator mul(integer):ivec
----@operator mul(number):vec
----@operator div(number):vec
 --[[
-Metatable used by the 3D integer vector class.
-
-* @added 5.5.0
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
+2D plain vector with xy components.
 ]]
----@field metatable core.VectorLib
+---@alias vec2 {x:number, y:number}
+
 --[[
-Not recommended as it is accessed and modified through `__index` and
-`__newindex` functions resulting in more work than using xyz.
-
-* @added 5.5.0
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
+2D plain integer vector with xy components. Passing floats are unspecified and may break.
 ]]
----@field [1] integer
+---@alias ivec2 vec2
+
+-- ---------------------------------- vec3 ---------------------------------- --
+
 --[[
-Not recommended as it is accessed and modified through `__index` and
-`__newindex` functions resulting in more work than using xyz.
-
-* @added 5.5.0
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
+3D plain vector with xyz components.
 ]]
----@field [2] integer
+---@alias vec3 {x:number, y:number, z:number}
+
 --[[
-Not recommended as it is accessed and modified through `__index` and
-`__newindex` functions resulting in more work than using xyz.
-
-* @added 5.5.0
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
+3D integer plain vector with xyz components. Passing floats are unspecified and may break
 ]]
----@field [3] integer
+---@alias ivec3 vec3
+
+-- ----------------------------------- vec ---------------------------------- --
 
 --[[
 3D vector class instance
@@ -61,12 +35,15 @@ Not recommended as it is accessed and modified through `__index` and
 * @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
----@class vec: vec3.xyz, core.VectorLib
+---@class vec: core.VectorLib
 ---@operator unm:vec
 ---@operator add(vector):vec
 ---@operator sub(vector):vec
 ---@operator mul(number):vec
 ---@operator div(number):vec
+---@field x number
+---@field y number
+---@field z number
 --[[
 Metatable used by the 3D vector class.
 
@@ -104,22 +81,13 @@ Not recommended as it is accessed and modified through `__index` and
 ---@field [3] number
 
 --[[
-3D integer vector with xyz components. It is either a plain vector or vector
-class instance.
+3D vector class instance
 
+* @added 5.5.0
 * @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
----@alias ivector ivec3.xyz | ivec
-
---[[
-3D float vector with xyz components. It is either a plain vector or vector class
-instance.
-
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@alias fvector vec3.xyz | vec
+---@alias ivec vec
 
 --[[
 3D vector with xyz components. It is either a plain vector or vector class
@@ -128,13 +96,13 @@ instance.
 * @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
----@alias vector ivector | fvector
+---@alias vector vec | vec3
 
 --[[
 3D integer vector with xyz components. It is either a plain vector or vector
-class instance. Passing floats are unspecified.
+class instance. Passing floats are unspecified and may break.
 
 * @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
----@alias ivector.soft vector
+---@alias ivector vector

@@ -42,7 +42,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field offset vec2.xy?
+---@field offset vec2?
 --[[
 WIPDOC
 ]]
@@ -54,7 +54,7 @@ WIPDOC
 --[[
 Top left corner position of element
 ]]
----@field position vec2.xy
+---@field position vec2
 
 --[[
 WIPDOC
@@ -75,7 +75,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field alignment vec2.xy?
+---@field alignment vec2?
 
 ---@class _.HUDDef.world_pos
 --[[

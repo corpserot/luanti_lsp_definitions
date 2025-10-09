@@ -87,7 +87,7 @@ names still exist as aliases.
 ---@param seeddiff integer
 ---@param octaves integer
 ---@param persistence number
----@param spread ivector.soft
+---@param spread ivector
 ---@return core.ValueNoise
 function ValueNoise(seeddiff, octaves, persistence, spread) end
 
@@ -99,7 +99,7 @@ WIPDOC
 ---@param seeddiff integer
 ---@param octaves integer
 ---@param persistence number
----@param spread ivector.soft
+---@param spread ivector
 ---@return core.ValueNoise
 function PerlinNoise(seeddiff, octaves, persistence, spread) end
 
@@ -112,7 +112,7 @@ function PerlinNoise(seeddiff, octaves, persistence, spread) end
 ---@param seeddiff integer
 ---@param octaves integer
 ---@param persistence number
----@param spread ivector.soft
+---@param spread ivector
 ---@return core.ValueNoise
 function core.get_value_noise(seeddiff, octaves, persistence, spread) end
 
@@ -125,7 +125,7 @@ function core.get_value_noise(seeddiff, octaves, persistence, spread) end
 ---@param seeddiff integer
 ---@param octaves integer
 ---@param persistence number
----@param spread ivector.soft
+---@param spread ivector
 ---@return core.ValueNoise
 function core.get_perlin(seeddiff, octaves, persistence, spread) end
 
@@ -158,8 +158,8 @@ local ValueNoise = {}
 * `get_2d(pos)`: returns 2D noise value at `pos={x=,y=}`
 ]]
 ---@nodiscard
----@param pos vec2.xy
----@return vec2.xy
+---@param pos vec2
+---@return vec2
 function ValueNoise:get_2d(pos) end
 
 --[[

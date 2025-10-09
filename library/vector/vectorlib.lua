@@ -10,7 +10,43 @@ vector = {}
 
 -- ------------------------------ constructors ------------------------------ --
 
---[[ vector.new() split off into ./vector_new.lua ]]--
+--[[
+Returns a new vector `(a, b, c)`.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
+]]
+---@nodiscard
+---@param x number
+---@param y number
+---@param z number
+---@return vec
+function vector.new(x, y, z) end
+
+--[[
+Returns a copy of given vector.
+
+* @deprecated 5.X
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
+]]
+---@deprecated
+---@nodiscard
+---@param v vector
+---@return vec
+function vector.new(v) end
+
+--[[
+Returns a new vector `(0, 0, 0)`
+
+* @deprecated 5.X
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
+]]
+---@deprecated
+---@nodiscard
+---@return vec
+function vector.new() end
 
 --[[
 Returns a new vector `(0, 0, 0)`
@@ -19,7 +55,7 @@ Returns a new vector `(0, 0, 0)`
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
----@return ivec
+---@return vec
 function vector.zero() end
 
 --[[
@@ -39,18 +75,7 @@ Returns a copy of the given vector
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
----@param v ivector
----@return ivec
-function vector.copy(v) end
-
---[[
-Returns a copy of the given vector
-
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@nodiscard
----@param v fvector
+---@param v vector
 ---@return vec
 function vector.copy(v) end
 
@@ -191,18 +216,7 @@ Returns a new vector from absolute values of each component
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
----@param v ivector
----@return ivec
-function vector.abs(v) end
-
---[[
-Returns a new vector from absolute values of each component
-
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@nodiscard
----@param v fvector
+---@param v vector
 ---@return vec
 function vector.abs(v) end
 
@@ -215,20 +229,7 @@ Returns a new vector from `func` applied on each component.
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
----@param v ivector
----@param func fun(a:number, ...:any):number
----@param ... any Optional arguments passed to `func`
----@return ivec|vec
-function vector.apply(v, func, ...) end
-
---[[
-Returns a new vector from `func` applied on each component.
-
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@nodiscard
----@param v fvector
+---@param v vector
 ---@param func fun(a:number, ...:any):number
 ---@param ... any Optional arguments passed to `func`
 ---@return vec
@@ -241,21 +242,8 @@ Returns a new vector from `func` combining each component of `v`and `w`.
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
----@param v ivector
----@param w ivector
----@param func fun(va:number, wa:number):number
----@return ivec|vec
-function vector.combine(v, w, func) end
-
---[[
-Returns a new vector from `func` combining each component of `v`and `w`.
-
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@nodiscard
----@param v fvector
----@param w fvector
+---@param v vector
+---@param w vector
 ---@param func fun(va:number, wa:number):number
 ---@return vec
 function vector.combine(v, w, func) end
@@ -281,22 +269,8 @@ Returns new vectors `minp` and `maxp` from components of `v1` and `v2`.
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
----@param v1 ivector
----@param v2 ivector
----@return ivec minp, ivec maxp
-function vector.sort(v1, v2) end
-
---[[
-Returns new vectors `minp` and `maxp` from components of `v1` and `v2`.
-- `minp`: vector with smaller components from both vectors
-- `maxp`: vector with larger components from both vectors
-
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@nodiscard
----@param v1 fvector
----@param v2 fvector
+---@param v1 vector
+---@param v2 vector
 ---@return vec minp, vec maxp
 function vector.sort(v1, v2) end
 
@@ -333,20 +307,8 @@ Returns the cross product of `v1` and `v2`.
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
----@param v1 ivector
----@param v2 ivector
----@return ivec
-function vector.cross(v1, v2) end
-
---[[
-Returns the cross product of `v1` and `v2`.
-
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@nodiscard
----@param v1 fvector
----@param v2 fvector
+---@param v1 vector
+---@param v2 vector
 ---@return vec
 function vector.cross(v1, v2) end
 
@@ -357,21 +319,7 @@ Returns a new vector from summing `v` and `(x,y,z)`.
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
----@param v ivector
----@param x integer
----@param y integer
----@param z integer
----@return ivec
-function vector.offset(v, x, y, z) end
-
---[[
-Returns a new vector from summing `v` and `(x,y,z)`.
-
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@nodiscard
----@param v fvector
+---@param v vector
 ---@param x number
 ---@param y number
 ---@param z number
@@ -425,21 +373,8 @@ function vector.random_in_area(min, max) end
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
----@param v ivector
----@param x ivector|integer
----@return ivec
-function vector.add(v, x) end
-
---[[
-- `x` is a vector: Returns a new vector from summing `v` and `x`.
-- `x` is a number: Returns a new vector from adding `x` to each component of `v`.
-
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@nodiscard
----@param v fvector
----@param x fvector|number
+---@param v vector
+---@param x vector|number
 ---@return vec
 function vector.add(v, x) end
 
@@ -451,21 +386,8 @@ function vector.add(v, x) end
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
----@param v ivector
----@param x ivector|integer
----@return ivec
-function vector.subtract(v, x) end
-
---[[
-- `x` is a vector: Returns a new vector from difference of `v` and `x`.
-- `x` is a number: Returns a new vector from subtracting `x` from each component of `v`.
-
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@nodiscard
----@param v fvector
----@param x fvector|number
+---@param v vector
+---@param x vector|number
 ---@return vec
 function vector.subtract(v, x) end
 
@@ -476,19 +398,7 @@ Returns a new vector from scaling `v` by `s`
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
 ]]
 ---@nodiscard
----@param v ivector
----@param s integer
----@return ivec
-function vector.multiply(v, s) end
-
---[[
-Returns a new vector from scaling `v` by `s`
-
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@nodiscard
----@param v fvector
+---@param v vector
 ---@param s number
 ---@return vec
 function vector.multiply(v, s) end
@@ -514,22 +424,8 @@ Returns the schur product between `v1` and `v2`.
 ]]
 ---@deprecated
 ---@nodiscard
----@param v1 ivector
----@param v2 ivector
----@return ivec
-function vector.multiply(v1, v2) end
-
---[[
-Returns the schur product between `v1` and `v2`.
-
-* @deprecated 5.X
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@deprecated
----@nodiscard
----@param v1 fvector
----@param v2 fvector
+---@param v1 vector
+---@param v2 vector
 ---@return vec
 function vector.multiply(v1, v2) end
 
@@ -542,22 +438,8 @@ Returns the schur product between `v1` and `(1/v2.x, 1/v2.y, 1/v2.z)`.
 ]]
 ---@deprecated
 ---@nodiscard
----@param v1 ivector
----@param v2 ivector
----@return ivec
-function vector.divide(v1, v2) end
-
---[[
-Returns the schur product between `v1` and `(1/v2.x, 1/v2.y, 1/v2.z)`.
-
-* @deprecated 5.X
-* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#spatial-vectors)
-* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/vector.lua)
-]]
----@deprecated
----@nodiscard
----@param v1 fvector
----@param v2 fvector
+---@param v1 vector
+---@param v2 vector
 ---@return vec
 function vector.divide(v1, v2) end
 

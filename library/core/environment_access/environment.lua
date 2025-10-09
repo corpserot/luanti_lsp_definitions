@@ -12,7 +12,7 @@
       If param1 or param2 is omitted, it's set to `0`.
     * e.g. `core.set_node({x=0, y=10, z=0}, {name="default:wood"})`
 ]]
----@param pos ivector.soft
+---@param pos ivector
 ---@param node core.Node.set
 function core.set_node(pos, node) end
 
@@ -25,7 +25,7 @@ core.add_node = core.set_node
 --[[
 WIPDOC
 ]]
----@param posarr ivector.soft[]
+---@param posarr ivector[]
 ---@param node core.Node.set
 function core.bulk_set_node(posarr, node) end
 
@@ -34,7 +34,7 @@ function core.bulk_set_node(posarr, node) end
     * Swap node at position with another.
     * This keeps the metadata intact and will not run con-/destructor callbacks.
 ]]
----@param pos ivector.soft
+---@param pos ivector
 ---@param node core.Node.set
 function core.swap_node(pos, node) end
 
@@ -42,7 +42,7 @@ function core.swap_node(pos, node) end
 * `core.bulk_swap_node({pos1, pos2, pos3, ...}, node)`
     * Equivalent to `core.swap_node` but in bulk.
 ]]
----@param posarr ivector.soft[]
+---@param posarr ivector[]
 ---@param node core.Node.set
 function core.bulk_swap_node(posarr, node) end
 
@@ -50,7 +50,7 @@ function core.bulk_swap_node(posarr, node) end
 * `core.remove_node(pos)`: Remove a node
     * Equivalent to `core.set_node(pos, {name="air"})`, but a bit faster.
 ]]
----@param pos ivector.soft
+---@param pos ivector
 function core.remove_node(pos) end
 
 --[[
@@ -60,7 +60,7 @@ function core.remove_node(pos) end
       `{name="ignore", param1=0, param2=0}` for unloaded areas.
 ]]
 ---@nodiscard
----@param pos ivector.soft
+---@param pos ivector
 ---@return core.Node.get
 function core.get_node(pos) end
 
@@ -70,7 +70,7 @@ function core.get_node(pos) end
     * Note that even loaded areas can contain "ignore" nodes.
 ]]
 ---@nodiscard
----@param pos ivector.soft
+---@param pos ivector
 ---@return core.Node.get?
 function core.get_node_or_nil(pos) end
 
@@ -99,7 +99,7 @@ function core.get_node_raw(x, y, z) end
     * `nil` is returned e.g. when the map isn't loaded at `pos`
 ]]
 ---@nodiscard
----@param pos ivector.soft
+---@param pos ivector
 ---@param timeofday number?
 ---@return core.Light.part?
 function core.get_node_light(pos, timeofday) end
@@ -114,7 +114,7 @@ function core.get_node_light(pos, timeofday) end
     * This function tests 203 nodes in the worst case, which happens very
       unlikely
 ]]
----@param pos ivector.soft
+---@param pos ivector
 ---@param timeofday number?
 ---@return core.Light.part?
 function core.get_natural_light(pos, timeofday) end
@@ -139,7 +139,7 @@ function core.get_artificial_light(param1) end
     * `placer`: The ObjectRef that places the node (optional)
 ]]
 ---@nodiscard
----@param pos ivector.soft
+---@param pos ivector
 ---@param node core.Node.get
 ---@param placer core.PlayerRef?
 ---@return boolean
@@ -151,7 +151,7 @@ function core.place_node(pos, node, placer) end
     * `digger`: The ObjectRef that digs the node (optional)
     * Returns `true` if successful, `false` on failure (e.g. protected location)
 ]]
----@param pos ivector.soft
+---@param pos ivector
 ---@param digger core.PlayerRef?
 ---@return boolean
 function core.dig_node(pos, digger) end
@@ -162,7 +162,7 @@ function core.dig_node(pos, digger) end
     * `puncher`: The ObjectRef that punches the node (optional)
 ]]
 ---@nodiscard
----@param pos ivector.soft
+---@param pos ivector
 ---@param puncher core.PlayerRef?
 ---@return boolean
 function core.punch_node(pos, puncher) end
@@ -173,7 +173,7 @@ function core.punch_node(pos, puncher) end
     * Returns `true` and the ObjectRef of the spawned entity if successful, `false` on failure
 ]]
 ---@nodiscard
----@param pos ivector.soft
+---@param pos ivector
 ---@return boolean
 function core.spawn_falling_node(pos) end
 
@@ -183,8 +183,8 @@ function core.spawn_falling_node(pos) end
       {pos1, pos2}.
 ]]
 ---@nodiscard
----@param pos1 ivector.soft
----@param pos2 ivector.soft
+---@param pos1 ivector
+---@param pos2 ivector
 ---@return ivec[]
 function core.find_nodes_with_meta(pos1, pos2) end
 
@@ -192,7 +192,7 @@ function core.find_nodes_with_meta(pos1, pos2) end
 WIPDOC
 ]]
 ---@nodiscard
----@param pos ivector.soft
+---@param pos ivector
 ---@return core.NodeMetaRef
 function core.get_meta(pos) end
 
@@ -200,7 +200,7 @@ function core.get_meta(pos) end
 WIPDOC
 ]]
 ---@nodiscard
----@param pos ivector.soft
+---@param pos ivector
 ---@return core.NodeTimerRef
 function core.get_node_timer(pos) end
 
@@ -337,7 +337,7 @@ But you can notice that it doesn't have that pesky volume limit, so it's impleme
       If true `pos` is also checked for the nodes
 ]]
 ---@nodiscard
----@param pos ivector.soft
+---@param pos ivector
 ---@param radius integer
 ---@param nodenames OneOrMany<core.Node.namelike>
 ---@param search_center boolean?
@@ -357,8 +357,8 @@ function core.find_node_near(pos, radius, nodenames, search_center) end
     * Area volume is limited to 150,000,000 nodes
 ]]
 ---@nodiscard
----@param pos1 ivector.soft
----@param pos2 ivector.soft
+---@param pos1 ivector
+---@param pos2 ivector
 ---@param nodenames OneOrMany<core.Node.namelike>
 ---@param grouped true
 ---@return table<core.Node.name, ivec[]>
@@ -368,8 +368,8 @@ function core.find_nodes_in_area(pos1, pos2, nodenames, grouped) end
 WIPDOC
 ]]
 ---@nodiscard
----@param pos1 ivector.soft
----@param pos2 ivector.soft
+---@param pos1 ivector
+---@param pos2 ivector
 ---@param nodenames OneOrMany<core.Node.namelike>
 ---@param grouped false?
 ---@return ivec[], table<core.Node.name, integer>
@@ -383,8 +383,8 @@ function core.find_nodes_in_area(pos1, pos2, nodenames, grouped) end
     * Area volume is limited to 150,000,000 nodes
 ]]
 ---@nodiscard
----@param pos1 ivector.soft
----@param pos2 ivector.soft
+---@param pos1 ivector
+---@param pos2 ivector
 ---@param nodenames OneOrMany<core.Node.namelike>
 ---@return ivec[]
 function core.find_nodes_in_area_under_air(pos1, pos2, nodenames) end
@@ -482,7 +482,7 @@ Unofficial note: this relates to the biome heat, idk override it and make your o
     * Returns the heat at the position, or `nil` on failure.
 ]]
 ---@nodiscard
----@param pos ivector.soft
+---@param pos ivector
 ---@return number?
 function core.get_heat(pos) end
 
@@ -492,7 +492,7 @@ Unofficial note: this relates to the biome humidity, idk override it and make yo
     * Returns the humidity at the position, or `nil` on failure.
 ]]
 ---@nodiscard
----@param pos ivector.soft
+---@param pos ivector
 ---@return number?
 function core.get_humidity(pos) end
 
@@ -598,8 +598,8 @@ function core.get_noiseparams(name) end
     * `pos1` and `pos2` are optional and default to mapchunk minp and maxp.
 ]]
 ---@param vm core.VoxelManip
----@param pos1 ivector.soft?
----@param pos2 ivector.soft?
+---@param pos1 ivector?
+---@param pos2 ivector?
 function core.generate_ores(vm, pos1, pos2) end
 
 --[=[
@@ -613,8 +613,8 @@ function core.generate_ores(vm, pos1, pos2) end
        default: `false`
 ]=]
 ---@param vm core.VoxelManip
----@param pos1 ivector.soft?
----@param pos2 ivector.soft?
+---@param pos1 ivector?
+---@param pos2 ivector?
 ---@param use_mapgen_biomes boolean?
 function core.generate_decorations(vm, pos1, pos2, use_mapgen_biomes) end
 
@@ -646,8 +646,8 @@ function core.clear_objects(options) end
       `pos2` defaults to `pos1` if not specified.
     * This function does not trigger map generation.
 ]]
----@param pos1 ivector.soft
----@param pos2 ivector.soft?
+---@param pos1 ivector
+---@param pos2 ivector?
 function core.load_area(pos1, pos2) end
 
 --[[ core.emerge_area() split off into ./emerge_area.lua ]]--
@@ -656,8 +656,8 @@ function core.load_area(pos1, pos2) end
 * `core.delete_area(pos1, pos2)`
     * delete all mapblocks in the area from pos1 to pos2, inclusive
 ]]
----@param pos1 ivector.soft
----@param pos2 ivector.soft
+---@param pos1 ivector
+---@param pos2 ivector
 function core.delete_area(pos1, pos2) end
 
 -- ----------------------- ray casting and pathfinding ---------------------- --
@@ -674,8 +674,8 @@ Though i am sure you can make it work out
     * `pos2`: Second position
 ]]
 ---@nodiscard
----@param pos1 ivector.soft
----@param pos2 ivector.soft
+---@param pos1 ivector
+---@param pos2 ivector
 ---@return true
 function core.line_of_sight(pos1, pos2) end
 
@@ -691,8 +691,8 @@ Though i am sure you can make it work out
     * `pos2`: Second position
 ]]
 ---@nodiscard
----@param pos1 ivector.soft
----@param pos2 ivector.soft
+---@param pos1 ivector
+---@param pos2 ivector
 ---@return false, core.Node.get
 function core.line_of_sight(pos1, pos2) end
 
@@ -721,8 +721,8 @@ function core.line_of_sight(pos1, pos2) end
       on-the-fly
 ]]
 ---@nodiscard
----@param pos1 ivector.soft
----@param pos2 ivector.soft
+---@param pos1 ivector
+---@param pos2 ivector
 ---@param searchdistance integer
 ---@param max_jump integer
 ---@param max_drop integer
@@ -735,7 +735,7 @@ function core.find_path(pos1, pos2, searchdistance, max_jump, max_drop, algo) en
 --[[
 WIPDOC
 ]]
----@param pos ivector.soft
+---@param pos ivector
 ---@param lsystem core.LSystemTreeDef
 function core.spawn_tree(pos, lsystem) end
 
@@ -743,7 +743,7 @@ function core.spawn_tree(pos, lsystem) end
 WIPDOC
 ]]
 ---@param vmanip core.VoxelManip
----@param pos ivector.soft
+---@param pos ivector
 ---@param treedef core.LSystemTreeDef
 function core.spawn_tree_on_vmanip(vmanip, pos, treedef) end
 
@@ -753,7 +753,7 @@ function core.spawn_tree_on_vmanip(vmanip, pos, treedef) end
 * `core.transforming_liquid_add(pos)`
     * add node to liquid flow update queue
 ]]
----@param pos ivector.soft
+---@param pos ivector
 function core.transforming_liquid_add(pos) end
 
 -- ------------------------------- node level ------------------------------- --
@@ -763,7 +763,7 @@ function core.transforming_liquid_add(pos) end
     * get max available level for leveled node
 ]]
 ---@nodiscard
----@param pos ivector.soft
+---@param pos ivector
 ---@return core.Param2.leveled
 function core.get_node_max_level(pos) end
 
@@ -772,7 +772,7 @@ function core.get_node_max_level(pos) end
     * get level of leveled node (water, snow)
 ]]
 ---@nodiscard
----@param pos ivector.soft
+---@param pos ivector
 ---@return core.Param2.leveled
 function core.get_node_level(pos) end
 
@@ -782,7 +782,7 @@ function core.get_node_level(pos) end
     * if `totallevel > maxlevel`, returns rest (`total-max`).
 ]]
 ---@nodiscard
----@param pos ivector.soft
+---@param pos ivector
 ---@param level core.Param2.leveled
 ---@return core.Param2.leveled?
 function core.set_node_level(pos, level) end
@@ -794,7 +794,7 @@ function core.set_node_level(pos, level) end
     * `level` must be between -127 and 127
 ]]
 ---@nodiscard
----@param pos ivector.soft
+---@param pos ivector
 ---@param level core.Param2.leveled
 ---@return core.Param2.leveled?
 function core.add_node_level(pos, level) end
@@ -815,7 +815,7 @@ function core.add_node_level(pos, level) end
     * See also: [Node boxes](#node-boxes)
 ]]
 ---@param box_type "node_box"|"collision_box"|"selection_box"
----@param pos ivector.soft
+---@param pos ivector
 ---@param node core.Node.get?
 ---@return core.NodeBox.box[]
 function core.get_node_boxes(box_type, pos, node) end
@@ -839,8 +839,8 @@ function core.get_node_boxes(box_type, pos, node) end
       `true` otherwise
 ]]
 ---@nodiscard
----@param pos1 ivector.soft
----@param pos2 ivector.soft
+---@param pos1 ivector
+---@param pos2 ivector
 ---@return boolean
 function core.fix_light(pos1, pos2) end
 
@@ -851,7 +851,7 @@ Unofficial note: You can override this one for your own custom cool falling bloc
       unattached `group:attached_node` node to fall.
     * does not spread these updates to neighbors.
 ]]
----@param pos ivector.soft
+---@param pos ivector
 function core.check_single_for_falling(pos) end
 
 --[[
@@ -861,7 +861,7 @@ function core.check_single_for_falling(pos) end
     * spread these updates to neighbors and can cause a cascade
       of nodes to fall.
 ]]
----@param pos ivector.soft
+---@param pos ivector
 function core.check_for_falling(pos) end
 
 --[[

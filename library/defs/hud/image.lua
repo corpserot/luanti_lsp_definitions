@@ -14,7 +14,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field scale vec2.xy?
+---@field scale vec2?
 --[[
 WIPDOC
 ]]

@@ -10,7 +10,7 @@ WIPDOC
 ]]
 ---@nodiscard
 ---@param noiseparams core.NoiseParams
----@param size ivector.soft|ivec2.xy.soft
+---@param size ivector|ivec2
 ---@return core.ValueNoiseMap
 function ValueNoiseMap(noiseparams, size) end
 
@@ -19,7 +19,7 @@ WIPDOC
 ]]
 ---@nodiscard
 ---@param noiseparams core.NoiseParams
----@param size ivector.soft|ivec2.xy.soft
+---@param size ivector|ivec2
 ---@return core.ValueNoiseMap
 function core.get_value_noise_map(noiseparams, size) end
 
@@ -28,7 +28,7 @@ WIPDOC
 ]]
 ---@nodiscard
 ---@param noiseparams core.NoiseParams
----@param size ivector.soft|ivec2.xy.soft
+---@param size ivector|ivec2
 ---@return core.ValueNoiseMap
 function PerlinNoiseMap(noiseparams, size) end
 
@@ -37,7 +37,7 @@ WIPDOC
 ]]
 ---@nodiscard
 ---@param noiseparams core.NoiseParams
----@param size ivector.soft|ivec2.xy.soft
+---@param size ivector|ivec2
 ---@return core.ValueNoiseMap
 function core.get_perlin_map(noiseparams, size) end
 
@@ -54,7 +54,7 @@ local ValueNoiseMap = {}
   with values starting at `pos={x=,y=}`
 ]]
 ---@nodiscard
----@param pos vec2.xy
+---@param pos vec2
 ---@return number[][]
 function ValueNoiseMap:get_2d_map(pos) end
 
@@ -72,7 +72,7 @@ function ValueNoiseMap:get_3d_map(pos) end
   array of 2D noise with values starting at `pos={x=,y=}`
 ]]
 ---@nodiscard
----@param pos vec2.xy
+---@param pos vec2
 ---@return number[]
 function ValueNoiseMap:get_2d_map_flat(pos) end
 
@@ -80,7 +80,7 @@ function ValueNoiseMap:get_2d_map_flat(pos) end
 * `get_2d_map_flat(pos, buffer)`: returns a flat `<size.x * size.y>` element
   array of 2D noise with values starting at `pos={x=,y=}`
 ]]
----@param pos vec2.xy
+---@param pos vec2
 ---@param buffer number[]
 ---@return nil
 function ValueNoiseMap:get_2d_map_flat(pos, buffer) end
@@ -105,7 +105,7 @@ function ValueNoiseMap:get_3d_map_flat(pos, buffer) end
 * `calc_2d_map(pos)`: Calculates the 2d noise map starting at `pos`. The result
   is stored internally.
 ]]
----@param pos vec2.xy
+---@param pos vec2
 function ValueNoiseMap:calc_2d_map(pos) end
 
 --[[

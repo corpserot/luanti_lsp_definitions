@@ -114,7 +114,7 @@ in the form of a table.
 * The `size` field is a 3D vector containing the dimensions of the provided
   schematic. (required field)
 ]]
----@field  size ivector.soft
+---@field  size ivector
 --[[
 * The `yslice_prob` field is a table of {ypos, prob} slice tables. A slice table
   sets the probability of a particular horizontal slice of the schematic being

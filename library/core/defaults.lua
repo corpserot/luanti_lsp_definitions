@@ -139,7 +139,7 @@ function core.item_eat(hp_change, replace_with_item) end
 * `core.node_punch(pos, node, puncher, pointed_thing)`
     * Calls functions registered by `core.register_on_punchnode()`
 ]]
----@param pos ivector.soft
+---@param pos ivector
 ---@param node core.Node.set
 ---@param puncher core.ObjectRef
 ---@param pointed_thing core.PointedThing
@@ -150,7 +150,7 @@ function core.node_punch(pos, node, puncher, pointed_thing) end
     * Checks if node can be dug, puts item into inventory, removes node
     * Calls functions registered by `core.register_on_dignodes()`
 ]]
----@param pos ivector.soft
+---@param pos ivector
 ---@param node core.Node.set
 ---@param digger core.ObjectRef
 function core.node_dig(pos, node, digger) end

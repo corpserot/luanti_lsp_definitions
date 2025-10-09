@@ -59,8 +59,8 @@ VoxelManipLight.night = nil
 WIPDOC
 ]]
 ---@nodiscard
----@param p1 ivector.soft?
----@param p2 ivector.soft?
+---@param p1 ivector?
+---@param p2 ivector?
 ---@return core.VoxelManip
 function VoxelManip(p1, p2) end
 
@@ -68,8 +68,8 @@ function VoxelManip(p1, p2) end
 WIPDOC
 ]]
 ---@nodiscard
----@param p1 ivector.soft?
----@param p2 ivector.soft?
+---@param p1 ivector?
+---@param p2 ivector?
 ---@return core.VoxelManip
 function core.get_voxel_manip(p1, p2) end
 
@@ -115,8 +115,8 @@ local VoxelManip = {}
       VoxelManip, and not reset it.
 ]]
 ---@nodiscard
----@param p1 ivector.soft
----@param p2 ivector.soft
+---@param p1 ivector
+---@param p2 ivector
 ---@return ivec pmin, ivec pmax
 function VoxelManip:read_from_map(p1, p2) end
 
@@ -131,8 +131,8 @@ function VoxelManip:read_from_map(p1, p2) end
    * (introduced in 5.13.0)
 ]]
 ---@nodiscard
----@param p1 ivector.soft
----@param p2 ivector.soft
+---@param p1 ivector
+---@param p2 ivector
 ---@param node core.Node.set
 ---@return ivec pmin, ivec pmax
 function VoxelManip:initialize(p1, p2, node) end
@@ -157,14 +157,14 @@ function VoxelManip:write_to_map(light) end
 Unofficial note: i don't think you should be using this for performance reasons, this is a function i would personally NEVER use
 ]]
 ---@nodiscard
----@param pos ivector.soft
+---@param pos ivector
 ---@return core.Node.get
 function VoxelManip:get_node_at(pos) end
 
 --[[
 Unofficial note: i don't think you should be using this for performance reasons, this is a function i would personally NEVER use
 ]]
----@param pos ivector.soft
+---@param pos ivector
 ---@param node core.Node.set
 function VoxelManip:set_node_at(pos, node) end
 
@@ -209,8 +209,8 @@ function VoxelManip:update_map() end
       area if left out.
 ]]
 ---@param light core.VoxelManip.light
----@param p1 ivector.soft?
----@param p2 ivector.soft?
+---@param p1 ivector?
+---@param p2 ivector?
 function VoxelManip:set_lighting(light, p1, p2) end
 
 --[[

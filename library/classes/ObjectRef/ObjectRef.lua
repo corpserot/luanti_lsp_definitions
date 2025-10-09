@@ -215,7 +215,7 @@ function ObjectRefBase:set_armor_groups(groups) end
     * `frame_loop`: If `true`, animation will loop. If false, it will play once
        * default: `true`
 ]]
----@param frame_range vec2.xy?
+---@param frame_range vec2?
 ---@param frame_speed number?
 ---@param frame_blend number?
 ---@param frame_loop boolean?
@@ -226,7 +226,7 @@ function ObjectRefBase:set_animation(frame_range, frame_speed, frame_blend, fram
     * `frame_range`, `frame_speed`, `frame_blend`, `frame_loop`.
 ]]
 ---@nodiscard
----@return vec2.xy frame_range, number frame_speed, number frame_blend, boolean frame_loop
+---@return vec2 frame_range, number frame_speed, number frame_blend, boolean frame_loop
 function ObjectRefBase:get_animation() end
 
 --[[

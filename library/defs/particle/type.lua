@@ -7,7 +7,7 @@
 --[[
 WIPDOC
 ]]
----@alias core.ParticleSpawner.vec2 vec2.xy | number
+---@alias core.ParticleSpawner.vec2 vec2 | number
 
 -- -------------------------- ParticleSpawner.vec3 -------------------------- --
 
@@ -36,11 +36,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field min vec2.xy
+---@field min vec2
 --[[
 WIPDOC
 ]]
----@field max vec2.xy
+---@field max vec2
 --[[
 WIPDOC
 ]]
