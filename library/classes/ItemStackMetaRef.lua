@@ -36,6 +36,22 @@ function ItemStackMetaRef:get(key) end
 function ItemStackMetaRef:set_string(key, value) end
 
 --[[
+* `set_string(key, value)`: Value of `""` will delete the key.
+]]
+---@deprecated
+---@param key core.MetadataTable.fields.item.keys.integer
+---@param value integer
+function ItemStackMetaRef:set_string(key, value) end
+
+--[[
+* `set_string(key, value)`: Value of `""` will delete the key.
+]]
+---@deprecated
+---@param key core.MetadataTable.fields.item.keys.number
+---@param value number
+function ItemStackMetaRef:set_string(key, value) end
+
+--[[
 * `get_string(key)`: Returns `""` if key not present.
 ]]
 ---@nodiscard

@@ -209,7 +209,31 @@ function LuantiSettings:get_pos(key) end
       object (`core.settings`).
 ]]
 ---@param key core.LuantiSettings.keys.integer
----@param value string|integer
+---@param value string
+function LuantiSettings:set(key, value) end
+
+--[[
+* `set(key, value)`
+    * Setting names can't contain whitespace or any of `="{}#`.
+    * Setting values can't contain the sequence `\n"""`.
+    * Setting names starting with "secure." can't be set on the main settings
+      object (`core.settings`).
+]]
+---@deprecated
+---@param key core.LuantiSettings.keys.integer
+---@param value integer
+function LuantiSettings:set(key, value) end
+
+--[[
+* `set(key, value)`
+    * Setting names can't contain whitespace or any of `="{}#`.
+    * Setting values can't contain the sequence `\n"""`.
+    * Setting names starting with "secure." can't be set on the main settings
+      object (`core.settings`).
+]]
+---@deprecated
+---@param key core.LuantiSettings.keys.number
+---@param value number
 function LuantiSettings:set(key, value) end
 
 --[[

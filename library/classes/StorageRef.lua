@@ -62,6 +62,22 @@ function StorageRef:get(key) end
 function StorageRef:set_string(key, value) end
 
 --[[
+* `set_string(key, value)`: Value of `""` will delete the key.
+]]
+---@deprecated
+---@param key core.MetadataTable.fields.storage.keys.integer
+---@param value integer
+function StorageRef:set_string(key, value) end
+
+--[[
+* `set_string(key, value)`: Value of `""` will delete the key.
+]]
+---@deprecated
+---@param key core.MetadataTable.fields.storage.keys.number
+---@param value number
+function StorageRef:set_string(key, value) end
+
+--[[
 * `get_string(key)`: Returns `""` if key not present.
 ]]
 ---@nodiscard

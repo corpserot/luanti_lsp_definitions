@@ -36,6 +36,22 @@ function MetaDataRef:get(key) end
 function MetaDataRef:set_string(key, value) end
 
 --[[
+* `set_string(key, value)`: Value of `""` will delete the key.
+]]
+---@deprecated
+---@param key core.MetadataTable.fields.keys.integer
+---@param value integer
+function MetaDataRef:set_string(key, value) end
+
+--[[
+* `set_string(key, value)`: Value of `""` will delete the key.
+]]
+---@deprecated
+---@param key core.MetadataTable.fields.keys.number
+---@param value number
+function MetaDataRef:set_string(key, value) end
+
+--[[
 * `get_string(key)`: Returns `""` if key not present.
 ]]
 ---@nodiscard

@@ -174,8 +174,9 @@ function core.get_mapgen_setting_noiseparams(name) end
       metafile contents.
     * Note: to set the seed, use `"seed"`, not `"fixed_map_seed"`.
 ]]
+---@deprecated
 ---@param name core.MapgenSetting.keys.integer
----@param value string|integer
+---@param value integer
 ---@param override_meta boolean?
 function core.set_mapgen_setting(name, value, override_meta) end
 
@@ -188,8 +189,9 @@ function core.set_mapgen_setting(name, value, override_meta) end
       metafile contents.
     * Note: to set the seed, use `"seed"`, not `"fixed_map_seed"`.
 ]]
+---@deprecated
 ---@param name core.MapgenSetting.keys.number
----@param value string|number
+---@param value number
 ---@param override_meta boolean?
 function core.set_mapgen_setting(name, value, override_meta) end
 
