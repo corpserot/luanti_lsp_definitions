@@ -5,7 +5,9 @@
 --[[
 WIPDOC
 ]]
----@alias core.ObjectProperties.node.set core.ObjectProperties.node.get | _.ObjectProperties.node.set
+---@alias core.ObjectProperties.node.set
+--- | core.ObjectProperties.node.get
+--- | _.ObjectProperties.node.set
 
 ---@class _.ObjectProperties.node.set : _.ObjectProperties.node.set.__partial, _.ObjectProperties.__base.set
 

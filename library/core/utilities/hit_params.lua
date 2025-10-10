@@ -23,7 +23,9 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.HitParams core.HitParams.item | core.HitParams.tool
+---@alias core.HitParams
+--- | core.HitParams.item
+--- | core.HitParams.tool
 
 -- ---------------------------- core.* functions ---------------------------- --
 

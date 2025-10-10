@@ -42,7 +42,9 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.NoiseParams.flags core.NoiseParams.flags.tablefmt | core.NoiseParams.flags.stringfmt
+---@alias core.NoiseParams.flags
+--- | core.NoiseParams.flags.tablefmt
+--- | core.NoiseParams.flags.stringfmt
 
 -- --------------------------- NoiseParams.__base --------------------------- --
 
@@ -171,4 +173,6 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.NoiseParams core.NoiseParams.2d | core.NoiseParams.3d
+---@alias core.NoiseParams
+--- | core.NoiseParams.2d
+--- | core.NoiseParams.3d

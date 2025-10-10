@@ -192,4 +192,6 @@ Otherwise, the default behavior is used. (currently: any random tile)
 --[[
 WIPDOC
 ]]
----@alias core.ParticleSpawnerDef core.ParticleSpawnerDef.regular | core.ParticleSpawnerDef.node
+---@alias core.ParticleSpawnerDef
+--- | core.ParticleSpawnerDef.regular
+--- | core.ParticleSpawnerDef.node

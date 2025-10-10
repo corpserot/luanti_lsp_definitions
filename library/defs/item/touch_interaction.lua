@@ -26,7 +26,9 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.ItemDef.touch_interaction core.ItemDef.touch_interaction.mode | core.ItemDef.touch_interaction.pointed_thing
+---@alias core.ItemDef.touch_interaction
+--- | core.ItemDef.touch_interaction.mode
+--- | core.ItemDef.touch_interaction.pointed_thing
 
 -- ----------------------------- ItemDef fields ----------------------------- --
 

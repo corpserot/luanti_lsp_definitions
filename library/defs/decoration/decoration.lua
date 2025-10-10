@@ -45,7 +45,10 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.DecorationDef.biome string | core.BiomeID | core.BiomeDef
+---@alias core.DecorationDef.biome
+--- | string
+--- | core.BiomeID
+--- | core.BiomeDef
 
 ---@class _.DecorationDef.__base
 --[[
@@ -127,7 +130,9 @@ Flags for all decoration types.
 --[[
 WIPDOC
 ]]
----@alias core.DecorationDef.simple _.DecorationDef.simple.fill_ratio | _.DecorationDef.simple.noise_params
+---@alias core.DecorationDef.simple
+--- | _.DecorationDef.simple.fill_ratio
+--- | _.DecorationDef.simple.noise_params
 
 ---@class _.DecorationDef.simple.__partial
 --[[
@@ -186,7 +191,9 @@ to the 'place_on' node.
 --[[
 WIPDOC
 ]]
----@alias core.DecorationDef.schematic _.DecorationDef.schematic.fill_ratio | _.DecorationDef.schematic.noise_params
+---@alias core.DecorationDef.schematic
+--- | _.DecorationDef.schematic.fill_ratio
+--- | _.DecorationDef.schematic.noise_params
 
 ---@class _.DecorationDef.schematic.__partial
 --[[
@@ -229,7 +236,9 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.DecorationDef.lsystem _.DecorationDef.lsystem.fill_ratio | _.DecorationDef.lsystem.noise_params
+---@alias core.DecorationDef.lsystem
+--- | _.DecorationDef.lsystem.fill_ratio
+--- | _.DecorationDef.lsystem.noise_params
 
 ---@class _.DecorationDef.lsystem.__partial
 --[[
@@ -244,4 +253,7 @@ See section [L-system trees] for more details.
 
 -- ------------------------------ DecorationDef ----------------------------- --
 
----@alias core.DecorationDef core.DecorationDef.simple | core.DecorationDef.schematic | core.DecorationDef.lsystem
+---@alias core.DecorationDef
+--- | core.DecorationDef.simple
+--- | core.DecorationDef.schematic
+--- | core.DecorationDef.lsystem

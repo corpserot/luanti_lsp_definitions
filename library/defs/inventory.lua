@@ -6,17 +6,16 @@
 
 -- ------------------------------ InventoryList ----------------------------- --
 
----@alias _.InventoryList
+--[[
+WIPDOC
+]]
+---@alias core.InventoryList
 --- | "main"
 --- | "craft"
 --- | "craftpreview"
 --- | "craftresult"
 --- | "hand"
-
---[[
-WIPDOC
-]]
----@alias core.InventoryList string | _.InventoryList
+--- | string
 
 -- -------------------------------- InventoryTable -------------------------------- --
 

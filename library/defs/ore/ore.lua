@@ -48,4 +48,11 @@ Can be a list of (or a single) biome names, IDs, or definitions.
 --[[
 WIPDOC
 ]]
----@alias core.OreDef core.OreDef.scatter.uniform | core.OreDef.scatter.nonuniform | core.OreDef.sheet | core.OreDef.puff | core.OreDef.blob | core.OreDef.vein | core.OreDef.stratum
+---@alias core.OreDef
+--- | core.OreDef.scatter.uniform
+--- | core.OreDef.scatter.nonuniform
+--- | core.OreDef.sheet
+--- | core.OreDef.puff
+--- | core.OreDef.blob
+--- | core.OreDef.vein
+--- | core.OreDef.stratum

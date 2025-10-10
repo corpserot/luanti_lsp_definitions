@@ -7,11 +7,15 @@
 --[[
 WIPDOC
 ]]
----@alias core.ParticleSpawner.vec2 vec2 | number
+---@alias core.ParticleSpawner.vec2
+--- | vec2
+--- | number
 
 -- -------------------------- ParticleSpawner.vec3 -------------------------- --
 
----@alias core.ParticleSpawner.vec3 vector | number
+---@alias core.ParticleSpawner.vec3
+--- | vector
+--- | number
 
 -- ----------------------- ParticleSpawner.float_range ---------------------- --
 
@@ -28,7 +32,9 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.ParticleSpawner.float_range _.ParticleSpawner.float_range | number
+---@alias core.ParticleSpawner.float_range
+--- | _.ParticleSpawner.float_range
+--- | number
 
 -- ----------------------- ParticleSpawner.vec2_range ----------------------- --
 
@@ -49,7 +55,9 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.ParticleSpawner.vec2_range _.ParticleSpawner.vec2_range | core.ParticleSpawner.vec2
+---@alias core.ParticleSpawner.vec2_range
+--- | _.ParticleSpawner.vec2_range
+--- | core.ParticleSpawner.vec2
 
 -- ----------------------- ParticleSpawner.vec3_range ----------------------- --
 
@@ -70,7 +78,9 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.ParticleSpawner.vec3_range _.ParticleSpawner.vec3_range | core.ParticleSpawner.vec3
+---@alias core.ParticleSpawner.vec3_range
+--- | _.ParticleSpawner.vec3_range
+--- | core.ParticleSpawner.vec3
 
 -- -------------------------- ParticleSpawner.tween ------------------------- --
 

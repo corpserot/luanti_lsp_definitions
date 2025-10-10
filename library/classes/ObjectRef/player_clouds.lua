@@ -8,7 +8,9 @@
 --[[
 WIPDOC
 ]]
----@alias core.PlayerCloudParameters.set core.PlayerCloudParameters.get | _.PlayerCloudParameters.set
+---@alias core.PlayerCloudParameters.set
+--- | core.PlayerCloudParameters.get
+--- | _.PlayerCloudParameters.set
 
 ---@class _.PlayerCloudParameters.set
 --[[

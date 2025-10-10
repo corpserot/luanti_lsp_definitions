@@ -46,7 +46,10 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.InventoryLocation core.InventoryLocation.node | core.InventoryLocation.player | core.InventoryLocation.detached
+---@alias core.InventoryLocation
+--- | core.InventoryLocation.node
+--- | core.InventoryLocation.player
+--- | core.InventoryLocation.detached
 
 --[[
 WIPDOC

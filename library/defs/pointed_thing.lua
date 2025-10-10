@@ -50,7 +50,10 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.PointedThing core.PointedThing.nothing | core.PointedThing.node | core.PointedThing.object
+---@alias core.PointedThing
+--- | core.PointedThing.nothing
+--- | core.PointedThing.node
+--- | core.PointedThing.object
 
 -- -------------------------- PointedThing.raycast -------------------------- --
 
@@ -91,4 +94,6 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.PointedThing.raycast.all core.PointedThing.raycast.node | core.PointedThing.raycast.object
+---@alias core.PointedThing.raycast.all
+--- | core.PointedThing.raycast.node
+--- | core.PointedThing.raycast.object

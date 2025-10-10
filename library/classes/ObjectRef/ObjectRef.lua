@@ -16,7 +16,9 @@ local ObjectRefBase = {}
 --[[
 WIPDOC
 ]]
----@alias core.ObjectRef core.PlayerRef | core.EntityRef
+---@alias core.ObjectRef
+--- | core.PlayerRef
+--- | core.EntityRef
 
 -- -------------------------------- is valid -------------------------------- --
 

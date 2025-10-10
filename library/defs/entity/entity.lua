@@ -11,7 +11,9 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.Entity.namelike core.Groups.armor | core.Entity.name
+---@alias core.Entity.namelike
+--- | core.Groups.armor
+--- | core.Entity.name
 
 -- -------------------------------- EntityDef ------------------------------- --
 

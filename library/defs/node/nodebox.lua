@@ -36,12 +36,16 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.NodeBox.box number[] | core.NodeBox.box.strict
+---@alias core.NodeBox.box
+--- | number[]
+--- | core.NodeBox.box.strict
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeBox.boxes core.NodeBox.box | core.NodeBox.box[]
+---@alias core.NodeBox.boxes
+--- | core.NodeBox.box
+--- | core.NodeBox.box[]
 
 -- ----------------------------- NodeBox.regular ---------------------------- --
 
@@ -171,4 +175,8 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.NodeBox core.NodeBox.regular | core.NodeBox.fixed | core.NodeBox.wallmounted | core.NodeBox.connected
+---@alias core.NodeBox
+--- | core.NodeBox.regular
+--- | core.NodeBox.fixed
+--- | core.NodeBox.wallmounted
+--- | core.NodeBox.connected

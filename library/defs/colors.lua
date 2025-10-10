@@ -190,7 +190,9 @@ Named colors are also supported and are equivalent to
 To specify the value of the alpha channel, append `#A` or `#AA` to the end of
 the color name (e.g. `colorname#08`).
 ]]
----@alias core.ColorString string | core.ColorString.CSSColors
+---@alias core.ColorString
+--- | string
+--- | core.ColorString.CSSColors
 
 --[[
 WIPDOC
@@ -200,4 +202,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.ColorSpec core.ColorSpec.tablefmt | core.ColorString | core.ColorSpec.numberfmt
+---@alias core.ColorSpec
+--- | core.ColorSpec.tablefmt
+--- | core.ColorString
+--- | core.ColorSpec.numberfmt

@@ -36,14 +36,18 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.ObjectProperties.cube.textures core.ObjectProperties.cube.textures.strict | string[]
+---@alias core.ObjectProperties.cube.textures
+--- | core.ObjectProperties.cube.textures.strict
+--- | string[]
 
 -- -------------------------- ObjectProperties.cube ------------------------- --
 
 --[[
 WIPDOC
 ]]
----@alias core.ObjectProperties.cube.set core.ObjectProperties.cube.get | _.ObjectProperties.cube.set
+---@alias core.ObjectProperties.cube.set
+--- | core.ObjectProperties.cube.get
+--- | _.ObjectProperties.cube.set
 
 ---@class _.ObjectProperties.cube.set : _.ObjectProperties.cube.set.__partial, _.ObjectProperties.__base.set
 

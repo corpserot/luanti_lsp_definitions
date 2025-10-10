@@ -7,7 +7,9 @@
 --[[
 WIPDOC
 ]]
----@alias core.PlayerLightDef.shadow.set core.PlayerLightDef.shadow.get | _.PlayerLightDef.shadow.set
+---@alias core.PlayerLightDef.shadow.set
+--- | core.PlayerLightDef.shadow.get
+--- | _.PlayerLightDef.shadow.set
 
 ---@class _.PlayerLightDef.shadow.set
 --[[
@@ -37,7 +39,9 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.PlayerLightDef.exposure.set core.PlayerLightDef.exposure.get | _.PlayerLightDef.exposure.set
+---@alias core.PlayerLightDef.exposure.set
+--- | core.PlayerLightDef.exposure.get
+--- | _.PlayerLightDef.exposure.set
 
 ---@class _.PlayerLightDef.exposure.set
 --[[
@@ -99,7 +103,9 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.PlayerLightDef.bloom.set core.PlayerLightDef.bloom.get | _.PlayerLightDef.bloom.set
+---@alias core.PlayerLightDef.bloom.set
+--- | core.PlayerLightDef.bloom.get
+--- | _.PlayerLightDef.bloom.set
 
 ---@class _.PlayerLightDef.bloom.set
 --[[
@@ -137,7 +143,9 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.PlayerLightDef.volumetric_light.set core.PlayerLightDef.volumetric_light.get | _.PlayerLightDef.volumetric_light.set
+---@alias core.PlayerLightDef.volumetric_light.set
+--- | core.PlayerLightDef.volumetric_light.get
+--- | _.PlayerLightDef.volumetric_light.set
 
 ---@class _.PlayerLightDef.volumetric_light.set
 --[[
@@ -160,7 +168,9 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.PlayerLightDef.set core.PlayerLightDef.get | _.PlayerLightDef.set
+---@alias core.PlayerLightDef.set
+--- | core.PlayerLightDef.get
+--- | _.PlayerLightDef.set
 
 ---@class _.PlayerLightDef.set
 --[[

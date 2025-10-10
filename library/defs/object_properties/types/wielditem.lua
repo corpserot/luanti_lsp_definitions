@@ -16,14 +16,18 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.ObjectProperties.wielditem.textures core.ObjectProperties.wielditem.textures.strict | string[]
+---@alias core.ObjectProperties.wielditem.textures
+--- | core.ObjectProperties.wielditem.textures.strict
+--- | string[]
 
 -- ----------------------- ObjectProperties.wielditem ----------------------- --
 
 --[[
 WIPDOC
 ]]
----@alias core.ObjectProperties.wielditem.set core.ObjectProperties.wielditem.get | _.ObjectProperties.wielditem.set
+---@alias core.ObjectProperties.wielditem.set
+--- | core.ObjectProperties.wielditem.get
+--- | _.ObjectProperties.wielditem.set
 
 ---@class _.ObjectProperties.wielditem.set : _.ObjectProperties.wielditem.set.__partial, _.ObjectProperties.__base.set
 

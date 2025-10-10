@@ -88,4 +88,13 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.HUDDef core.HUDDef.image | core.HUDDef.text | core.HUDDef.statbar | core.HUDDef.inventory | core.HUDDef.hotbar | core.HUDDef.waypoint | core.HUDDef.image_waypoint | core.HUDDef.compass | core.HUDDef.minimap
+---@alias core.HUDDef
+--- | core.HUDDef.image
+--- | core.HUDDef.text
+--- | core.HUDDef.statbar
+--- | core.HUDDef.inventory
+--- | core.HUDDef.hotbar
+--- | core.HUDDef.waypoint
+--- | core.HUDDef.image_waypoint
+--- | core.HUDDef.compass
+--- | core.HUDDef.minimap

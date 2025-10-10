@@ -36,7 +36,10 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.DigParams core.DigParams.not_diggable | core.DigParams.item.diggable | core.DigParams.tool.diggable
+---@alias core.DigParams
+--- | core.DigParams.not_diggable
+--- | core.DigParams.item.diggable
+--- | core.DigParams.tool.diggable
 
 -- ---------------------------- core.* functions ---------------------------- --
 

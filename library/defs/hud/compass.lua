@@ -60,4 +60,6 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.HUDDef.compass core.HUDDef.compass.regular | core.HUDDef.compass.scalable
+---@alias core.HUDDef.compass
+--- | core.HUDDef.compass.regular
+--- | core.HUDDef.compass.scalable

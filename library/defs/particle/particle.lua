@@ -110,4 +110,6 @@ Otherwise, the default behavior is used. (currently: any random tile)
 --[[
 WIPDOC
 ]]
----@alias core.ParticleDef core.ParticleDef.regular | core.ParticleDef.node
+---@alias core.ParticleDef
+--- | core.ParticleDef.regular
+--- | core.ParticleDef.node

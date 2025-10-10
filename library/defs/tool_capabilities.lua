@@ -91,4 +91,6 @@ fallback behavior.
 --[[
 WIPDOC
 ]]
----@alias core.ToolCapabilities core.ToolCapabilities.item | core.ToolCapabilities.tool
+---@alias core.ToolCapabilities
+--- | core.ToolCapabilities.item
+--- | core.ToolCapabilities.tool

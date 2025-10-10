@@ -22,7 +22,9 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.CraftRecipe.normal.set core.CraftRecipe.normal.get | _.CraftRecipe.normal.set
+---@alias core.CraftRecipe.normal.set
+--- | core.CraftRecipe.normal.get
+--- | _.CraftRecipe.normal.set
 
 ---@class _.CraftRecipe.normal.set
 --[[
@@ -84,12 +86,19 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.CraftRecipe.set core.CraftRecipe.get | core.CraftRecipe.normal.set | core.CraftRecipe.cooking | core.CraftRecipe.fuel
+---@alias core.CraftRecipe.set
+--- | core.CraftRecipe.get
+--- | core.CraftRecipe.normal.set
+--- | core.CraftRecipe.cooking
+--- | core.CraftRecipe.fuel
 
 --[[
 WIPDOC
 ]]
----@alias core.CraftRecipe.get core.CraftRecipe.normal.get | core.CraftRecipe.cooking | core.CraftRecipe.fuel
+---@alias core.CraftRecipe.get
+--- | core.CraftRecipe.normal.get
+--- | core.CraftRecipe.cooking
+--- | core.CraftRecipe.fuel
 
 -- ----------------------- CraftingRecipe.with_output ----------------------- --
 
@@ -122,7 +131,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.CraftRecipe.with_output core.CraftRecipe.with_output.unknown | core.CraftRecipe.with_output.normal | core.CraftRecipe.with_output.cooking | core.CraftRecipe.with_output.fuel
+---@alias core.CraftRecipe.with_output
+--- | core.CraftRecipe.with_output.unknown
+--- | core.CraftRecipe.with_output.normal
+--- | core.CraftRecipe.with_output.cooking
+--- | core.CraftRecipe.with_output.fuel
 
 -- ------------------------------- CraftOutput ------------------------------ --
 
@@ -172,7 +185,10 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.CraftOutput core.CraftOutput.normal | core.CraftOutput.cooking | core.CraftOutput.fuel
+---@alias core.CraftOutput
+--- | core.CraftOutput.normal
+--- | core.CraftOutput.cooking
+--- | core.CraftOutput.fuel
 
 -- ---------------------------- core.* functions ---------------------------- --
 

@@ -91,4 +91,6 @@ Available since `core.features.bulk_lbms` (5.10.0)
 ]]
 ---@field bulk_action fun(pos_list:ivec[], dtime_s:number)
 
----@alias core.LBMDef core.LBMDef.action | core.LBMDef.bulk_action
+---@alias core.LBMDef
+--- | core.LBMDef.action
+--- | core.LBMDef.bulk_action

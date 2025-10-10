@@ -20,14 +20,18 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.ObjectProperties.upright_sprite.textures core.ObjectProperties.upright_sprite.textures.strict | string[]
+---@alias core.ObjectProperties.upright_sprite.textures
+--- | core.ObjectProperties.upright_sprite.textures.strict
+--- | string[]
 
 -- ------------------- ObjectProperties.upright_sprite.set ------------------ --
 
 --[[
 WIPDOC
 ]]
----@alias core.ObjectProperties.upright_sprite.set core.ObjectProperties.upright_sprite.get | _.ObjectProperties.upright_sprite.set
+---@alias core.ObjectProperties.upright_sprite.set
+--- | core.ObjectProperties.upright_sprite.get
+--- | _.ObjectProperties.upright_sprite.set
 
 ---@class _.ObjectProperties.upright_sprite.set : _.ObjectProperties.upright_sprite.set.__partial, _.ObjectProperties.__base.set
 

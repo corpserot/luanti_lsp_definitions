@@ -4,7 +4,10 @@
 
 -- ------------------------------ PrivilegeSet ------------------------------ --
 
----@alias _.PrivilegeSet.keys
+--[[
+WIPDOC
+]]
+---@alias core.PrivilegeSet.keys
 --- | "shout"
 --- | "interact"
 --- | "fast"
@@ -23,11 +26,7 @@
 --- | "protection_bypass"
 --- | "server"
 --- | "rollback"
-
---[[
-WIPDOC
-]]
----@alias core.PrivilegeSet.keys string | _.PrivilegeSet.keys
+--- | string
 
 --[[
 WIPDOC

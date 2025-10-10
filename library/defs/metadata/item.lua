@@ -24,7 +24,9 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.MetadataTable.fields.item.keys string | core.MetadataTable.fields.item.keys.special
+---@alias core.MetadataTable.fields.item.keys
+--- | core.MetadataTable.fields.item.keys.special
+--- | string
 
 --[[
 WIPDOC
@@ -36,7 +38,9 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.MetadataTable.fields.item.keys.integer string | core.MetadataTable.fields.item.keys.integer.special
+---@alias core.MetadataTable.fields.item.keys.integer
+--- | core.MetadataTable.fields.item.keys.integer.special
+--- | string
 
 --[[
 WIPDOC
@@ -47,7 +51,9 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.MetadataTable.fields.item.keys.number string | core.MetadataTable.fields.item.keys.number.special
+---@alias core.MetadataTable.fields.item.keys.number
+--- | core.MetadataTable.fields.item.keys.number.special
+--- | string
 
 -- --------------------------- MetadataTable.item --------------------------- --
 

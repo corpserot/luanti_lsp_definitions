@@ -135,7 +135,9 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.EntityRef.select_x_by_camera core.EntityRef.select_x_by_camera.strict | string[]
+---@alias core.EntityRef.select_x_by_camera
+--- | core.EntityRef.select_x_by_camera.strict
+--- | string[]
 
 --[[
 * `set_sprite(start_frame, num_frames, framelength, select_x_by_camera)`

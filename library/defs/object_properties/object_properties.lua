@@ -281,6 +281,21 @@ If set to true the entity will show as a marker on the minimap.
 
 -- ---------------------------- ObjectProperties ---------------------------- --
 
----@alias core.ObjectProperties.set core.ObjectProperties.get | core.ObjectProperties.cube.set | core.ObjectProperties.sprite.set | core.ObjectProperties.upright_sprite.set | core.ObjectProperties.mesh.set | core.ObjectProperties.wielditem.set | core.ObjectProperties.item.set | core.ObjectProperties.node.set
+---@alias core.ObjectProperties.set
+--- | core.ObjectProperties.get
+--- | core.ObjectProperties.cube.set
+--- | core.ObjectProperties.sprite.set
+--- | core.ObjectProperties.upright_sprite.set
+--- | core.ObjectProperties.mesh.set
+--- | core.ObjectProperties.wielditem.set
+--- | core.ObjectProperties.item.set
+--- | core.ObjectProperties.node.set
 
----@alias core.ObjectProperties.get core.ObjectProperties.cube.get | core.ObjectProperties.sprite.get | core.ObjectProperties.upright_sprite.get | core.ObjectProperties.mesh.get | core.ObjectProperties.wielditem.get | core.ObjectProperties.item.get | core.ObjectProperties.node.get
+---@alias core.ObjectProperties.get
+--- | core.ObjectProperties.cube.get
+--- | core.ObjectProperties.sprite.get
+--- | core.ObjectProperties.upright_sprite.get
+--- | core.ObjectProperties.mesh.get
+--- | core.ObjectProperties.wielditem.get
+--- | core.ObjectProperties.item.get
+--- | core.ObjectProperties.node.get

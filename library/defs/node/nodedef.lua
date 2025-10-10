@@ -198,7 +198,10 @@ Otherwise, the rotation is always the same on vertical placement.
 
 -- -------------------------------------------------------------------------- --
 
----@alias _.NodeDef.move_resistance
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.move_resistance
 --- | 0
 --- | 1
 --- | 2
@@ -207,11 +210,7 @@ Otherwise, the rotation is always the same on vertical placement.
 --- | 5
 --- | 6
 --- | 7
-
---[[
-WIPDOC
-]]
----@alias core.NodeDef.move_resistance integer | _.NodeDef.move_resistance
+--- | integer
 
 ---@class core.NodeDef
 --[[
@@ -280,7 +279,10 @@ WIPDOC
 --- | "source"
 --- | "flowing"
 
----@alias _.NodeDef.liquid_viscosity
+--[[
+WIPDOC
+]]
+---@alias core.NodeDef.liquid_viscosity
 --- | 0
 --- | 1
 --- | 2
@@ -289,11 +291,7 @@ WIPDOC
 --- | 5
 --- | 6
 --- | 7
-
---[[
-WIPDOC
-]]
----@alias core.NodeDef.liquid_viscosity integer | _.NodeDef.liquid_viscosity
+--- | integer
 
 ---@class core.NodeDef
 --[[

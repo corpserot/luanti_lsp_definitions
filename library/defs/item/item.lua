@@ -2,25 +2,27 @@
 -- DRAFT 1 DONE
 -- luanti/doc/lua_api.md: Items
 
----@alias _.Tool.name string
+--[[
+WIPDOC
+]]
+---@alias core.Tool.name
+--- | string
 
 --[[
 WIPDOC
 ]]
----@alias core.Tool.name string | _.Tool.name
-
----@alias _.Item.name
+---@alias core.Item.name
 --- | ""
+--- | core.Tool.name
+--- | core.Node.name
 
 --[[
 WIPDOC
 ]]
----@alias core.Item.name _.Tool.name | core.Node.name
-
---[[
-WIPDOC
-]]
----@alias core.Item.namelike core.Groups.item | core.Groups.tool | core.Item.name
+---@alias core.Item.namelike
+--- | core.Groups.item
+--- | core.Groups.tool
+--- | core.Item.name
 
 --[[
 WIPDOC
@@ -56,9 +58,13 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.Item.simple core.Item.tablefmt | core.Item.stringfmt
+---@alias core.Item.simple
+--- | core.Item.tablefmt
+--- | core.Item.stringfmt
 
 --[[
 WIPDOC
 ]]
----@alias core.Item core.Item.simple | core.ItemStack
+---@alias core.Item
+--- | core.Item.simple
+--- | core.ItemStack

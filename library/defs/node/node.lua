@@ -3,20 +3,21 @@
 -- luanti/doc/lua_api.md: Nodes
 -- luanti/doc/lua_api.md: Nodes > Node paramtypes
 
----@alias _.Node.name
+--[[
+WIPDOC
+]]
+---@alias core.Node.name
 --- | "unknown"
 --- | "air"
 --- | "ignore"
+--- | string
 
 --[[
 WIPDOC
 ]]
----@alias core.Node.name string | _.Node.name
-
---[[
-WIPDOC
-]]
----@alias core.Node.namelike core.Groups.node | core.Node.name
+---@alias core.Node.namelike
+--- | core.Groups.node
+--- | core.Node.name
 
 -- ------------------------------- Node.param1 ------------------------------ --
 
@@ -139,7 +140,9 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.Node.set core.Node.get | _.Node.set
+---@alias core.Node.set
+--- | core.Node.get
+--- | _.Node.set
 
 ---@class _.Node.set
 --[[
