@@ -1,11 +1,27 @@
 ---@meta _
--- DRAFT 1 DONE
--- luanti/doc/lua_api.md: Class reference > `ObjectRef`
+-- ObjectRef bone overrides
+-- luanti/doc/lua_api.md: Class reference > `ObjectRef`)
+
+--[[
+`""` usually refers to the model's root bone, if defined
+]]
+---@alias core.Bone.name string
 
 -- -------------------------- BoneOverride.property ------------------------- --
 
 --[[
-WIPDOC
+Bone override transformation parameters used in translation, rotation and scaling.
+Specifies interpolation and whether changes is absolute or relative.
+
+If `nil` or `{}`, does not override the property.
+
+* @added 5.9.0
+* @default `nil`
+* @see [`core.BoneOverride.property.get`](lua://core.BoneOverride.property.get)
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
 ---@alias core.BoneOverride.property.set
 --- | core.BoneOverride.property.get
@@ -13,32 +29,94 @@ WIPDOC
 
 ---@class _.BoneOverride.property.set
 --[[
-WIPDOC
+In the same coordinate system as the model. For rotations, it is in radians.
+
+* @added 5.9.0
+* @default `vector.new(0,0,0)` for translation and rotation
+* @default `vector.new(1,1,1)` for scale.
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
 ---@field vec vector?
 --[[
-WIPDOC
+Interpolation time between the previous override and this override.
+
+* @added 5.9.0
+* @default `0`
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
 ---@field interpolation number?
 --[[
-WIPDOC
+Whether the transformation is absolute or relative, where relative to the
+animated property:
+- Translation for `position`
+- Composition for `rotation`
+- Per-axis multiplication for `scale`
+
+* @added 5.9.0
+* @compatibility <5.9.0 clients only support absolute position and rotation without interpolation
+* @default `false`
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
 ---@field absolute boolean?
 
 --[[
-WIPDOC
+Bone override transformation parameters used in translation, rotation and scaling.
+Specifies interpolation and whether changes is absolute or relative.
+
+* @added 5.9.0
+* @see [`core.BoneOverride.property.set`](lua://core.BoneOverride.property.set)
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
 ---@class core.BoneOverride.property.get
 --[[
-WIPDOC
+In the same coordinate system as the model. For rotations, it is in radians.
+
+* @added 5.9.0
+* @default `vector.new(0,0,0)` for translation and rotation
+* @default `vector.new(1,1,1)` for scale.
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
 ---@field vec vec
 --[[
-WIPDOC
+Interpolation time between the previous override and this override.
+
+* @added 5.9.0
+* @default `0`
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
 ---@field interpolation number
 --[[
-WIPDOC
+Whether the transformation is absolute or relative, where relative to the
+animated property:
+- Translation for `position`
+- Composition for `rotation`
+- Per-axis multiplication for `scale`
+
+* @added 5.9.0
+* @compatibility <5.9.0 clients only support absolute position and rotation without interpolation
+* @default `false`
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
 ---@field absolute boolean
 
@@ -46,7 +124,14 @@ WIPDOC
 -- ------------------------------ BoneOverride ------------------------------ --
 
 --[[
-WIPDOC
+Bone override transformations using translation, rotation, scaling. Supports
+animated interpolation.
+
+* @added 5.9.0
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
 ---@alias core.BoneOverride.set
 --- | core.BoneOverride.get
@@ -54,32 +139,75 @@ WIPDOC
 
 ---@class _.BoneOverride.set
 --[[
-WIPDOC
+Translation, by moving the position of the bone.
+
+* @added 5.9.0
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
 ---@field position core.BoneOverride.property.set?
 --[[
-WIPDOC
+Rotation of the bone.
+
+* @added 5.9.0
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
 ---@field rotation core.BoneOverride.property.set?
 --[[
-WIPDOC
+Scaling of the bone.
+
+* @added 5.9.0
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
 ---@field scale core.BoneOverride.property.set?
 
 --[[
-WIPDOC
+Bone override transformations using translation, rotation, scaling. Supports
+animated interpolation.
+
+* @added 5.9.0
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
 ---@class core.BoneOverride.get
 --[[
-WIPDOC
+Translation, by moving the position of the bone.
+
+* @added 5.9.0
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
 ---@field position core.BoneOverride.property.get
 --[[
-WIPDOC
+Rotation of the bone.
+
+* @added 5.9.0
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
 ---@field rotation core.BoneOverride.property.get
 --[[
-WIPDOC
+Scaling of the bone.
+
+* @added 5.9.0
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
 ---@field scale core.BoneOverride.property.get
 
@@ -90,68 +218,102 @@ WIPDOC
 local ObjectRefBase
 
 --[[
-* `set_bone_position([bone, position, rotation])`
-    * Sets absolute bone overrides, e.g. it is equivalent to
-      ```lua
-      obj:set_bone_override(bone, {
-          position = {vec = position, absolute = true},
-      ```
-    * **Note:** Rotation is in degrees, not radians.
-    * **Deprecated:** Use `set_bone_override` instead.
+Sets limited state of the current bone override. Equivalent to:
+
+```lua
+obj:set_bone_override(bone, {
+    position = {vec = position, absolute = true},
+})
+```
+
+Undefined behaviour:
+- Bone is not defined in the model
+
+* @deprecated 5.9.0
+* @see [`core.ObjectRef:set_bone_override()`](lua://_.ObjectRef.__base.set_bone_override)
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
 ---@deprecated
----@param bone string
----@param position vector
----@param rotation vector
+---@param bone core.Bone.name? #@default(`""`) `""` usually refers to the model's root bone, if defined
+---@param position vector? #@default(`(0,0,0)`)
+---@param rotation vector? #@default(`(0,0,0)`) degrees
 function ObjectRefBase:set_bone_position(bone, position, rotation) end
 
 --[[
-* `get_bone_position(bone)`: returns the previously set position and rotation of the bone
-    * Shorthand for `get_bone_override(bone).position.vec, get_bone_override(bone).rotation.vec:apply(math.deg)`.
-    * **Note:** Returned rotation is in degrees, not radians.
-    * **Deprecated:** Use `get_bone_override` instead.
+Returns limited state of the current bone override. Equivalent to:
+
+```lua
+local override = obj:get_bone_override(bone)
+return override.position.vec, override.rotation.vec:apply(math.deg)
+```
+
+Undefined behaviour:
+- Bone is not defined in the model
+- Bone override does not exist
+
+* @deprecated 5.9.0
+* @see [`core.ObjectRef:get_bone_override()`](lua://_.ObjectRef.__base.get_bone_override)
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
----@nodiscard
 ---@deprecated
----@param bone string
----@return  vec position, vec rotation
+---@nodiscard
+---@param bone core.Bone.name
+---@return vec position
+---@return vec rotation degrees
 function ObjectRefBase:get_bone_position(bone) end
 
 --[[
-* `set_bone_override(bone, override)`
-    * `bone`: string
-    * `override`: `{ position = property, rotation = property, scale = property }` or `nil`
-    * `override = nil` (including omission) is shorthand for `override = {}` which clears the override
-    * Each `property` is a table of the form
-      `{ vec = vector, interpolation = 0, absolute = false }` or `nil`
-        * `vec` is in the same coordinate system as the model, and in radians for rotation.
-          It defaults to `vector.zero()` for translation and rotation and `vector.new(1, 1, 1)` for scale.
-        * `interpolation`: The old and new overrides are interpolated over this timeframe (in seconds).
-        * `absolute`: If set to `false` (which is the default),
-          the override will be relative to the animated property:
-            * Translation in the case of `position`;
-            * Composition in the case of `rotation`;
-            * Per-axis multiplication in the case of `scale`
-    * `property = nil` is equivalent to no override on that property
-    * **Note:** Unlike `set_bone_position`, the rotation is in radians, not degrees.
-    * Compatibility note: Clients prior to 5.9.0 only support absolute position and rotation.
-      All values are treated as absolute and are set immediately (no interpolation).
+Sets current bone override state.
+
+Undefined behaviour:
+- Bone is not defined in the model
+
+* @added 5.9.0
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
----@param bone string
+---@param bone core.Bone.name `""` usually refers to the model's root bone, if defined
 ---@param override core.BoneOverride.set?
 function ObjectRefBase:set_bone_override(bone, override) end
 
 --[[
-* `get_bone_override(bone)`: returns `override` in the above format
-    * **Note:** Unlike `get_bone_position`, the returned rotation is in radians, not degrees.
+Returns current bone override state.
+
+Undefined behaviour:
+- Bone is not defined in the model
+- Bone override does not exist
+
+* @added 5.9.0
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
 ---@nodiscard
----@param bone string
+---@param bone core.Bone.name
 ---@return core.BoneOverride.get
 function ObjectRefBase:get_bone_override(bone) end
 
 --[[
-* `get_bone_overrides()`: returns all bone overrides as table `{[bonename] = override, ...}`
+Returns a table mapping bone names and their bone override states.
+
+Undefined behaviour:
+- Bones not defined in the model
+- Bone overrides that has not exist yet.
+
+* @added 5.9.0
+* @see [luanti/doc/lua_api.md > Class reference > ObjectRef > Methods](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#methods)
+* @see [luanti/doc/lua_api.md > Mods >> glTF](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#gltf)
+* @see [luanti/src/script/lua_api/l_object.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_object.cpp)
+* @see [luanti/src/server/unit_cao.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/server/unit_cao.cpp)
 ]]
 ---@nodiscard
 ---@return table<string, core.BoneOverride.get>
