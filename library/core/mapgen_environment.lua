@@ -57,7 +57,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@param f fun(vmanip:core.VoxelManip, minp:ivec, maxp:ivec, blockseed:integer)
+---@param f mapgen.fn.on_generated
 function mapgen.register_on_generated(f) end
 
 --[[

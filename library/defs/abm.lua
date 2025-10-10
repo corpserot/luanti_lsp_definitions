@@ -73,4 +73,4 @@ mapblock plus all 26 neighboring mapblocks. If any neighboring
 mapblocks are unloaded an estimate is calculated for them based on
 loaded mapblocks.
 ]]
----@field action fun(pos:ivec, node:core.Node.get, active_object_count:integer, active_object_count_wider:integer)
+---@field action core.ABMDef.action

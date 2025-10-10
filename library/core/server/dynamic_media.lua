@@ -65,5 +65,5 @@ WIPDOC
 WIPDOC
 ]]
 ---@param options core.DynamicMediaOptions
----@param callback fun(name:string):boolean
+---@param callback core.fn.dynamic_add_media
 function core.dynamic_add_media(options, callback) end

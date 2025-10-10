@@ -24,5 +24,5 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@param f fun(player:core.PlayerRef, event:core.PlayerEvent)
+---@param f core.fn.playerevent
 function core.register_playerevent(f) end

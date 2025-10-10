@@ -74,7 +74,7 @@ Function triggered for each qualifying node.
 `dtime_s` is the in-game time (in seconds) elapsed since the mapblock
 was last active (available since 5.7.0).
 ]]
----@field action fun(pos:ivec, node:core.Node.get, dtime_s:number)
+---@field action core.LBMDef.action.fn
 
 --[[
 WIPDOC
@@ -89,7 +89,7 @@ This can be provided as an alternative to `action` (not both).
 Available since `core.features.bulk_lbms` (5.10.0)
 `dtime_s`: as above
 ]]
----@field bulk_action fun(pos_list:ivec[], dtime_s:number)
+---@field bulk_action core.LBMDef.bulk_action.fn
 
 ---@alias core.LBMDef
 --- | core.LBMDef.action

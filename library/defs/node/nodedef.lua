@@ -660,21 +660,21 @@ infinite loop if it invokes the same callback.
  Consider using core.swap_node instead.
 default: nil
 ]]
----@field on_construct (fun(pos:ivec))?
+---@field on_construct core.NodeDef.on_construct?
 --[[
 on_destruct = function(pos),
 Node destructor; called before removing node.
 Not called for bulk node placement.
 default: nil
 ]]
----@field on_destruct (fun(pos:ivec?))?
+---@field on_destruct core.NodeDef.on_destruct?
 --[[
 after_destruct = function(pos, oldnode),
 Node destructor; called after removing node.
 Not called for bulk node placement.
 default: nil
 ]]
----@field after_destruct (fun(pos:ivec, oldnode:core.Node.get))?
+---@field after_destruct core.NodeDef.after_destruct?
 --[[
 on_flood = function(pos, oldnode, newnode),
 Called when a liquid (newnode) is about to flood oldnode, if it has
@@ -685,7 +685,7 @@ over and over again every liquid update interval.
 Default: nil
 Warning: making a liquid node 'floodable' will cause problems.
 ]]
----@field on_flood (fun(pos:ivec, oldnode:core.Node.get, newnode:core.Node.get):boolean?)?
+---@field on_flood core.NodeDef.on_flood?
 --[[
 preserve_metadata = function(pos, oldnode, oldmeta, drops),
 Called when `oldnode` is about be converted to an item, but before the
@@ -700,7 +700,7 @@ becoming detached.
   "ItemStackMetaRef".
 default: `nil`
 ]]
----@field preserve_metadata (fun(pos:ivec, oldnode:core.Node.get, oldmeta:core.MetadataTable.node.get))?
+---@field preserve_metadata core.NodeDef.preserve_metadata?
 --[[
 after_place_node = function(pos, placer, itemstack, pointed_thing),
 Called after constructing node when node was placed using
@@ -709,7 +709,7 @@ If return true no item is taken from itemstack.
 `placer` may be any valid ObjectRef or nil.
 default: nil
 ]]
----@field after_place_node (fun(pos:ivec, placer:core.ObjectRef?, itemstack:core.ItemStack, pointed_thing:core.PointedThing))?
+---@field after_place_node core.NodeDef.after_place_node?
 --[[
 after_dig_node = function(pos, oldnode, oldmetadata, digger),
 Called after destructing the node when node was dug using
@@ -721,20 +721,20 @@ Called after destructing the node when node was dug using
 * `digger`: ObjectRef of digger
 default: nil
 ]]
----@field after_dig_node (fun(pos:ivec, oldnode:core.Node.get, oldmetadata:core.MetadataTable.node.get, digger:core.ObjectRef?))?
+---@field after_dig_node core.NodeDef.after_dig_node?
 --[[
 can_dig = function(pos, [player]),
 Returns true if node can be dug, or false if not.
 default: nil
 ]]
----@field can_dig (fun(pos:ivec, player:core.ObjectRef?):boolean)?
+---@field can_dig core.NodeDef.can_dig?
 --[[
 on_punch = function(pos, node, puncher, pointed_thing),
 default: core.node_punch
 Called when puncher (an ObjectRef) punches the node at pos.
 By default calls core.register_on_punchnode callbacks.
 ]]
----@field on_punch (fun(pos:ivec, node:core.Node.get, puncher:core.ObjectRef?, pointed_thing:core.PointedThing))?
+---@field on_punch core.NodeDef.on_punch?
 --[[
 on_rightclick = function(pos, node, clicker, itemstack, pointed_thing),
 default: nil
@@ -747,7 +747,7 @@ Note: pointed_thing can be nil, if a mod calls this function.
 This function does not get triggered by clients <=0.4.16 if the
 "formspec" node metadata field is set.
 ]]
----@field on_rightclick (fun(pos:ivec, node:core.Node.get, clicker:core.ObjectRef?, itemstack:core.ItemStack, pointed_thing:core.PointedThing?):core.ItemStack?)?
+---@field on_rightclick core.NodeDef.on_rightclick?
 --[[
 on_dig = function(pos, node, digger),
 default: core.node_dig
@@ -755,7 +755,7 @@ By default checks privileges, wears out item (if tool) and removes node.
 return true if the node was dug successfully, false otherwise.
 Deprecated: returning nil is the same as returning true.
 ]]
----@field on_dig (fun(pos:ivec, node:core.Node.get, digger:core.ObjectRef?):boolean)?
+---@field on_dig core.NodeDef.on_dig?
 --[[
 on_timer = function(pos, elapsed),
 default: nil
@@ -764,7 +764,7 @@ elapsed is the total time passed since the timer was started.
 return true to run the timer for another cycle with the same timeout
 value.
 ]]
----@field on_timer (fun(pos:ivec, elapsed:number, node:core.Node.get, timeout:number):boolean?)?
+---@field on_timer core.NodeDef.on_timer?
 --[[
 on_receive_fields = function(pos, formname, fields, sender),
 fields = {name1 = value1, name2 = value2, ...}
@@ -773,48 +773,48 @@ Called when an UI form (e.g. sign text input) returns data.
 See core.register_on_player_receive_fields for more info.
 default: nil
 ]]
----@field on_receive_fields (fun(pos:ivec, formname:"", fields: core.FormspecFields, sender:core.ObjectRef))?
+---@field on_receive_fields core.NodeDef.on_receive_fields?
 --[[
 allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player),
 Called when a player wants to move items inside the inventory.
 Return value: number of items allowed to move.
 ]]
----@field allow_metadata_inventory_move (fun(pos:ivec, from_list:core.InventoryList, from_index:integer, to_list:core.InventoryList, to_index:integer, count:integer, player:core.ObjectRef):integer)?
+---@field allow_metadata_inventory_move core.NodeDef.allow_metadata_inventory_move?
 --[[
 allow_metadata_inventory_put = function(pos, listname, index, stack, player),
 Called when a player wants to put something into the inventory.
 Return value: number of items allowed to put.
 Return value -1: Allow and don't modify item count in inventory.
 ]]
----@field allow_metadata_inventory_put (fun(pos:ivec, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.ObjectRef):integer)?
+---@field allow_metadata_inventory_put core.NodeDef.allow_metadata_inventory_put?
 --[[
 allow_metadata_inventory_take = function(pos, listname, index, stack, player),
 Called when a player wants to take something out of the inventory.
 Return value: number of items allowed to take.
 Return value -1: Allow and don't modify item count in inventory.
 ]]
----@field allow_metadata_inventory_take (fun(pos:ivec, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.ObjectRef):integer)?
+---@field allow_metadata_inventory_take core.NodeDef.allow_metadata_inventory_take?
 --[[
 on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player),
 Called after the actual action has happened, according to what was
 allowed.
 No return value.
 ]]
----@field on_metadata_inventory_move (fun(pos:ivec, from_list:core.InventoryList, from_index:integer, to_list:core.InventoryList, to_index:integer, count:integer, player:core.ObjectRef):nil)?
+---@field on_metadata_inventory_move core.NodeDef.on_metadata_inventory_move?
 --[[
 on_metadata_inventory_put = function(pos, listname, index, stack, player),
 Called after the actual action has happened, according to what was
 allowed.
 No return value.
 ]]
----@field on_metadata_inventory_put (fun(pos:ivec, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.ObjectRef):nil)?
+---@field on_metadata_inventory_put core.NodeDef.on_metadata_inventory_put?
 --[[
 on_metadata_inventory_take = function(pos, listname, index, stack, player),
 Called after the actual action has happened, according to what was
 allowed.
 No return value.
 ]]
----@field on_metadata_inventory_take (fun(pos:ivec, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.ObjectRef):nil)?
+---@field on_metadata_inventory_take core.NodeDef.on_metadata_inventory_take?
 --[[
 on_blast = function(pos, intensity),
 intensity: 1.0 = mid range of regular TNT.
@@ -822,4 +822,4 @@ If defined, called when an explosion touches the node, instead of
 removing the node.
 Unofficial note: this is a custom field, just documented in lua_api.md i assume because TNT mods usually don't handle indestructible nodes/whatever very well
 ]]
----@field on_blast (fun(pos:ivec, intensity:number?))?
+---@field on_blast core.NodeDef.on_blast?

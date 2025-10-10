@@ -141,7 +141,7 @@ name.
 Return true in the above callbacks to stop register_on_priv_grant or
 revoke being called.
 ]]
----@field on_grant (fun(name:string, granter_name:string): boolean?)?
+---@field on_grant core.PrivilegeDef.on_grant?
 --[[
 Note that the above two callbacks will be called twice if a player is
 responsible, once with the player name, and then with a nil player
@@ -149,4 +149,4 @@ name.
 Return true in the above callbacks to stop register_on_priv_grant or
 revoke being called.
 ]]
----@field on_revoke (fun(name:string, revoker_name:string): boolean?)?
+---@field on_revoke core.PrivilegeDef.on_revoke?

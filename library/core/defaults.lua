@@ -124,7 +124,7 @@ WIPDOC
 ]]
 ---@param hp_change integer
 ---@param replace_with_item core.Item.stringfmt?
----@return fun(itemstack:core.ItemStack, user:core.ObjectRef, pointed_thing:core.PointedThing):core.ItemStack?
+---@return core.fn.item_eat
 function core.item_eat(hp_change, replace_with_item) end
 
 --[[

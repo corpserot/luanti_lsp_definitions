@@ -30,8 +30,7 @@ As an extra commodity, if `textdomain` is nil, it is assumed to be "" instead.
 ]]
 ---@nodiscard
 ---@param textdomain string?
----@return fun(str:string, ...:string):string S
----@return fun(str:string, str_plural:string, n:integer, ...:string):string PS
+---@return core.fn.translate_singular S, core.fn.translate_plural PS
 function core.get_translator(textdomain) end
 
 --[[

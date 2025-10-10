@@ -70,6 +70,6 @@ WIPDOC
 ]]
 ---@param pos1 ivector
 ---@param pos2 ivector
----@param callback fun(blockpos:ivec, action:core.EmergeAction , calls_remaining:integer, param:any?)?
+---@param callback core.fn.emerge_area?
 ---@param param any?
 function core.emerge_area(pos1, pos2, callback, param) end
