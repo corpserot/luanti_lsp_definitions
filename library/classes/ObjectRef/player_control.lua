@@ -106,5 +106,5 @@ function PlayerRef:get_player_control() end
     * Returns `0` (no bits set) if the object is not a player.
 ]]
 ---@nodiscard
----@return integer
+---@return int
 function PlayerRef:get_player_control_bits() end

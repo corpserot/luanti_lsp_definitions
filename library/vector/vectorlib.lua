@@ -94,8 +94,8 @@ Format may have less or more spaces, less commas, or an extra comma at the end.
 ]]
 ---@nodiscard
 ---@param s string
----@param init integer? #@default(`1`) *[1,`#s`]*
----@return vec? v, integer? np
+---@param init int? #@default(`1`) *[1,`#s`]*
+---@return vec? v, int? np
 function vector.from_string(s, init) end
 
 --[[

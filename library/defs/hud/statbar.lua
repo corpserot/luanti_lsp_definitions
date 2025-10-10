@@ -22,11 +22,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field number integer
+---@field number int
 --[[
 WIPDOC
 ]]
----@field item integer
+---@field item int
 --[[
 WIPDOC
 ]]

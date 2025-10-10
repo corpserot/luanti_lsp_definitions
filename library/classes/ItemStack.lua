@@ -46,14 +46,14 @@ function ItemStack:set_name(item_name) end
 * `get_count()`: Returns number of items on the stack.
 ]]
 ---@nodiscard
----@return integer count
+---@return int count
 function ItemStack:get_count() end
 
 --[[
 * `set_count(count)`: returns a boolean indicating whether the item was cleared
     * `count`: number, unsigned 16 bit integer
 ]]
----@param count integer
+---@param count int
 ---@return boolean
 function ItemStack:set_count(count) end
 
@@ -155,14 +155,14 @@ function ItemStack:to_table() end
   item).
 ]]
 ---@nodiscard
----@return integer
+---@return int
 function ItemStack:get_stack_max() end
 
 --[[
 * `get_free_space()`: returns `get_stack_max() - get_count()`.
 ]]
 ---@nodiscard
----@return integer
+---@return int
 function ItemStack:get_free_space() end
 
 --[[
@@ -235,7 +235,7 @@ function ItemStack:item_fits(item) end
     * Take (and remove) up to `n` items from this stack
     * `n`: number, default: `1`
 ]]
----@param n integer?
+---@param n int?
 ---@return core.ItemStack
 function ItemStack:take_item(n) end
 
@@ -245,7 +245,7 @@ function ItemStack:take_item(n) end
     * `n`: number, default: `1`
 ]]
 ---@nodiscard
----@param n integer?
+---@param n int?
 ---@return core.ItemStack
 function ItemStack:peek_item(n) end
 

@@ -28,7 +28,7 @@ For Lua entities, the maximum is not enforced.
 For players, this defaults to `core.PLAYER_MAX_HP_DEFAULT` (20).
 For Lua entities, the default is 10.
 ]]
----@field hp_max integer?
+---@field hp_max int?
 
 ---@class _.ObjectProperties.__base.get
 --[[
@@ -37,7 +37,7 @@ For Lua entities, the maximum is not enforced.
 For players, this defaults to `core.PLAYER_MAX_HP_DEFAULT` (20).
 For Lua entities, the default is 10.
 ]]
----@field hp_max integer
+---@field hp_max int
 
 -- -------------------------------- collision ------------------------------- --
 
@@ -205,7 +205,7 @@ Sets the font size of the nametag in pixels.
 `false` will cause the size to be set automatically based on user settings.
 Default: false
 ]]
----@field nametag_fontsize integer|false?
+---@field nametag_fontsize int|false?
 --[[
 Sets the font size of the nametag in pixels.
 `false` will cause the size to be set automatically based on user settings.

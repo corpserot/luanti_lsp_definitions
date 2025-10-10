@@ -16,7 +16,7 @@ Size of the bounding box of the cluster.
 In this example, there is a 3 * 3 * 3 cluster where 8 out of the 27
 nodes are coal ore.
 ]]
----@field clust_size integer?
+---@field clust_size int?
 --[[
 If noise is above this threshold, ore is placed. Not needed for a
 uniform distribution.
@@ -34,11 +34,11 @@ y_max.
 --[[
 "sheet" type
 ]]
----@field column_height_min integer?
+---@field column_height_min int?
 --[[
 "sheet" type
 ]]
----@field column_height_max integer?
+---@field column_height_max int?
 --[[
 "sheet" type
 ]]

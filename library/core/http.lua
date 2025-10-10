@@ -17,7 +17,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.HTTPFetchAsyncID : integer
+---@alias core.HTTPFetchAsyncID int
 
 --[[
 WIPDOC

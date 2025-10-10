@@ -74,7 +74,7 @@ In some noise APIs the world seed is added to the seed specified in noise
 parameters. This is done to make the resulting noise pattern vary in different
 worlds, and be 'world-specific'.
 ]]
----@field seed integer
+---@field seed int
 --[[
 The number of simple noise generators that are combined.
 A whole number, 1 or more.
@@ -90,7 +90,7 @@ nodes, octaves will be 6 because the 'wavelengths' of the octaves will be
 512, 256, 128, 64, 32, 16 nodes.
 Warning: If the 'wavelength' of any octave falls below 1 an error will occur.
 ]]
----@field octaves integer
+---@field octaves int
 --[[
 Each additional octave has an amplitude that is the amplitude of the previous
 octave multiplied by `persistence`, to reduce the amplitude of finer details,

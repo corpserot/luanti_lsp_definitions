@@ -42,7 +42,7 @@ function VoxelArea:getExtent() end
 WIPDOC
 ]]
 ---@nodiscard
----@return integer
+---@return int
 function VoxelArea:getVolume() end
 
 --[[
@@ -55,10 +55,10 @@ function VoxelArea:getVolume() end
       `ValueNoiseMap:get2d`/`3dMap`, and so on.
 ]]
 ---@nodiscard
----@param x integer
----@param y integer
----@param z integer
----@return integer i
+---@param x int
+---@param y int
+---@param z int
+---@return int i
 function VoxelArea:index(x, y, z) end
 
 --[[
@@ -68,7 +68,7 @@ function VoxelArea:index(x, y, z) end
 ]]
 ---@nodiscard
 ---@param p ivector
----@return integer i
+---@return int i
 function VoxelArea:indexp(p) end
 
 --[[
@@ -76,7 +76,7 @@ function VoxelArea:indexp(p) end
   `i`.
 ]]
 ---@nodiscard
----@param i integer
+---@param i int
 ---@return ivec p
 function VoxelArea:position(i) end
 
@@ -102,7 +102,7 @@ function VoxelArea:containsp(p) end
 WIPDOC
 ]]
 ---@nodiscard
----@param i integer
+---@param i int
 ---@return boolean
 function VoxelArea:containsi(i) end
 
@@ -110,13 +110,13 @@ function VoxelArea:containsi(i) end
 WIPDOC
 ]]
 ---@nodiscard
----@param minx integer
----@param miny integer
----@param minz integer
----@param maxx integer
----@param maxy integer
----@param maxz integer
----@return fun():integer?
+---@param minx int
+---@param miny int
+---@param minz int
+---@param maxx int
+---@param maxy int
+---@param maxz int
+---@return fun():int?
 function VoxelArea:iter(minx, miny, minz, maxx, maxy, maxz) end
 
 --[[
@@ -125,5 +125,5 @@ WIPDOC
 ---@nodiscard
 ---@param minp ivector
 ---@param maxp ivector
----@return fun():integer?
+---@return fun():int?
 function VoxelArea:iterp(minp, maxp) end

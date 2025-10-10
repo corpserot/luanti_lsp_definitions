@@ -60,11 +60,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field row integer
+---@field row int
 --[[
 WIPDOC
 ]]
----@field column integer
+---@field column int
 
 --[[
 * `core.explode_table_event(string)`: returns a table
@@ -90,7 +90,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field index integer
+---@field index int
 
 --[[
 * `core.explode_textlist_event(string)`: returns a table
@@ -116,7 +116,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field value integer
+---@field value int
 
 --[[
 * `core.explode_scrollbar_event(string)`: returns a table

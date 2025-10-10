@@ -15,17 +15,17 @@ Ore has a 1 out of clust_scarcity chance of spawning in a node.
 If the desired average distance between ores is 'd', set this to
 d * d * d.
 ]]
----@field clust_scarcity integer?
+---@field clust_scarcity int?
 --[[
 Number of ores in a cluster
 ]]
----@field clust_num_ores integer?
+---@field clust_num_ores int?
 --[[
 Size of the bounding box of the cluster.
 In this example, there is a 3 * 3 * 3 cluster where 8 out of the 27
 nodes are coal ore.
 ]]
----@field clust_size integer?
+---@field clust_size int?
 
 -- ----------------------------- OreDef.scatter ----------------------------- --
 

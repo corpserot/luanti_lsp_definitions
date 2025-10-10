@@ -110,27 +110,27 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field [1] integer
+---@field [1] int
 --[[
 WIPDOC
 ]]
----@field [2] integer
+---@field [2] int
 --[[
 WIPDOC
 ]]
----@field [3] integer
+---@field [3] int
 --[[
 WIPDOC
 ]]
----@field [4] integer
+---@field [4] int
 --[[
 WIPDOC
 ]]
----@field [5] integer
+---@field [5] int
 --[[
 WIPDOC
 ]]
----@field [6] integer
+---@field [6] int
 
 --[[
 WIPDOC
@@ -158,7 +158,7 @@ WIPDOC
         * Sixth column:  subject viewed from below
 ]]
 ---@param start_frame vec2?
----@param num_frames integer?
+---@param num_frames int?
 ---@param framelength number?
 ---@param select_x_by_camera core.EntityRef.select_x_by_camera|boolean?
 function EntityRef:set_sprite(start_frame, num_frames, framelength, select_x_by_camera) end

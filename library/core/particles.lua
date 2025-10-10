@@ -32,7 +32,7 @@ function core.add_particle(particle_def) end
 WIPDOC
 ]]
 ---@deprecated
----@param amount integer
+---@param amount int
 ---@param time number
 ---@param minpos vector
 ---@param maxpos vector

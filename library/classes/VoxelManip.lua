@@ -13,7 +13,7 @@ core.MAP_BLOCKSIZE = 16
 --[[
 WIPDOC
 ]]
----@class core.ContentID: integer
+---@alias core.ContentID int
 
 --[[
 WIPDOC

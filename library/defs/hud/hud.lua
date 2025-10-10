@@ -6,7 +6,7 @@
 --[[
 WIPDOC
 ]]
----@class core.HUDID : integer
+---@alias core.HUDID int
 
 --[[
 WIPDOC
@@ -46,7 +46,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field  z_index integer
+---@field  z_index int
 
 -- ----------------------------- HUDDef partials ---------------------------- --
 

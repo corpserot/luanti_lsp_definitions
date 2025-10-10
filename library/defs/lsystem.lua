@@ -86,19 +86,19 @@ Secondary leaves node name (default: `"ignore"`)
 --[[
 Chance (0-100) to replace leaves with leaves2 (default: 0)
 ]]
----@field leaves2_chance integer?
+---@field leaves2_chance int?
 --[[
 Angle in deg (default: 0)
 ]]
----@field angle integer?
+---@field angle int?
 --[[
 Max # of iterations, usually 2 -5 (default 0)
 ]]
----@field iterations integer?
+---@field iterations int?
 --[[
 Factor to lower number of iterations, usually 0 - 3 (default: 0)
 ]]
----@field random_level integer?
+---@field random_level int?
 --[[
 **LIBDEF REVISION**
 
@@ -119,8 +119,8 @@ Fruit node name. (default: `"air"`)
 --[[
 Chance (0-100) to replace leaves with fruit node (default: 0)
 ]]
----@field fruit_chance integer?
+---@field fruit_chance int?
 --[[
 Random seed, if no seed is provided, the engine will create one.
 ]]
----@field seed integer
+---@field seed int

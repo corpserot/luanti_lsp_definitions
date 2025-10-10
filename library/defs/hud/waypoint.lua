@@ -18,8 +18,8 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field precision integer?
+---@field precision int?
 --[[
 WIPDOC
 ]]
----@field number integer?
+---@field number int?

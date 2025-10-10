@@ -34,7 +34,7 @@ Returns 0 for invalid inventory or `list`.
 ]]
 ---@nodiscard
 ---@param list core.InventoryList
----@return integer size
+---@return int size
 function InvRef:get_size(list) end
 
 --[[
@@ -47,7 +47,7 @@ Returns `false` for invalid inventory, `list` name or `size`. Otherwise, returns
 * @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
 ]]
 ---@param list core.InventoryList
----@param size integer
+---@param size int
 ---@return boolean success
 function InvRef:set_size(list, size) end
 
@@ -61,7 +61,7 @@ Returns 0 for invalid inventory or `list`.
 ]]
 ---@nodiscard
 ---@param list core.InventoryList
----@return integer width
+---@return int width
 function InvRef:get_width(list) end
 
 --[[
@@ -73,7 +73,7 @@ Returns `false` for invalid inventory, `list` or `width`. Otherwise, returns `tr
 * @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
 ]]
 ---@param list core.InventoryList
----@param width integer
+---@param width int
 ---@return boolean success
 function InvRef:set_width(list, width) end
 
@@ -87,7 +87,7 @@ Returns an empty [`ItemStack`](lua://core.ItemStack) for invalid inventory or `l
 ]]
 ---@nodiscard
 ---@param list core.InventoryList
----@param index integer
+---@param index int
 ---@return core.ItemStack item
 function InvRef:get_stack(list, index) end
 
@@ -102,7 +102,7 @@ Returns `false` for invalid inventory or `list`. Otherwise, returns `true`.
 * @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
 ]]
 ---@param list core.InventoryList
----@param index integer
+---@param index int
 ---@param item core.Item
 ---@return boolean success
 function InvRef:set_stack(list, index, item) end

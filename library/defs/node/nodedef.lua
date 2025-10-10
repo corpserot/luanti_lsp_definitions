@@ -427,12 +427,12 @@ maximum = 8; set to 0 to disable liquid flow
 drowning = 0,
 Player will take this amount of damage if no bubbles are left
 ]]
----@field drowning integer?
+---@field drowning int?
 --[[
 damage_per_second = 0,
 If player is inside node, this damage is caused
 ]]
----@field damage_per_second integer?
+---@field damage_per_second int?
 
 -- -------------------------- node shape properties ------------------------- --
 
@@ -617,32 +617,32 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.allow_metadata_inventory_move fun(pos:ivec, from_list:core.InventoryList, from_index:integer, to_list:core.InventoryList, to_index:integer, count:integer, player:core.ObjectRef):integer
+---@alias core.NodeDef.allow_metadata_inventory_move fun(pos:ivec, from_list:core.InventoryList, from_index:int, to_list:core.InventoryList, to_index:int, count:int, player:core.ObjectRef):int
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.allow_metadata_inventory_put fun(pos:ivec, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.ObjectRef):integer
+---@alias core.NodeDef.allow_metadata_inventory_put fun(pos:ivec, listname:core.InventoryList, index:int, stack:core.ItemStack, player:core.ObjectRef):int
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.allow_metadata_inventory_take fun(pos:ivec, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.ObjectRef):integer
+---@alias core.NodeDef.allow_metadata_inventory_take fun(pos:ivec, listname:core.InventoryList, index:int, stack:core.ItemStack, player:core.ObjectRef):int
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.on_metadata_inventory_move fun(pos:ivec, from_list:core.InventoryList, from_index:integer, to_list:core.InventoryList, to_index:integer, count:integer, player:core.ObjectRef):nil
+---@alias core.NodeDef.on_metadata_inventory_move fun(pos:ivec, from_list:core.InventoryList, from_index:int, to_list:core.InventoryList, to_index:int, count:int, player:core.ObjectRef):nil
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.on_metadata_inventory_put fun(pos:ivec, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.ObjectRef):nil
+---@alias core.NodeDef.on_metadata_inventory_put fun(pos:ivec, listname:core.InventoryList, index:int, stack:core.ItemStack, player:core.ObjectRef):nil
 
 --[[
 WIPDOC
 ]]
----@alias core.NodeDef.on_metadata_inventory_take fun(pos:ivec, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.ObjectRef):nil
+---@alias core.NodeDef.on_metadata_inventory_take fun(pos:ivec, listname:core.InventoryList, index:int, stack:core.ItemStack, player:core.ObjectRef):nil
 
 --[[
 WIPDOC

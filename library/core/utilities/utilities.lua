@@ -185,10 +185,10 @@ Unofficial note: you can do "[png:"..core.encode_base64(core.encode_png(...)) to
   You may use this to procedurally generate textures during server init.
 ]]
 ---@nodiscard
----@param width integer
----@param height integer
+---@param width int
+---@param height int
 ---@param data string|core.ColorSpec[]
----@param compression integer?
+---@param compression int?
 ---@return string
 function core.encode_png(width, height, data, compression) end
 

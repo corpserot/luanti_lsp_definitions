@@ -84,8 +84,8 @@ names still exist as aliases.
 ]]
 ---@deprecated
 ---@nodiscard
----@param seeddiff integer
----@param octaves integer
+---@param seeddiff int
+---@param octaves int
 ---@param persistence number
 ---@param spread ivector
 ---@return core.ValueNoise
@@ -96,8 +96,8 @@ WIPDOC
 ]]
 ---@deprecated
 ---@nodiscard
----@param seeddiff integer
----@param octaves integer
+---@param seeddiff int
+---@param octaves int
 ---@param persistence number
 ---@param spread ivector
 ---@return core.ValueNoise
@@ -109,8 +109,8 @@ function PerlinNoise(seeddiff, octaves, persistence, spread) end
 ]]
 ---@deprecated
 ---@nodiscard
----@param seeddiff integer
----@param octaves integer
+---@param seeddiff int
+---@param octaves int
 ---@param persistence number
 ---@param spread ivector
 ---@return core.ValueNoise
@@ -122,8 +122,8 @@ function core.get_value_noise(seeddiff, octaves, persistence, spread) end
 ]]
 ---@deprecated
 ---@nodiscard
----@param seeddiff integer
----@param octaves integer
+---@param seeddiff int
+---@param octaves int
 ---@param persistence number
 ---@param spread ivector
 ---@return core.ValueNoise

@@ -19,7 +19,7 @@
 [client]
 (Screen width) 1024 1 65535
 ]]
----@field screen_w integer?
+---@field screen_w int?
 --[[
 #    Height component of the initial window size.
 #
@@ -27,7 +27,7 @@
 [client]
 (Screen height) 600 1 65535
 ]]
----@field screen_h integer?
+---@field screen_h int?
 --[[
 #    Whether the window is maximized.
 #
@@ -74,7 +74,7 @@
 [client]
 (Maximum FPS) 60 1 4294967295
 ]]
----@field fps_max integer?
+---@field fps_max int?
 --[[
 #    Vertical screen synchronization. Your system may still force VSync on even if this is disabled.
 [client]
@@ -86,13 +86,13 @@
 [client]
 (FPS when unfocused) 10 1 4294967295
 ]]
----@field fps_max_unfocused integer?
+---@field fps_max_unfocused int?
 --[[
 #    View distance in nodes.
 [client]
 (Viewing range) 190 20 4000
 ]]
----@field viewing_range integer?
+---@field viewing_range int?
 --[[
 #    Undersampling is similar to using a lower screen resolution, but it applies
 #    to the game world only, keeping the GUI intact.
@@ -103,7 +103,7 @@
 [client]
 (Undersampling) 1 1 8
 ]]
----@field undersampling integer?
+---@field undersampling int?
 
 -- ----------------- [Graphics and Audio] [*Graphics] [**3D] ---------------- --
 
@@ -165,7 +165,7 @@ WIPDOC
 [client]
 (Field of view) 72 45 160
 ]]
----@field fov integer?
+---@field fov int?
 --[[
 #    Alters the light curve by applying 'gamma correction' to it.
 #    Higher values make middle and lower light levels brighter.
@@ -222,7 +222,7 @@ WIPDOC
 [client]
 (Screenshot quality) 0 0 100
 ]]
----@field screenshot_quality integer?
+---@field screenshot_quality int?
 
 -- ---- [Graphics and Audio] [*Graphics] [**Node and Entity Highlighting] --- --
 
@@ -259,7 +259,7 @@ WIPDOC
 [client]
 (Selection box width) 2 1 5
 ]]
----@field selectionbox_width integer?
+---@field selectionbox_width int?
 --[[
 #    Crosshair color (R,G,B).
 #    Also controls the object crosshair color
@@ -273,7 +273,7 @@ WIPDOC
 [client]
 (Crosshair alpha) 255 0 255
 ]]
----@field crosshair_alpha integer?
+---@field crosshair_alpha int?
 
 -- ---------------- [Graphics and Audio] [*Graphics] [**Fog] ---------------- --
 
@@ -583,7 +583,7 @@ WIPDOC
 [client]
 (Shadow map texture size) 2048 128 8192
 ]]
----@field shadow_map_texture_size integer?
+---@field shadow_map_texture_size int?
 --[[
 #    Sets shadow texture quality to 32 bits.
 #    On false, 16 bits texture will be used.
@@ -875,7 +875,7 @@ WIPDOC
 [client]
 (Formspec Full-Screen Background Opacity) 140 0 255
 ]]
----@field formspec_fullscreen_bg_opacity integer?
+---@field formspec_fullscreen_bg_opacity int?
 --[[
 #    Formspec full-screen background color (R,G,B).
 [client]
@@ -895,7 +895,7 @@ WIPDOC
 [client]
 (Tooltip delay) 400 0 18446744073709551615
 ]]
----@field tooltip_show_delay integer?
+---@field tooltip_show_delay int?
 --[[
 #    Append item name to tooltip.
 [client]
@@ -939,7 +939,7 @@ WIPDOC
 [client]
 (Block bounds HUD radius) 4 0 1000
 ]]
----@field show_block_bounds_radius_near integer?
+---@field show_block_bounds_radius_near int?
 --[[
 #    Maximum proportion of current window to be used for hotbar.
 #    Useful if there's something to be displayed right or left of hotbar.
@@ -959,7 +959,7 @@ WIPDOC
 [client]
 (Recent Chat Messages) 6 2 20
 ]]
----@field recent_chat_messages integer?
+---@field recent_chat_messages int?
 --[[
 #    In-game chat console height, between 0.1 (10%) and 1.0 (100%).
 [client]
@@ -977,7 +977,7 @@ WIPDOC
 [client]
 (Console alpha) 200 0 255
 ]]
----@field console_alpha integer?
+---@field console_alpha int?
 --[[
 #    Optional override for chat weblink color.
 [client]
@@ -990,7 +990,7 @@ WIPDOC
 [client]
 (Chat font size) 0 0 72
 ]]
----@field chat_font_size integer?
+---@field chat_font_size int?
 
 
 -- ------ [Graphics and Audio] [*User Interface] [**Content Repository] ----- --
@@ -1029,4 +1029,4 @@ WIPDOC
 [client]
 (ContentDB Max Concurrent Downloads) 3 1
 ]]
----@field contentdb_max_concurrent_downloads integer?
+---@field contentdb_max_concurrent_downloads int?

@@ -66,7 +66,7 @@ function StorageRef:set_string(key, value) end
 ]]
 ---@deprecated
 ---@param key core.MetadataTable.fields.storage.keys.integer
----@param value integer
+---@param value int
 function StorageRef:set_string(key, value) end
 
 --[[
@@ -91,7 +91,7 @@ function StorageRef:get_string(key) end
       The value will be converted into a string when stored.
 ]]
 ---@param key core.MetadataTable.fields.storage.keys.integer
----@param value integer
+---@param value int
 function StorageRef:set_int(key, value) end
 
 --[[
@@ -99,7 +99,7 @@ function StorageRef:set_int(key, value) end
 ]]
 ---@nodiscard
 ---@param key core.MetadataTable.fields.storage.keys.integer
----@return integer value
+---@return int value
 function StorageRef:get_int(key) end
 
 --[[

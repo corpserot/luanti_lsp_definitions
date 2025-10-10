@@ -7,11 +7,11 @@
 --[[
 WIPDOC
 ]]
----@class core.Groups.item : {[string]:integer}
+---@class core.Groups.item : {[string]:int}
 --[[
 WIPDOC
 ]]
----@field not_in_creative_inventory integer?
+---@field not_in_creative_inventory int?
 
 -- ------------------------------- Groups.node ------------------------------ --
 
@@ -79,11 +79,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field bouncy integer?
+---@field bouncy int?
 --[[
 WIPDOC
 ]]
----@field connect_to_raillike integer?
+---@field connect_to_raillike int?
 --[[
 WIPDOC
 ]]
@@ -99,7 +99,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field fall_damage_add_percent integer?
+---@field fall_damage_add_percent int?
 --[[
 WIPDOC
 ]]
@@ -111,11 +111,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field level integer?
+---@field level int?
 --[[
 WIPDOC
 ]]
----@field slippery integer?
+---@field slippery int?
 
 -- ------------------------------- Groups.tool ------------------------------ --
 
@@ -157,7 +157,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.Groups.armor : {[string]:integer}
+---@class core.Groups.armor : {[string]:int}
 --[[
 WIPDOC
 ]]
@@ -165,7 +165,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field fall_damage_add_percent integer?
+---@field fall_damage_add_percent int?
 --[[
 WIPDOC
 ]]

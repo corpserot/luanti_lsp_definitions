@@ -82,9 +82,9 @@ function core.get_node_or_nil(pos) end
     * If `pos_ok` is false, the area is unloaded and `content_id == core.CONTENT_IGNORE`
 ]]
 ---@nodiscard
----@param x integer
----@param y integer
----@param z integer
+---@param x int
+---@param y int
+---@param z int
 ---@return core.ContentID content_id, core.Param1 param1, core.Param2 param2, boolean pos_ok
 function core.get_node_raw(x, y, z) end
 
@@ -314,7 +314,7 @@ function core.get_gametime() end
     * Time changes are accounted for.
 ]]
 ---@nodiscard
----@return integer
+---@return int
 function core.get_day_count() end
 
 -- -------------------------------- find node ------------------------------- --
@@ -334,7 +334,7 @@ But you can notice that it doesn't have that pesky volume limit, so it's impleme
 ]]
 ---@nodiscard
 ---@param pos ivector
----@param radius integer
+---@param radius int
 ---@param nodenames OneOrMany<core.Node.namelike>
 ---@param search_center boolean?
 ---@return ivec?
@@ -368,7 +368,7 @@ WIPDOC
 ---@param pos2 ivector
 ---@param nodenames OneOrMany<core.Node.namelike>
 ---@param grouped false?
----@return ivec[], table<core.Node.name, integer>
+---@return ivec[], table<core.Node.name, int>
 function core.find_nodes_in_area(pos1, pos2, nodenames, grouped) end
 
 --[[
@@ -437,7 +437,7 @@ WIPDOC
 ]]
 ---@nodiscard
 ---@param objectname "heightmap"
----@return integer[]
+---@return int[]
 function core.get_mapgen_object(objectname) end
 
 --[[
@@ -527,8 +527,8 @@ function core.get_biome_name(biome_id) end
       of the *active* mapgen setting `"chunksize"`.
 ]=]
 ---@nodiscard
----@param mapgen_limit integer?
----@param chunksize integer?
+---@param mapgen_limit int?
+---@param chunksize int?
 ---@return ivec min, ivec max
 function core.get_mapgen_edges(mapgen_limit, chunksize) end
 
@@ -701,9 +701,9 @@ function core.line_of_sight(pos1, pos2) end
 ---@nodiscard
 ---@param pos1 ivector
 ---@param pos2 ivector
----@param searchdistance integer
----@param max_jump integer
----@param max_drop integer
+---@param searchdistance int
+---@param max_jump int
+---@param max_drop int
 ---@param algo "A*_noprefetch"|"A*"|"Dijkstra"
 ---@return ivec[]?
 function core.find_path(pos1, pos2, searchdistance, max_jump, max_drop, algo) end
@@ -850,7 +850,7 @@ function core.check_for_falling(pos) end
     * The spawn level is intentionally above terrain level to cope with
       full-node biome 'dust' nodes.
 ]]
----@param x integer
----@param z integer
----@return integer? y
+---@param x int
+---@param z int
+---@return int? y
 function core.get_spawn_level(x, z) end

@@ -8,7 +8,7 @@
 --[[
 WIPDOC
 ]]
----@class core.DecorationID : integer
+---@alias core.DecorationID int
 
 -- ------------------------- DecorationDef partials ------------------------- --
 
@@ -61,7 +61,7 @@ Determines the resolution of noise variation if used.
 If the chunk size is not evenly divisible by sidelen, sidelen is made
 equal to the chunk size.
 ]]
----@field sidelen integer?
+---@field sidelen int?
 --[[
 List of biomes in which this decoration occurs. Occurs in all biomes
 if this is omitted, and ignored if the Mapgen being used does not
@@ -75,14 +75,14 @@ Can be a list of (or a single) biome names, IDs, or definitions.
 Lower limit for decoration (inclusive).
 Refer to the Y coordinate of the 'place_on' node.
 ]]
----@field y_min integer?
+---@field y_min int?
 --[[
 *@default* `31000`
 
 Upper limit for decoration (inclusive).
 Refer to the Y coordinate of the 'place_on' node.
 ]]
----@field y_max integer?
+---@field y_max int?
 --[[
 Node (or list of nodes) that the decoration only spawns next to.
 Checks the 8 neighboring nodes on the same height,
@@ -102,7 +102,7 @@ Number of spawn_by nodes that must be surrounding the decoration
 position to occur.
 If absent or -1, decorations occur next to any nodes.
 ]]
----@field num_spawn_by integer?
+---@field num_spawn_by int?
 --[[
 Flags for all decoration types.
 - "liquid_surface": Find the highest liquid (not solid) surface under
@@ -152,12 +152,12 @@ Decoration height in nodes.
 If height_max is not 0, this is the lower limit of a randomly
 selected height.
 ]]
----@field height integer?
+---@field height int?
 --[[
 Upper limit of the randomly selected height.
 If absent, the parameter 'height' is used as a constant.
 ]]
----@field height_max integer?
+---@field height_max int?
 --[[
 *@default* `0`
 
@@ -181,7 +181,7 @@ Effect is inverted for "all_ceilings" decorations.
 Ignored by 'y_min', 'y_max' and 'spawn_by' checks, which always refer
 to the 'place_on' node.
 ]]
----@field place_offset_y integer?
+---@field place_offset_y int?
 
 -- ------------------------- DecorationDef.schematic ------------------------ --
 
@@ -222,7 +222,7 @@ Effect is inverted for "all_ceilings" decorations.
 Ignored by 'y_min', 'y_max' and 'spawn_by' checks, which always refer
 to the 'place_on' node.
 ]]
----@field place_offset_y integer?
+---@field place_offset_y int?
 --[[
 WIPDOC
 ]]

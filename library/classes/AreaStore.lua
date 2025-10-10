@@ -5,7 +5,7 @@
 --[[
 WIPDOC
 ]]
----@class core.AreaStoreID : integer
+---@alias core.AreaStoreID int
 
 -- ----------------------------- AreaStore.area ----------------------------- --
 
@@ -50,11 +50,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field block_radius integer?
+---@field block_radius int?
 --[[
 WIPDOC
 ]]
----@field limit integer?
+---@field limit int?
 
 -- ------------------------------- constructor ------------------------------ --
 
@@ -240,7 +240,7 @@ function AreaStore:insert_area(corner1, corner2, data, id) end
       efficiency when working with many area entries. Additional areas can still
       be inserted afterwards at the usual complexity.
 ]]
----@param count integer
+---@param count int
 function AreaStore:reserve(count) end
 
 --[[

@@ -123,7 +123,7 @@ Color the item is colorized with. The palette overrides this.
 Maximum amount of items that can be in a single stack.
 The default can be changed by the setting `default_stack_max`
 ]]
----@field stack_max integer?
+---@field stack_max int?
 
 -- ----------------------------- pointabilities ----------------------------- --
 
@@ -228,7 +228,7 @@ Parameters:
   `luaentity:on_punch`.
 default: `core.item_pickup`
 ]]
----@alias core.ItemDef.on_pickup fun(itemstack: core.ItemStack, picker:core.ObjectRef?, pointed_thing:core.PointedThing?, time_from_last_punch:number?, tool_capabilities:core.ToolCapabilities?, dir:vec?, damage:integer?): core.ItemStack?
+---@alias core.ItemDef.on_pickup fun(itemstack: core.ItemStack, picker:core.ObjectRef?, pointed_thing:core.PointedThing?, time_from_last_punch:number?, tool_capabilities:core.ToolCapabilities?, dir:vec?, damage:int?): core.ItemStack?
 
 --[[
 default: nil

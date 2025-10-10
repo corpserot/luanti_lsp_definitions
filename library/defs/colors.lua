@@ -9,19 +9,19 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field a integer?
+---@field a int?
 --[[
 WIPDOC
 ]]
----@field r integer?
+---@field r int?
 --[[
 WIPDOC
 ]]
----@field g integer?
+---@field g int?
 --[[
 WIPDOC
 ]]
----@field b integer?
+---@field b int?
 
 --[[
 WIPDOC
@@ -197,7 +197,7 @@ the color name (e.g. `colorname#08`).
 --[[
 WIPDOC
 ]]
----@alias core.ColorSpec.numberfmt integer
+---@alias core.ColorSpec.numberfmt int
 
 --[[
 WIPDOC

@@ -9,7 +9,7 @@
 --[[
 WIPDOC
 ]]
----@class core.ParticleSpawnerID : integer
+---@alias core.ParticleSpawnerID int
 
 -- ----------------------- ParticleSpawnerDef.regular ----------------------- --
 
@@ -20,7 +20,7 @@ WIPDOC
 --[[
 Number of particles spawned over the time period `time`.
 ]]
----@field  amount integer
+---@field  amount int
 --[[
 Lifespan of spawner in seconds.
 If time is 0 spawner has infinite lifespan and spawns the `amount` on
@@ -185,7 +185,7 @@ If set to a valid number 1-6, specifies the tile from which the
 particle texture is picked.
 Otherwise, the default behavior is used. (currently: any random tile)
 ]]
----@field  node_tile integer?
+---@field  node_tile int?
 
 -- ----------------------------- ParticleSpawner ---------------------------- --
 

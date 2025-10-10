@@ -77,8 +77,8 @@ Returns factorial of `x`
 * @see [luanti/builtin/common/math.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/math.lua)
 ]]
 ---@nodiscard
----@param x integer *>=171* yields `math.huge`
----@return integer
+---@param x int *>=171* yields `math.huge`
+---@return int
 function math.factorial(x) end
 
 --[[
@@ -89,7 +89,7 @@ Returns `x` rounded to the nearest integer
 ]]
 ---@nodiscard
 ---@param x number
----@return integer
+---@return int
 function math.round(x) end
 
 -- --------------------------------- string --------------------------------- --
@@ -104,7 +104,7 @@ Splits given string into a list.
 ---@param str string
 ---@param separator string? #@default(`","`) non-empty string
 ---@param include_empty boolean? #@default(`false`)
----@param max_splits integer? #@default(`-1`) unlimited if negative
+---@param max_splits int? #@default(`-1`) unlimited if negative
 ---@param sep_is_pattern boolean? #@default(`false`) whether `separator` is lua pattern or plain string
 ---@return string[]
 function string.split(str, separator, include_empty, max_splits, sep_is_pattern) end
@@ -164,7 +164,7 @@ If not found, returns -1 instead.
 ---@generic T
 ---@param val T
 ---@param list T[]
----@return integer
+---@return int
 function table.indexof(list, val) end
 
 --[[
@@ -217,7 +217,7 @@ between the integers.
 * @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#helper-functions)
 * @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/misc_helpers.lua)
 ]]
----@alias table.random_func fun(int1:integer, int2:integer): integer
+---@alias table.random_func fun(int1:int, int2:int): int
 
 --[[
 Shuffles elements in given list from `from` to `to` in place.
@@ -227,7 +227,7 @@ Shuffles elements in given list from `from` to `to` in place.
 ]]
 ---@generic T
 ---@param list T[]
----@param from integer? #@default(`1`)
----@param to integer? #@default(`#list`)
+---@param from int? #@default(`1`)
+---@param to int? #@default(`#list`)
 ---@param random_func table.random_func? #@default(`math.random`)
 function table.shuffle(list, from, to, random_func) end

@@ -10,7 +10,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.fn.translate_plural fun(str:string, str_plural:string, n:integer, ...:string):string
+---@alias core.fn.translate_plural fun(str:string, str_plural:string, n:int, ...:string):string
 
 --[[
 `core.get_translator(textdomain)` is a simple wrapper around
@@ -59,7 +59,7 @@ WIPDOC
 ---@param textdomain string
 ---@param str string
 ---@param str_plural string
----@param n integer
+---@param n int
 ---@param ... string
 ---@return string
 function core.translate_n(textdomain, str, str_plural, n, ...) end

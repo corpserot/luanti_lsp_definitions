@@ -427,13 +427,13 @@ WIPDOC
 [world_creation]
 (Water level) 1 -31000 31000
 ]]
----@field water_level integer?
+---@field water_level int?
 --[[
 #    From how far blocks are generated for clients, stated in mapblocks (16 nodes).
 [world_creation]
 (Max block generate distance) [server] 10 1 32767
 ]]
----@field max_block_generate_distance integer?
+---@field max_block_generate_distance int?
 --[[
 #    Limit of map generation, in nodes, in all 6 directions from (0, 0, 0).
 #    Only mapchunks completely within the mapgen limit are generated.
@@ -441,7 +441,7 @@ WIPDOC
 [world_creation]
 (Map generation limit) 31007 0 31007
 ]]
----@field mapgen_limit integer?
+---@field mapgen_limit int?
 
 --[[
 WIPDOC
@@ -569,31 +569,31 @@ WIPDOC
 [world_creation]
 (Large cave depth) -256 -31000 31000
 ]]
----@field mgv5_large_cave_depth integer?
+---@field mgv5_large_cave_depth int?
 --[[
 #    Minimum limit of random number of small caves per mapchunk.
 [world_creation]
 (Small cave minimum number) 0 0 256
 ]]
----@field mgv5_small_cave_num_min integer?
+---@field mgv5_small_cave_num_min int?
 --[[
 #    Maximum limit of random number of small caves per mapchunk.
 [world_creation]
 (Small cave maximum number) 0 0 256
 ]]
----@field mgv5_small_cave_num_max integer?
+---@field mgv5_small_cave_num_max int?
 --[[
 #    Minimum limit of random number of large caves per mapchunk.
 [world_creation]
 (Large cave minimum number) 0 0 64
 ]]
----@field mgv5_large_cave_num_min integer?
+---@field mgv5_large_cave_num_min int?
 --[[
 #    Maximum limit of random number of large caves per mapchunk.
 [world_creation]
 (Large cave maximum number) 2 0 64
 ]]
----@field mgv5_large_cave_num_max integer?
+---@field mgv5_large_cave_num_max int?
 --[[
 #    Proportion of large caves that contain liquid.
 [world_creation]
@@ -605,13 +605,13 @@ WIPDOC
 [world_creation]
 (Cavern limit) -256 -31000 31000
 ]]
----@field mgv5_cavern_limit integer?
+---@field mgv5_cavern_limit int?
 --[[
 #    Y-distance over which caverns expand to full size.
 [world_creation]
 (Cavern taper) 256 0 32767
 ]]
----@field mgv5_cavern_taper integer?
+---@field mgv5_cavern_taper int?
 --[[
 #    Defines full size of caverns, smaller values create larger caverns.
 [world_creation]
@@ -623,13 +623,13 @@ WIPDOC
 [world_creation]
 (Dungeon minimum Y) -31000 -31000 31000
 ]]
----@field mgv5_dungeon_ymin integer?
+---@field mgv5_dungeon_ymin int?
 --[[
 #    Upper Y limit of dungeons.
 [world_creation]
 (Dungeon maximum Y) 31000 -31000 31000
 ]]
----@field mgv5_dungeon_ymax integer?
+---@field mgv5_dungeon_ymax int?
 
 -- -------------------- [Mapgen] [*Mapgen V5] [**Noises] -------------------- --
 
@@ -776,13 +776,13 @@ WIPDOC
 [world_creation]
 (Dungeon minimum Y) -31000 -31000 31000
 ]]
----@field mgv6_dungeon_ymin integer?
+---@field mgv6_dungeon_ymin int?
 --[[
 #    Upper Y limit of dungeons.
 [world_creation]
 (Dungeon maximum Y) 31000 -31000 31000
 ]]
----@field mgv6_dungeon_ymax integer?
+---@field mgv6_dungeon_ymax int?
 
 -- -------------------- [Mapgen] [*Mapgen V6] [**Noises] -------------------- --
 
@@ -908,19 +908,19 @@ WIPDOC
 [world_creation]
 (Mountain zero level) 0 -31000 31000
 ]]
----@field mgv7_mount_zero_level integer?
+---@field mgv7_mount_zero_level int?
 --[[
 #    Lower Y limit of floatlands.
 [world_creation]
 (Floatland minimum Y) 1024 -31000 31000
 ]]
----@field mgv7_floatland_ymin integer?
+---@field mgv7_floatland_ymin int?
 --[[
 #    Upper Y limit of floatlands.
 [world_creation]
 (Floatland maximum Y) 4096 -31000 31000
 ]]
----@field mgv7_floatland_ymax integer?
+---@field mgv7_floatland_ymax int?
 --[[
 #    Y-distance over which floatlands taper from full density to nothing.
 #    Tapering starts at this distance from the Y limit.
@@ -929,7 +929,7 @@ WIPDOC
 [world_creation]
 (Floatland tapering distance) 256 0 32767
 ]]
----@field mgv7_floatland_taper integer?
+---@field mgv7_floatland_taper int?
 --[[
 #    Exponent of the floatland tapering. Alters the tapering behavior.
 #    Value = 1.0 creates a uniform, linear tapering.
@@ -965,7 +965,7 @@ WIPDOC
 [world_creation]
 (Floatland water level) -31000 -31000 31000
 ]]
----@field mgv7_floatland_ywater integer?
+---@field mgv7_floatland_ywater int?
 --[[
 #    Controls width of tunnels, a smaller value creates wider tunnels.
 #    Value >= 10.0 completely disables generation of tunnels and avoids the
@@ -979,31 +979,31 @@ WIPDOC
 [world_creation]
 (Large cave depth) -33 -31000 31000
 ]]
----@field mgv7_large_cave_depth integer?
+---@field mgv7_large_cave_depth int?
 --[[
 #    Minimum limit of random number of small caves per mapchunk.
 [world_creation]
 (Small cave minimum number) 0 0 256
 ]]
----@field mgv7_small_cave_num_min integer?
+---@field mgv7_small_cave_num_min int?
 --[[
 #    Maximum limit of random number of small caves per mapchunk.
 [world_creation]
 (Small cave maximum number) 0 0 256
 ]]
----@field mgv7_small_cave_num_max integer?
+---@field mgv7_small_cave_num_max int?
 --[[
 #    Minimum limit of random number of large caves per mapchunk.
 [world_creation]
 (Large cave minimum number) 0 0 64
 ]]
----@field mgv7_large_cave_num_min integer?
+---@field mgv7_large_cave_num_min int?
 --[[
 #    Maximum limit of random number of large caves per mapchunk.
 [world_creation]
 (Large cave maximum number) 2 0 64
 ]]
----@field mgv7_large_cave_num_max integer?
+---@field mgv7_large_cave_num_max int?
 --[[
 #    Proportion of large caves that contain liquid.
 [world_creation]
@@ -1015,13 +1015,13 @@ WIPDOC
 [world_creation]
 (Cavern limit) -256 -31000 31000
 ]]
----@field mgv7_cavern_limit integer?
+---@field mgv7_cavern_limit int?
 --[[
 #    Y-distance over which caverns expand to full size.
 [world_creation]
 (Cavern taper) 256 0 32767
 ]]
----@field mgv7_cavern_taper integer?
+---@field mgv7_cavern_taper int?
 --[[
 #    Defines full size of caverns, smaller values create larger caverns.
 [world_creation]
@@ -1033,13 +1033,13 @@ WIPDOC
 [world_creation]
 (Dungeon minimum Y) -31000 -31000 31000
 ]]
----@field mgv7_dungeon_ymin integer?
+---@field mgv7_dungeon_ymin int?
 --[[
 #    Upper Y limit of dungeons.
 [world_creation]
 (Dungeon maximum Y) 31000 -31000 31000
 ]]
----@field mgv7_dungeon_ymax integer?
+---@field mgv7_dungeon_ymax int?
 
 -- -------------------- [Mapgen] [*Mapgen V7] [**Noises] -------------------- --
 
@@ -1201,31 +1201,31 @@ WIPDOC
 [world_creation]
 (Large cave depth) -33 -31000 31000
 ]]
----@field mgcarpathian_large_cave_depth integer?
+---@field mgcarpathian_large_cave_depth int?
 --[[
 #    Minimum limit of random number of small caves per mapchunk.
 [world_creation]
 (Small cave minimum number) 0 0 256
 ]]
----@field mgcarpathian_small_cave_num_min integer?
+---@field mgcarpathian_small_cave_num_min int?
 --[[
 #    Maximum limit of random number of small caves per mapchunk.
 [world_creation]
 (Small cave maximum number) 0 0 256
 ]]
----@field mgcarpathian_small_cave_num_max integer?
+---@field mgcarpathian_small_cave_num_max int?
 --[[
 #    Minimum limit of random number of large caves per mapchunk.
 [world_creation]
 (Large cave minimum number) 0 0 64
 ]]
----@field mgcarpathian_large_cave_num_min integer?
+---@field mgcarpathian_large_cave_num_min int?
 --[[
 #    Maximum limit of random number of large caves per mapchunk.
 [world_creation]
 (Large cave maximum number) 2 0 64
 ]]
----@field mgcarpathian_large_cave_num_max integer?
+---@field mgcarpathian_large_cave_num_max int?
 --[[
 #    Proportion of large caves that contain liquid.
 [world_creation]
@@ -1237,13 +1237,13 @@ WIPDOC
 [world_creation]
 (Cavern limit) -256 -31000 31000
 ]]
----@field mgcarpathian_cavern_limit integer?
+---@field mgcarpathian_cavern_limit int?
 --[[
 #    Y-distance over which caverns expand to full size.
 [world_creation]
 (Cavern taper) 256 0 32767
 ]]
----@field mgcarpathian_cavern_taper integer?
+---@field mgcarpathian_cavern_taper int?
 --[[
 #    Defines full size of caverns, smaller values create larger caverns.
 [world_creation]
@@ -1255,13 +1255,13 @@ WIPDOC
 [world_creation]
 (Dungeon minimum Y) -31000 -31000 31000
 ]]
----@field mgcarpathian_dungeon_ymin integer?
+---@field mgcarpathian_dungeon_ymin int?
 --[[
 #    Upper Y limit of dungeons.
 [world_creation]
 (Dungeon maximum Y) 31000 -31000 31000
 ]]
----@field mgcarpathian_dungeon_ymax integer?
+---@field mgcarpathian_dungeon_ymax int?
 
 -- ---------------- [Mapgen] [*Mapgen Carpathian] [**Noises] ---------------- --
 
@@ -1413,37 +1413,37 @@ WIPDOC
 [world_creation]
 (Ground level) 8 -31000 31000
 ]]
----@field mgflat_ground_level integer?
+---@field mgflat_ground_level int?
 --[[
 #    Y of upper limit of large caves.
 [world_creation]
 (Large cave depth) -33 -31000 31000
 ]]
----@field mgflat_large_cave_depth integer?
+---@field mgflat_large_cave_depth int?
 --[[
 #    Minimum limit of random number of small caves per mapchunk.
 [world_creation]
 (Small cave minimum number) 0 0 256
 ]]
----@field mgflat_small_cave_num_min integer?
+---@field mgflat_small_cave_num_min int?
 --[[
 #    Maximum limit of random number of small caves per mapchunk.
 [world_creation]
 (Small cave maximum number) 0 0 256
 ]]
----@field mgflat_small_cave_num_max integer?
+---@field mgflat_small_cave_num_max int?
 --[[
 #    Minimum limit of random number of large caves per mapchunk.
 [world_creation]
 (Large cave minimum number) 0 0 64
 ]]
----@field mgflat_large_cave_num_min integer?
+---@field mgflat_large_cave_num_min int?
 --[[
 #    Maximum limit of random number of large caves per mapchunk.
 [world_creation]
 (Large cave maximum number) 2 0 64
 ]]
----@field mgflat_large_cave_num_max integer?
+---@field mgflat_large_cave_num_max int?
 --[[
 #    Proportion of large caves that contain liquid.
 [world_creation]
@@ -1491,13 +1491,13 @@ WIPDOC
 [world_creation]
 (Cavern limit) -256 -31000 31000
 ]]
----@field mgflat_cavern_limit integer?
+---@field mgflat_cavern_limit int?
 --[[
 #    Y-distance over which caverns expand to full size.
 [world_creation]
 (Cavern taper) 256 0 32767
 ]]
----@field mgflat_cavern_taper integer?
+---@field mgflat_cavern_taper int?
 --[[
 #    Defines full size of caverns, smaller values create larger caverns.
 [world_creation]
@@ -1509,13 +1509,13 @@ WIPDOC
 [world_creation]
 (Dungeon minimum Y) -31000 -31000 31000
 ]]
----@field mgflat_dungeon_ymin integer?
+---@field mgflat_dungeon_ymin int?
 --[[
 #    Upper Y limit of dungeons.
 [world_creation]
 (Dungeon maximum Y) 31000 -31000 31000
 ]]
----@field mgflat_dungeon_ymax integer?
+---@field mgflat_dungeon_ymax int?
 
 -- ------------------- [Mapgen] [*Mapgen Flat] [**Noises] ------------------- --
 
@@ -1594,31 +1594,31 @@ WIPDOC
 [world_creation]
 (Large cave depth) -33 -31000 31000
 ]]
----@field mgfractal_large_cave_depth integer?
+---@field mgfractal_large_cave_depth int?
 --[[
 #    Minimum limit of random number of small caves per mapchunk.
 [world_creation]
 (Small cave minimum number) 0 0 256
 ]]
----@field mgfractal_small_cave_num_min integer?
+---@field mgfractal_small_cave_num_min int?
 --[[
 #    Maximum limit of random number of small caves per mapchunk.
 [world_creation]
 (Small cave maximum number) 0 0 256
 ]]
----@field mgfractal_small_cave_num_max integer?
+---@field mgfractal_small_cave_num_max int?
 --[[
 #    Minimum limit of random number of large caves per mapchunk.
 [world_creation]
 (Large cave minimum number) 0 0 64
 ]]
----@field mgfractal_large_cave_num_min integer?
+---@field mgfractal_large_cave_num_min int?
 --[[
 #    Maximum limit of random number of large caves per mapchunk.
 [world_creation]
 (Large cave maximum number) 2 0 64
 ]]
----@field mgfractal_large_cave_num_max integer?
+---@field mgfractal_large_cave_num_max int?
 --[[
 #    Proportion of large caves that contain liquid.
 [world_creation]
@@ -1630,13 +1630,13 @@ WIPDOC
 [world_creation]
 (Dungeon minimum Y) -31000 -31000 31000
 ]]
----@field mgfractal_dungeon_ymin integer?
+---@field mgfractal_dungeon_ymin int?
 --[[
 #    Upper Y limit of dungeons.
 [world_creation]
 (Dungeon maximum Y) 31000 -31000 31000
 ]]
----@field mgfractal_dungeon_ymax integer?
+---@field mgfractal_dungeon_ymax int?
 --[[
 #    Selects one of 18 fractal types.
 #    1 = 4D "Roundy" Mandelbrot set.
@@ -1660,7 +1660,7 @@ WIPDOC
 [world_creation]
 (Fractal type) 1 1 18
 ]]
----@field mgfractal_fractal integer?
+---@field mgfractal_fractal int?
 --[[
 #    Iterations of the recursive function.
 #    Increasing this increases the amount of fine detail, but also
@@ -1669,7 +1669,7 @@ WIPDOC
 [world_creation]
 (Iterations) 11 1 65535
 ]]
----@field mgfractal_iterations integer?
+---@field mgfractal_iterations int?
 --[[
 #    (X,Y,Z) scale of fractal in nodes.
 #    Actual fractal size will be 2 to 3 times larger.
@@ -1835,37 +1835,37 @@ WIPDOC
 [world_creation]
 (Altitude chill) 90 0 65535
 ]]
----@field mgvalleys_altitude_chill integer?
+---@field mgvalleys_altitude_chill int?
 --[[
 #    Depth below which you'll find large caves.
 [world_creation]
 (Large cave depth) -33 -31000 31000
 ]]
----@field mgvalleys_large_cave_depth integer?
+---@field mgvalleys_large_cave_depth int?
 --[[
 #    Minimum limit of random number of small caves per mapchunk.
 [world_creation]
 (Small cave minimum number) 0 0 256
 ]]
----@field mgvalleys_small_cave_num_min integer?
+---@field mgvalleys_small_cave_num_min int?
 --[[
 #    Maximum limit of random number of small caves per mapchunk.
 [world_creation]
 (Small cave maximum number) 0 0 256
 ]]
----@field mgvalleys_small_cave_num_max integer?
+---@field mgvalleys_small_cave_num_max int?
 --[[
 #    Minimum limit of random number of large caves per mapchunk.
 [world_creation]
 (Large cave minimum number) 0 0 64
 ]]
----@field mgvalleys_large_cave_num_min integer?
+---@field mgvalleys_large_cave_num_min int?
 --[[
 #    Maximum limit of random number of large caves per mapchunk.
 [world_creation]
 (Large cave maximum number) 2 0 64
 ]]
----@field mgvalleys_large_cave_num_max integer?
+---@field mgvalleys_large_cave_num_max int?
 --[[
 #    Proportion of large caves that contain liquid.
 [world_creation]
@@ -1877,13 +1877,13 @@ WIPDOC
 [world_creation]
 (Cavern upper limit) -256 -31000 31000
 ]]
----@field mgvalleys_cavern_limit integer?
+---@field mgvalleys_cavern_limit int?
 --[[
 #    Y-distance over which caverns expand to full size.
 [world_creation]
 (Cavern taper) 192 0 32767
 ]]
----@field mgvalleys_cavern_taper integer?
+---@field mgvalleys_cavern_taper int?
 --[[
 #    Defines full size of caverns, smaller values create larger caverns.
 [world_creation]
@@ -1895,13 +1895,13 @@ WIPDOC
 [world_creation]
 (River depth) 4 0 65535
 ]]
----@field mgvalleys_river_depth integer?
+---@field mgvalleys_river_depth int?
 --[[
 #    How wide to make rivers.
 [world_creation]
 (River size) 5 0 65535
 ]]
----@field mgvalleys_river_size integer?
+---@field mgvalleys_river_size int?
 --[[
 #    Controls width of tunnels, a smaller value creates wider tunnels.
 #    Value >= 10.0 completely disables generation of tunnels and avoids the
@@ -1915,13 +1915,13 @@ WIPDOC
 [world_creation]
 (Dungeon minimum Y) -31000 -31000 31000
 ]]
----@field mgvalleys_dungeon_ymin integer?
+---@field mgvalleys_dungeon_ymin int?
 --[[
 #    Upper Y limit of dungeons.
 [world_creation]
 (Dungeon maximum Y) 63 -31000 31000
 ]]
----@field mgvalleys_dungeon_ymax integer?
+---@field mgvalleys_dungeon_ymax int?
 
 -- ------------------ [Mapgen] [*Mapgen Valleys] [**Noises] ----------------- --
 

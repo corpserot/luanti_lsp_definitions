@@ -35,7 +35,7 @@ WIPDOC
 ]]
 ---@nodiscard
 ---@param pos ivector
----@param range integer
+---@param range int
 ---@param seconds number
 ---@param limit number
 ---@return core.RollbackNodeAction[]

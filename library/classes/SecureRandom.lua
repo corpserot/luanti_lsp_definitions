@@ -35,6 +35,6 @@ SecureRandom = {}
   random bytes, as a string.
 ]]
 ---@nodiscard
----@param count integer
+---@param count int
 ---@return string
 function SecureRandom:next_bytes(count) end

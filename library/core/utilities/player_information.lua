@@ -27,7 +27,7 @@ protocol version used by client
 --[[
 supported formspec version
 ]]
----@field formspec_version  integer
+---@field formspec_version  int
 --[[
 Language code used for translation
 ]]

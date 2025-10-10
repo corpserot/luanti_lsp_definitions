@@ -6,7 +6,7 @@
 --[[
 WIPDOC
 ]]
----@class core.OreID : integer
+---@alias core.OreID int
 
 -- ------------------------------ OreDef.__base ----------------------------- --
 
@@ -30,11 +30,11 @@ Node to place ore in. Multiple are possible by passing a list.
 --[[
 WIPDOC
 ]]
----@field y_min integer?
+---@field y_min int?
 --[[
 WIPDOC
 ]]
----@field y_max integer?
+---@field y_max int?
 --[[
 List of biomes in which this ore occurs.
 Occurs in all biomes if this is omitted, and ignored if the Mapgen

@@ -126,7 +126,7 @@ function ObjectRefBase:right_click(clicker) end
 * `get_hp()`: returns number of health points
 ]]
 ---@nodiscard
----@return integer hp
+---@return int hp
 function ObjectRefBase:get_hp() end
 
 --[[
@@ -135,7 +135,7 @@ function ObjectRefBase:get_hp() end
     * Is limited to the range of 0 ... 65535 (2^16 - 1)
     * For players: HP are also limited by `hp_max` specified in object properties
 ]]
----@param hp integer
+---@param hp int
 ---@param reason core.PlayerHPChangeReason?
 function ObjectRefBase:set_hp(hp, reason) end
 
@@ -160,7 +160,7 @@ function ObjectRefBase:get_wield_list() end
 * `get_wield_index()`: returns the wield list index of the wielded item (starting with 1)
 ]]
 ---@nodiscard
----@return integer
+---@return int
 function ObjectRefBase:get_wield_index() end
 
 --[[

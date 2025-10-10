@@ -24,99 +24,99 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.Light integer
+---@alias core.Light int
 
 --[[
 WIPDOC
 ]]
----@alias core.Light.part integer
+---@alias core.Light.part int
 
 --[[
 WIPDOC
 ]]
----@alias core.Light.source integer
+---@alias core.Light.source int
 
 --[[
 WIPDOC
 ]]
----@alias core.Param1 integer
+---@alias core.Param1 int
 
 -- ------------------------------- Node.param2 ------------------------------ --
 
 --[[
 WIPDOC
 ]]
----@alias core.Param2.wallmounted integer
+---@alias core.Param2.wallmounted int
 
 --[[
 WIPDOC
 ]]
----@alias core.Param2.facedir integer
+---@alias core.Param2.facedir int
 
 --[[
 WIPDOC
 ]]
----@alias core.Param2.4dir integer
+---@alias core.Param2.4dir int
 
 --[[
 WIPDOC
 ]]
----@alias core.Param2.leveled integer
+---@alias core.Param2.leveled int
 
 --[[
 WIPDOC
 ]]
----@alias core.Param2.leveled.rooted_plantlike integer
+---@alias core.Param2.leveled.rooted_plantlike int
 
 --[[
 WIPDOC
 ]]
----@alias core.Param2.degrotate integer
+---@alias core.Param2.degrotate int
 
 --[[
 WIPDOC
 ]]
----@alias core.Param2.meshoptions.plantlike integer
+---@alias core.Param2.meshoptions.plantlike int
 
 --[[
 WIPDOC
 ]]
----@alias core.Param2.facedir.color integer
+---@alias core.Param2.facedir.color int
 
 --[[
 WIPDOC
 ]]
----@alias core.Param2.4dir.color integer
+---@alias core.Param2.4dir.color int
 
 --[[
 WIPDOC
 ]]
----@alias core.Param2.wallmounted.color integer
+---@alias core.Param2.wallmounted.color int
 
 --[[
 WIPDOC
 ]]
----@alias core.Param2.glasslikeliquidlevel.liquid integer
+---@alias core.Param2.glasslikeliquidlevel.liquid int
 
 --[[
 WIPDOC
 ]]
----@alias core.Param2.glasslikeliquidlevel.frame integer
+---@alias core.Param2.glasslikeliquidlevel.frame int
 
 --[[
 WIPDOC
 ]]
----@alias core.Param2.glasslikeliquidlevel integer
+---@alias core.Param2.glasslikeliquidlevel int
 
 --[[
 WIPDOC
 ]]
----@alias core.Param2.degrotate.color integer
+---@alias core.Param2.degrotate.color int
 
 --[[
 WIPDOC
 ]]
----@alias core.Param2 integer
+---@alias core.Param2 int
 
 -- ---------------------------------- Node ---------------------------------- --
 

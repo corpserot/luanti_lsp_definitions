@@ -9,7 +9,7 @@
 ---@nodiscard
 ---@param name core.Item.name
 ---@param group string
----@return integer
+---@return int
 function core.get_item_group(name, group) end
 
 --[[
@@ -19,7 +19,7 @@ function core.get_item_group(name, group) end
 ---@nodiscard
 ---@param name core.Item.name
 ---@param group "not_in_creative_inventory"
----@return integer
+---@return int
 function core.get_item_group(name, group) end
 
 --[[
@@ -39,7 +39,7 @@ function core.get_item_group(name, group) end
 ---@nodiscard
 ---@param name core.Item.name
 ---@param group "bouncy"
----@return integer
+---@return int
 function core.get_item_group(name, group) end
 
 --[[
@@ -49,7 +49,7 @@ function core.get_item_group(name, group) end
 ---@nodiscard
 ---@param name core.Item.name
 ---@param group "connect_to_raillike"
----@return integer
+---@return int
 function core.get_item_group(name, group) end
 
 --[[
@@ -89,7 +89,7 @@ function core.get_item_group(name, group) end
 ---@nodiscard
 ---@param name core.Item.name
 ---@param group "fall_damage_add_percent"
----@return integer
+---@return int
 function core.get_item_group(name, group) end
 
 --[[
@@ -119,7 +119,7 @@ function core.get_item_group(name, group) end
 ---@nodiscard
 ---@param name core.Item.name
 ---@param group "slippery"
----@return integer
+---@return int
 function core.get_item_group(name, group) end
 
 --[[
@@ -129,7 +129,7 @@ function core.get_item_group(name, group) end
 ---@nodiscard
 ---@param name core.Item.name
 ---@param group "level"
----@return integer
+---@return int
 function core.get_item_group(name, group) end
 
 -- NOTE: core.get_node_group don't get any completion. this is intentional
@@ -141,5 +141,5 @@ function core.get_item_group(name, group) end
 ---@deprecated
 ---@param name core.Item.name
 ---@param group string
----@return integer
+---@return int
 function core.get_node_group(name, group) end

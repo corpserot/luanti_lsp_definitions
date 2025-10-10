@@ -110,24 +110,24 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@class core.ParticleSpawner.tween.float : {[integer]:number}, _.ParticleSpawner.tween.__base
+---@class core.ParticleSpawner.tween.float : {[int]:number}, _.ParticleSpawner.tween.__base
 
 --[[
 WIPDOC
 ]]
----@class core.ParticleSpawner.tween.vec2 : {[integer]:core.ParticleSpawner.vec2}, _.ParticleSpawner.tween.__base
+---@class core.ParticleSpawner.tween.vec2 : {[int]:core.ParticleSpawner.vec2}, _.ParticleSpawner.tween.__base
 
 --[[
 WIPDOC
 ]]
----@class core.ParticleSpawner.tween.vec3 : {[integer]:core.ParticleSpawner.vec3}, _.ParticleSpawner.tween.__base
+---@class core.ParticleSpawner.tween.vec3 : {[int]:core.ParticleSpawner.vec3}, _.ParticleSpawner.tween.__base
 
 --[[
 WIPDOC
 ]]
----@class core.ParticleSpawner.tween.float_range : {[integer]:core.ParticleSpawner.float_range},  _.ParticleSpawner.tween.__base
+---@class core.ParticleSpawner.tween.float_range : {[int]:core.ParticleSpawner.float_range},  _.ParticleSpawner.tween.__base
 
 --[[
 WIPDOC
 ]]
----@class core.ParticleSpawner.tween.vec3_range : {[integer]:core.ParticleSpawner.vec3_range}, _.ParticleSpawner.tween.__base
+---@class core.ParticleSpawner.tween.vec3_range : {[int]:core.ParticleSpawner.vec3_range}, _.ParticleSpawner.tween.__base

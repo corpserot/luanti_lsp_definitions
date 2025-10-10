@@ -5,7 +5,7 @@
 --[[
 WIPDOC
 ]]
----@class core.SoundID : integer
+---@alias core.SoundID int
 
 --[[
 Unofficial note: i made ephemeral NOT be optional because it's a good idea to explicitly set it (most of the time you don't use that, so set it to true)

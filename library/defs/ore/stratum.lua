@@ -32,4 +32,4 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field stratum_thickness integer?
+---@field stratum_thickness int?

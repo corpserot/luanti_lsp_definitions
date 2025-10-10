@@ -28,7 +28,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field size integer
+---@field size int
 --[[
 WIPDOC
 ]]
@@ -36,7 +36,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field scale integer?
+---@field scale int?
 
 -- ---------------------------- PlayerRef methods --------------------------- --
 
@@ -67,5 +67,5 @@ local PlayerRef
     (0 is the first mode).
 ]]
 ---@param modes core.PlayerMinimapMode[]
----@param selected_mode integer
+---@param selected_mode int
 function PlayerRef:set_minimap_modes(modes, selected_mode) end

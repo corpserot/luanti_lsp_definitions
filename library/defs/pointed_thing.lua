@@ -70,7 +70,7 @@ Only raycast supports this
 * `pointed_thing.box_id`: The ID of the pointed selection box (counting starts
   from 1).
 ]]
----@field box_id integer
+---@field box_id int
 --[[
 Only raycast supports this
 * `pointed_thing.intersection_normal`: Unit vector, points outwards of the

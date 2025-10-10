@@ -62,7 +62,7 @@ function core.item_place(itemstack, placer, pointed_thing, param2) end
 ---@param time_from_last_punch number
 ---@param tool_capabilities core.ToolCapabilities?
 ---@param dir vector
----@param damage integer?
+---@param damage int?
 ---@return core.ItemStack
 function core.item_pickup(itemstack, picker, pointed_thing, time_from_last_punch, tool_capabilities, dir, damage) end
 
@@ -122,7 +122,7 @@ WIPDOC
       If the player is eating a stack and `replace_with_item` doesn't fit onto
       the eaten stack, then the remaining go to a different spot, or are dropped.
 ]]
----@param hp_change integer
+---@param hp_change int
 ---@param replace_with_item core.Item.stringfmt?
 ---@return core.fn.item_eat
 function core.item_eat(hp_change, replace_with_item) end

@@ -5,7 +5,7 @@
 --[[
 WIPDOC
 ]]
----@alias core.ABMDef.action fun(pos:ivec, node:core.Node.get, active_object_count:integer, active_object_count_wider:integer)
+---@alias core.ABMDef.action fun(pos:ivec, node:core.Node.get, active_object_count:int, active_object_count_wider:int)
 
 --[[
 ABM (ActiveBlockModifier) definition
@@ -48,15 +48,15 @@ Operation interval in seconds
 --[[
 Probability of triggering `action` per-node per-interval is 1.0 / chance (integers only)
 ]]
----@field  chance integer?
+---@field  chance int?
 --[[
 WIPDOC
 ]]
----@field min_y integer?
+---@field min_y int?
 --[[
 WIPDOC
 ]]
----@field max_y integer?
+---@field max_y int?
 --[[
 If true, catch-up behavior is enabled: The `chance` value is
 temporarily reduced when returning to an area to simulate time lost

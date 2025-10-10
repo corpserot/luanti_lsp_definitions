@@ -40,7 +40,7 @@ function NodeMetaRef:set_string(key, value) end
 ]]
 ---@deprecated
 ---@param key core.MetadataTable.fields.node.keys.integer
----@param value integer
+---@param value int
 function NodeMetaRef:set_string(key, value) end
 
 --[[
@@ -65,7 +65,7 @@ function NodeMetaRef:get_string(key) end
       The value will be converted into a string when stored.
 ]]
 ---@param key core.MetadataTable.fields.node.keys.integer
----@param value integer
+---@param value int
 function NodeMetaRef:set_int(key, value) end
 
 --[[
@@ -73,7 +73,7 @@ function NodeMetaRef:set_int(key, value) end
 ]]
 ---@nodiscard
 ---@param key core.MetadataTable.fields.node.keys.integer
----@return integer value
+---@return int value
 function NodeMetaRef:get_int(key) end
 
 --[[

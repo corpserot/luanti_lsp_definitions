@@ -96,7 +96,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field palette_index integer?
+---@field palette_index int?
 --[[
 WIPDOC
 ]]
@@ -104,7 +104,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field count_alignment integer?
+---@field count_alignment int?
 --[[
 WIPDOC
 ]]

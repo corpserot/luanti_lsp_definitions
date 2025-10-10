@@ -173,7 +173,7 @@ function core.handle_node_drops(pos, drops, digger) end
 ]]
 ---@nodiscard
 ---@param item core.Item
----@param palette_index integer
+---@param palette_index int
 ---@return core.Item.stringfmt
 function core.itemstring_with_palette(item, palette_index) end
 

@@ -27,15 +27,15 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field from_index integer
+---@field from_index int
 --[[
 WIPDOC
 ]]
----@field to_index integer
+---@field to_index int
 --[[
 WIPDOC
 ]]
----@field count integer
+---@field count int
 
 
 --[[
@@ -49,7 +49,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field index integer
+---@field index int
 --[[
 WIPDOC
 ]]
@@ -65,7 +65,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.fn.allow_player_inventory_action fun(player:core.PlayerRef, action:core.InventoryInfo.actions, inventory:core.InvRef, inventory_info:core.InventoryInfo):integer
+---@alias core.fn.allow_player_inventory_action fun(player:core.PlayerRef, action:core.InventoryInfo.actions, inventory:core.InvRef, inventory_info:core.InventoryInfo):int
 
 --[[
 * `core.register_allow_player_inventory_action(function(player, action, inventory, inventory_info))`

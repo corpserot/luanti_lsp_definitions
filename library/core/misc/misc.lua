@@ -91,7 +91,7 @@ function core.send_leave_message(player_name, timed_out) end
 --[[
 WIPDOC
 ]]
----@alias core.PosHash integer
+---@alias core.PosHash int
 
 --[[
 * `core.hash_node_position(pos)`: returns a 48-bit integer
@@ -125,7 +125,7 @@ function core.get_position_from_hash(hash) end
 ]]
 ---@nodiscard
 ---@param name core.Node.name
----@return integer
+---@return int
 function core.raillike_group(name) end
 
 -- ------------------------------- content ID ------------------------------- --
@@ -286,7 +286,7 @@ function core.compress(data, method, level) end
 ---@nodiscard
 ---@param data string
 ---@param method "zstd"
----@param level integer?
+---@param level int?
 ---@return string
 function core.compress(data, method, level) end
 
@@ -312,10 +312,10 @@ function core.decompress(compressed_data, method) end
     * Example: `core.rgba(10, 20, 30, 40)`, returns `"#0A141E28"`
 ]]
 ---@nodiscard
----@param red integer
----@param green integer
----@param blue integer
----@param alpha integer?
+---@param red int
+---@param green int
+---@param blue int
+---@param alpha int?
 ---@return core.ColorString
 function core.rgba(red, green, blue, alpha) end
 
@@ -411,7 +411,7 @@ function core.is_creative_enabled(name) end
 ---@param pos1 ivector
 ---@param pos2 ivector
 ---@param player_name string
----@param interval integer
+---@param interval int
 ---@return boolean
 function core.is_area_protected(pos1, pos2, player_name, interval) end
 
@@ -500,7 +500,7 @@ function core.rotate_node(itemstack, placer, pointed_thing) end
 ---@param tool_capabilities core.ToolCapabilities
 ---@param dir vector
 ---@param distance number
----@param damage integer
+---@param damage int
 ---@return number
 function core.calculate_knockback(player, hitter, time_from_last_punch, tool_capabilities, dir, distance, damage) end
 

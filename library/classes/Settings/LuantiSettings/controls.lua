@@ -671,7 +671,7 @@ WIPDOC
 [client]
 (Movement threshold) 20 0 100
 ]]
----@field touchscreen_threshold integer?
+---@field touchscreen_threshold int?
 --[[
 #    The delay in milliseconds after which a touch interaction is considered a long tap.
 #
@@ -679,7 +679,7 @@ WIPDOC
 [client]
 (Threshold for long taps) 400 100 1000
 ]]
----@field touch_long_tap_delay integer?
+---@field touch_long_tap_delay int?
 --[[
 #    Fixes the position of virtual joystick.
 #    If disabled, virtual joystick will center to first-touch's position.

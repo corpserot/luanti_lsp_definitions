@@ -92,7 +92,7 @@ function core.register_on_punchnode(f) end
 --[[
 WIPDOC
 ]]
----@alias core.fn.on_generated fun(minp:ivec, maxp:ivec, blockseed:integer)
+---@alias core.fn.on_generated fun(minp:ivec, maxp:ivec, blockseed:int)
 
 --[[
 * `core.register_on_generated(function(minp, maxp, blockseed))`
@@ -124,7 +124,7 @@ function core.register_on_newplayer(f) end
 --[[
 WIPDOC
 ]]
----@alias core.fn.on_punchplayer fun(player:core.PlayerRef, hitter:core.PlayerRef?, time_from_last_punch:number?, tool_capabilities:core.ToolCapabilities?, dir:vec, damage: integer):boolean?
+---@alias core.fn.on_punchplayer fun(player:core.PlayerRef, hitter:core.PlayerRef?, time_from_last_punch:number?, tool_capabilities:core.ToolCapabilities?, dir:vec, damage: int):boolean?
 
 --[[
 * `core.register_on_punchplayer(function(player, hitter, time_from_last_punch, tool_capabilities, dir, damage))`
@@ -185,7 +185,7 @@ function core.register_on_prejoinplayer(f) end
 --[[
 WIPDOC
 ]]
----@alias core.fn.on_joinplayer fun(ObjectRef:core.PlayerRef, last_login:integer)
+---@alias core.fn.on_joinplayer fun(ObjectRef:core.PlayerRef, last_login:int)
 
 --[[
 WIPDOC
@@ -329,7 +329,7 @@ function core.register_on_protection_violation(f) end
 --[[
 WIPDOC
 ]]
----@alias core.fn.on_item_eat fun(hp_change:integer, replace_with_item:core.ItemStack?, itemstack:core.ItemStack, user:core.PlayerRef, pointed_thing:core.PointedThing):core.ItemStack?
+---@alias core.fn.on_item_eat fun(hp_change:int, replace_with_item:core.ItemStack?, itemstack:core.ItemStack, user:core.PlayerRef, pointed_thing:core.PointedThing):core.ItemStack?
 
 --[[
 * `core.register_on_item_eat(function(hp_change, replace_with_item, itemstack, user, pointed_thing))`
@@ -342,7 +342,7 @@ function core.register_on_item_eat(f) end
 --[[
 WIPDOC
 ]]
----@alias core.fn.on_item_pickup fun(itemstack:core.ItemStack, picker:core.PlayerRef?, pointed_thing:core.PointedThing?, time_from_last_punch:number?, direction:vec?, damage:integer?):core.ItemStack?
+---@alias core.fn.on_item_pickup fun(itemstack:core.ItemStack, picker:core.PlayerRef?, pointed_thing:core.PointedThing?, time_from_last_punch:number?, direction:vec?, damage:int?):core.ItemStack?
 
 --[[
 * `core.register_on_item_pickup(function(itemstack, picker, pointed_thing, time_from_last_punch,  ...))`
@@ -433,7 +433,7 @@ function core.register_on_liquid_transformed(f) end
 --[[
 WIPDOC
 ]]
----@alias core.fn.on_mapblocks_changed fun(modified_blocks:table<core.PosHash,true>, modified_block_count:integer)
+---@alias core.fn.on_mapblocks_changed fun(modified_blocks:table<core.PosHash,true>, modified_block_count:int)
 
 --[[
 * `core.register_on_mapblocks_changed(function(modified_blocks, modified_block_count))`

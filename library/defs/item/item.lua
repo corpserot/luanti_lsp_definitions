@@ -27,7 +27,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.Tool.wear integer
+---@alias core.Tool.wear int
 
 --[[
 WIPDOC
@@ -40,7 +40,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field count integer?
+---@field count int?
 --[[
 WIPDOC
 ]]

@@ -34,7 +34,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field width integer?
+---@field width int?
 --[[
 WIPDOC
 ]]
@@ -51,7 +51,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field width integer
+---@field width int
 --[[
 WIPDOC
 ]]

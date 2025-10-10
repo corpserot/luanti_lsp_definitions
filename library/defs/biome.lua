@@ -5,7 +5,7 @@
 --[[
 WIPDOC
 ]]
----@class core.BiomeID : integer
+---@alias core.BiomeID int
 
 --[[
 WIPDOC
@@ -26,7 +26,7 @@ Node forming surface layer of biome
 --[[
 Node forming surface layer of biome and thickness of this layer
 ]]
----@field depth_top integer?
+---@field depth_top int?
 --[[
 Node forming lower layer of biome
 ]]
@@ -34,7 +34,7 @@ Node forming lower layer of biome
 --[[
 Node forming lower layer of biome and thickness of this layer
 ]]
----@field depth_filler integer?
+---@field depth_filler int?
 --[[
 Node that replaces all stone nodes between roughly y_min and y_max.
 ]]
@@ -46,7 +46,7 @@ Node forming a surface layer in seawater with the defined thickness
 --[[
 Node forming a surface layer in seawater with the defined thickness
 ]]
----@field depth_water_top integer?
+---@field depth_water_top int?
 --[[
 Node that replaces all seawater nodes not in the surface layer
 ]]
@@ -62,7 +62,7 @@ Node placed under river water and thickness of this layer
 --[[
 Node placed under river water and thickness of this layer
 ]]
----@field depth_riverbed integer?
+---@field depth_riverbed int?
 --[[
 Nodes placed inside 50% of the medium size caves.
 Multiple nodes can be specified, each cave will use a randomly
@@ -93,11 +93,11 @@ If absent, stairs fall back to 'node_dungeon'.
 --[[
 WIPDOC
 ]]
----@field y_max integer?
+---@field y_max int?
 --[[
 WIPDOC
 ]]
----@field y_min integer?
+---@field y_min int?
 --[[
 xyz limits for biome, an alternative to using 'y_min' and 'y_max'.
 Biome is limited to a cuboid defined by these positions.
@@ -117,7 +117,7 @@ Vertical distance in nodes above 'y_max' over which the biome will
 blend with the biome above.
 Set to 0 for no vertical blend. Defaults to 0.
 ]]
----@field vertical_blend integer?
+---@field vertical_blend int?
 --[[
 Characteristic temperature and humidity for the biome.
 These values create 'biome points' on a voronoi diagram with heat and
@@ -126,7 +126,7 @@ distribution of the biomes.
 Heat and humidity have average values of 50, vary mostly between
 0 and 100 but can exceed these values.
 ]]
----@field heat_point integer
+---@field heat_point int
 --[[
 Characteristic temperature and humidity for the biome.
 These values create 'biome points' on a voronoi diagram with heat and
@@ -135,7 +135,7 @@ distribution of the biomes.
 Heat and humidity have average values of 50, vary mostly between
 0 and 100 but can exceed these values.
 ]]
----@field humidity_point integer
+---@field humidity_point int
 --[[
 Relative weight of the biome in the Voronoi diagram.
 A value of 0 (or less) is ignored and equivalent to 1.0.

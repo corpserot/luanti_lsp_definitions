@@ -214,13 +214,13 @@ core.objects_by_guid = {}
 WIPDOC
 ]]
 ---@deprecated
----@type table<integer, core.ObjectRef>
+---@type SparseList<core.ObjectRef>
 core.object_refs = {}
 
 --[[
 WIPDOC
 ]]
----@type table<integer, core.Entity>
+---@type SparseList<core.Entity>
 core.luaentities = {}
 
 --[[

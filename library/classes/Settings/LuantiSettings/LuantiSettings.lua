@@ -214,7 +214,7 @@ function LuantiSettings:set(key, value) end
 ]]
 ---@deprecated
 ---@param key core.LuantiSettings.keys.integer
----@param value integer
+---@param value int
 function LuantiSettings:set(key, value) end
 
 --[[

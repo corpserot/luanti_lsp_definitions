@@ -15,7 +15,7 @@ tables as error objects so long as you give them `__tostring` metamethods.
 ]]
 ---@nodiscard
 ---@param err any
----@param level integer *>=0*
+---@param level int *>=0*
 ---@return string
 function core.error_handler(err, level) end
 
@@ -41,6 +41,11 @@ manipulation as it's not faster than JIT traced arithmetic operations.
 bit = bit
 
 --[[
+Passing floats are unspecified and may break.
+]]
+---@alias int number
+
+--[[
 Full absolute path to a file or directory.
 ]]
 ---@alias core.Path string
@@ -63,4 +68,4 @@ Helper type: `T` or a list of `T`
 --[[
 Helper type: accepts a sparse list of `T` with holes
 ]]
----@alias SparseList<T> {[integer]:T}|T[]
+---@alias SparseList<T> {[int]:T}|T[]

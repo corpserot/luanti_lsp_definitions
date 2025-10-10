@@ -28,11 +28,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field height integer?
+---@field height int?
 --[[
 WIPDOC
 ]]
----@field thickness integer?
+---@field thickness int?
 --[[
 WIPDOC
 ]]
@@ -61,11 +61,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field height integer
+---@field height int
 --[[
 WIPDOC
 ]]
----@field thickness integer
+---@field thickness int
 --[[
 WIPDOC
 ]]

@@ -15,7 +15,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field maxlevel integer?
+---@field maxlevel int?
 
 --[[
 WIPDOC
@@ -29,7 +29,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field uses integer?
+---@field uses int?
 
 --[[
 WIPDOC
@@ -41,7 +41,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.ToolCapabilities.damage_groups table<core.Groups.armor, integer>
+---@alias core.ToolCapabilities.damage_groups table<core.Groups.armor, int>
 
 -- -------------------------- ToolCapabilities.item ------------------------- --
 
@@ -56,7 +56,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field max_drop_level integer?
+---@field max_drop_level int?
 --[[
 WIPDOC
 ]]
@@ -84,7 +84,7 @@ suitable groupcap using the formula "uses * 3^(maxlevel - 1)".
 It is recommend to set this explicitly instead of relying on the
 fallback behavior.
 ]]
----@field punch_attack_uses integer?
+---@field punch_attack_uses int?
 
 -- ---------------------------- ToolCapabilities ---------------------------- --
 

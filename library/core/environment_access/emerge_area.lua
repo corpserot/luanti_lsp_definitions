@@ -7,7 +7,7 @@
 --[[
 WIPDOC
 ]]
----@class core.EmergeAction : integer
+---@alias core.EmergeAction int
 
 --[[
 WIPDOC
@@ -44,7 +44,7 @@ core.EMERGE_GENERATED = nil
 --[[
 WIPDOC
 ]]
----@alias core.fn.emerge_area fun(blockpos:ivec, action:core.EmergeAction , calls_remaining:integer, param:any?)
+---@alias core.fn.emerge_area fun(blockpos:ivec, action:core.EmergeAction , calls_remaining:int, param:any?)
 
 --[[
 * `core.emerge_area(pos1, pos2, [callback], [param])`

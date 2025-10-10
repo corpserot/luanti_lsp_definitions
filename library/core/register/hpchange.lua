@@ -70,7 +70,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@alias core.fn.on_player_hpchange.logger fun(player:core.PlayerRef, hp_change:integer, reason:core.PlayerHPChangeReason)
+---@alias core.fn.on_player_hpchange.logger fun(player:core.PlayerRef, hp_change:int, reason:core.PlayerHPChangeReason)
 
 --[[
 * `core.register_on_player_hpchange(function(player, hp_change, reason), modifier)`
@@ -106,7 +106,7 @@ function core.register_on_player_hpchange(f) end
 --[[
 WIPDOC
 ]]
----@alias core.fn.on_player_hpchange.modifier fun(player:core.PlayerRef, hp_change:integer, reason:core.PlayerHPChangeReason):integer, boolean?
+---@alias core.fn.on_player_hpchange.modifier fun(player:core.PlayerRef, hp_change:int, reason:core.PlayerHPChangeReason):int, boolean?
 
 --[[
 * `core.register_on_player_hpchange(function(player, hp_change, reason), modifier)`

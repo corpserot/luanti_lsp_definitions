@@ -9,7 +9,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field hp integer
+---@field hp int
 
 --[[
 WIPDOC

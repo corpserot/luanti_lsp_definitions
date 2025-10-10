@@ -8,8 +8,8 @@
 WIPDOC
 ]]
 ---@nodiscard
----@param seed integer
----@param seq integer[]?
+---@param seed int
+---@param seq int[]?
 ---@return core.PcgRandom
 function PcgRandom(seed, seq) end
 
@@ -25,16 +25,16 @@ PcgRandom = {}
 * `next()`: return next integer random number [`-2147483648`...`2147483647`]
 ]]
 ---@nodiscard
----@return integer
+---@return int
 function PcgRandom:next() end
 
 --[[
 * `next(min, max)`: return next integer random number [`min`...`max`]
 ]]
 ---@nodiscard
----@param min integer
----@param max integer
----@return integer
+---@param min int
+---@param max int
+---@return int
 function PcgRandom:next(min, max) end
 
 --[[
@@ -46,10 +46,10 @@ function PcgRandom:next(min, max) end
     * Increasing `num_trials` improves accuracy of the approximation
 ]]
 ---@nodiscard
----@param min integer
----@param max integer
----@param num_trials integer?
----@return integer
+---@param min int
+---@param max int
+---@param num_trials int?
+---@return int
 function PcgRandom:rand_normal_dist(min, max, num_trials) end
 
 --[[

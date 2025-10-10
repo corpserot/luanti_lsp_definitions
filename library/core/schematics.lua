@@ -9,7 +9,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field  pos integer
+---@field  pos int
 --[[
 * A probability value of `0` or `1` means that node will never appear
   (0% chance).
@@ -19,7 +19,7 @@ WIPDOC
   `(p / 256 * 100)` percent chance that node will appear when the schematic is
   placed on the map.
 ]]
----@field  prob integer
+---@field  prob int
 
 --[[
 WIPDOC
@@ -111,7 +111,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field lua_num_indent_spaces integer?
+---@field lua_num_indent_spaces int?
 
 --[[
 * `core.serialize_schematic(schematic, format, options)`

@@ -35,7 +35,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field number integer?
+---@field number int?
 --[[
 WIPDOC
 ]]

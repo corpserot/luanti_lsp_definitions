@@ -8,7 +8,7 @@
 WIPDOC
 ]]
 ---@nodiscard
----@param seed integer
+---@param seed int
 ---@return core.PseudoRandom
 function PseudoRandom(seed) end
 
@@ -36,7 +36,7 @@ local PseudoRandom = {}
 * `next()`: return next integer random number [`0`...`32767`]
 ]]
 ---@nodiscard
----@return integer
+---@return int
 function PseudoRandom:next() end
 
 --[[
@@ -45,9 +45,9 @@ function PseudoRandom:next() end
       due to the simple implementation making a bad distribution otherwise.
 ]]
 ---@nodiscard
----@param min integer
----@param max integer
----@return integer
+---@param min int
+---@param max int
+---@return int
 function PseudoRandom:next(min, max) end
 
 --[[
@@ -55,5 +55,5 @@ function PseudoRandom:next(min, max) end
     * use returned number as seed in PseudoRandom constructor to restore
 ]]
 ---@nodiscard
----@return integer
+---@return int
 function PseudoRandom:get_state() end

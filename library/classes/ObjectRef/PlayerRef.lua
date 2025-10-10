@@ -46,7 +46,7 @@ function PlayerRef:move_to(pos, continuous) end
     * Is limited to the range of 0 ... 65535 (2^16 - 1)
     * For players: HP are also limited by `hp_max` specified in object properties
 ]]
----@param hp integer
+---@param hp int
 ---@param reason core.PlayerHPChangeReason?
 function PlayerRef:set_hp(hp, reason) end
 
@@ -197,7 +197,7 @@ function PlayerRef:set_look_yaw(radians) end
 * `get_breath()`: returns player's breath
 ]]
 ---@nodiscard
----@return integer value
+---@return int value
 function PlayerRef:get_breath() end
 
 --[[
@@ -206,7 +206,7 @@ function PlayerRef:get_breath() end
         * `0`: player is drowning
     * Is limited to range 0 ... 65535 (2^16 - 1)
 ]]
----@param value integer
+---@param value int
 function PlayerRef:set_breath(value) end
 
 -- ------------------------------- player fov ------------------------------- --
@@ -367,7 +367,7 @@ function PlayerRef:hud_get_all() end
     * `count`: number of items, must be between `1` and `32`
     * If `count` exceeds the `"main"` list size, the list size will be used instead.
 ]]
----@param count integer
+---@param count int
 function PlayerRef:hud_set_hotbar_itemcount(count) end
 
 --[[
@@ -375,7 +375,7 @@ function PlayerRef:hud_set_hotbar_itemcount(count) end
     * This value is also clamped by the `"main"` list size.
 ]]
 ---@nodiscard
----@return integer count
+---@return int count
 function PlayerRef:hud_get_hotbar_itemcount() end
 
 --[[

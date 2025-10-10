@@ -272,7 +272,7 @@ WIPDOC
 [common]
 (Debug log file size threshold) 50 1
 ]]
----@field debug_log_size_max integer?
+---@field debug_log_size_max int?
 --[[
 #    Handling for deprecated Lua API calls:
 #    -    none: Do not log deprecated calls
@@ -416,7 +416,7 @@ WIPDOC
 [common]
 (Engine profiling data print interval) 0 0
 ]]
----@field profiler_print_interval integer?
+---@field profiler_print_interval int?
 
 ---@class _.LuantiSettings.advanced.developer_options.engine_profiler.ctx_client : _.LuantiSettings.advanced.developer_options.engine_profiler.ctx_common
 
@@ -463,7 +463,7 @@ WIPDOC
 [client]
 (Transparency Sorting Distance) 16 0 128
 ]]
----@field transparency_sorting_distance integer?
+---@field transparency_sorting_distance int?
 --[[
 #    Draw transparency sorted triangles grouped by their mesh buffers.
 #    This breaks transparency sorting between mesh buffers, but avoids situations
@@ -478,28 +478,28 @@ WIPDOC
 [client]
 (Cloud radius) 12 8 62
 ]]
----@field cloud_radius integer?
+---@field cloud_radius int?
 --[[
 #    Delay between mesh updates on the client in ms. Increasing this will slow
 #    down the rate of mesh updates, which can help reduce jitter.
 [client]
 (Mapblock mesh generation delay) 0 0 25
 ]]
----@field mesh_generation_interval integer?
+---@field mesh_generation_interval int?
 --[[
 #    Number of threads to use for mesh generation.
 #    Value of 0 (default) will let Luanti automatically choose the number of threads.
 [client]
 (Mapblock mesh generation threads) 0 0 8
 ]]
----@field mesh_generation_threads integer?
+---@field mesh_generation_threads int?
 --[[
 #    All mesh buffers with less than this number of vertices will be merged
 #    during map rendering. This improves rendering performance.
 [client]
 (Minimum vertex count for mesh buffers) 300 0 1000
 ]]
----@field mesh_buffer_min_vertices integer?
+---@field mesh_buffer_min_vertices int?
 --[[
 #    True = 256
 #    False = 128
@@ -562,7 +562,7 @@ WIPDOC
 [client]
 (Base texture size) 192 192 16384
 ]]
----@field texture_min_size integer?
+---@field texture_min_size int?
 --[[
 #    Side length of a cube of map blocks that the client will consider together
 #    when generating meshes.
@@ -572,7 +572,7 @@ WIPDOC
 [client]
 (Client Mesh Chunksize) 1 1 16
 ]]
----@field client_mesh_chunk integer?
+---@field client_mesh_chunk int?
 
 --[[
 WIPDOC
@@ -611,7 +611,7 @@ WIPDOC
 [client]
 (Map shadows update frames) 16 1 32
 ]]
----@field shadow_update_frames integer?
+---@field shadow_update_frames int?
 --[[
 #    Set to true to render debugging breakdown of the bloom effect.
 #    In debug mode, the screen is split into 4 quadrants:
@@ -653,19 +653,19 @@ WIPDOC
 [client]
 (Font shadow) 1 0 65535
 ]]
----@field font_shadow integer?
+---@field font_shadow int?
 --[[
 #    Opaqueness (alpha) of the shadow behind the default font, between 0 and 255.
 [client]
 (Font shadow alpha) 127 0 255
 ]]
----@field font_shadow_alpha integer?
+---@field font_shadow_alpha int?
 --[[
 #    Font size of the default font where 1 unit = 1 pixel at 96 DPI
 [client]
 (Font size) 16 5 72
 ]]
----@field font_size integer?
+---@field font_size int?
 --[[
 #    For pixel-style fonts that do not scale well, this ensures that font sizes used
 #    with this font will always be divisible by this value, in pixels. For instance,
@@ -674,7 +674,7 @@ WIPDOC
 [client]
 (Font size divisible by) 1 1
 ]]
----@field font_size_divisible_by integer?
+---@field font_size_divisible_by int?
 --[[
 #    Path to the default font. Must be a TrueType font.
 #    The fallback font will be used if the font cannot be loaded.
@@ -708,7 +708,7 @@ WIPDOC
 [client]
 (Monospace font size) 16 5 72
 ]]
----@field mono_font_size integer?
+---@field mono_font_size int?
 --[[
 #    For pixel-style fonts that do not scale well, this ensures that font sizes used
 #    with this font will always be divisible by this value, in pixels. For instance,
@@ -717,7 +717,7 @@ WIPDOC
 [client]
 (Monospace font size divisible by) 1 1
 ]]
----@field mono_font_size_divisible_by integer?
+---@field mono_font_size_divisible_by int?
 --[[
 #    Path to the monospace font. Must be a TrueType font.
 #    This font is used for e.g. the console and profiler screen.
@@ -811,7 +811,7 @@ WIPDOC
 [common]
 (Max. packets per iteration) 1024 1 65535
 ]]
----@field max_packets_per_iteration integer?
+---@field max_packets_per_iteration int?
 
 ---@class _.LuantiSettings.advanced.advanced.networking.ctx_server : _.LuantiSettings.advanced.advanced.networking.ctx_common
 --[[
@@ -831,7 +831,7 @@ WIPDOC
 [server]
 (Maximum simultaneous block sends per client) 40 1 4294967295
 ]]
----@field max_simultaneous_block_sends_per_client integer?
+---@field max_simultaneous_block_sends_per_client int?
 --[[
 #    To reduce lag, block transfers are slowed down when a player is building something.
 #    This determines how long they are slowed down after placing or removing a node.
@@ -847,7 +847,7 @@ WIPDOC
 [server]
 (Map Compression Level for Network Transfer) -1 -1 9
 ]]
----@field map_compression_level_net integer?
+---@field map_compression_level_net int?
 
 ---@class _.LuantiSettings.advanced.advanced.networking.ctx_client : _.LuantiSettings.advanced.advanced.networking.ctx_common
 --[[
@@ -856,7 +856,7 @@ WIPDOC
 [client]
 (Maximum size of the client's outgoing chat queue) 20 -1 32767
 ]]
----@field max_out_chat_queue_size integer?
+---@field max_out_chat_queue_size int?
 --[[
 #    Timeout for client to remove unused map data from memory, in seconds.
 [client]
@@ -871,7 +871,7 @@ WIPDOC
 [client]
 (Mapblock limit) 7500 -1 2147483647
 ]]
----@field client_mapblock_limit integer?
+---@field client_mapblock_limit int?
 
 -- -------------------- [Advanced] [*Advanced] [**Server] ------------------- --
 
@@ -935,7 +935,7 @@ WIPDOC
 [server]
 (Player transfer distance) 0 0 65535
 ]]
----@field player_transfer_distance integer?
+---@field player_transfer_distance int?
 --[[
 #    From how far clients know about objects, stated in mapblocks (16 nodes).
 #
@@ -945,7 +945,7 @@ WIPDOC
 [server]
 (Active object send range) 8 1 65535
 ]]
----@field active_object_send_range_blocks integer?
+---@field active_object_send_range_blocks int?
 --[[
 #    The radius of the volume of blocks around every player that is subject to the
 #    active block stuff, stated in mapblocks (16 nodes).
@@ -955,20 +955,20 @@ WIPDOC
 [server]
 (Active block range) 4 1 65535
 ]]
----@field active_block_range integer?
+---@field active_block_range int?
 --[[
 #    From how far blocks are sent to clients, stated in mapblocks (16 nodes).
 [server]
 (Max block send distance) 12 1 65535
 ]]
----@field max_block_send_distance integer?
+---@field max_block_send_distance int?
 --[[
 #    Default maximum number of forceloaded mapblocks.
 #    Set this to -1 to disable the limit.
 [server]
 (Maximum forceloaded blocks) 16 -1
 ]]
----@field max_forceloaded_blocks integer?
+---@field max_forceloaded_blocks int?
 --[[
 #    Interval of saving important changes in the world, stated in seconds.
 [server]
@@ -981,13 +981,13 @@ WIPDOC
 [server]
 (Unload unused server data) 29 0 4294967295
 ]]
----@field server_unload_unused_data_timeout integer?
+---@field server_unload_unused_data_timeout int?
 --[[
 #    Maximum number of statically stored objects in a block.
 [server]
 (Maximum objects per block) 256 256 65535
 ]]
----@field max_objects_per_block integer?
+---@field max_objects_per_block int?
 --[[
 #    Length of time between active block management cycles, stated in seconds.
 [server]
@@ -1018,7 +1018,7 @@ WIPDOC
 [server]
 (Liquid loop max) 100000 1 4294967295
 ]]
----@field liquid_loop_max integer?
+---@field liquid_loop_max int?
 --[[
 #    The time (in seconds) that the liquids queue may grow beyond processing
 #    capacity until an attempt is made to decrease its size by dumping old queue
@@ -1026,7 +1026,7 @@ WIPDOC
 [server]
 (Liquid queue purge time) 0 0 65535
 ]]
----@field liquid_queue_purge_time integer?
+---@field liquid_queue_purge_time int?
 --[[
 #    Liquid update interval in seconds.
 [server]
@@ -1044,7 +1044,7 @@ WIPDOC
 [server]
 (Block send optimize distance) 4 2 2047
 ]]
----@field block_send_optimize_distance integer?
+---@field block_send_optimize_distance int?
 --[[
 #    If enabled, the server will perform map block occlusion culling based on
 #    on the eye position of the player. This can reduce the number of blocks
@@ -1063,7 +1063,7 @@ WIPDOC
 [server]
 (Block cull optimize distance) 25 2 2047
 ]]
----@field block_cull_optimize_distance integer?
+---@field block_cull_optimize_distance int?
 
 -- -------------------- [Advanced] [*Advanced] [**Mapgen] ------------------- --
 
@@ -1078,7 +1078,7 @@ WIPDOC
 [world_creation]
 (Chunk size) 5 1 10
 ]]
----@field chunksize integer?
+---@field chunksize int?
 --[[
 #    Dump the mapgen debug information.
 [server]
@@ -1090,21 +1090,21 @@ WIPDOC
 [server]
 (Absolute limit of queued blocks to emerge) 1024 1 1000000
 ]]
----@field emergequeue_limit_total integer?
+---@field emergequeue_limit_total int?
 --[[
 #    Maximum number of blocks to be queued that are to be loaded from file.
 #    This limit is enforced per player.
 [server]
 (Per-player limit of queued blocks load from disk) 128 1 1000000
 ]]
----@field emergequeue_limit_diskonly integer?
+---@field emergequeue_limit_diskonly int?
 --[[
 #    Maximum number of blocks to be queued that are to be generated.
 #    This limit is enforced per player.
 [server]
 (Per-player limit of queued blocks to generate) 128 1 1000000
 ]]
----@field emergequeue_limit_generate integer?
+---@field emergequeue_limit_generate int?
 --[[
 #    Number of emerge threads to use.
 #    Value 0:
@@ -1119,7 +1119,7 @@ WIPDOC
 [server]
 (Number of emerge threads) 1 0 32767
 ]]
----@field num_emerge_threads integer?
+---@field num_emerge_threads int?
 
 -- --------------------- [Advanced] [*Advanced] [**cURL] -------------------- --
 
@@ -1129,7 +1129,7 @@ WIPDOC
 [common]
 (cURL interactive timeout) 20000 1000 2147483647
 ]]
----@field curl_timeout integer?
+---@field curl_timeout int?
 --[[
 #    Limits number of parallel HTTP requests. Affects:
 #    -    Media fetch if server uses remote_media setting.
@@ -1139,13 +1139,13 @@ WIPDOC
 [common]
 (cURL parallel limit) 8 1 2147483647
 ]]
----@field curl_parallel_limit integer?
+---@field curl_parallel_limit int?
 --[[
 #    Maximum time a file download (e.g. a mod download) may take, stated in milliseconds.
 [common]
 (cURL file download timeout) 300000 5000 2147483647
 ]]
----@field curl_file_download_timeout integer?
+---@field curl_file_download_timeout int?
 
 ---@class _.LuantiSettings.advanced.advanced.cURL.ctx_server : _.LuantiSettings.advanced.advanced.cURL.ctx_common
 
@@ -1233,7 +1233,7 @@ WIPDOC
 [server]
 (Max. clearobjects extra blocks) 4096 0 4294967295
 ]]
----@field max_clearobjects_extra_loaded_blocks integer?
+---@field max_clearobjects_extra_loaded_blocks int?
 --[[
 #    World directory (everything in the world is stored here).
 #    Not needed if starting from the main menu.
@@ -1255,7 +1255,7 @@ WIPDOC
 [server]
 (Map Compression Level for Disk Storage) -1 -1 9
 ]]
----@field map_compression_level_disk integer?
+---@field map_compression_level_disk int?
 --[[
 #    Enable usage of remote media server (if provided by server).
 #    Remote servers offer a significantly faster way to download media (e.g. textures)
@@ -1295,7 +1295,7 @@ WIPDOC
 [client]
 (Joystick ID) 0 0 255
 ]]
----@field joystick_id integer?
+---@field joystick_id int?
 --[[
 #    The type of joystick
 [client]
@@ -1314,7 +1314,7 @@ WIPDOC
 [client]
 (Joystick dead zone) 2048 0 65535
 ]]
----@field joystick_deadzone integer?
+---@field joystick_deadzone int?
 --[[
 #    The sensitivity of the joystick axes for moving the
 #    in-game view frustum around.
@@ -1358,7 +1358,7 @@ WIPDOC
 [common]
 (Remote port) 30000 1 65535
 ]]
----@field remote_port integer?
+---@field remote_port int?
 --[[
 #    Enable players getting damage and dying.
 [common]

@@ -12,7 +12,7 @@ WIPDOC
 For players only. Defines the maximum amount of "breath" for the player.
 Defaults to `core.PLAYER_MAX_BREATH_DEFAULT` (10).
 ]]
----@field breath_max integer?
+---@field breath_max int?
 --[[
 For players only. Zoom FOV in degrees.
 Note that zoom loads and/or generates world beyond the server's
@@ -47,7 +47,7 @@ WIPDOC
 For players only. Defines the maximum amount of "breath" for the player.
 Defaults to `core.PLAYER_MAX_BREATH_DEFAULT` (10).
 ]]
----@field breath_max integer
+---@field breath_max int
 --[[
 For players only. Zoom FOV in degrees.
 Note that zoom loads and/or generates world beyond the server's

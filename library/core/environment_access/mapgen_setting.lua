@@ -15,15 +15,15 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field seed string|integer
+---@field seed string
 --[[
 WIPDOC
 ]]
----@field chunksize string|integer
+---@field chunksize string
 --[[
 WIPDOC
 ]]
----@field water_level string|integer
+---@field water_level string
 --[[
 WIPDOC
 ]]
@@ -112,7 +112,7 @@ function core.set_mapgen_params(MapgenParams) end
 ]]
 ---@nodiscard
 ---@param name core.MapgenSetting.keys.integer
----@return string|integer
+---@return string
 function core.get_mapgen_setting(name) end
 
 --[[
@@ -176,7 +176,7 @@ function core.get_mapgen_setting_noiseparams(name) end
 ]]
 ---@deprecated
 ---@param name core.MapgenSetting.keys.integer
----@param value integer
+---@param value int
 ---@param override_meta boolean?
 function core.set_mapgen_setting(name, value, override_meta) end
 

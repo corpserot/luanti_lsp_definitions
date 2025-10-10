@@ -112,7 +112,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field fog_distance integer?
+---@field fog_distance int?
 --[[
 WIPDOC
 ]]
@@ -129,7 +129,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field fog_distance integer
+---@field fog_distance int
 --[[
 WIPDOC
 ]]

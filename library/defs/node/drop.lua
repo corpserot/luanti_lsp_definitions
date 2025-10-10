@@ -11,7 +11,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field rarity integer?
+---@field rarity int?
 --[[
 WIPDOC
 ]]
@@ -39,7 +39,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field max_items integer?
+---@field max_items int?
 --[[
 WIPDOC
 ]]

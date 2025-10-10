@@ -205,7 +205,7 @@
 [server]
 (Maximum users) 15 0 65535
 ]]
----@field max_users integer?
+---@field max_users int?
 --[[
 #    If this is set, players will always (re)spawn at the given position.
 [server]
@@ -224,7 +224,7 @@
 [server]
 (Server port) 30000 1 65535
 ]]
----@field port integer?
+---@field port int?
 --[[
 #    The network interface that the server listens on.
 [server]
@@ -249,7 +249,7 @@
 [server]
 (Protocol version minimum) 1 1 65535
 ]]
----@field protocol_version_min integer?
+---@field protocol_version_min int?
 --[[
 #    Specifies URL from which client fetches media instead of using UDP.
 #    $filename should be accessible from $remote_media$filename via cURL
@@ -366,14 +366,14 @@ WIPDOC
 [server]
 (Client side modding restrictions) 62 0 63
 ]]
----@field csm_restriction_flags integer?
+---@field csm_restriction_flags int?
 --[[
 #   If the CSM restriction for node range is enabled, get_node calls are limited
 #   to this distance from the player to the node.
 [server]
 (Client-side node lookup range restriction) 0 0 4294967295
 ]]
----@field csm_restriction_noderange integer?
+---@field csm_restriction_noderange int?
 
 -- ------------- [Client and Server] [*Server Security] [**Chat] ------------ --
 
@@ -390,7 +390,7 @@ WIPDOC
 [server]
 (Chat message max length) 500 10 65535
 ]]
----@field chat_message_max_size integer?
+---@field chat_message_max_size int?
 --[[
 #    Number of messages a player may send per 10 seconds.
 [server]
@@ -402,7 +402,7 @@ WIPDOC
 [server]
 (Chat message kick threshold) 50 1 65535
 ]]
----@field chat_message_limit_trigger_kick integer?
+---@field chat_message_limit_trigger_kick int?
 
 -- ----------------- [Client and Server] [*Server Gameplay] ----------------- --
 
@@ -414,27 +414,27 @@ WIPDOC
 [server]
 (Time speed) 72 0
 ]]
----@field time_speed integer?
+---@field time_speed int?
 --[[
 #    Time of day when a new world is started, in millihours (0-23999).
 [world_creation]
 (World start time) 6125 0 23999
 ]]
----@field world_start_time integer?
+---@field world_start_time int?
 --[[
 #    Time in seconds for item entity (dropped items) to live.
 #    Setting it to -1 disables the feature.
 [server]
 (Item entity TTL) 900 -1
 ]]
----@field item_entity_ttl integer?
+---@field item_entity_ttl int?
 --[[
 #    Specifies the default stack size of nodes, items and tools.
 #    Note that mods or games may explicitly set a stack for certain (or all) items.
 [server]
 (Default stack size) 99 1 65535
 ]]
----@field default_stack_max integer?
+---@field default_stack_max int?
 
 -- ----------- [Client and Server] [*Server Gameplay] [**Physics] ----------- --
 

@@ -52,7 +52,7 @@ local mapgen = {
 --[[
 WIPDOC
 ]]
----@alias mapgen.fn.on_generated fun(vmanip:core.VoxelManip, minp:ivec, maxp:ivec, blockseed:integer)
+---@alias mapgen.fn.on_generated fun(vmanip:core.VoxelManip, minp:ivec, maxp:ivec, blockseed:int)
 
 --[[
 WIPDOC

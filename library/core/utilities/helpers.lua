@@ -9,7 +9,7 @@ WIPDOC
 ]]
 ---@nodiscard
 ---@param str string
----@param limit integer
+---@param limit int
 ---@param as_table boolean?
 ---@return string
 function core.wrap_text(str, limit, as_table) end
@@ -19,7 +19,7 @@ WIPDOC
 ]]
 ---@nodiscard
 ---@param pos vector
----@param decimal_places integer?
+---@param decimal_places int?
 ---@return string
 function core.pos_to_string(pos, decimal_places) end
 
@@ -75,7 +75,7 @@ returns time with microsecond precision. May not return wall time.
 Unofficial note: I think you should use os.clock() for benchmarking instead
 ]]
 ---@nodiscard
----@return integer
+---@return int
 function core.get_us_time() end
 
 --[[ after table.* intermission ]]--
@@ -92,7 +92,7 @@ function core.pointed_thing_to_face_pos(placer, pointed_thing) end
 --[[
 WIPDOC
 ]]
----@param uses integer
+---@param uses int
 ---@param initial_wear core.Tool.wear?
 ---@return core.Tool.wear
 function core.get_tool_wear_after_use(uses, initial_wear) end

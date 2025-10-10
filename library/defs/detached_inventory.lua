@@ -5,32 +5,32 @@
 --[[
 WIPDOC
 ]]
----@alias core.DetachedInventoryCallbacks.allow_move fun(inv:core.InvRef, from_list:core.InventoryList, from_index:integer, to_list:core.InventoryList, to_index:integer, count:integer, player:core.PlayerRef):integer?
+---@alias core.DetachedInventoryCallbacks.allow_move fun(inv:core.InvRef, from_list:core.InventoryList, from_index:int, to_list:core.InventoryList, to_index:int, count:int, player:core.PlayerRef):int?
 
 --[[
 WIPDOC
 ]]
----@alias core.DetachedInventoryCallbacks.allow_put fun(inv:core.InvRef, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.PlayerRef):integer?
+---@alias core.DetachedInventoryCallbacks.allow_put fun(inv:core.InvRef, listname:core.InventoryList, index:int, stack:core.ItemStack, player:core.PlayerRef):int?
 
 --[[
 WIPDOC
 ]]
----@alias core.DetachedInventoryCallbacks.allow_take fun(inv:core.InvRef, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.PlayerRef):integer?
+---@alias core.DetachedInventoryCallbacks.allow_take fun(inv:core.InvRef, listname:core.InventoryList, index:int, stack:core.ItemStack, player:core.PlayerRef):int?
 
 --[[
 WIPDOC
 ]]
----@alias core.DetachedInventoryCallbacks.on_move fun(inv:core.InvRef, from_list:core.InventoryList, from_index:integer, to_list:core.InventoryList, to_index:integer, count:integer, player:core.PlayerRef)
+---@alias core.DetachedInventoryCallbacks.on_move fun(inv:core.InvRef, from_list:core.InventoryList, from_index:int, to_list:core.InventoryList, to_index:int, count:int, player:core.PlayerRef)
 
 --[[
 WIPDOC
 ]]
----@alias core.DetachedInventoryCallbacks.on_put fun(inv:core.InvRef, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.PlayerRef)
+---@alias core.DetachedInventoryCallbacks.on_put fun(inv:core.InvRef, listname:core.InventoryList, index:int, stack:core.ItemStack, player:core.PlayerRef)
 
 --[[
 WIPDOC
 ]]
----@alias core.DetachedInventoryCallbacks.on_take fun(inv:core.InvRef, listname:core.InventoryList, index:integer, stack:core.ItemStack, player:core.PlayerRef)
+---@alias core.DetachedInventoryCallbacks.on_take fun(inv:core.InvRef, listname:core.InventoryList, index:int, stack:core.ItemStack, player:core.PlayerRef)
 
 --[[
 WIPDOC

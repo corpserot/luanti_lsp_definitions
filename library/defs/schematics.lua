@@ -54,7 +54,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field  ypos integer
+---@field  ypos int
 --[[
 * A probability value of `0` or `1` means that node will never appear
   (0% chance).
@@ -64,7 +64,7 @@ WIPDOC
   `(p / 256 * 100)` percent chance that node will appear when the schematic is
   placed on the map.
 ]]
----@field  prob integer
+---@field  prob int
 
 -- ---------------------------- SchematicDef.node --------------------------- --
 
@@ -90,21 +90,21 @@ WIPDOC
     * `prob` (alias `param1`): the probability of this node being placed
       (default: 255)
 ]]
----@field prob integer?
+---@field prob int?
 --[[
     * `prob` (alias `param1`): the probability of this node being placed
       (default: 255)
 
 * @deprecated
 ]]
----@field param1 integer?
+---@field param1 int?
 
 -- -------------------------------- Schematic ------------------------------- --
 
 --[[
 WIPDOC
 ]]
----@class core.SchematicID
+---@alias core.SchematicID int
 
 --[[
 A schematic specifier identifies a schematic by either a filename to a

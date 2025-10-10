@@ -16,11 +16,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field aspect_w integer
+---@field aspect_w int
 --[[
 WIPDOC
 ]]
----@field aspect_h integer
+---@field aspect_h int
 --[[
 WIPDOC
 ]]
@@ -39,11 +39,11 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field frames_w integer
+---@field frames_w int
 --[[
 WIPDOC
 ]]
----@field frames_h integer
+---@field frames_h int
 --[[
 WIPDOC
 ]]
@@ -109,7 +109,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field scale integer?
+---@field scale int?
 
 -- ------------------------------ TileDef.color ----------------------------- --
 

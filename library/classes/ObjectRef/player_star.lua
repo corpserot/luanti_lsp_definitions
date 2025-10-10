@@ -23,7 +23,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field count integer?
+---@field count int?
 --[[
 WIPDOC
 ]]
@@ -48,7 +48,7 @@ WIPDOC
 --[[
 WIPDOC
 ]]
----@field count integer
+---@field count int
 --[[
 WIPDOC
 ]]
