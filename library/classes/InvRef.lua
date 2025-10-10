@@ -6,8 +6,8 @@
 Inventory reference. It's assumed that this is a valid inventory. List names
 cannot contain spaces, and is assumed to be valid.
 
-* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#invref)
-* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
+* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#invref)
+* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.14.0/src/script/lua_api/l_inventory.cpp)
 ]]
 ---@class core.InvRef
 local InvRef = {}
@@ -18,8 +18,8 @@ Whether `list` in this inventory is empty.
 Undefined behaviour:
 - Invalid `list` name.
 
-* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#invref)
-* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
+* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#invref)
+* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.14.0/src/script/lua_api/l_inventory.cpp)
 ]]
 ---@nodiscard
 ---@param list core.InventoryList
@@ -31,8 +31,8 @@ Return `list` size in this inventory, if it exists.
 
 Returns `false` for invalid `list` name.
 
-* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#invref)
-* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
+* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#invref)
+* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.14.0/src/script/lua_api/l_inventory.cpp)
 ]]
 ---@nodiscard
 ---@param list core.InventoryList
@@ -45,8 +45,8 @@ with given `size`. If `size` is 0, `list` is deleted.
 
 Returns `false` for invalid `list` name or `size`. Otherwise, returns `true`.
 
-* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#invref)
-* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
+* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#invref)
+* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.14.0/src/script/lua_api/l_inventory.cpp)
 ]]
 ---@param list core.InventoryList
 ---@param size int
@@ -59,8 +59,8 @@ Returns `list` width in this inventory, if it exists. Relevant for crafting.
 Undefined behaviour
 - invalid `list` name.
 
-* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#invref)
-* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
+* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#invref)
+* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.14.0/src/script/lua_api/l_inventory.cpp)
 ]]
 ---@nodiscard
 ---@param list core.InventoryList
@@ -72,8 +72,8 @@ Set `list` width in this inventory, if it exists. Relevant for crafting.
 
 Returns `false` for invalid `list` name or `width`. Otherwise, returns `true`.
 
-* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#invref)
-* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
+* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#invref)
+* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.14.0/src/script/lua_api/l_inventory.cpp)
 ]]
 ---@param list core.InventoryList
 ---@param width int
@@ -88,8 +88,8 @@ Undefined behaviour:
 - Invalid `list` name
 - `index` is out of `list` size bounds.
 
-* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#invref)
-* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
+* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#invref)
+* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.14.0/src/script/lua_api/l_inventory.cpp)
 ]]
 ---@nodiscard
 ---@param list core.InventoryList
@@ -106,8 +106,8 @@ Undefined behaviour:
 - `index` is out of `list` size bounds.
 
 * @see [`InvRef:add_item()`](lua://core.InvRef.add_item)
-* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#invref)
-* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
+* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#invref)
+* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.14.0/src/script/lua_api/l_inventory.cpp)
 ]]
 ---@param list core.InventoryList
 ---@param index int
@@ -120,8 +120,8 @@ Returns the contents of `list` in this inventory, if `list` exists.
 
 Returns `nil` for invalid `list` name or non-existent `list`.
 
-* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#invref)
-* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
+* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#invref)
+* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.14.0/src/script/lua_api/l_inventory.cpp)
 ]]
 ---@nodiscard
 ---@param list core.InventoryList
@@ -137,8 +137,8 @@ index in `list_contents`
 Undefined behaviour:
 - Invalid `list` name.
 
-* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#invref)
-* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
+* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#invref)
+* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.14.0/src/script/lua_api/l_inventory.cpp)
 ]]
 ---@param list_name core.InventoryList
 ---@param list_contents SparseList<core.Item>
@@ -147,8 +147,8 @@ function InvRef:set_list(list_name, list_contents) end
 --[[
 Returns a table mapping list names to their contents.
 
-* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#invref)
-* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
+* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#invref)
+* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.14.0/src/script/lua_api/l_inventory.cpp)
 ]]
 ---@nodiscard
 ---@return core.InventoryTable.ItemStack inventory_table
@@ -160,8 +160,8 @@ Replaces lists in this inventory from a table mapping list names to their conten
 Undefined behaviour:
 - Invalid list names.
 
-* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#invref)
-* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
+* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#invref)
+* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.14.0/src/script/lua_api/l_inventory.cpp)
 ]]
 ---@param lists core.InventoryTable
 function InvRef:set_lists(lists) end
@@ -176,8 +176,8 @@ Undefined behaviour:
 
 * @see [`InvRef:set_stack()`](lua://core.InvRef.set_stack)
 * @see [`InvRef:room_for_item()`](lua://core.InvRef.room_for_item)
-* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#invref)
-* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
+* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#invref)
+* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.14.0/src/script/lua_api/l_inventory.cpp)
 ]]
 ---@param list core.InventoryList
 ---@param item core.Item
@@ -193,8 +193,8 @@ Undefined behaviour:
 - Invalid `list` name.
 
 * @see [`InvRef:add_item()`](lua://core.InvRef.add_item)
-* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#invref)
-* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
+* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#invref)
+* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.14.0/src/script/lua_api/l_inventory.cpp)
 ]]
 ---@nodiscard
 ---@param list core.InventoryList
@@ -214,8 +214,8 @@ Undefined behaviour:
 - `item` with larger count than its maximum stack size.
 
 * @see [`InvRef:remove_item`](lua://core.InvRef.remove_item)
-* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#invref)
-* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
+* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#invref)
+* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.14.0/src/script/lua_api/l_inventory.cpp)
 ]]
 ---@nodiscard
 ---@param list core.InventoryList
@@ -237,8 +237,8 @@ Undefined behaviour:
 
 * @added 5.12.0 [`remove_item_match_meta` feature](lua://core.FeatureFlags.remove_item_match_meta) `match_meta` parameter added.
 * @see [`InvRef:contains_item`](lua://core.InvRef.contains_item)
-* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#invref)
-* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
+* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#invref)
+* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.14.0/src/script/lua_api/l_inventory.cpp)
 ]]
 ---@param list core.InventoryList
 ---@param item core.Item
@@ -250,8 +250,8 @@ function InvRef:remove_item(list, item, match_meta) end
 Returns this inventory's location. If unknown, returns
 [`core.InventoryLocation.undefined`](lua://core.InventoryLocation.undefined)
 
-* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#invref)
-* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.13.0/src/script/lua_api/l_inventory.cpp)
+* @see [luanti/doc/lua_api.md > Class reference > `InvRef`](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#invref)
+* @see [luanti/src/script/lua_api/l_inventory.cpp](https://github.com/luanti-org/luanti/blob/5.14.0/src/script/lua_api/l_inventory.cpp)
 ]]
 ---@nodiscard
 ---@return core.InventoryLocation|core.InventoryLocation.undefined

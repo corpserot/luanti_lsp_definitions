@@ -14,8 +14,8 @@ Example: `{test = "Testing..."}` becomes
    _["test"][1] = "Testing..."
 ```
 
-* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#helper-functions)
-* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/misc_helpers.lua)
+* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#helper-functions)
+* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.14.0/builtin/common/misc_helpers.lua)
 ]]
 ---@param obj any
 ---@param name string? #@default(`"_"`)
@@ -36,8 +36,8 @@ Example: `{test = "Testing..."}` becomes
 }
 ```
 
-* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#helper-functions)
-* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/misc_helpers.lua)
+* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#helper-functions)
+* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.14.0/builtin/common/misc_helpers.lua)
 ]]
 ---@param value any
 ---@param indent string? #@default(`"\t"`)
@@ -49,8 +49,8 @@ function dump(value, indent) end
 --[[
 Returns hypotenuse of a triangle with legs x and y. Useful to obtain distance.
 
-* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#helper-functions)
-* @see [luanti/builtin/common/math.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/math.lua)
+* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#helper-functions)
+* @see [luanti/builtin/common/math.lua](https://github.com/luanti-org/luanti/blob/5.14.0/builtin/common/math.lua)
 ]]
 ---@nodiscard
 ---@param x number
@@ -61,8 +61,8 @@ function math.hypot(x, y) end
 --[[
 Returns the sign of a number.
 
-* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#helper-functions)
-* @see [luanti/builtin/common/math.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/math.lua)
+* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#helper-functions)
+* @see [luanti/builtin/common/math.lua](https://github.com/luanti-org/luanti/blob/5.14.0/builtin/common/math.lua)
 ]]
 ---@nodiscard
 ---@param x number
@@ -73,8 +73,8 @@ function math.sign(x, anchor) end
 --[[
 Returns factorial of `x`
 
-* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#helper-functions)
-* @see [luanti/builtin/common/math.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/math.lua)
+* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#helper-functions)
+* @see [luanti/builtin/common/math.lua](https://github.com/luanti-org/luanti/blob/5.14.0/builtin/common/math.lua)
 ]]
 ---@nodiscard
 ---@param x int *>=171* yields `math.huge`
@@ -84,8 +84,8 @@ function math.factorial(x) end
 --[[
 Returns `x` rounded to the nearest integer
 
-* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#helper-functions)
-* @see [luanti/builtin/common/math.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/math.lua)
+* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#helper-functions)
+* @see [luanti/builtin/common/math.lua](https://github.com/luanti-org/luanti/blob/5.14.0/builtin/common/math.lua)
 ]]
 ---@nodiscard
 ---@param x number
@@ -97,8 +97,8 @@ function math.round(x) end
 --[[
 Splits given string into a list.
 
-* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#helper-functions)
-* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/misc_helpers.lua)
+* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#helper-functions)
+* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.14.0/builtin/common/misc_helpers.lua)
 ]]
 ---@nodiscard
 ---@param str string
@@ -113,8 +113,8 @@ function string.split(str, separator, include_empty, max_splits, sep_is_pattern)
 Trim whitespace out of given string at beginning and end. Uses the `%s` lua
 pattern item.
 
-* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#helper-functions)
-* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/misc_helpers.lua)
+* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#helper-functions)
+* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.14.0/builtin/common/misc_helpers.lua)
 ]]
 ---@nodiscard
 ---@param str string
@@ -129,8 +129,8 @@ function string.trim(str) end
 --[[
 Returns a deep copy of given table. Metatables are ignored.
 
-* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#helper-functions)
-* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/misc_helpers.lua)
+* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#helper-functions)
+* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.14.0/builtin/common/misc_helpers.lua)
 ]]
 ---@nodiscard
 ---@generic T : table
@@ -142,8 +142,8 @@ function table.copy(table) end
 Returns a deep copy of given table. Metatables are included.
 
 * @added 5.12
-* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#helper-functions)
-* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/misc_helpers.lua)
+* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#helper-functions)
+* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.14.0/builtin/common/misc_helpers.lua)
 ]]
 ---@nodiscard
 ---@generic T : table
@@ -157,8 +157,8 @@ list. List must not have negative indices.
 
 If not found, returns -1 instead.
 
-* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#helper-functions)
-* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/misc_helpers.lua)
+* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#helper-functions)
+* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.14.0/builtin/common/misc_helpers.lua)
 ]]
 ---@nodiscard
 ---@generic T
@@ -173,8 +173,8 @@ many has `val`
 
 If not found, returns `nil` instead
 
-* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#helper-functions)
-* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/misc_helpers.lua)
+* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#helper-functions)
+* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.14.0/builtin/common/misc_helpers.lua)
 ]]
 ---@nodiscard
 ---@generic T
@@ -186,8 +186,8 @@ function table.keyof(table, val) end
 --[[
 Inserts all values from `other_list` into `list`. Returns `list`.
 
-* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#helper-functions)
-* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/misc_helpers.lua)
+* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#helper-functions)
+* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.14.0/builtin/common/misc_helpers.lua)
 ]]
 ---@generic T
 ---@param list T[]
@@ -199,8 +199,8 @@ function table.insert_all(list, other_list) end
 Returns a table with keys and values of given table swapped. Not specified
 value would map to which keys if many keys has the same value.
 
-* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#helper-functions)
-* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/misc_helpers.lua)
+* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#helper-functions)
+* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.14.0/builtin/common/misc_helpers.lua)
 ]]
 ---@nodiscard
 ---@param t table
@@ -214,16 +214,16 @@ between the integers.
 * @param int1 `0`
 * @param int2 >=1
 * @return *[`int1`,`int2`]*
-* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#helper-functions)
-* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/misc_helpers.lua)
+* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#helper-functions)
+* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.14.0/builtin/common/misc_helpers.lua)
 ]]
 ---@alias table.random_func fun(int1:int, int2:int): int
 
 --[[
 Shuffles elements in given list from `from` to `to` in place.
 
-* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.13.0/doc/lua_api.md#helper-functions)
-* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.13.0/builtin/common/misc_helpers.lua)
+* @see [luanti/doc/lua_api.md > Helper functions](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#helper-functions)
+* @see [luanti/builtin/common/misc_helpers.lua](https://github.com/luanti-org/luanti/blob/5.14.0/builtin/common/misc_helpers.lua)
 ]]
 ---@generic T
 ---@param list T[]
