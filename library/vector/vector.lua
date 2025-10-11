@@ -5,6 +5,11 @@
 -- ---------------------------------- vec2 ---------------------------------- --
 
 --[[
+2D plain vector with optional xy components.
+]]
+---@alias vec2.opt {x:number?, y:number?}
+
+--[[
 2D plain vector with xy components.
 ]]
 ---@alias vec2 {x:number, y:number}
@@ -15,6 +20,11 @@
 ---@alias ivec2 vec2
 
 -- ---------------------------------- vec3 ---------------------------------- --
+
+--[[
+3D plain vector with optional xyz components.
+]]
+---@alias vec3.opt {x:number?, y:number?, z:number?}
 
 --[[
 3D plain vector with xyz components.
@@ -81,13 +91,22 @@ Not recommended as it is accessed and modified through `__index` and
 ---@field [3] number
 
 --[[
-3D vector class instance
+3D vector class instance. Passing floats are unspecified and may break.
 
 * @added 5.5.0
 * @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#spatial-vectors)
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.14.0/builtin/common/vector.lua)
 ]]
 ---@alias ivec vec
+
+--[[
+3D vector with optional xyz components. It is either a plain vector or vector
+class instance.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.14.0/builtin/common/vector.lua)
+]]
+---@alias vector.opt vec | vec3.opt
 
 --[[
 3D vector with xyz components. It is either a plain vector or vector class
@@ -97,6 +116,15 @@ instance.
 * @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.14.0/builtin/common/vector.lua)
 ]]
 ---@alias vector vec | vec3
+
+--[[
+3D integer vector with optional xyz components. It is either a plain vector or
+vector class instance. Passing floats are unspecified and may break.
+
+* @see [luanti/doc/lua_api.md > Spatial Vectors](https://github.com/luanti-org/luanti/blob/5.14.0/doc/lua_api.md#spatial-vectors)
+* @see [luanti/builtin/common/vector.lua](https://github.com/luanti-org/luanti/blob/5.14.0/builtin/common/vector.lua)
+]]
+---@alias ivector.opt vector.opt
 
 --[[
 3D integer vector with xyz components. It is either a plain vector or vector
