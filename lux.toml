@@ -1,0 +1,12 @@
+package = "luanti_lsp_definitions"
+version = "0.1.0"
+lua = ">=5.1"
+
+[description]
+summary = "Types for luanti"
+maintainer = "corpserot"
+labels = [ "luadef", "luacats", "annotations" ]
+license = "LGPL-2.1-or-later"
+
+[build]
+type = "none"
