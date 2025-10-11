@@ -60,9 +60,9 @@ These are extra annotations unique to fun().
 ```
 
 # Aliases
-LuaCATS `@alias`es are used in many ways in this library definition. It's *not recommended* to configure your language server to expand aliases. Common techniques are listed below:
+LuaCATS `@alias`es are used in many ways in this Luadef. It's *not recommended* to configure your language server to expand aliases. Common techniques are listed below:
 
-- Special values or alias enums will be suggested by the language server. This is utilized to its fullest extent.
+- Special values or alias enums will be suggested by the language server. This is utilized to its fullest extent where reasonable.
 
 - Used to annotate [nominal types](#nominal-types).
 
@@ -75,7 +75,7 @@ LuaCATS `@alias`es are used in many ways in this library definition. It's *not r
 # Nominal types
 Some types derived from primitive types have no differences whatsoever in the annotation type system. In some cases however, it is useful to give these types names even if it's not possible to express its true restrictions and rules. We call them *nominal types*
 
-To qualify as a *Nominal type*, it must have special restrictions, rules or contents that is not expressible through the annotation type system. This rule is to prevent flooding the library definition with too many useless types. You can open an issue to justify why something *should* or *should not* be a nominal type. The following lists specifics about this rule:
+To qualify as a *Nominal type*, it must have special restrictions, rules or contents that is not expressible through the annotation type system. This rule is to prevent flooding the Luadef with too many useless types. You can open an issue to justify why something *should* or *should not* be a nominal type. The following lists specifics about this rule:
 - Alias enums satisfies this rule. A different interpretation is that a nominal type is needed for alias enums.
   - e.g. Item names violates some subrules below. However, it has special values `"air"`, `"ignore"` and others. So, it is granted a `string` nominal type `core.Item.name`.
 - Name syntax/specification does not satisfy this rule.
@@ -103,12 +103,12 @@ Practices that don't need a section to explain it.
     e.g `---@diagnostic disable-next-line: lowercase-global`
 
 # Referencing Luanti source code
-This library definition provides hints to relevant C++ code of classes, functions and more through `@see` references. However, they are incomplete in the sense that you *need* to explore the codebase on your own. It's a good start for game and mod developers if they ever need to dive deep, but simple file references could only take you so far.
+This Luadef provides hints to relevant C++ code of classes, functions and more through `@see` references. However, they are incomplete in the sense that you *need* to explore the codebase on your own. It's a good start for game and mod developers if they ever need to dive deep, but simple file references could only take you so far.
 
-For example, the library definition points towards the `luanti/src/nodetimer.cpp` file but even after reading it you won't really understand where, when and how it is used. Or even how it might interact with other features of the engine.
+For example, the Luadef points towards the `luanti/src/nodetimer.cpp` file but even after reading it you won't really understand where, when and how it is used. Or even how it might interact with other features of the engine.
 
 # Dependencies
-Dependencies matter for annotations. If code is annotated, you'll have to fetch the code. If it has a library definition, you'll have to fetch the library definition instead.
+Dependencies matter for annotations. If code is annotated, you'll have to fetch the code. If it has a Luadef, you'll have to fetch the Luadef instead.
 
 There are two approaches to dependency depending on what you're developing:
 
@@ -119,28 +119,28 @@ There are two approaches to dependency depending on what you're developing:
 # Annotating games or mods
 When annotating a game or mod, you have two approaches:
 1. (*Simple, recommended for general needs*) Annotate the code.
-2. (*Complicated, satisfies specific needs*) Annotate a separate library definition. This is the approach used by this library definition for Luanti API.
+2. (*Complicated, satisfies specific needs*) Annotate a separate Luadef. This is the approach used by this Luadef for Luanti API.
 
 There are benefits to either or both approaches, however the usual approach is to annotate the code.
 
-Published games in active development should consider approach #2 (separate library definition). It helps you decide which part of your API is stable enough for modders to use. It also draws a line for parts internal to your game or simply not ready for use in modding.
+Published games in active development could consider approach #2 (separate Luadef). It helps you decide which part of your API is stable enough for modders to use. It also draws a line for parts internal to your game or simply not ready for use in modding.
 
 # Type namespaces
-Types need names and names can clash. That's why library definitions choose to namespace their types. This library definition chooses the following namespaces. Avoid using these namespaces for your own types.
+Types need names and names can clash. That's why Luadef choose to namespace their types. This Luadef chooses the following namespaces. Avoid using these namespaces for your own types.
 
 - `_.*` internal/hidden types. Used to reduce clutter for autocompletion.
 - `core.*` main namespace
 - `corelib.*` environment namespaces.
 
-Furthermore, this library definition reserves the following types. Avoid trampling them:
+Furthermore, this library Luadef the following types. Avoid trampling them:
 - Any of the vector types e.g. `vector` and `ivec`. They're meant to be "primitives"
 - `OneOrMany`
 - `SparseList`
 
 Your game or mod should namespace your types too following this format: `<namespace>.MyType`.
 
-# Extending the library definition
-It is *highly recommended* that you at least skim through the definition of the types before you decide to extend it. As a reminder, you should be aware that language servers have no concept of hierarchy when reading these annotations. It doesn't read your dependencies or this library definition first, it reads in an unspecified order.
+# Extending the Luadef
+It is *highly recommended* that you at least skim through the type definitions before you decide to extend it. As a reminder, you should be aware that language servers have no concept of hierarchy when reading these annotations. It doesn't read your dependencies or this library definition first, it reads in an unspecified order.
 
 The "extension" model is for games and mods to simply provide types that can be used to "patch" into this library definition. It's not much different from the techniques used in this project. Please read further for examples.
 
